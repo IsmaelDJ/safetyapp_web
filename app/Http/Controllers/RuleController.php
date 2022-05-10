@@ -42,10 +42,10 @@ class RuleController extends Controller
         $rule = new Rule();
         $rule->category_id = $request->category_id;
         $rule->description = $request->description;
-        $rule->image = uploadFile($request, 'image');
-        $rule->fr = uploadFile($request, 'fr');
-        $rule->ar = uploadFile($request, 'ar');
-        $rule->ng = uploadFile($request, 'ng');
+        $rule->image = uploadFile($request, 'image','rule_image');
+        $rule->fr = uploadFile($request, 'fr','rule_fr');
+        $rule->ar = uploadFile($request, 'ar','rule_ar');
+        $rule->ng = uploadFile($request, 'ng', 'rule_ng');
 
         $rule->save();
 
@@ -72,28 +72,28 @@ class RuleController extends Controller
             if (file_exists(public_path($rule->image)) and !empty($rule->image)) {
                 unlink(public_path($rule->image));
             }
-            $rule->image = uploadFile($request, 'image');
+            $rule->image = uploadFile($request, 'image','rule_image');
         }
         if ($request->hasFile('fr')) {
             $request->validate(['fr' => 'required|mimes:application/octet-stream,audio/mpeg,mpga,mp3,wav']);
             if (file_exists(public_path($rule->fr)) and !empty($rule->fr)) {
                 unlink(public_path($rule->fr));
             }
-            $rule->fr = uploadFile($request, 'fr');
+            $rule->fr = uploadFile($request, 'fr','rule_fr');
         }
         if ($request->hasFile('ar')) {
             $request->validate(['ar' => 'required|mimes:application/octet-stream,audio/mpeg,mpga,mp3,wav']);
             if (file_exists(public_path($rule->ar)) and !empty($rule->ar)) {
                 unlink(public_path($rule->ar));
             }
-            $rule->ar = uploadFile($request, 'ar');
+            $rule->ar = uploadFile($request, 'ar','rule_ar');
         }
         if ($request->hasFile('ng')) {
             $request->validate(['ng' => 'required|mimes:application/octet-stream,audio/mpeg,mpga,mp3,wav']);
             if (file_exists(public_path($rule->ng)) and !empty($rule->ng)) {
                 unlink(public_path($rule->ng));
             }
-            $rule->ng = uploadFile($request, 'ng');
+            $rule->ng = uploadFile($request, 'ng','rule_ng');
         }
 
         $request->validate(
