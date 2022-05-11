@@ -1,52 +1,51 @@
-@extends('layouts.master')
+<?php $__env->startSection('title'); ?> Catégories <?php $__env->stopSection(); ?>
 
-@section('title') Catégories @endsection
-
-@section('css')
+<?php $__env->startSection('css'); ?>
     <!-- Bootstrap Css -->
-    <link href="{{ URL::asset('/assets/css/bootstrap.min.css') }}" id="bootstrap-style" rel="stylesheet"
+    <link href="<?php echo e(URL::asset('/assets/css/bootstrap.min.css')); ?>" id="bootstrap-style" rel="stylesheet"
           type="text/css"/>
     <!-- Icons Css -->
-    <link href="{{ URL::asset('/assets/css/icons.min.css') }}" rel="stylesheet" type="text/css"/>
+    <link href="<?php echo e(URL::asset('/assets/css/icons.min.css')); ?>" rel="stylesheet" type="text/css"/>
     <!-- App Css-->
-    <link href="{{ URL::asset('/assets/css/app.min.css') }}" id="app-style" rel="stylesheet" type="text/css"/>
-    <link href="{{ URL::asset('/assets/css/essential_audio.css') }}" id="essential_audio" rel="stylesheet"
+    <link href="<?php echo e(URL::asset('/assets/css/app.min.css')); ?>" id="app-style" rel="stylesheet" type="text/css"/>
+    <link href="<?php echo e(URL::asset('/assets/css/essential_audio.css')); ?>" id="essential_audio" rel="stylesheet"
           type="text/css"/>
 
-@endsection
+<?php $__env->stopSection(); ?>
 
-@section('content')
+<?php $__env->startSection('content'); ?>
     <div class="container-fluid p-4 pb-0 pt-0">
         <div class="row gap-3" >
             <div class="card card-body">
                 <div class="row">
                     <div class="col-xl-3 ">
-                        <img src="{{URL::asset($rule->image)}}" alt=""
+                        <img src="<?php echo e(URL::asset($rule->image)); ?>" alt=""
                              class="img-fluid d-block rounded"></td>
                     </div>
                     <div class="col-xl-8 m-auto">
                         <div>
                             <h5 class=" mt-4">Catégorie</h5>
-                            <a type="button" href="{{route('categories.show', $rule->category)}}"
+                            <a type="button" href="<?php echo e(route('categories.show', $rule->category)); ?>"
                                class="btn btn-success btn-rounded waves-effect waves-light mb-4 me-2"><i
-                                    class="mdi mdi-tag me-1"></i> {{$rule->category->name}}
+                                    class="mdi mdi-tag me-1"></i> <?php echo e($rule->category->name); ?>
+
                             </a>
                         </div>
                         <div class="mb-4">
                             <h5 class=" mt-4">Description</h5>
-                            <p class="lead mb-0 text-justify">{{$rule->description}}</p>
+                            <p class="lead mb-0 text-justify"><?php echo e($rule->description); ?></p>
                         </div>
                         <div class="mt-4 pb-4 pt-4">
                             <h5 class=" mt-4">Audio Français</h5>
-                            <div class="essential_audio mt-4" data-url="{{URL::asset($rule->fr)}}"></div>
+                            <div class="essential_audio mt-4" data-url="<?php echo e(URL::asset($rule->fr)); ?>"></div>
                         </div>
                         <div class="mt-4 pb-4">
                             <h5 class=" mt-4">Audio Français</h5>
-                            <div class="essential_audio mt-4" data-url="{{URL::asset($rule->fr)}}"></div>
+                            <div class="essential_audio mt-4" data-url="<?php echo e(URL::asset($rule->fr)); ?>"></div>
                         </div>
                         <div class="mt-4 pb-4">
                             <h5 class=" mt-4">Audio Français</h5>
-                            <div class="essential_audio mt-4" data-url="{{URL::asset($rule->fr)}}"></div>
+                            <div class="essential_audio mt-4" data-url="<?php echo e(URL::asset($rule->fr)); ?>"></div>
                         </div>
                     </div>
                 </div>
@@ -77,33 +76,33 @@
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach($sameCategoryRules as $categoryRule)
+                        <?php $__currentLoopData = $sameCategoryRules; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $categoryRule): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                             <tr>
-                                <td style="width: 150px;"><img src="{{URL::asset($categoryRule->image)}}" alt=""
+                                <td style="width: 150px;"><img src="<?php echo e(URL::asset($categoryRule->image)); ?>" alt=""
                                                                class="avatar-md h-auto d-block rounded"></td>
                                 <td style="width: 250px">
-                                    <p class="text-muted mb-0 text-justify">{{$categoryRule->description}}</p>
+                                    <p class="text-muted mb-0 text-justify"><?php echo e($categoryRule->description); ?></p>
                                 </td>
                                 <td >
-                                    <div class="essential_audio" data-url="{{URL::asset($categoryRule->fr)}}"></div>
+                                    <div class="essential_audio" data-url="<?php echo e(URL::asset($categoryRule->fr)); ?>"></div>
                                 </td>
                                 <td>
-                                    <div class="essential_audio" data-url="{{URL::asset($categoryRule->ar)}}" ></div>
+                                    <div class="essential_audio" data-url="<?php echo e(URL::asset($categoryRule->ar)); ?>" ></div>
                                 </td>
                                 <td>
-                                    <div class="essential_audio" data-url="{{URL::asset($categoryRule->ng)}}" ></div>
+                                    <div class="essential_audio" data-url="<?php echo e(URL::asset($categoryRule->ng)); ?>" ></div>
                                 </td>
                                 <td style="width: 200px">
                                     <div class="d-flex gap-3">
 
-                                        <a href="{{route('rules.show', $categoryRule)}}"
+                                        <a href="<?php echo e(route('rules.show', $categoryRule)); ?>"
                                            class="btn btn-default">Détails
                                         </a>
-                                        <a href="{{route('rules.edit', $categoryRule)}}"
+                                        <a href="<?php echo e(route('rules.edit', $categoryRule)); ?>"
                                            class="btn btn-info">Modifier
                                         </a>
 
-                                        <a href="{{route('rules.index')}}" class="btn btn-danger"
+                                        <a href="<?php echo e(route('rules.index')); ?>" class="btn btn-danger"
                                            onclick="
                                                    var result = confirm('Cette règle sera supprimée');
                                                    if(result){
@@ -114,14 +113,14 @@
                                             Supprimer</a>
 
                                         <form method="POST" id="delete-form"
-                                              action="{{route('rules.destroy', [$categoryRule])}}">
-                                            @csrf
+                                              action="<?php echo e(route('rules.destroy', [$categoryRule])); ?>">
+                                            <?php echo csrf_field(); ?>
                                             <input type="hidden" name="_method" value="DELETE">
                                         </form>
                                     </div>
                                 </td>
                             </tr>
-                        @endforeach
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
                         </tbody>
                     </table>
@@ -129,16 +128,19 @@
 
                 </div>
 
-                {{ $sameCategoryRules->links('vendor.pagination.round') }}
+                <?php echo e($sameCategoryRules->links('vendor.pagination.round')); ?>
+
             </div>
         </div>
     </div>
 
 
 
-@endsection
-@section('script')
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('script'); ?>
 
-    <script src="{{ URL::asset('assets/js/essential_audio.js')}}"></script>
-@endsection
+    <script src="<?php echo e(URL::asset('assets/js/essential_audio.js')); ?>"></script>
+<?php $__env->stopSection(); ?>
 
+
+<?php echo $__env->make('layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\safetyapp\resources\views/rules/show.blade.php ENDPATH**/ ?>

@@ -12,3 +12,12 @@ function uploadFile(Request $request, $name, $sousfix =''){
     $path = $folder.$fileName;
     return $path;
 }
+
+function rulesPerPage(){
+    return 4;
+}
+
+function categoriesPerPage(){
+    return 8;
+}
+

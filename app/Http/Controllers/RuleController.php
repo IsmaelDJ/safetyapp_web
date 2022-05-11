@@ -15,7 +15,7 @@ class RuleController extends Controller
 
     public function index()
     {
-        $rules = Rule::paginate(5);
+        $rules = Rule::paginate(rulesPerPage());
         return view('rules.index', compact('rules'));
     }
 
@@ -55,13 +55,16 @@ class RuleController extends Controller
 
     public function show(Rule $rule)
     {
-        return view('rules.show', compact('rule'));
+        $category = $rule->category;
+        $sameCategoryRules = Rule::where('category_id', $category->id)->paginate(rulesPerPage());
+        return view('rules.show', compact('rule','sameCategoryRules'));
     }
 
 
     public function edit(Rule $rule)
     {
-        return view('rules.edit', compact('rule'));
+        $categories = Category::where('id','!=',$rule->category_id)->get();
+        return view('rules.edit', compact('rule', 'categories'));
     }
 
 

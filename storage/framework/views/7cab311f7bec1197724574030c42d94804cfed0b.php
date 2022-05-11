@@ -8,6 +8,8 @@
     <link href="<?php echo e(URL::asset('/assets/css/icons.min.css')); ?>" rel="stylesheet" type="text/css"/>
     <!-- App Css-->
     <link href="<?php echo e(URL::asset('/assets/css/app.min.css')); ?>" id="app-style" rel="stylesheet" type="text/css"/>
+    <link href="<?php echo e(URL::asset('/assets/css/essential_audio.css')); ?>" id="essential_audio" rel="stylesheet"
+          type="text/css"/>
 
 <?php $__env->stopSection(); ?>
 
@@ -16,7 +18,7 @@
     <div class="card">
 
         <div class="row g-0">
-            <form action="<?php echo e(route('rules.store')); ?>" method="post" enctype="multipart/form-data" class="col-xl-8">
+            <form action="<?php echo e(route('rules.update',$rule)); ?>" method="post" enctype="multipart/form-data" class="col-xl-8">
                 <?php echo csrf_field(); ?>
 
                 <div class="row g-0">
@@ -32,7 +34,7 @@
                                 <div class="mb-3">
                                     <label for="image" class="form-label">Image</label>
                                     <img id="ruleImage" class="img-fluid mb-1"
-                                         src="<?php echo e(URL::asset('assets/images/placeholder_rule.png')); ?>">
+                                         src="<?php echo e(URL::asset($rule->image)); ?>">
                                     <input class="form-control form-control-lg <?php $__errorArgs = ['image'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
@@ -78,7 +80,8 @@ if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>"
                                         name="category_id">
-                                        <option selected>Selectionnez une catégorie</option>
+                                        <option selected
+                                                value="<?php echo e($rule->category->id); ?>"><?php echo e($rule->category->name); ?></option>
                                         <?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                             <option value="<?php echo e($category->id); ?>">
                                                 <img src="<?php echo e(URL::asset($category->image)); ?>" alt="">
@@ -111,7 +114,8 @@ if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
-unset($__errorArgs, $__bag); ?>"><?php echo e(old('description')); ?></textarea>
+unset($__errorArgs, $__bag); ?>"><?php echo e($rule->description); ?></textarea>
+
                                     <?php $__errorArgs = ['description'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
@@ -130,6 +134,8 @@ unset($__errorArgs, $__bag); ?>
                                 <div class="mt-5">
                                     <div class="mb-3">
                                         <label for="fr" class="form-label">Audio Français</label>
+                                        <div class="essential_audio mt-4 mb-4"
+                                             data-url="<?php echo e(URL::asset($rule->fr)); ?>"></div>
                                         <input class="form-control form-control-lg <?php $__errorArgs = ['fr'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
@@ -157,6 +163,8 @@ unset($__errorArgs, $__bag); ?>
 
                                     <div class="mb-3">
                                         <label for="ar" class="form-label">Audio Arabe</label>
+                                        <div class="essential_audio mt-4 mb-4"
+                                             data-url="<?php echo e(URL::asset($rule->ar)); ?>"></div>
                                         <input class="form-control form-control-lg <?php $__errorArgs = ['ar'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
@@ -183,6 +191,8 @@ unset($__errorArgs, $__bag); ?>
 
                                     <div class="mb-3">
                                         <label for="ng" class="form-label">Audio Ngambaye</label>
+                                        <div class="essential_audio mt-4 mb-4"
+                                             data-url="<?php echo e(URL::asset($rule->ng)); ?>"></div>
                                         <input class="form-control form-control-lg <?php $__errorArgs = ['ng'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
@@ -221,6 +231,8 @@ unset($__errorArgs, $__bag); ?>
                     <!-- end col -->
                 </div>
 
+                <input type="hidden" name="_method" value="put">
+
             </form>
             <div class="col-xl-4 auth-full-bg">
 
@@ -236,12 +248,13 @@ unset($__errorArgs, $__bag); ?>
         function PreviewImage() {
             var oFReader = new FileReader();
             oFReader.readAsDataURL(document.getElementById("image").files[0]);
-
             oFReader.onload = function (oFREvent) {
                 document.getElementById("ruleImage").src = oFREvent.target.result;
             };
-        };
+        }
+
     </script>
+    <script src="<?php echo e(URL::asset('assets/js/essential_audio.js')); ?>"></script>
 <?php $__env->stopSection(); ?>
 
-<?php echo $__env->make('layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\safetyapp\resources\views/rules/create.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\safetyapp\resources\views/rules/edit.blade.php ENDPATH**/ ?>

@@ -75,11 +75,9 @@
                                 </div>
                                 <div class="mb-3 mt-3">
                                     <label for="description" class="form-label">Description</label>
-                                    <input type="text"
-                                           class="form-control form-control-lg @error('description') is-invalid @enderror"
-                                           value="{{old('description')}}"
-                                           id="description" name="description"
-                                           placeholder="Entrez la description de la règle">
+                                    <textarea id="" description placeholder="Entrez la description de la règle"
+                                              name="description"
+                                              class="form-control form-control-lg @error('description') is-invalid @enderror">{{old('description')}}</textarea>
                                     @error('description')
                                     <span class="invalid-feedback" role="alert">
                                     <strong>Description invalid</strong>

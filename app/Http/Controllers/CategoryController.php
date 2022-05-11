@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Rule;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -15,7 +16,7 @@ class CategoryController extends Controller
 
     public function index()
     {
-        $categories = Category::paginate(5);
+        $categories = Category::paginate(categoriesPerPage());
         return view('categories.index', compact('categories'));
     }
 
@@ -46,7 +47,8 @@ class CategoryController extends Controller
 
     public function show(Category $category)
     {
-        return view('categories.show', compact('category'));
+        $rules = Rule::where('category_id', $category->id)->paginate(rulesPerPage());
+        return view('categories.show', compact('category', 'rules'));
     }
 
 
