@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\ContractorController;
+use App\Http\Controllers\EmployeeController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use \App\Http\Controllers\RuleController;
@@ -33,6 +35,8 @@ Route::get('index/{locale}', [App\Http\Controllers\HomeController::class, 'lang'
 Route::resource('rules', RuleController::class);
 //Category
 Route::resource('categories',CategoryController::class);
+Route::resource('contractors',ContractorController::class);
+Route::resource('employees',EmployeeController::class);
 
 Route::get('{any}', [App\Http\Controllers\HomeController::class, 'index'])->name('index');
 

@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title') Règles @endsection
+@section('title') Utilisateurs @endsection
 
 @section('css')
     <!-- Bootstrap Css -->
@@ -29,11 +29,11 @@
             <div class="card-body">
                 <div class="d-flex align-items-start">
                     <div class="me-2">
-                        <h5 class="card-title mb-4">Liste des règles</h5>
+                        <h5 class="card-title mb-4">Liste des utilisateurs</h5>
                     </div>
                     <div class="ms-auto">
                         <div class="text-sm-end">
-                            <a type="button" href="{{route('rules.create')}}"
+                            <a type="button" href="{{route('employees.create')}}"
                                class="btn btn-success btn-rounded waves-effect waves-light mb-2 me-2"><i
                                     class="mdi mdi-plus me-1"></i> Ajouter
                             </a>
@@ -45,51 +45,49 @@
                     <table class="table align-middle ">
                         <thead>
                         <tr>
-                            <th scope="col">Illustration</th>
-                            <th scope="col">Description</th>
-                            <th scope="col">Catégorie</th>
-                            <th scope="col">Audio Français</th>
-                            <th scope="col">Audio Arabe</th>
-                            <th scope="col">Audio Ngambaye</th>
+                            <th scope="col">Nom</th>
+                            <th scope="col">Entreprise</th>
+                            <th scope="col">Numéro de téléphone</th>
+                            <th scope="col">Identifiant</th>
+                            <th scope="col">Mot de passe</th>
                             <th scope="col">Action</th>
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach($rules as $rule)
+                        @foreach($employees as $employee)
                             <tr>
-                                <td style="width: 150px;"><img src="{{URL::asset($rule->image)}}" alt=""
-                                                               class="avatar-md h-auto d-block rounded"></td>
                                 <td style="width: 250px">
-                                    <p class="text-muted mb-0 text-justify">{{$rule->description}}</p>
+                                    <p class="text-muted mb-0 text-justify">{{$employee->name}}</p>
                                 </td>
                                 <td>
-                                    <a type="button" href="{{route('categories.show', $rule->category)}}"
+                                    <a type="button" href="{{route('contractors.show', $employee->contractor)}}"
                                        class="btn btn-success btn-rounded waves-effect waves-light mb-2 me-2"><i
-                                            class="mdi mdi-tag me-1"></i> {{$rule->category->name}}
+                                            class="mdi mdi-tag me-1"></i> {{$employee->contractor->name}}
                                     </a>
                                 </td>
-                                <td >
-                                    <div class="essential_audio" data-url="{{URL::asset($rule->fr)}}"></div>
+                                <td style="width: 250px">
+                                    <p class="text-muted mb-0 text-justify">{{$employee->phone}}</p>
                                 </td>
-                                <td>
-                                    <div class="essential_audio" data-url="{{URL::asset($rule->ar)}}" ></div>
+                                <td style="width: 250px">
+                                    <p class="text-muted mb-0 text-justify">{{$employee->uid}}</p>
                                 </td>
-                                <td>
-                                    <div class="essential_audio" data-url="{{URL::asset($rule->ng)}}" ></div>
+                                <td style="width: 250px">
+                                    <p class="text-muted mb-0 text-justify">{{$employee->password}}</p>
                                 </td>
+
                                 <td style="width: 200px">
                                     <div class="d-flex gap-3">
 
-                                        <a href="{{route('rules.show', $rule)}}"
+                                        <a href="{{route('employees.show', $employee)}}"
                                            class="btn btn-default">Détails
                                         </a>
-                                        <a href="{{route('rules.edit', $rule)}}"
+                                        <a href="{{route('employees.edit', $employee)}}"
                                            class="btn btn-info">Modifier
                                         </a>
 
-                                        <a href="{{route('rules.index')}}" class="btn btn-danger"
+                                        <a href="{{route('employees.index')}}" class="btn btn-danger"
                                            onclick="
-                                                   var result = confirm('Cette règle sera supprimée');
+                                                   var result = confirm('Cet utilisateur sera supprimée');
                                                    if(result){
                                                        event.preventDefault();
                                                        document.getElementById('delete-form').submit();
@@ -98,7 +96,7 @@
                                             Supprimer</a>
 
                                         <form method="POST" id="delete-form"
-                                              action="{{route('rules.destroy', [$rule])}}">
+                                              action="{{route('employees.destroy', [$employee])}}">
                                             @csrf
                                             <input type="hidden" name="_method" value="DELETE">
                                         </form>
@@ -113,7 +111,7 @@
 
                 </div>
 
-                {{ $rules->links('vendor.pagination.round') }}
+                {{ $employees->links('vendor.pagination.round') }}
             </div>
         </div>
         <!-- end card -->

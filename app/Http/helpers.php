@@ -21,3 +21,12 @@ function categoriesPerPage(){
     return 8;
 }
 
+function contractorsPerPage(){
+    return 10;
+}
+
+
+function employeesPerPage(){
+    return 8;
+}
+

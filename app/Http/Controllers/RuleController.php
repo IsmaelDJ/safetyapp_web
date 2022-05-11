@@ -117,6 +117,6 @@ class RuleController extends Controller
     public function destroy(Rule $rule)
     {
         $rule->delete();
-        return redirect()->back()->with('success', "Règle supprimé !");
+        return redirect()->route('rules.index')->with('success', "Règle supprimé !");
     }
 }

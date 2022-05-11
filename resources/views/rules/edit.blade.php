@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title') Catégories @endsection
+@section('title') Règles @endsection
 
 @section('css')
     <!-- Bootstrap Css -->

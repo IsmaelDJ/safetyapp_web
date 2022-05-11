@@ -45,8 +45,8 @@
                         <span key="t-multi-level">Sous-traitants</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="true">
-                        <li><a href="javascript: void(0);" key="t-level-1-1">Tous les sous-traitants</a></li>
-                        <li><a href="javascript: void(0);" key="t-level-1-1">Ajouter</a></li>
+                        <li><a href="{{route('contractors.index')}}" key="t-level-1-1">Tous les sous-traitants</a></li>
+                        <li><a href="{{route('contractors.create')}}" key="t-level-1-1">Ajouter</a></li>
                     </ul>
                 </li>
                 <li>
@@ -56,8 +56,8 @@
                         <span key="t-multi-level">Utilisateurs</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="true">
-                        <li><a href="javascript: void(0);" key="t-level-1-1">Tous les utilisateurs</a></li>
-                        <li><a href="javascript: void(0);" key="t-level-1-1">Ajouter</a></li>
+                        <li><a href="{{route('employees.index')}}" key="t-level-1-1">Tous les utilisateurs</a></li>
+                        <li><a href="{{route('employees.create')}}" key="t-level-1-1">Ajouter</a></li>
                     </ul>
                 </li>
 
