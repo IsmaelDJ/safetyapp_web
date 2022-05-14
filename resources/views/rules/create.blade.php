@@ -18,24 +18,25 @@
     <div class="card">
 
         <div class="row g-0">
-            <form action="{{route('rules.store')}}" method="post" enctype="multipart/form-data" class="col-xl-8">
+            <form action="{{route('rules.store')}}" method="post" enctype="multipart/form-data">
                 @csrf
 
-                <div class="row g-0">
+                <div class="row">
 
 
-                    <div class="col-xl-5">
+                    <div class="col-md-5 col-xl-4">
                         <div class="auth-full-page-content p-md-5 p-4">
                             <div class="w-100">
 
-                                {{--                            <h4 class="card-title mb-4">Ajouter une catégorie</h4>--}}
-
-
                                 <div class="mb-3">
-                                    <label for="image" class="form-label">Image</label>
+                                    <div>
+                                        <label for="image" class="form-label">Image</label>
+                                    </div>
+
                                     <img id="ruleImage" class="img-fluid mb-1"
                                          src="{{URL::asset('assets/images/placeholder_rule.png')}}">
-                                    <input class="form-control form-control-lg @error('image') is-invalid @enderror"
+
+                                    <input class=" form-control form-control-lg @error('image') is-invalid @enderror"
                                            id="image"
                                            name="image" type="file" onchange="PreviewImage();">
                                     @error('image')
@@ -50,11 +51,11 @@
                         </div>
                     </div>
 
-                    <div class="col-xl-7">
+                    <div class="col-md-7 col-xl-7">
                         <div class="bg-soft pt-lg-5 p-4 col-md-10">
                             <div class="w-100">
 
-                                <label class="col-md-2 col-form-label">Catégorie</label>
+                                <label class="col-form-label">Catégorie</label>
                                 <div>
                                     <select
                                         class="form-select form-select-lg @error('category_id') is-invalid @enderror"
@@ -91,6 +92,7 @@
                                         <label for="fr" class="form-label">Audio Français</label>
                                         <input class="form-control form-control-lg @error('fr') is-invalid @enderror"
                                                id="fr"
+                                               value="{{old('fr')}}"
                                                name="fr" type="file">
                                         @error('fr')
                                         <span class="invalid-feedback" role="alert">
@@ -104,6 +106,7 @@
                                         <label for="ar" class="form-label">Audio Arabe</label>
                                         <input class="form-control form-control-lg @error('ar') is-invalid @enderror"
                                                id="ar"
+                                               value="{{old('ar')}}"
                                                name="ar" type="file">
                                         @error('ar')
                                         <span class="invalid-feedback" role="alert">
@@ -116,6 +119,7 @@
                                         <label for="ng" class="form-label">Audio Ngambaye</label>
                                         <input class="form-control form-control-lg @error('ng') is-invalid @enderror"
                                                id="ng"
+                                               value="{{old('ng')}}"
                                                name="ng" type="file">
                                         @error('ng')
                                         <span class="invalid-feedback" role="alert">
@@ -132,16 +136,9 @@
                         </div>
                     </div>
 
-
-                    <!-- end col -->
-
-                    <!-- end col -->
                 </div>
 
             </form>
-            <div class="col-xl-4 auth-full-bg">
-
-            </div>
         </div>
         <!-- end row -->
     </div>

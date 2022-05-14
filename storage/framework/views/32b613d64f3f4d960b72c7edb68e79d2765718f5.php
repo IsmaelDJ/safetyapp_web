@@ -1,4 +1,4 @@
-<?php $__env->startSection('title'); ?> Sous-traitant <?php $__env->stopSection(); ?>
+<?php $__env->startSection('title'); ?> Sous-traitants <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('css'); ?>
     <!-- Bootstrap Css -->

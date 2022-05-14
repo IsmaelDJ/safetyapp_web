@@ -67,8 +67,8 @@
                 <div class="table-responsive">
                     <table class="table align-middle ">
                         <thead>
-                        <tr>
-                            <th scope="col">Illustration</th>
+                        <tr >
+                            <th scope="col"">Illustration</th>
                             <th scope="col">Description</th>
                             <th scope="col">Audio Français</th>
                             <th scope="col">Audio Arabe</th>

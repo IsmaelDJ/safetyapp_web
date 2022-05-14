@@ -60,10 +60,13 @@
                                     <p class="text-muted mb-0 text-justify">{{$employee->name}}</p>
                                 </td>
                                 <td>
-                                    <a type="button" href="{{route('contractors.show', $employee->contractor)}}"
-                                       class="btn btn-success btn-rounded waves-effect waves-light mb-2 me-2"><i
-                                            class="mdi mdi-tag me-1"></i> {{$employee->contractor->name}}
-                                    </a>
+                                    <div>
+                                        <a href="{{route('contractors.show', $employee->contractor)}}"
+                                           class=" mb-2 me-2">
+{{--                                            <i class="mdi mdi-tag me-1"></i>--}}
+                                            {{$employee->contractor->name}}
+                                        </a>
+                                    </div>
                                 </td>
                                 <td style="width: 250px">
                                     <p class="text-muted mb-0 text-justify">{{$employee->phone}}</p>

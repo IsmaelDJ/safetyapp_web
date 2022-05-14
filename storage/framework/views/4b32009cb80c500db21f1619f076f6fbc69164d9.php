@@ -1,4 +1,4 @@
-<?php $__env->startSection('title'); ?> Catégories <?php $__env->stopSection(); ?>
+<?php $__env->startSection('title'); ?> Sous-traitants <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('css'); ?>
     <!-- Bootstrap Css -->
@@ -76,7 +76,7 @@
 
                                         <a href="<?php echo e(route('contractors.index')); ?>" class="btn btn-danger"
                                            onclick="
-                                                   var result = confirm('Ce contractant sera supprimée');
+                                                   var result = confirm('Ce contractant et ses employés seront supprimée');
                                                    if(result){
                                                        event.preventDefault();
                                                        document.getElementById('delete-form').submit();

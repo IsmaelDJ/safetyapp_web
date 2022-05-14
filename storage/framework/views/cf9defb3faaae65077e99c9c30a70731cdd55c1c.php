@@ -1,4 +1,4 @@
-<?php $__env->startSection('title'); ?> Catégories <?php $__env->stopSection(); ?>
+<?php $__env->startSection('title'); ?> Règles <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('css'); ?>
     <!-- Bootstrap Css -->
@@ -16,24 +16,25 @@
     <div class="card">
 
         <div class="row g-0">
-            <form action="<?php echo e(route('rules.store')); ?>" method="post" enctype="multipart/form-data" class="col-xl-8">
+            <form action="<?php echo e(route('rules.store')); ?>" method="post" enctype="multipart/form-data">
                 <?php echo csrf_field(); ?>
 
-                <div class="row g-0">
+                <div class="row">
 
 
-                    <div class="col-xl-5">
+                    <div class="col-md-5 col-xl-4">
                         <div class="auth-full-page-content p-md-5 p-4">
                             <div class="w-100">
 
-                                
-
-
                                 <div class="mb-3">
-                                    <label for="image" class="form-label">Image</label>
+                                    <div>
+                                        <label for="image" class="form-label">Image</label>
+                                    </div>
+
                                     <img id="ruleImage" class="img-fluid mb-1"
                                          src="<?php echo e(URL::asset('assets/images/placeholder_rule.png')); ?>">
-                                    <input class="form-control form-control-lg <?php $__errorArgs = ['image'];
+
+                                    <input class=" form-control form-control-lg <?php $__errorArgs = ['image'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }
@@ -62,11 +63,11 @@ unset($__errorArgs, $__bag); ?>
                         </div>
                     </div>
 
-                    <div class="col-xl-7">
+                    <div class="col-md-7 col-xl-7">
                         <div class="bg-soft pt-lg-5 p-4 col-md-10">
                             <div class="w-100">
 
-                                <label class="col-md-2 col-form-label">Catégorie</label>
+                                <label class="col-form-label">Catégorie</label>
                                 <div>
                                     <select
                                         class="form-select form-select-lg <?php $__errorArgs = ['category_id'];
@@ -139,6 +140,7 @@ if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>"
                                                id="fr"
+                                               value="<?php echo e(old('fr')); ?>"
                                                name="fr" type="file">
                                         <?php $__errorArgs = ['fr'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
@@ -166,6 +168,7 @@ if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>"
                                                id="ar"
+                                               value="<?php echo e(old('ar')); ?>"
                                                name="ar" type="file">
                                         <?php $__errorArgs = ['ar'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
@@ -192,6 +195,7 @@ if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>"
                                                id="ng"
+                                               value="<?php echo e(old('ng')); ?>"
                                                name="ng" type="file">
                                         <?php $__errorArgs = ['ng'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
@@ -215,16 +219,9 @@ unset($__errorArgs, $__bag); ?>
                         </div>
                     </div>
 
-
-                    <!-- end col -->
-
-                    <!-- end col -->
                 </div>
 
             </form>
-            <div class="col-xl-4 auth-full-bg">
-
-            </div>
         </div>
         <!-- end row -->
     </div>

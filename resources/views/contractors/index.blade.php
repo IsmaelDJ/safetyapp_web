@@ -77,7 +77,7 @@
 
                                         <a href="{{route('contractors.index')}}" class="btn btn-danger"
                                            onclick="
-                                                   var result = confirm('Ce contractant sera supprimée');
+                                                   var result = confirm('Ce contractant et ses employés seront supprimée');
                                                    if(result){
                                                        event.preventDefault();
                                                        document.getElementById('delete-form').submit();

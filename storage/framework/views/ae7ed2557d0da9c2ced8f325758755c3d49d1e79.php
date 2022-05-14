@@ -53,7 +53,7 @@ unset($__errorArgs, $__bag); ?>
                             </div>
 
                             <div class="mb-3">
-                                <label for="image" class="form-label">Image</label>
+                                <div><label for="image" class="form-label">Image</label></div>
                                 <img id="categoryImage" class="img-fluid mb-1" src="<?php echo e(URL::asset($category->image)); ?>">
                                 <input class="form-control form-control-lg <?php $__errorArgs = ['image'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');

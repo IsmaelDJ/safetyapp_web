@@ -1,4 +1,4 @@
-<?php $__env->startSection('title'); ?> Catégories <?php $__env->stopSection(); ?>
+<?php $__env->startSection('title'); ?> Règles <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('css'); ?>
     <!-- Bootstrap Css -->
@@ -66,8 +66,8 @@
                 <div class="table-responsive">
                     <table class="table align-middle ">
                         <thead>
-                        <tr>
-                            <th scope="col">Illustration</th>
+                        <tr >
+                            <th scope="col"">Illustration</th>
                             <th scope="col">Description</th>
                             <th scope="col">Audio Français</th>
                             <th scope="col">Audio Arabe</th>

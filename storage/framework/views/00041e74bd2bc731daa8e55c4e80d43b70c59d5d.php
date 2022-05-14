@@ -1,4 +1,4 @@
-<?php $__env->startSection('title'); ?> Catégories <?php $__env->stopSection(); ?>
+<?php $__env->startSection('title'); ?> Règles <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('css'); ?>
     <!-- Bootstrap Css -->
@@ -46,10 +46,10 @@
                         <tr>
                             <th scope="col">Illustration</th>
                             <th scope="col">Description</th>
-                            <th scope="col">Catégorie</th>
+                            <th scope="col" class="d-none d-xl-table-cell">Catégorie</th>
                             <th scope="col">Audio Français</th>
-                            <th scope="col">Audio Arabe</th>
-                            <th scope="col">Audio Ngambaye</th>
+                            <th scope="col" class="d-none d-xl-table-cell">Audio Arabe</th>
+                            <th scope="col" class="d-none d-xl-table-cell">Audio Ngambaye</th>
                             <th scope="col">Action</th>
                         </tr>
                         </thead>
@@ -61,7 +61,7 @@
                                 <td style="width: 250px">
                                     <p class="text-muted mb-0 text-justify"><?php echo e($rule->description); ?></p>
                                 </td>
-                                <td>
+                                <td class="d-none d-xl-table-cell">
                                     <a type="button" href="<?php echo e(route('categories.show', $rule->category)); ?>"
                                        class="btn btn-success btn-rounded waves-effect waves-light mb-2 me-2"><i
                                             class="mdi mdi-tag me-1"></i> <?php echo e($rule->category->name); ?>
@@ -71,10 +71,10 @@
                                 <td >
                                     <div class="essential_audio" data-url="<?php echo e(URL::asset($rule->fr)); ?>"></div>
                                 </td>
-                                <td>
+                                <td class="d-none d-xl-table-cell">
                                     <div class="essential_audio" data-url="<?php echo e(URL::asset($rule->ar)); ?>" ></div>
                                 </td>
-                                <td>
+                                <td class="d-none d-xl-table-cell">
                                     <div class="essential_audio" data-url="<?php echo e(URL::asset($rule->ng)); ?>" ></div>
                                 </td>
                                 <td style="width: 200px">

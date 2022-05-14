@@ -26,12 +26,9 @@
                 <div class="row g-0">
 
 
-                    <div class="col-xl-5">
+                    <div class="col-md-5 col-xl-4">
                         <div class="auth-full-page-content p-md-5 p-4">
                             <div class="w-100">
-
-                                {{--                            <h4 class="card-title mb-4">Ajouter une catégorie</h4>--}}
-
 
                                 <div class="mb-3">
                                     <label for="image" class="form-label">Image</label>
@@ -52,11 +49,11 @@
                         </div>
                     </div>
 
-                    <div class="col-xl-7">
+                    <div class="col-md-7 col-xl-7">
                         <div class="bg-soft pt-lg-5 p-4 col-md-10">
                             <div class="w-100">
 
-                                <label class="col-md-2 col-form-label">Catégorie</label>
+                                <label class="col-form-label">Catégorie</label>
                                 <div>
                                     <select
                                         class="form-select form-select-lg @error('category_id') is-invalid @enderror"
@@ -151,9 +148,6 @@
                 <input type="hidden" name="_method" value="put">
 
             </form>
-            <div class="col-xl-4 auth-full-bg">
-
-            </div>
         </div>
         <!-- end row -->
     </div>

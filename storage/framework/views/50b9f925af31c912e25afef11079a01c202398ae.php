@@ -1,4 +1,4 @@
-<?php $__env->startSection('title'); ?> Catégories <?php $__env->stopSection(); ?>
+<?php $__env->startSection('title'); ?> Utilisateurs <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('css'); ?>
     <!-- Bootstrap Css -->

@@ -73,7 +73,7 @@
 
                                             <a href="{{route('categories.index')}}" class="btn btn-danger"
                                                onclick="
-                                                   var result = confirm('Cette catégorie sera supprimée');
+                                                   var result = confirm('Cette catégorie et ses règles seront supprimée');
                                                    if(result){
                                                        event.preventDefault();
                                                        document.getElementById('delete-form').submit();

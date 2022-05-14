@@ -1,4 +1,4 @@
-<?php $__env->startSection('title'); ?> Catégories <?php $__env->stopSection(); ?>
+<?php $__env->startSection('title'); ?> Utilisateurs <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('css'); ?>
     <!-- Bootstrap Css -->
@@ -59,11 +59,14 @@
                                     <p class="text-muted mb-0 text-justify"><?php echo e($employee->name); ?></p>
                                 </td>
                                 <td>
-                                    <a type="button" href="<?php echo e(route('contractors.show', $employee->contractor)); ?>"
-                                       class="btn btn-success btn-rounded waves-effect waves-light mb-2 me-2"><i
-                                            class="mdi mdi-tag me-1"></i> <?php echo e($employee->contractor->name); ?>
+                                    <div>
+                                        <a href="<?php echo e(route('contractors.show', $employee->contractor)); ?>"
+                                           class=" mb-2 me-2">
 
-                                    </a>
+                                            <?php echo e($employee->contractor->name); ?>
+
+                                        </a>
+                                    </div>
                                 </td>
                                 <td style="width: 250px">
                                     <p class="text-muted mb-0 text-justify"><?php echo e($employee->phone); ?></p>
