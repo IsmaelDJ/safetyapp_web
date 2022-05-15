@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title') Règles @endsection
+@section('title') Question @endsection
 
 @section('css')
     <!-- Bootstrap Css -->
@@ -21,32 +21,25 @@
             <div class="card card-body">
                 <div class="row">
                     <div class="col-xl-3 ">
-                        <img src="{{URL::asset($rule->image)}}" alt=""
+                        <img src="{{URL::asset($quizQuestion->image)}}" alt=""
                              class="img-fluid d-block rounded"></td>
                     </div>
                     <div class="col-xl-8 m-auto">
-                        <div>
-                            <h5 class=" mt-4">Catégorie</h5>
-                            <a type="button" href="{{route('categories.show', $rule->category)}}"
-                               class="btn btn-success btn-rounded waves-effect waves-light mb-4 me-2"><i
-                                    class="mdi mdi-tag me-1"></i> {{$rule->category->name}}
-                            </a>
-                        </div>
                         <div class="mb-4">
                             <h5 class=" mt-4">Description</h5>
-                            <p class="lead mb-0 text-justify">{{$rule->description}}</p>
+                            <p class="lead mb-0 text-justify">{{$quizQuestion->description}}</p>
                         </div>
                         <div class="mt-4 pb-4 pt-4">
                             <h5 class=" mt-4">Audio Français</h5>
-                            <div class="essential_audio mt-4" data-url="{{URL::asset($rule->fr)}}"></div>
+                            <div class="essential_audio mt-4" data-url="{{URL::asset($quizQuestion->fr)}}"></div>
                         </div>
                         <div class="mt-4 pb-4">
-                            <h5 class=" mt-4">Audio Arabe</h5>
-                            <div class="essential_audio mt-4" data-url="{{URL::asset($rule->ar)}}"></div>
+                            <h5 class=" mt-4">Audio Français</h5>
+                            <div class="essential_audio mt-4" data-url="{{URL::asset($quizQuestion->fr)}}"></div>
                         </div>
                         <div class="mt-4 pb-4">
-                            <h5 class=" mt-4">Audio Ngambaye</h5>
-                            <div class="essential_audio mt-4" data-url="{{URL::asset($rule->ng)}}"></div>
+                            <h5 class=" mt-4">Audio Français</h5>
+                            <div class="essential_audio mt-4" data-url="{{URL::asset($quizQuestion->fr)}}"></div>
                         </div>
                     </div>
                 </div>
@@ -60,7 +53,16 @@
             <div class="card-body">
                 <div class="d-flex align-items-start">
                     <div class="me-2">
-                        <h5 class="card-title mb-4">Règles dans la même catégorie</h5>
+                        <h5 class="card-title mb-4">Réponses</h5>
+                    </div>
+
+                    <div class="ms-auto">
+                        <div class="text-sm-end">
+                            <a type="button" href="{{route('quiz_responses.create', $quizQuestion)}}"
+                               class="btn btn-success btn-rounded waves-effect waves-light mb-2 me-2"><i
+                                    class="mdi mdi-plus me-1"></i> Ajouter une reponse
+                            </a>
+                        </div>
                     </div>
                 </div>
 
@@ -68,7 +70,8 @@
                     <table class="table align-middle ">
                         <thead>
                         <tr >
-                            <th scope="col"">Illustration</th>
+                            <th scope="col">Illustration</th>
+                            <th scope="col">Reponse</th>
                             <th scope="col">Description</th>
                             <th scope="col">Audio Français</th>
                             <th scope="col">Audio Arabe</th>
@@ -77,35 +80,50 @@
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach($sameCategoryRules as $categoryRule)
+                        @foreach($quizResponses as $quizResponse)
                             <tr>
-                                <td style="width: 150px;"><img src="{{URL::asset($categoryRule->image)}}" alt=""
+                                <td style="width: 150px;"><img src="{{URL::asset($quizResponse->image)}}" alt=""
                                                                class="avatar-md h-auto d-block rounded"></td>
                                 <td style="width: 250px">
-                                    <p class="text-muted mb-0 text-justify">{{$categoryRule->description}}</p>
+                                    @if($quizResponse->correct)
+
+                                        <a type="button" href="#"
+                                           class="btn btn-success btn-rounded waves-effect waves-light mb-2 me-2"><i
+                                                class="mdi mdi-tag me-1"></i> Correct
+                                        </a>
+                                    @else
+
+                                        <a type="button" href="#"
+                                           class="btn btn-danger btn-rounded waves-effect waves-light mb-2 me-2"><i
+                                                class="mdi mdi-tag me-1"></i> Faux
+                                        </a>
+                                    @endif
+                                </td>
+                                <td style="width: 250px">
+                                    <p class="text-muted mb-0 text-justify">{{$quizResponse->description}}</p>
                                 </td>
                                 <td >
-                                    <div class="essential_audio" data-url="{{URL::asset($categoryRule->fr)}}"></div>
+                                    <div class="essential_audio" data-url="{{URL::asset($quizResponse->fr)}}"></div>
                                 </td>
                                 <td>
-                                    <div class="essential_audio" data-url="{{URL::asset($categoryRule->ar)}}" ></div>
+                                    <div class="essential_audio" data-url="{{URL::asset($quizResponse->ar)}}" ></div>
                                 </td>
                                 <td>
-                                    <div class="essential_audio" data-url="{{URL::asset($categoryRule->ng)}}" ></div>
+                                    <div class="essential_audio" data-url="{{URL::asset($quizResponse->ng)}}" ></div>
                                 </td>
                                 <td style="width: 200px">
                                     <div class="d-flex gap-3">
 
-                                        <a href="{{route('rules.show', $categoryRule)}}"
+                                        <a href="{{route('quiz_responses.show', $quizResponse)}}"
                                            class="btn btn-default">Détails
                                         </a>
-                                        <a href="{{route('rules.edit', $categoryRule)}}"
+                                        <a href="{{route('quiz_responses.edit', $quizResponse )}}"
                                            class="btn btn-info">Modifier
                                         </a>
 
-                                        <a href="{{route('rules.index')}}" class="btn btn-danger"
+                                        <a href="{{route('quiz_questions.show',$quizResponse)}}" class="btn btn-danger"
                                            onclick="
-                                                   var result = confirm('Cette règle sera supprimée');
+                                                   var result = confirm('Cette reponse sera supprimée');
                                                    if(result){
                                                        event.preventDefault();
                                                        document.getElementById('delete-form').submit();
@@ -114,7 +132,7 @@
                                             Supprimer</a>
 
                                         <form method="POST" id="delete-form"
-                                              action="{{route('rules.destroy', [$categoryRule])}}">
+                                              action="{{route('quiz_responses.destroy', [$quizResponse])}}">
                                             @csrf
                                             <input type="hidden" name="_method" value="DELETE">
                                         </form>
@@ -129,7 +147,7 @@
 
                 </div>
 
-                {{ $sameCategoryRules->links('vendor.pagination.round') }}
+                {{ $quizResponses->links('vendor.pagination.round') }}
             </div>
         </div>
     </div>

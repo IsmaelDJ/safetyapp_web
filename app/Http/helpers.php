@@ -29,4 +29,13 @@ function contractorsPerPage(){
 function employeesPerPage(){
     return 8;
 }
+function quizzesPerPage(){
+    return 8;
+}
+function quizQuestionsPerPage(){
+    return 4;
+}
+function quizResponsePerPage(){
+    return 4;
+}
 

@@ -70,10 +70,15 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#" class="waves-effect">
+                    <a href="#" class="has-arrow waves-effect">
                         <i class="bx bx-list-check"></i>
                         <span>Quiz</span>
                     </a>
+                    <ul class="sub-menu" aria-expanded="true">
+                        <li><a href="<?php echo e(route('quizzes.index')); ?>" key="t-level-1-1">Tous les quizs</a></li>
+                        <li><a href="<?php echo e(route('quizzes.create')); ?>" key="t-level-1-1">Ajouter</a></li>
+                        <li><a href="<?php echo e(route('quizzes.create')); ?>" key="t-level-1-1">Réponses</a></li>
+                    </ul>
                 </li>
 
 
