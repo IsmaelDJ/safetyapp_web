@@ -77,7 +77,7 @@
                     <ul class="sub-menu" aria-expanded="true">
                         <li><a href="<?php echo e(route('quizzes.index')); ?>" key="t-level-1-1">Tous les quizs</a></li>
                         <li><a href="<?php echo e(route('quizzes.create')); ?>" key="t-level-1-1">Ajouter</a></li>
-                        <li><a href="<?php echo e(route('quizzes.create')); ?>" key="t-level-1-1">Réponses</a></li>
+                        <li><a href="<?php echo e(route('employee_quiz_responses.index')); ?>" key="t-level-1-1">Réponses</a></li>
                     </ul>
                 </li>
 

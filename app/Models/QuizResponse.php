@@ -12,20 +12,25 @@ class QuizResponse extends Model
     public static function boot()
     {
         parent::boot();
-        static::deleting(function($quizResponse){
+        static::deleting(function ($quizResponse) {
+
+            //deletel all user response
+            $employeeQuizResponses = EmployeeQuizResponse::where('quiz_response_id', $quizResponse->id)->get();
+            foreach ($employeeQuizResponses as $employeeQuizResponse) {
+                $employeeQuizResponse->delete();
+            }
 
 
-
-            if (file_exists(public_path($quizResponse->image)) AND !empty($quizResponse->image)){
+            if (file_exists(public_path($quizResponse->image)) and !empty($quizResponse->image)) {
                 unlink(public_path($quizResponse->image));
             }
-            if (file_exists(public_path($quizResponse->fr)) AND !empty($quizResponse->fr)){
+            if (file_exists(public_path($quizResponse->fr)) and !empty($quizResponse->fr)) {
                 unlink(public_path($quizResponse->fr));
             }
-            if (file_exists(public_path($quizResponse->ar)) AND !empty($quizResponse->ar)){
+            if (file_exists(public_path($quizResponse->ar)) and !empty($quizResponse->ar)) {
                 unlink(public_path($quizResponse->ar));
             }
-            if (file_exists(public_path($quizResponse->ng)) AND !empty($quizResponse->ng)){
+            if (file_exists(public_path($quizResponse->ng)) and !empty($quizResponse->ng)) {
                 unlink(public_path($quizResponse->ng));
             }
         });

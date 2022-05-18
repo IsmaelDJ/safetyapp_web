@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ContractorController;
 use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\EmployeeQuizResponseController;
 use App\Http\Controllers\QuizController;
 use App\Http\Controllers\QuizQuestionController;
 use App\Http\Controllers\QuizResponseController;
@@ -59,6 +60,9 @@ Route::get('quiz_responses/{quiz_response}', [QuizResponseController::class,'sho
 Route::put('quiz_responses/{quiz_response}', [QuizResponseController::class,'update'])->name('quiz_responses.update');
 Route::delete('quiz_responses/{quiz_response}', [QuizResponseController::class,'destroy'])->name('quiz_responses.destroy');
 Route::get('quiz_responses/{quiz_response}/edit', [QuizResponseController::class,'edit'])->name('quiz_responses.edit');
+
+Route::get('employee_quiz_responses', [EmployeeQuizResponseController::class,'index'])->name('employee_quiz_responses.index');
+Route::get('employee_quiz_responses/{employee_id}/{quiz_id}', [EmployeeQuizResponseController::class,'employee'])->name('employee_quiz_responses.employee');
 
 
 Route::get('{any}', [App\Http\Controllers\HomeController::class, 'index'])->name('index');
