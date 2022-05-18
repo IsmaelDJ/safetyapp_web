@@ -42,6 +42,13 @@
                                 <div class="me-2">
                                     <h5 class="card-title mb-4">Utilisateurs de cette entreprise</h5>
                                 </div>
+                                <div class="ms-auto">
+                                    <div class="text-sm-end">
+                                        <a type="button" href="{{route('contractor_employees', $contractor)}}"
+                                           class="btn btn-success btn-rounded waves-effect waves-light mb-2 me-2">Exporter
+                                        </a>
+                                    </div>
+                                </div>
                             </div>
 
                             <div class="table-responsive">

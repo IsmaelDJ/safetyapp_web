@@ -39,8 +39,17 @@ Route::get('index/{locale}', [App\Http\Controllers\HomeController::class, 'lang'
 Route::resource('rules', RuleController::class);
 //Category
 Route::resource('categories', CategoryController::class);
+
+//contractor
 Route::resource('contractors', ContractorController::class);
+
+//employees
 Route::resource('employees', EmployeeController::class);
+
+//contractor employee
+Route::get('contractor_employees/{contractor}', [ContractorController::class,'export_employees'])->name('contractor_employees');
+
+//quiz
 Route::resource('quizzes', QuizController::class);
 
 //Route::resource('quiz_questions', QuizQuestionController::class);

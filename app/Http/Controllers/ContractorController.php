@@ -20,6 +20,7 @@ class ContractorController extends Controller
     }
 
 
+
     public function create()
     {
         return view('contractors.create');
@@ -49,6 +50,12 @@ class ContractorController extends Controller
     {
         $contractorEmployees = Employee::where('contractor_id',$contractor->id)->paginate(employeesPerPage());
         return view('contractors.show', compact('contractor', 'contractorEmployees'));
+    }
+
+    public function export_employees(Contractor $contractor)
+    {
+        $employees = Employee::where('contractor_id',$contractor->id)->get();
+        return view('contractors.export_employees', compact('contractor', 'employees'));
     }
 
     public function edit(Contractor $contractor)
