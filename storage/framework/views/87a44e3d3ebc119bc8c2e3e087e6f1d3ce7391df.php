@@ -1,1 +1,0 @@
-<?php /**PATH C:\xampp\htdocs\safetyapp\resources\views/quiz_responses/index.blade.php ENDPATH**/ ?>
