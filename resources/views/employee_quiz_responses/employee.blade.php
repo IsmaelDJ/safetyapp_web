@@ -28,16 +28,11 @@
             <div class="card-body">
                 <div class="d-flex align-items-start">
                     <div class="me-2">
-<<<<<<< HEAD
                         <p class="mb-4">Liste des reponses de l'utilisateur <strong class="text-info">{{$employee->name}}</strong> pour tous les quiz</p>
-=======
-                        <p class="mb-4">Liste de reponses de l'utilisateur <strong class="text-info">{{$responses[0]->employee_name}}</strong> pour le quiz <strong class="text-info">{{$responses[0]->quiz_name}}</strong></p>
->>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60
                     </div>
                 </div>
 
                 <div class="table-responsive">
-<<<<<<< HEAD
                     <table class="table align-middle text-center">
                         <thead>
                         <tr>
@@ -87,57 +82,6 @@
                                         <span
                                             class="btn btn-success btn-rounded waves-effect waves-light mb-2 me-2"><i
                                                 class="mdi mdi-tag me-1"></i> Vrai
-=======
-                    <table class="table align-middle ">
-                        <thead>
-                        <tr>
-                            <th class="align-middle">Question</th>
-                            <th class="align-middle">Reponse</th>
-                            <th class="align-middle">Note</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        @foreach($responses as $response)
-                            <tr>
-
-
-
-
-                                <td>
-                                    <div class="row">
-                                                                                <div class="col-auto">
-
-                                                                                    <img src="{{URL::asset($response->quiz_question_image)}}" alt=""
-                                                                                         class="avatar-md h-auto d-block rounded"/>
-                                                                                </div>
-                                        <div class="col-auto">
-                                            <a href="{{route('quiz_questions.show',$response->quiz_question_id)}}" class="">
-                                                <p class="text-muted mb-0 text-justify">{{$response->quiz_question_description}}</p>
-                                            </a>
-                                        </div>
-                                    </div>
-
-                                </td>
-
-                                <td>
-                                    <div class="row">
-                                                                                <div class="col-auto">
-                                                                                    <img src="{{URL::asset($response->quiz_response_image)}}" alt=""
-                                                                                         class="avatar-md h-auto d-block rounded"/>
-                                                                                </div>
-                                        <div class="col-auto">
-                                            <p class="text-muted mb-3 mt-3 text-justify">{{$response->quiz_response_description}}</p>
-
-                                        </div>
-                                    </div>
-                                </td>
-
-                                <td>
-                                    @if($response->response_correct)
-                                        <span
-                                            class="btn btn-success btn-rounded waves-effect waves-light mb-2 me-2"><i
-                                                class="mdi mdi-tag me-1"></i> Correct
->>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60
                                         </span>
                                     @else
                                         <span
@@ -146,7 +90,6 @@
                                         </span>
                                     @endif
                                 </td>
-<<<<<<< HEAD
                                 <td style="width: 200px">
                                     <div class="d-flex gap-3">
 
@@ -174,8 +117,6 @@
                                         </form>
                                     </div>
                                 </td>
-=======
->>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60
                             </tr>
                         @endforeach
 
@@ -185,11 +126,7 @@
 
                 </div>
 
-<<<<<<< HEAD
                 {{ $employeeQuizResponses->links('vendor.pagination.round') }}
-=======
-                {{ $responses->links('vendor.pagination.round') }}
->>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60
             </div>
         </div>
         <!-- end card -->

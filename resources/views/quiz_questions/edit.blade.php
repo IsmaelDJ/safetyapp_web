@@ -45,11 +45,6 @@
                                 </span>
                                     @enderror
                                 </div>
-<<<<<<< HEAD
-=======
-
-
->>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60
                             </div>
                         </div>
                     </div>
@@ -57,7 +52,6 @@
                     <div class="col-md-7 col-xl-7">
                         <div class="bg-soft pt-lg-5 p-4 col-md-10">
                             <div class="w-100">
-<<<<<<< HEAD
                                 <div class="w-100">
                                     <label class="col-form-label">Catégorie</label>
                                     <div>
@@ -116,8 +110,6 @@
                                         </span>
                                         @enderror
                                 </div>
-=======
->>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60
 
                                 <div class="mb-3 mt-3">
                                     <label for="description" class="form-label">Description</label>
@@ -131,10 +123,6 @@
                                     @enderror
                                 </div>
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60
                                 <div class="mt-5">
                                     <div class="mb-3">
                                         <label for="fr" class="form-label">Audio Français</label>

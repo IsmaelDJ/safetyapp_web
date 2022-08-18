@@ -68,11 +68,7 @@
                     <table class="table align-middle ">
                         <thead>
                         <tr >
-<<<<<<< HEAD
                             <th scope="col">Illustration</th>
-=======
-                            <th scope="col"">Illustration</th>
->>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60
                             <th scope="col">Description</th>
                             <th scope="col">Audio Français</th>
                             <th scope="col">Audio Arabe</th>
