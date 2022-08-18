@@ -4,7 +4,11 @@
  * For LGPL see License.txt in the project root for license information.
  * For commercial licenses see https://www.tiny.cloud/
  *
+<<<<<<< HEAD
  * Version: 5.10.4 (2022-04-27)
+=======
+ * Version: 5.10.0 (2021-10-11)
+>>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60
  */
 (function () {
     'use strict';
@@ -9215,7 +9219,11 @@
     var getVisualAidsAnchorClass = function (editor) {
       return editor.getParam('visual_anchor_class', 'mce-item-anchor', 'string');
     };
+<<<<<<< HEAD
     var getIframeAriaText = function (editor) {
+=======
+    var getIframeTitle = function (editor) {
+>>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60
       return editor.getParam('iframe_aria_text', 'Rich Text Area. Press ALT-0 for help.', 'string');
     };
 
@@ -16292,11 +16300,16 @@
         var children = from(node.childNodes);
         if (contentEditable && !hasContentEditableState) {
           var removed = removeNodeFormat(node);
+<<<<<<< HEAD
           var currentNodeMatches = removed || exists(formatList, function (f) {
             return matchName$1(dom, node, f);
           });
           var parentNode = node.parentNode;
           if (!currentNodeMatches && isNonNullable(parentNode) && shouldExpandToSelector(format)) {
+=======
+          var parentNode = node.parentNode;
+          if (!removed && isNonNullable(parentNode) && shouldExpandToSelector(format)) {
+>>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60
             removeNodeFormat(parentNode);
           }
         }
@@ -26903,6 +26916,7 @@
       iframeHTML += '<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />';
       var bodyId = getBodyId(editor);
       var bodyClass = getBodyClass(editor);
+<<<<<<< HEAD
       var translatedAriaText = editor.translate(getIframeAriaText(editor));
       if (getContentSecurityPolicy(editor)) {
         iframeHTML += '<meta http-equiv="Content-Security-Policy" content="' + getContentSecurityPolicy(editor) + '" />';
@@ -26913,6 +26927,17 @@
     var createIframe = function (editor, o) {
       var iframeTitle = editor.translate('Rich Text Area');
       var ifr = createIframeElement(editor.id, iframeTitle, o.height, getIframeAttrs(editor)).dom;
+=======
+      if (getContentSecurityPolicy(editor)) {
+        iframeHTML += '<meta http-equiv="Content-Security-Policy" content="' + getContentSecurityPolicy(editor) + '" />';
+      }
+      iframeHTML += '</head><body id="' + bodyId + '" class="mce-content-body ' + bodyClass + '" data-id="' + editor.id + '"><br></body></html>';
+      return iframeHTML;
+    };
+    var createIframe = function (editor, o) {
+      var iframeTranslatedTitle = editor.translate(getIframeTitle(editor));
+      var ifr = createIframeElement(editor.id, iframeTranslatedTitle, o.height, getIframeAttrs(editor)).dom;
+>>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60
       ifr.onload = function () {
         ifr.onload = null;
         editor.fire('load');
@@ -29004,8 +29029,13 @@
       suffix: null,
       $: DomQuery,
       majorVersion: '5',
+<<<<<<< HEAD
       minorVersion: '10.4',
       releaseDate: '2022-04-27',
+=======
+      minorVersion: '10.0',
+      releaseDate: '2021-10-11',
+>>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60
       editors: legacyEditors,
       i18n: I18n,
       activeEditor: null,

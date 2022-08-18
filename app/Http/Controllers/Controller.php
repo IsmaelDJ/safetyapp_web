@@ -7,6 +7,7 @@ use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
 
+<<<<<<< HEAD
 /**
  * @OA\Info(
  *     version="1.0",
@@ -19,6 +20,8 @@ use Illuminate\Routing\Controller as BaseController;
  * )
  * */
 
+=======
+>>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;

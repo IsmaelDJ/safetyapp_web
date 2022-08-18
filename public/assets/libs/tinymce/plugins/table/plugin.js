@@ -4,7 +4,11 @@
  * For LGPL see License.txt in the project root for license information.
  * For commercial licenses see https://www.tiny.cloud/
  *
+<<<<<<< HEAD
  * Version: 5.10.4 (2022-04-27)
+=======
+ * Version: 5.10.0 (2021-10-11)
+>>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60
  */
 (function () {
     'use strict';
@@ -3456,7 +3460,10 @@
       };
       each$2(cells$1(table), removeStyleAttribute);
       each$2(columns$1(table), removeStyleAttribute);
+<<<<<<< HEAD
       each$2(rows$1(table), removeStyleAttribute);
+=======
+>>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60
     };
     var getRawWidth = function (editor, elm) {
       var raw = editor.dom.getStyle(elm, 'width') || editor.dom.getAttrib(elm, 'width');

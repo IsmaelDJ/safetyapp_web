@@ -6,6 +6,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+<<<<<<< HEAD
 ## 5.10.4 - 2022-04-27
 
 ### Fixed
@@ -37,6 +38,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - The insert table grid menu displayed an incorrect size when re-opening the grid #TINY-6532
 - The word count plugin was treating the zero width space character (`&#8203;`) as a word #TINY-7484
 
+=======
+>>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60
 ## 5.10.0 - 2021-10-11
 
 ### Added

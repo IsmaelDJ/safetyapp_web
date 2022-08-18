@@ -45,10 +45,14 @@
 	}
 /* .leaflet-container svg: reset svg max-width decleration shipped in Joomla! (joomla.org) 3.x */
 /* .leaflet-container img: map is broken in FF if you have max-width: 100% on tiles */
+<<<<<<< HEAD
 .leaflet-container .leaflet-overlay-pane svg {
 	max-width: none !important;
 	max-height: none !important;
 	}
+=======
+.leaflet-container .leaflet-overlay-pane svg,
+>>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60
 .leaflet-container .leaflet-marker-pane img,
 .leaflet-container .leaflet-shadow-pane img,
 .leaflet-container .leaflet-tile-pane img,
@@ -56,8 +60,11 @@
 .leaflet-container .leaflet-tile {
 	max-width: none !important;
 	max-height: none !important;
+<<<<<<< HEAD
 	width: auto;
 	padding: 0;
+=======
+>>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60
 	}
 
 .leaflet-container.leaflet-touch-zoom {
@@ -171,6 +178,12 @@
 
 /* zoom and fade animations */
 
+<<<<<<< HEAD
+=======
+.leaflet-fade-anim .leaflet-tile {
+	will-change: opacity;
+	}
+>>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60
 .leaflet-fade-anim .leaflet-popup {
 	opacity: 0;
 	-webkit-transition: opacity 0.2s linear;
@@ -185,10 +198,16 @@
 	    -ms-transform-origin: 0 0;
 	        transform-origin: 0 0;
 	}
+<<<<<<< HEAD
 svg.leaflet-zoom-animated {
 	will-change: transform;
 }
 
+=======
+.leaflet-zoom-anim .leaflet-zoom-animated {
+	will-change: transform;
+	}
+>>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60
 .leaflet-zoom-anim .leaflet-zoom-animated {
 	-webkit-transition: -webkit-transform 0.25s cubic-bezier(0,0,0.25,1);
 	   -moz-transition:    -moz-transform 0.25s cubic-bezier(0,0,0.25,1);
@@ -254,11 +273,21 @@ svg.leaflet-image-layer.leaflet-interactive path {
 
 .leaflet-container {
 	background: #ddd;
+<<<<<<< HEAD
 	outline-offset: 1px;
+=======
+	outline: 0;
+>>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60
 	}
 .leaflet-container a {
 	color: #0078A8;
 	}
+<<<<<<< HEAD
+=======
+.leaflet-container a.leaflet-active {
+	outline: 2px solid orange;
+	}
+>>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60
 .leaflet-zoom-box {
 	border: 2px dotted #38f;
 	background: rgba(255,255,255,0.5);
@@ -267,10 +296,14 @@ svg.leaflet-image-layer.leaflet-interactive path {
 
 /* general typography */
 .leaflet-container {
+<<<<<<< HEAD
 	font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
 	font-size: 12px;
 	font-size: 0.75rem;
 	line-height: 1.5;
+=======
+	font: 12px/1.5 "Helvetica Neue", Arial, Helvetica, sans-serif;
+>>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60
 	}
 
 
@@ -280,7 +313,12 @@ svg.leaflet-image-layer.leaflet-interactive path {
 	box-shadow: 0 1px 5px rgba(0,0,0,0.65);
 	border-radius: 4px;
 	}
+<<<<<<< HEAD
 .leaflet-bar a {
+=======
+.leaflet-bar a,
+.leaflet-bar a:hover {
+>>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60
 	background-color: #fff;
 	border-bottom: 1px solid #ccc;
 	width: 26px;
@@ -297,8 +335,12 @@ svg.leaflet-image-layer.leaflet-interactive path {
 	background-repeat: no-repeat;
 	display: block;
 	}
+<<<<<<< HEAD
 .leaflet-bar a:hover,
 .leaflet-bar a:focus {
+=======
+.leaflet-bar a:hover {
+>>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60
 	background-color: #f4f4f4;
 	}
 .leaflet-bar a:first-child {
@@ -388,8 +430,11 @@ svg.leaflet-image-layer.leaflet-interactive path {
 	}
 .leaflet-control-layers label {
 	display: block;
+<<<<<<< HEAD
 	font-size: 13px;
 	font-size: 1.08333em;
+=======
+>>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60
 	}
 .leaflet-control-layers-separator {
 	height: 0;
@@ -398,7 +443,11 @@ svg.leaflet-image-layer.leaflet-interactive path {
 	}
 
 /* Default icon URLs */
+<<<<<<< HEAD
 .leaflet-default-icon-path { /* used only in path-guessing heuristic, see L.Icon.Default */
+=======
+.leaflet-default-icon-path {
+>>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60
 	background-image: url(images/marker-icon.png);
 	}
 
@@ -407,24 +456,40 @@ svg.leaflet-image-layer.leaflet-interactive path {
 
 .leaflet-container .leaflet-control-attribution {
 	background: #fff;
+<<<<<<< HEAD
 	background: rgba(255, 255, 255, 0.8);
+=======
+	background: rgba(255, 255, 255, 0.7);
+>>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60
 	margin: 0;
 	}
 .leaflet-control-attribution,
 .leaflet-control-scale-line {
 	padding: 0 5px;
 	color: #333;
+<<<<<<< HEAD
 	line-height: 1.4;
+=======
+>>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60
 	}
 .leaflet-control-attribution a {
 	text-decoration: none;
 	}
+<<<<<<< HEAD
 .leaflet-control-attribution a:hover,
 .leaflet-control-attribution a:focus {
 	text-decoration: underline;
 	}
 .leaflet-control-attribution svg {
 	display: inline !important;
+=======
+.leaflet-control-attribution a:hover {
+	text-decoration: underline;
+	}
+.leaflet-container .leaflet-control-attribution,
+.leaflet-container .leaflet-control-scale {
+	font-size: 11px;
+>>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60
 	}
 .leaflet-left .leaflet-control-scale {
 	margin-left: 5px;
@@ -437,6 +502,10 @@ svg.leaflet-image-layer.leaflet-interactive path {
 	border-top: none;
 	line-height: 1.1;
 	padding: 2px 5px 1px;
+<<<<<<< HEAD
+=======
+	font-size: 11px;
+>>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60
 	white-space: nowrap;
 	overflow: hidden;
 	-moz-box-sizing: border-box;
@@ -479,6 +548,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
 	border-radius: 12px;
 	}
 .leaflet-popup-content {
+<<<<<<< HEAD
 	margin: 13px 24px 13px 20px;
 	line-height: 1.3;
 	font-size: 13px;
@@ -488,13 +558,23 @@ svg.leaflet-image-layer.leaflet-interactive path {
 .leaflet-popup-content p {
 	margin: 17px 0;
 	margin: 1.3em 0;
+=======
+	margin: 13px 19px;
+	line-height: 1.4;
+	}
+.leaflet-popup-content p {
+	margin: 18px 0;
+>>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60
 	}
 .leaflet-popup-tip-container {
 	width: 40px;
 	height: 20px;
 	position: absolute;
 	left: 50%;
+<<<<<<< HEAD
 	margin-top: -1px;
+=======
+>>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60
 	margin-left: -20px;
 	overflow: hidden;
 	pointer-events: none;
@@ -505,7 +585,10 @@ svg.leaflet-image-layer.leaflet-interactive path {
 	padding: 1px;
 
 	margin: -10px auto 0;
+<<<<<<< HEAD
 	pointer-events: auto;
+=======
+>>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60
 
 	-webkit-transform: rotate(45deg);
 	   -moz-transform: rotate(45deg);
@@ -522,6 +605,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
 	position: absolute;
 	top: 0;
 	right: 0;
+<<<<<<< HEAD
 	border: none;
 	text-align: center;
 	width: 24px;
@@ -534,6 +618,21 @@ svg.leaflet-image-layer.leaflet-interactive path {
 .leaflet-container a.leaflet-popup-close-button:hover,
 .leaflet-container a.leaflet-popup-close-button:focus {
 	color: #585858;
+=======
+	padding: 4px 4px 0 0;
+	border: none;
+	text-align: center;
+	width: 18px;
+	height: 14px;
+	font: 16px/14px Tahoma, Verdana, sans-serif;
+	color: #c3c3c3;
+	text-decoration: none;
+	font-weight: bold;
+	background: transparent;
+	}
+.leaflet-container a.leaflet-popup-close-button:hover {
+	color: #999;
+>>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60
 	}
 .leaflet-popup-scrolled {
 	overflow: auto;
@@ -551,6 +650,12 @@ svg.leaflet-image-layer.leaflet-interactive path {
 	-ms-filter: "progid:DXImageTransform.Microsoft.Matrix(M11=0.70710678, M12=0.70710678, M21=-0.70710678, M22=0.70710678)";
 	filter: progid:DXImageTransform.Microsoft.Matrix(M11=0.70710678, M12=0.70710678, M21=-0.70710678, M22=0.70710678);
 	}
+<<<<<<< HEAD
+=======
+.leaflet-oldie .leaflet-popup-tip-container {
+	margin-top: -1px;
+	}
+>>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60
 
 .leaflet-oldie .leaflet-control-zoom,
 .leaflet-oldie .leaflet-control-layers,
@@ -585,7 +690,11 @@ svg.leaflet-image-layer.leaflet-interactive path {
 	pointer-events: none;
 	box-shadow: 0 1px 3px rgba(0,0,0,0.4);
 	}
+<<<<<<< HEAD
 .leaflet-tooltip.leaflet-interactive {
+=======
+.leaflet-tooltip.leaflet-clickable {
+>>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60
 	cursor: pointer;
 	pointer-events: auto;
 	}
@@ -645,6 +754,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
 	margin-left: -12px;
 	border-right-color: #fff;
 	}
+<<<<<<< HEAD
 
 /* Printing */
 	
@@ -655,3 +765,5 @@ svg.leaflet-image-layer.leaflet-interactive path {
 		color-adjust: exact;
 		}
 	}
+=======
+>>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60

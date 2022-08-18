@@ -75,8 +75,13 @@
                         <span>Quiz</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="true">
+<<<<<<< HEAD
                         <li><a href="{{route('quiz_questions.index')}}" key="t-level-1-1">Tous les quizs</a></li>
                         <li><a href="{{route('quiz_questions.create')}}" key="t-level-1-1">Ajouter</a></li>
+=======
+                        <li><a href="{{route('quizzes.index')}}" key="t-level-1-1">Tous les quizs</a></li>
+                        <li><a href="{{route('quizzes.create')}}" key="t-level-1-1">Ajouter</a></li>
+>>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60
                         <li><a href="{{route('employee_quiz_responses.index')}}" key="t-level-1-1">Réponses</a></li>
                     </ul>
                 </li>

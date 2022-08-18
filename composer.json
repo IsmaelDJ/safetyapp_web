@@ -6,14 +6,21 @@
     "license": "MIT",
     "require": {
         "php": "^7.3|^8.0",
+<<<<<<< HEAD
         "darkaonline/l5-swagger": "^8.3",
+=======
+>>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
         "infyomlabs/laravel-generator": "^4.0",
         "laravel/forge-cli": "^1.4",
         "laravel/forge-sdk": "^3.13",
         "laravel/framework": "^9.0",
+<<<<<<< HEAD
         "laravel/sanctum": "^3.0",
+=======
+        "laravel/sanctum": "^2.11",
+>>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60
         "laravel/tinker": "^2.5",
         "laravel/ui": "^3.3"
     },

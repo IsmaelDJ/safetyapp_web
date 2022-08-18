@@ -1,6 +1,10 @@
 {
 	"name": "tinymce/tinymce",
+<<<<<<< HEAD
 	"version": "5.10.4",
+=======
+	"version": "5.10.0",
+>>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60
 	"description": "Web based JavaScript HTML WYSIWYG editor control.",
 	"license": [
 		"LGPL-2.1-only"
