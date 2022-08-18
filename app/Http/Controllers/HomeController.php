@@ -38,10 +38,7 @@ class HomeController extends Controller
 
     public function root()
     {
-<<<<<<< HEAD
         dd("here");
-=======
->>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60
         return view('index');
     }
 
