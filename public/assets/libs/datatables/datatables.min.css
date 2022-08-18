@@ -1,16 +1,4 @@
 @charset "UTF-8";
-<<<<<<< HEAD
-=======
-td.dt-control {
-  background: url("https://www.datatables.net/examples/resources/details_open.png") no-repeat center center;
-  cursor: pointer;
-}
-
-tr.dt-hasChild td.dt-control {
-  background: url("https://www.datatables.net/examples/resources/details_close.png") no-repeat center center;
-}
-
->>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60
 table.dataTable th.dt-left,
 table.dataTable td.dt-left {
   text-align: left;
@@ -82,7 +70,6 @@ table.dataTable tbody th.dt-body-nowrap,
 table.dataTable tbody td.dt-body-nowrap {
   white-space: nowrap;
 }
-<<<<<<< HEAD
 table.dataTable td.dt-control {
   text-align: center;
   cursor: pointer;
@@ -108,8 +95,6 @@ table.dataTable tr.dt-hasChild td.dt-control:before {
   content: "-";
   background-color: #d33333;
 }
-=======
->>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60
 
 table.dataTable {
   clear: both;
@@ -703,10 +688,6 @@ div.dt-buttons a.btn.processing:after {
   -moz-animation: dtb-spinner 1500ms infinite linear;
 }
 
-<<<<<<< HEAD
-=======
-@charset "UTF-8";
->>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60
 table.dataTable tbody > tr.selected,
 table.dataTable tbody > tr > .selected {
   background-color: #0275d8;

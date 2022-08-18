@@ -4,11 +4,7 @@
  * For LGPL see License.txt in the project root for license information.
  * For commercial licenses see https://www.tiny.cloud/
  *
-<<<<<<< HEAD
  * Version: 5.10.4 (2022-04-27)
-=======
- * Version: 5.10.0 (2021-10-11)
->>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60
  */
 (function () {
     'use strict';
@@ -125,11 +121,7 @@
     var never = constant$1(false);
     var always = constant$1(true);
 
-<<<<<<< HEAD
     var global$g = tinymce.util.Tools.resolve('tinymce.ThemeManager');
-=======
-    var global$h = tinymce.util.Tools.resolve('tinymce.ThemeManager');
->>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60
 
     var __assign = function () {
       __assign = Object.assign || function __assign(t) {
@@ -1328,26 +1320,15 @@
       };
     };
 
-<<<<<<< HEAD
     var api$3 = Dimension('height', function (element) {
-=======
-    var api$2 = Dimension('height', function (element) {
->>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60
       var dom = element.dom;
       return inBody(element) ? dom.getBoundingClientRect().height : dom.offsetHeight;
     });
     var get$b = function (element) {
-<<<<<<< HEAD
       return api$3.get(element);
     };
     var getOuter$2 = function (element) {
       return api$3.getOuter(element);
-=======
-      return api$2.get(element);
-    };
-    var getOuter$2 = function (element) {
-      return api$2.getOuter(element);
->>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60
     };
     var setMax$1 = function (element, value) {
       var inclusions = [
@@ -1358,11 +1339,7 @@
         'border-bottom-width',
         'margin-bottom'
       ];
-<<<<<<< HEAD
       var absMax = api$3.max(element, value, inclusions);
-=======
-      var absMax = api$2.max(element, value, inclusions);
->>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60
       set$7(element, 'max-height', absMax + 'px');
     };
 
@@ -1416,7 +1393,6 @@
       return boxPosition(dom);
     };
 
-<<<<<<< HEAD
     var api$2 = Dimension('width', function (element) {
       return element.dom.offsetWidth;
     });
@@ -1428,19 +1404,6 @@
     };
     var getOuter$1 = function (element) {
       return api$2.getOuter(element);
-=======
-    var api$1 = Dimension('width', function (element) {
-      return element.dom.offsetWidth;
-    });
-    var set$6 = function (element, h) {
-      return api$1.set(element, h);
-    };
-    var get$a = function (element) {
-      return api$1.get(element);
-    };
-    var getOuter$1 = function (element) {
-      return api$1.getOuter(element);
->>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60
     };
     var setMax = function (element, value) {
       var inclusions = [
@@ -1451,11 +1414,7 @@
         'border-right-width',
         'margin-right'
       ];
-<<<<<<< HEAD
       var absMax = api$2.max(element, value, inclusions);
-=======
-      var absMax = api$1.max(element, value, inclusions);
->>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60
       set$7(element, 'max-width', absMax + 'px');
     };
 
@@ -4678,7 +4637,6 @@
         return s.unbind();
       });
     };
-<<<<<<< HEAD
     var api$1 = function () {
       var subject = destroyable();
       var run = function (f) {
@@ -4686,8 +4644,6 @@
       };
       return __assign(__assign({}, subject), { run: run });
     };
-=======
->>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60
     var value$1 = function () {
       var subject = singleton(noop);
       var on = function (f) {
@@ -9451,11 +9407,7 @@
       return layout(anchor, element, bubbles, placee, bounds);
     };
 
-<<<<<<< HEAD
     var global$f = tinymce.util.Tools.resolve('tinymce.util.Delay');
-=======
-    var global$g = tinymce.util.Tools.resolve('tinymce.util.Delay');
->>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60
 
     var factory$l = function (detail) {
       var events = events$a(detail.action);
@@ -9529,11 +9481,7 @@
       };
     };
 
-<<<<<<< HEAD
     var global$e = tinymce.util.Tools.resolve('tinymce.util.I18n');
-=======
-    var global$f = tinymce.util.Tools.resolve('tinymce.util.I18n');
->>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60
 
     var rtlTransform = {
       'indent': true,
@@ -9555,11 +9503,7 @@
     };
     var getIconName = function (name, icons) {
       var lcName = name.toLowerCase();
-<<<<<<< HEAD
       if (global$e.isRtl()) {
-=======
-      if (global$f.isRtl()) {
->>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60
         var rtlName = ensureTrailing(lcName, '-rtl');
         return has$2(icons, rtlName) ? rtlName : lcName;
       } else {
@@ -9578,11 +9522,7 @@
       return lookupIcon(name, icons).or(fallbackIcon).getOrThunk(defaultIcon(icons));
     };
     var needsRtlTransform = function (iconName) {
-<<<<<<< HEAD
       return global$e.isRtl() ? has$2(rtlTransform, iconName) : false;
-=======
-      return global$f.isRtl() ? has$2(rtlTransform, iconName) : false;
->>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60
     };
     var addFocusableBehaviour = function () {
       return config('add-focusable', [runOnAttached(function (comp) {
@@ -9848,11 +9788,7 @@
         }, sharedBackstage.header.isPositionedAtTop() ? {} : { fireRepositionEventInstead: {} })));
         uiMothership.add(notificationWrapper);
         if (settings.timeout > 0) {
-<<<<<<< HEAD
           global$f.setTimeout(function () {
-=======
-          global$g.setTimeout(function () {
->>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60
             close();
           }, settings.timeout);
         }
@@ -9979,11 +9915,7 @@
       };
     };
 
-<<<<<<< HEAD
     var global$d = tinymce.util.Tools.resolve('tinymce.dom.TextSeeker');
-=======
-    var global$e = tinymce.util.Tools.resolve('tinymce.dom.TextSeeker');
->>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60
 
     var isBoundary = function (dom, node) {
       return dom.isBlock(node) || contains$2([
@@ -9994,11 +9926,7 @@
       ], node.nodeName) || dom.getContentEditable(node) === 'false';
     };
     var repeatLeft = function (dom, node, offset, process, rootNode) {
-<<<<<<< HEAD
       var search = global$d(dom, function (node) {
-=======
-      var search = global$e(dom, function (node) {
->>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60
         return isBoundary(dom, node);
       });
       return Optional.from(search.backwards(node, offset, process, rootNode));
@@ -10149,11 +10077,7 @@
     };
     var AutocompleterEditorEvents = { setup: setup$e };
 
-<<<<<<< HEAD
     var global$c = tinymce.util.Tools.resolve('tinymce.util.Promise');
-=======
-    var global$d = tinymce.util.Tools.resolve('tinymce.util.Promise');
->>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60
 
     var point = function (container, offset) {
       return {
@@ -10228,11 +10152,7 @@
       if (autocompleters.length === 0) {
         return Optional.none();
       }
-<<<<<<< HEAD
       var lookupData = global$c.all(map$2(autocompleters, function (ac) {
-=======
-      var lookupData = global$d.all(map$2(autocompleters, function (ac) {
->>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60
         var fetchResult = ac.fetch(context.text, ac.maxResults, fetchOptions);
         return fetchResult.then(function (results) {
           return {
@@ -11014,15 +10934,9 @@
       return text.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
     };
 
-<<<<<<< HEAD
     var global$b = tinymce.util.Tools.resolve('tinymce.dom.DOMUtils');
 
     var global$a = tinymce.util.Tools.resolve('tinymce.EditorManager');
-=======
-    var global$c = tinymce.util.Tools.resolve('tinymce.dom.DOMUtils');
-
-    var global$b = tinymce.util.Tools.resolve('tinymce.EditorManager');
->>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60
 
     var getSkinUrl = function (editor) {
       var skin = editor.getParam('skin');
@@ -11032,11 +10946,7 @@
         if (skinUrl) {
           skinUrl = editor.documentBaseURI.toAbsolute(skinUrl);
         } else {
-<<<<<<< HEAD
           skinUrl = global$a.baseURL + '/skins/ui/' + skinName;
-=======
-          skinUrl = global$b.baseURL + '/skins/ui/' + skinName;
->>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60
         }
       }
       return skinUrl;
@@ -11051,11 +10961,7 @@
       return editor.getParam('height', Math.max(editor.getElement().offsetHeight, 200));
     };
     var getWidthSetting = function (editor) {
-<<<<<<< HEAD
       return editor.getParam('width', global$b.DOM.getStyle(editor.getElement(), 'width'));
-=======
-      return editor.getParam('width', global$c.DOM.getStyle(editor.getElement(), 'width'));
->>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60
     };
     var getMinWidthSetting = function (editor) {
       return Optional.from(editor.getParam('min_width')).filter(isNumber);
@@ -11359,11 +11265,7 @@
       };
     };
 
-<<<<<<< HEAD
     var global$9 = tinymce.util.Tools.resolve('tinymce.Env');
-=======
-    var global$a = tinymce.util.Tools.resolve('tinymce.Env');
->>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60
 
     var convertText = function (source) {
       var mac = {
@@ -11377,21 +11279,13 @@
         meta: 'Ctrl',
         access: 'Shift+Alt'
       };
-<<<<<<< HEAD
       var replace = global$9.mac ? mac : other;
-=======
-      var replace = global$a.mac ? mac : other;
->>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60
       var shortcut = source.split('+');
       var updated = map$2(shortcut, function (segment) {
         var search = segment.toLowerCase().trim();
         return has$2(replace, search) ? replace[search] : segment;
       });
-<<<<<<< HEAD
       return global$9.mac ? updated.join('') : updated.join('+');
-=======
-      return global$a.mac ? updated.join('') : updated.join('+');
->>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60
     };
 
     var renderIcon$1 = function (name, icons, classes) {
@@ -11409,11 +11303,7 @@
           tag: 'div',
           classes: [textClass]
         },
-<<<<<<< HEAD
         components: [text(global$e.translate(text$1))]
-=======
-        components: [text(global$f.translate(text$1))]
->>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60
       };
     };
     var renderHtml = function (html, classes) {
@@ -11436,11 +11326,7 @@
               tag: style.tag,
               styles: style.styles
             },
-<<<<<<< HEAD
             components: [text(global$e.translate(text$1))]
-=======
-            components: [text(global$f.translate(text$1))]
->>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60
           }]
       };
     };
@@ -11545,11 +11431,7 @@
     };
     var renderItemDomStructure = function (ariaLabel) {
       var domTitle = ariaLabel.map(function (label) {
-<<<<<<< HEAD
         return { attributes: { title: global$e.translate(label) } };
-=======
-        return { attributes: { title: global$f.translate(label) } };
->>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60
       }).getOr({});
       return __assign({
         tag: 'div',
@@ -11631,17 +11513,10 @@
       }).getOr([]);
     };
     var encodeText = function (text) {
-<<<<<<< HEAD
       return global$b.DOM.encode(text);
     };
     var replaceText = function (text, matchText) {
       var translated = global$e.translate(text);
-=======
-      return global$c.DOM.encode(text);
-    };
-    var replaceText = function (text, matchText) {
-      var translated = global$f.translate(text);
->>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60
       var encoded = encodeText(translated);
       if (matchText.length > 0) {
         var escapedMatchRegex = new RegExp(escape(matchText), 'gi');
@@ -12014,22 +11889,14 @@
       });
     };
 
-<<<<<<< HEAD
     var global$8 = tinymce.util.Tools.resolve('tinymce.util.LocalStorage');
-=======
-    var global$9 = tinymce.util.Tools.resolve('tinymce.util.LocalStorage');
->>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60
 
     var storageName = 'tinymce-custom-colors';
     function ColorCache (max) {
       if (max === void 0) {
         max = 10;
       }
-<<<<<<< HEAD
       var storageString = global$8.getItem(storageName);
-=======
-      var storageString = global$9.getItem(storageName);
->>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60
       var localstorage = isString(storageString) ? JSON.parse(storageString) : [];
       var prune = function (list) {
         var diff = max - list.length;
@@ -12042,11 +11909,7 @@
         if (cache.length > max) {
           cache.pop();
         }
-<<<<<<< HEAD
         global$8.setItem(storageName, JSON.stringify(cache));
-=======
-        global$9.setItem(storageName, JSON.stringify(cache));
->>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60
       };
       var remove = function (idx) {
         cache.splice(idx, 1);
@@ -12211,10 +12074,7 @@
       colorCache.add(color);
     };
 
-<<<<<<< HEAD
     var fallbackColor = '#000000';
-=======
->>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60
     var getCurrentColor = function (editor, format) {
       var color;
       editor.dom.getParents(editor.selection.getStart(), function (elm) {
@@ -12223,11 +12083,7 @@
           color = color ? color : value;
         }
       });
-<<<<<<< HEAD
       return Optional.from(color);
-=======
-      return color;
->>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60
     };
     var applyFormat = function (editor, format, value) {
       editor.undoManager.transact(function () {
@@ -12287,11 +12143,7 @@
             editor.execCommand('mceApplyTextcolor', format, color);
             onChoice(color);
           });
-<<<<<<< HEAD
         }, fallbackColor);
-=======
-        }, '#000000');
->>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60
       } else if (value === 'remove') {
         onChoice('');
         editor.execCommand('mceRemoveTextcolor', format);
@@ -12318,11 +12170,7 @@
         presets: 'color',
         icon: name === 'forecolor' ? 'text-color' : 'highlight-bg-color',
         select: function (value) {
-<<<<<<< HEAD
           var optCurrentRgb = getCurrentColor(editor, format);
-=======
-          var optCurrentRgb = Optional.from(getCurrentColor(editor, format));
->>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60
           return optCurrentRgb.bind(function (currentRgb) {
             return fromString(currentRgb).map(function (rgba) {
               var currentHex = fromRgba(rgba).value;
@@ -12333,13 +12181,7 @@
         columns: getColorCols$1(editor),
         fetch: getFetch$1(getColors$2(editor), hasCustomColors$1(editor)),
         onAction: function (_splitButtonApi) {
-<<<<<<< HEAD
           applyColor(editor, format, lastColor.get(), noop);
-=======
-          if (lastColor.get() !== null) {
-            applyColor(editor, format, lastColor.get(), noop);
-          }
->>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60
         },
         onItemAction: function (_splitButtonApi, value) {
           applyColor(editor, format, value, function (newColor) {
@@ -12351,13 +12193,7 @@
           });
         },
         onSetup: function (splitButtonApi) {
-<<<<<<< HEAD
           setIconColor(splitButtonApi, name, lastColor.get());
-=======
-          if (lastColor.get() !== null) {
-            setIconColor(splitButtonApi, name, lastColor.get());
-          }
->>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60
           var handler = function (e) {
             if (e.name === name) {
               setIconColor(splitButtonApi, e.name, e.color);
@@ -12443,13 +12279,8 @@
     };
     var register$a = function (editor) {
       registerCommands(editor);
-<<<<<<< HEAD
       var lastForeColor = Cell(fallbackColor);
       var lastBackColor = Cell(fallbackColor);
-=======
-      var lastForeColor = Cell(null);
-      var lastBackColor = Cell(null);
->>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60
       registerTextColorButton(editor, 'forecolor', 'forecolor', 'Text color', lastForeColor);
       registerTextColorButton(editor, 'backcolor', 'hilitecolor', 'Background color', lastBackColor);
       registerTextColorMenuItem(editor, 'forecolor', 'forecolor', 'Text color');
@@ -12620,32 +12451,21 @@
       });
     };
     var makeLabelText = function (row, col) {
-<<<<<<< HEAD
       return text(col + 'x' + row);
-=======
-      return text(col + 1 + 'x' + (row + 1));
->>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60
     };
     var renderInsertTableMenuItem = function (spec) {
       var numRows = 10;
       var numColumns = 10;
       var sizeLabelId = generate$6('size-label');
       var cells = makeCells(sizeLabelId, numRows, numColumns);
-<<<<<<< HEAD
       var emptyLabelText = makeLabelText(0, 0);
-=======
->>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60
       var memLabel = record({
         dom: {
           tag: 'span',
           classes: ['tox-insert-table-picker__label'],
           attributes: { id: sizeLabelId }
         },
-<<<<<<< HEAD
         components: [emptyLabelText],
-=======
-        components: [text('0x0')],
->>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60
         behaviours: derive$1([Replacing.config({})])
       });
       return {
@@ -12664,7 +12484,6 @@
             components: makeComponents(cells).concat(memLabel.asSpec()),
             behaviours: derive$1([
               config('insert-table-picker', [
-<<<<<<< HEAD
                 runOnAttached(function (c) {
                   Replacing.set(memLabel.get(c), [emptyLabelText]);
                 }),
@@ -12678,18 +12497,6 @@
                   spec.onAction({
                     numRows: row + 1,
                     numColumns: col + 1
-=======
-                runWithTarget(cellOverEvent, function (c, t, e) {
-                  var row = e.event.row;
-                  var col = e.event.col;
-                  selectCells(cells, row, col, numRows, numColumns);
-                  Replacing.set(memLabel.get(c), [makeLabelText(row, col)]);
-                }),
-                runWithTarget(cellExecuteEvent, function (c, _, e) {
-                  spec.onAction({
-                    numRows: e.event.row + 1,
-                    numColumns: e.event.col + 1
->>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60
                   });
                   emit(c, sandboxClose());
                 })
@@ -13887,11 +13694,7 @@
       active: ActiveTabstopping
     });
 
-<<<<<<< HEAD
     var global$7 = tinymce.util.Tools.resolve('tinymce.html.Entities');
-=======
-    var global$8 = tinymce.util.Tools.resolve('tinymce.html.Entities');
->>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60
 
     var renderFormFieldWith = function (pLabel, pField, extraClasses, extraBehaviours) {
       var spec = renderFormFieldSpecWith(pLabel, pField, extraClasses, extraBehaviours);
@@ -13950,11 +13753,7 @@
       };
       var setContents = function (comp, items) {
         var htmlLines = map$2(items, function (item) {
-<<<<<<< HEAD
           var itemText = global$e.translate(item.text);
-=======
-          var itemText = global$f.translate(item.text);
->>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60
           var textContent = spec.columns === 1 ? '<div class="tox-collection__item-label">' + itemText + '</div>' : '';
           var iconContent = '<div class="tox-collection__item-icon">' + item.icon + '</div>';
           var mapItemName = {
@@ -13966,11 +13765,7 @@
             return mapItemName[match];
           });
           var disabledClass = providersBackstage.isDisabled() ? ' tox-collection__item--state-disabled' : '';
-<<<<<<< HEAD
           return '<div class="tox-collection__item' + disabledClass + '" tabindex="-1" data-collection-item-value="' + global$7.encodeAllRaw(item.value) + '" title="' + ariaLabel + '" aria-label="' + ariaLabel + '">' + iconContent + textContent + '</div>';
-=======
-          return '<div class="tox-collection__item' + disabledClass + '" tabindex="-1" data-collection-item-value="' + global$8.encodeAllRaw(item.value) + '" title="' + ariaLabel + '" aria-label="' + ariaLabel + '">' + iconContent + textContent + '</div>';
->>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60
         });
         var chunks = spec.columns !== 'auto' && spec.columns > 1 ? chunk$1(htmlLines, spec.columns) : [htmlLines];
         var html = map$2(chunks, function (ch) {
@@ -15322,20 +15117,12 @@
 
     var _sliderChangeEvent = 'slider.change.value';
     var sliderChangeEvent = constant$1(_sliderChangeEvent);
-<<<<<<< HEAD
     var isTouchEvent$2 = function (evt) {
-=======
-    var isTouchEvent$1 = function (evt) {
->>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60
       return evt.type.indexOf('touch') !== -1;
     };
     var getEventSource = function (simulatedEvent) {
       var evt = simulatedEvent.event.raw;
-<<<<<<< HEAD
       if (isTouchEvent$2(evt)) {
-=======
-      if (isTouchEvent$1(evt)) {
->>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60
         var touchEvent = evt;
         return touchEvent.touches !== undefined && touchEvent.touches.length === 1 ? Optional.some(touchEvent.touches[0]).map(function (t) {
           return SugarPosition(t.clientX, t.clientY);
@@ -16794,11 +16581,7 @@
       };
     };
 
-<<<<<<< HEAD
     var global$6 = tinymce.util.Tools.resolve('tinymce.Resource');
-=======
-    var global$7 = tinymce.util.Tools.resolve('tinymce.Resource');
->>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60
 
     var isOldCustomEditor = function (spec) {
       return has$2(spec, 'init');
@@ -16815,11 +16598,7 @@
         behaviours: derive$1([
           config('custom-editor-events', [runOnAttached(function (component) {
               memReplaced.getOpt(component).each(function (ta) {
-<<<<<<< HEAD
                 (isOldCustomEditor(spec) ? spec.init(ta.element.dom) : global$6.load(spec.scriptId, spec.scriptUrl).then(function (init) {
-=======
-                (isOldCustomEditor(spec) ? spec.init(ta.element.dom) : global$7.load(spec.scriptId, spec.scriptUrl).then(function (init) {
->>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60
                   return init(ta.element.dom, spec.settings);
                 })).then(function (ea) {
                   initialValue.on(function (cvalue) {
@@ -16855,11 +16634,7 @@
       };
     };
 
-<<<<<<< HEAD
     var global$5 = tinymce.util.Tools.resolve('tinymce.util.Tools');
-=======
-    var global$6 = tinymce.util.Tools.resolve('tinymce.util.Tools');
->>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60
 
     var processors = objOf([
       defaulted('preprocess', identity$1),
@@ -16926,11 +16701,7 @@
 
     var defaultImageFileTypes = 'jpeg,jpg,jpe,jfi,jif,jfif,png,gif,bmp,webp';
     var filterByExtension = function (files, providersBackstage) {
-<<<<<<< HEAD
       var allowedImageFileTypes = global$5.explode(providersBackstage.getSetting('images_file_types', defaultImageFileTypes, 'string'));
-=======
-      var allowedImageFileTypes = global$6.explode(providersBackstage.getSetting('images_file_types', defaultImageFileTypes, 'string'));
->>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60
       var isFileInAllowedTypes = function (file) {
         return exists(allowedImageFileTypes, function (type) {
           return endsWith(file.name.toLowerCase(), '.' + type.toLowerCase());
@@ -19164,13 +18935,7 @@
       };
     };
 
-<<<<<<< HEAD
     var global$4 = tinymce.util.Tools.resolve('tinymce.geom.Rect');
-=======
-    var global$5 = tinymce.util.Tools.resolve('tinymce.geom.Rect');
-
-    var global$4 = tinymce.util.Tools.resolve('tinymce.dom.DomQuery');
->>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60
 
     var global$3 = tinymce.util.Tools.resolve('tinymce.util.Observable');
 
@@ -19191,7 +18956,6 @@
         height: scrollHeight < offsetHeight ? clientHeight : scrollHeight
       };
     };
-<<<<<<< HEAD
     var isTouchEvent$1 = function (e) {
       return isNonNullable(e.changedTouches);
     };
@@ -19199,19 +18963,11 @@
       if (isTouchEvent$1(e)) {
         var keys = 'screenX screenY pageX pageY clientX clientY'.split(' ');
         for (var i = 0; i < keys.length; i++) {
-=======
-    var updateWithTouchData = function (e) {
-      var keys, i;
-      if (e.changedTouches) {
-        keys = 'screenX screenY pageX pageY clientX clientY'.split(' ');
-        for (i = 0; i < keys.length; i++) {
->>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60
           e[keys[i]] = e.changedTouches[0][keys[i]];
         }
       }
     };
     function DragHelper (id, settings) {
-<<<<<<< HEAD
       var _a, _b, _c;
       var eventOverlay;
       var handleEvents = [];
@@ -19280,77 +19036,16 @@
         }
       };
       handleEvents.push(bind(handleElement, 'mousedown', start), bind(handleElement, 'touchstart', start));
-=======
-      var $eventOverlay;
-      var doc = settings.document || document;
-      var downButton;
-      var startX, startY;
-      var handleElement = doc.getElementById(settings.handle || id);
-      var start = function (e) {
-        var docSize = getDocumentSize(doc);
-        var cursor;
-        updateWithTouchData(e);
-        e.preventDefault();
-        downButton = e.button;
-        var handleElm = handleElement;
-        startX = e.screenX;
-        startY = e.screenY;
-        if (window.getComputedStyle) {
-          cursor = window.getComputedStyle(handleElm, null).getPropertyValue('cursor');
-        } else {
-          cursor = handleElm.runtimeStyle.cursor;
-        }
-        $eventOverlay = global$4('<div></div>').css({
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          width: docSize.width,
-          height: docSize.height,
-          zIndex: 2147483647,
-          opacity: 0.0001,
-          cursor: cursor
-        }).appendTo(doc.body);
-        global$4(doc).on('mousemove touchmove', drag).on('mouseup touchend', stop);
-        settings.start(e);
-      };
-      var drag = function (e) {
-        updateWithTouchData(e);
-        if (e.button !== downButton) {
-          return stop(e);
-        }
-        e.deltaX = e.screenX - startX;
-        e.deltaY = e.screenY - startY;
-        e.preventDefault();
-        settings.drag(e);
-      };
-      var stop = function (e) {
-        updateWithTouchData(e);
-        global$4(doc).off('mousemove touchmove', drag).off('mouseup touchend', stop);
-        $eventOverlay.remove();
-        if (settings.stop) {
-          settings.stop(e);
-        }
-      };
-      var destroy = function () {
-        global$4(handleElement).off();
-      };
-      global$4(handleElement).on('mousedown touchstart', start);
->>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60
       return { destroy: destroy };
     }
 
     var count = 0;
     var create$1 = function (currentRect, viewPortRect, clampRect, containerElm, action) {
       var dragHelpers;
-<<<<<<< HEAD
       var events = [];
       var prefix = 'tox-';
       var id = prefix + 'crid-' + count++;
       var container = SugarElement.fromDom(containerElm);
-=======
-      var prefix = 'tox-';
-      var id = prefix + 'crid-' + count++;
->>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60
       var handles = [
         {
           name: 'move',
@@ -19429,30 +19124,11 @@
         return getRelativeRect(clampRect, currentRect);
       };
       var moveRect = function (handle, startRect, deltaX, deltaY) {
-<<<<<<< HEAD
         var x = startRect.x + deltaX * handle.deltaX;
         var y = startRect.y + deltaY * handle.deltaY;
         var w = Math.max(20, startRect.w + deltaX * handle.deltaW);
         var h = Math.max(20, startRect.h + deltaY * handle.deltaH);
         var rect = currentRect = global$4.clamp({
-=======
-        var x, y, w, h, rect;
-        x = startRect.x;
-        y = startRect.y;
-        w = startRect.w;
-        h = startRect.h;
-        x += deltaX * handle.deltaX;
-        y += deltaY * handle.deltaY;
-        w += deltaX * handle.deltaW;
-        h += deltaY * handle.deltaH;
-        if (w < 20) {
-          w = 20;
-        }
-        if (h < 20) {
-          h = 20;
-        }
-        rect = currentRect = global$5.clamp({
->>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60
           x: x,
           y: y,
           w: w,
@@ -19467,10 +19143,7 @@
           var startRect;
           return DragHelper(id, {
             document: containerElm.ownerDocument,
-<<<<<<< HEAD
             root: getRootNode(container).dom,
-=======
->>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60
             handle: id + '-' + handle.name,
             start: function () {
               startRect = currentRect;
@@ -19480,7 +19153,6 @@
             }
           });
         };
-<<<<<<< HEAD
         var cropContainer = SugarElement.fromTag('div');
         setAll$1(cropContainer, {
           id: id,
@@ -19530,24 +19202,6 @@
           var activeHandle;
           each$1(handles, function (handle) {
             if (get$d(e.target, 'id') === id + '-' + handle.name) {
-=======
-        global$4('<div id="' + id + '" class="' + prefix + 'croprect-container"' + ' role="grid" aria-dropeffect="execute">').appendTo(containerElm);
-        global$6.each(blockers, function (blocker) {
-          global$4('#' + id, containerElm).append('<div id="' + id + '-' + blocker + '"class="' + prefix + 'croprect-block" style="display: none" data-mce-bogus="all">');
-        });
-        global$6.each(handles, function (handle) {
-          global$4('#' + id, containerElm).append('<div id="' + id + '-' + handle.name + '" class="' + prefix + 'croprect-handle ' + prefix + 'croprect-handle-' + handle.name + '"' + 'style="display: none" data-mce-bogus="all" role="gridcell" tabindex="-1"' + ' aria-label="' + handle.label + '" aria-grabbed="false" title="' + handle.label + '">');
-        });
-        dragHelpers = global$6.map(handles, createDragHelper);
-        repaint(currentRect);
-        global$4(containerElm).on('focusin focusout', function (e) {
-          global$4(e.target).attr('aria-grabbed', e.type === 'focus' ? 'true' : 'false');
-        });
-        global$4(containerElm).on('keydown', function (e) {
-          var activeHandle;
-          global$6.each(handles, function (handle) {
-            if (e.target.id === id + '-' + handle.name) {
->>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60
               activeHandle = handle;
               return false;
             }
@@ -19557,11 +19211,7 @@
             evt.preventDefault();
             moveRect(activeHandle, startRect, deltaX, deltaY);
           };
-<<<<<<< HEAD
           switch (e.raw.keyCode) {
-=======
-          switch (e.keyCode) {
->>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60
           case global$2.LEFT:
             moveAndBlock(e, activeHandle, currentRect, -10, 0);
             break;
@@ -19576,7 +19226,6 @@
             break;
           case global$2.ENTER:
           case global$2.SPACEBAR:
-<<<<<<< HEAD
             e.prevent();
             action();
             break;
@@ -19618,45 +19267,6 @@
               left: rect.w * handle.xMul + rect.x + 'px',
               top: rect.h * handle.yMul + rect.y + 'px'
             });
-=======
-            e.preventDefault();
-            action();
-            break;
-          }
-        });
-      };
-      var toggleVisibility = function (state) {
-        var selectors = global$6.map(handles, function (handle) {
-          return '#' + id + '-' + handle.name;
-        }).concat(global$6.map(blockers, function (blocker) {
-          return '#' + id + '-' + blocker;
-        })).join(',');
-        if (state) {
-          global$4(selectors, containerElm).show();
-        } else {
-          global$4(selectors, containerElm).hide();
-        }
-      };
-      var repaint = function (rect) {
-        var updateElementRect = function (name, rect) {
-          if (rect.h < 0) {
-            rect.h = 0;
-          }
-          if (rect.w < 0) {
-            rect.w = 0;
-          }
-          global$4('#' + id + '-' + name, containerElm).css({
-            left: rect.x,
-            top: rect.y,
-            width: rect.w,
-            height: rect.h
-          });
-        };
-        global$6.each(handles, function (handle) {
-          global$4('#' + id + '-' + handle.name, containerElm).css({
-            left: rect.w * handle.xMul + rect.x,
-            top: rect.h * handle.yMul + rect.y
->>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60
           });
         });
         updateElementRect('top', {
@@ -19701,7 +19311,6 @@
         repaint(currentRect);
       };
       var destroy = function () {
-<<<<<<< HEAD
         each$1(dragHelpers, function (helper) {
           return helper.destroy();
         });
@@ -19713,15 +19322,6 @@
       };
       render();
       var instance = __assign(__assign({}, global$3), {
-=======
-        global$6.each(dragHelpers, function (helper) {
-          helper.destroy();
-        });
-        dragHelpers = [];
-      };
-      render();
-      var instance = global$6.extend({
->>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60
         toggleVisibility: toggleVisibility,
         setClampRect: setClampRect,
         setRect: setRect,
@@ -19729,21 +19329,13 @@
         setInnerRect: setInnerRect,
         setViewPortRect: setViewPortRect,
         destroy: destroy
-<<<<<<< HEAD
       });
-=======
-      }, global$3);
->>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60
       return instance;
     };
     var CropRect = { create: create$1 };
 
     var loadImage = function (image) {
-<<<<<<< HEAD
       return new global$c(function (resolve) {
-=======
-      return new global$d(function (resolve) {
->>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60
         var loaded = function () {
           image.removeEventListener('load', loaded);
           resolve(image);
@@ -19764,11 +19356,7 @@
         }
       });
       var zoomState = Cell(1);
-<<<<<<< HEAD
       var cropRect = api$1();
-=======
-      var cropRect = value$1();
->>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60
       var rectState = Cell({
         x: 0,
         y: 0,
@@ -19801,11 +19389,7 @@
           memBg.getOpt(panel).each(function (bg) {
             setAll(bg.element, css);
           });
-<<<<<<< HEAD
           cropRect.run(function (cRect) {
-=======
-          cropRect.on(function (cRect) {
->>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60
             var rect = rectState.get();
             cRect.setRect({
               x: rect.x * zoom + left,
@@ -19858,11 +19442,7 @@
                 h: img.dom.naturalHeight
               };
               viewRectState.set(viewRect);
-<<<<<<< HEAD
               var rect = global$4.inflate(viewRect, -20, -20);
-=======
-              var rect = global$5.inflate(viewRect, -20, -20);
->>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60
               rectState.set(rect);
               if (lastViewRect.w !== viewRect.w || lastViewRect.h !== viewRect.h) {
                 zoomFit(panel, img);
@@ -19882,20 +19462,12 @@
         });
       };
       var showCrop = function () {
-<<<<<<< HEAD
         cropRect.run(function (cRect) {
-=======
-        cropRect.on(function (cRect) {
->>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60
           cRect.toggleVisibility(true);
         });
       };
       var hideCrop = function () {
-<<<<<<< HEAD
         cropRect.run(function (cRect) {
-=======
-        cropRect.on(function (cRect) {
->>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60
           cRect.toggleVisibility(false);
         });
       };
@@ -19917,12 +19489,8 @@
           },
           {
             dom: { tag: 'div' },
-<<<<<<< HEAD
             behaviours: derive$1([config('image-panel-crop-events', [
                 runOnAttached(function (comp) {
-=======
-            behaviours: derive$1([config('image-panel-crop-events', [runOnAttached(function (comp) {
->>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60
                   memContainer.getOpt(comp).each(function (container) {
                     var el = container.element.dom;
                     var cRect = CropRect.create({
@@ -19955,15 +19523,11 @@
                     });
                     cropRect.set(cRect);
                   });
-<<<<<<< HEAD
                 }),
                 runOnDetached(function () {
                   cropRect.clear();
                 })
               ])])
-=======
-                })])])
->>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60
           }
         ],
         containerBehaviours: derive$1([
@@ -20116,11 +19680,7 @@
         URL.revokeObjectURL(state.url);
       };
       var destroyStates = function (states) {
-<<<<<<< HEAD
         global$5.each(states, destroyState);
-=======
-        global$6.each(states, destroyState);
->>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60
       };
       var destroyTempState = function () {
         tempState.on(destroyState);
@@ -22327,11 +21887,7 @@
     var isElement = function (node) {
       return isNonNullable(node) && node.nodeType === 1;
     };
-<<<<<<< HEAD
     var trim = global$5.trim;
-=======
-    var trim = global$6.trim;
->>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60
     var hasContentEditableState = function (value) {
       return function (node) {
         if (isElement(node)) {
@@ -22439,11 +21995,7 @@
       }).isNone();
     };
     var getAllHistory = function () {
-<<<<<<< HEAD
       var unparsedHistory = global$8.getItem(STORAGE_KEY);
-=======
-      var unparsedHistory = global$9.getItem(STORAGE_KEY);
->>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60
       if (unparsedHistory === null) {
         return {};
       }
@@ -22467,11 +22019,7 @@
       if (!isRecordOfUrlArray(history)) {
         throw new Error('Bad format for history:\n' + JSON.stringify(history));
       }
-<<<<<<< HEAD
       global$8.setItem(STORAGE_KEY, JSON.stringify(history));
-=======
-      global$9.setItem(STORAGE_KEY, JSON.stringify(history));
->>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60
     };
     var getHistory = function (fileType) {
       var history = getAllHistory();
@@ -22494,11 +22042,7 @@
       return !!value;
     };
     var makeMap = function (value) {
-<<<<<<< HEAD
       return map$1(global$5.makeMap(value, /[, ]/), isTruthy);
-=======
-      return map$1(global$6.makeMap(value, /[, ]/), isTruthy);
->>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60
     };
     var getPicker = function (editor) {
       return Optional.from(getFilePickerCallback(editor)).filter(isFunction);
@@ -22591,11 +22135,7 @@
             menuItems: function () {
               return editor.ui.registry.getAll().menuItems;
             },
-<<<<<<< HEAD
             translate: global$e.translate,
-=======
-            translate: global$f.translate,
->>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60
             isDisabled: function () {
               return editor.mode.isReadOnly() || editor.ui.isDisabled();
             },
@@ -24324,15 +23864,9 @@
         }
       };
       editor.on('ProgressState', function (e) {
-<<<<<<< HEAD
         timer.on(global$f.clearTimeout);
         if (isNumber(e.time)) {
           var timerId = global$f.setEditorTimeout(editor, function () {
-=======
-        timer.on(global$g.clearTimeout);
-        if (isNumber(e.time)) {
-          var timerId = global$g.setEditorTimeout(editor, function () {
->>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60
             return toggle(e.state);
           }, e.time);
           timer.set(timerId);
@@ -25506,11 +25040,7 @@
     };
 
     var loadStylesheet = function (editor, stylesheetUrl, styleSheetLoader) {
-<<<<<<< HEAD
       return new global$c(function (resolve, reject) {
-=======
-      return new global$d(function (resolve, reject) {
->>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60
         styleSheetLoader.load(stylesheetUrl, resolve, reject);
         editor.on('remove', function () {
           return styleSheetLoader.unload(stylesheetUrl);
@@ -25525,15 +25055,9 @@
       var isInShadowRoot$1 = isInShadowRoot(SugarElement.fromDom(editor.getElement()));
       if (isInShadowRoot$1) {
         var shadowDomSkinCss = skinUrl + '/skin.shadowdom.min.css';
-<<<<<<< HEAD
         return loadStylesheet(editor, shadowDomSkinCss, global$b.DOM.styleSheetLoader);
       } else {
         return global$c.resolve();
-=======
-        return loadStylesheet(editor, shadowDomSkinCss, global$c.DOM.styleSheetLoader);
-      } else {
-        return global$d.resolve();
->>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60
       }
     };
     var loadSkin = function (isInline, editor) {
@@ -25542,11 +25066,7 @@
         editor.contentCSS.push(skinUrl + (isInline ? '/content.inline' : '/content') + '.min.css');
       }
       if (isSkinDisabled(editor) === false && isString(skinUrl)) {
-<<<<<<< HEAD
         global$c.all([
-=======
-        global$d.all([
->>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60
           loadUiSkins(editor, skinUrl),
           loadShadowDomUiSkins(editor, skinUrl)
         ]).then(fireSkinLoaded(editor), fireSkinLoadError(editor, 'Skin could not be loaded'));
@@ -27112,11 +26632,7 @@
 
     var InlineHeader = function (editor, targetElm, uiComponents, backstage, floatContainer) {
       var uiMothership = uiComponents.uiMothership, outerContainer = uiComponents.outerContainer;
-<<<<<<< HEAD
       var DOM = global$b.DOM;
-=======
-      var DOM = global$c.DOM;
->>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60
       var useFixedToolbarContainer = useFixedContainer(editor);
       var isSticky = isStickyToolbar(editor);
       var editorMaxWidthOpt = getMaxWidthSetting(editor).or(getWidth(editor));
@@ -27292,11 +26808,7 @@
         return ui.update(true);
       });
       editor.on('NodeChange keydown', function (e) {
-<<<<<<< HEAD
         global$f.requestAnimationFrame(function () {
-=======
-        global$g.requestAnimationFrame(function () {
->>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60
           return resizeContent(e);
         });
       });
@@ -27331,29 +26843,15 @@
         setupEvents(editor, targetElm, ui, toolbarPersist);
         editor.nodeChanged();
       };
-<<<<<<< HEAD
       editor.on('show', render);
       editor.on('hide', ui.hide);
       if (!toolbarPersist) {
         editor.on('focus', render);
-=======
-      var delayedRender = function () {
-        return global$g.setEditorTimeout(editor, render, 0);
-      };
-      editor.on('show', render);
-      editor.on('hide', ui.hide);
-      if (!toolbarPersist) {
-        editor.on('focus', delayedRender);
->>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60
         editor.on('blur', ui.hide);
       }
       editor.on('init', function () {
         if (editor.hasFocus() || toolbarPersist) {
-<<<<<<< HEAD
           render();
-=======
-          delayedRender();
->>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60
         }
       });
       setupReadonlyModeSwitch(editor, uiComponents);
@@ -27962,11 +27460,7 @@
                   return active(getRootNode(elem));
                 });
               });
-<<<<<<< HEAD
               global$f.setTimeout(function () {
-=======
-              global$g.setTimeout(function () {
->>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60
                 set$7(comp.element, 'width', newWidth + 'px');
               }, 0);
             }),
@@ -28187,11 +27681,7 @@
           });
         });
         editor.on('focusout', function (_e) {
-<<<<<<< HEAD
           global$f.setEditorTimeout(editor, function () {
-=======
-          global$g.setEditorTimeout(editor, function () {
->>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60
             if (search(sink.element).isNone() && search(contextbar.element).isNone()) {
               close();
             }
@@ -28495,11 +27985,7 @@
       };
     };
     var registerFormatButtons = function (editor) {
-<<<<<<< HEAD
       global$5.each([
-=======
-      global$6.each([
->>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60
         {
           name: 'bold',
           text: 'Bold',
@@ -28549,11 +28035,7 @@
       }
     };
     var registerCommandButtons = function (editor) {
-<<<<<<< HEAD
       global$5.each([
-=======
-      global$6.each([
->>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60
         {
           name: 'cut',
           text: 'Cut',
@@ -28611,11 +28093,7 @@
       });
     };
     var registerCommandToggleButtons = function (editor) {
-<<<<<<< HEAD
       global$5.each([{
-=======
-      global$6.each([{
->>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60
           name: 'blockquote',
           text: 'Blockquote',
           action: 'mceBlockQuote',
@@ -28635,11 +28113,7 @@
       registerCommandToggleButtons(editor);
     };
     var registerMenuItems$2 = function (editor) {
-<<<<<<< HEAD
       global$5.each([
-=======
-      global$6.each([
->>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60
         {
           name: 'bold',
           text: 'Bold',
@@ -28850,11 +28324,7 @@
       }
     };
     var transposeContentAreaContainer = function (element, pos) {
-<<<<<<< HEAD
       var containerPos = global$b.DOM.getPos(element);
-=======
-      var containerPos = global$c.DOM.getPos(element);
->>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60
       return transpose(pos, containerPos.x, containerPos.y);
     };
     var getPointAnchor = function (editor, e) {
@@ -28965,11 +28435,7 @@
     var setupiOSOverrides = function (editor) {
       var originalSelection = editor.selection.getRng();
       var selectionReset = function () {
-<<<<<<< HEAD
         global$f.setEditorTimeout(editor, function () {
-=======
-        global$g.setEditorTimeout(editor, function () {
->>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60
           editor.selection.setRng(originalSelection);
         }, 10);
         unbindEventListeners();
@@ -30236,11 +29702,7 @@
 
     var renderStatusbar = function (editor, providersBackstage) {
       var renderBranding = function () {
-<<<<<<< HEAD
         var label = global$e.translate([
-=======
-        var label = global$f.translate([
->>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60
           'Powered by {0}',
           'Tiny'
         ]);
@@ -30303,11 +29765,7 @@
       var deviceClasses = isTouch ? [touchPlatformClass] : [];
       var isToolbarBottom = isToolbarLocationBottom(editor);
       var uiContainer = getUiContainer(editor);
-<<<<<<< HEAD
       var dirAttributes = global$e.isRtl() ? { attributes: { dir: 'rtl' } } : {};
-=======
-      var dirAttributes = global$f.isRtl() ? { attributes: { dir: 'rtl' } } : {};
->>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60
       var verticalDirAttributes = { attributes: (_a = {}, _a[Attribute] = isToolbarBottom ? AttributeValue.BottomToTop : AttributeValue.TopToBottom, _a) };
       var lazyHeader = function () {
         return lazyOuterContainer.bind(OuterContainer.getHeader);
@@ -30480,11 +29938,7 @@
         [partThrobber]
       ]);
       var isHidden = isDistractionFree(editor);
-<<<<<<< HEAD
       var attributes = __assign(__assign({ role: 'application' }, global$e.isRtl() ? { dir: 'rtl' } : {}), isHidden ? { 'aria-hidden': 'true' } : {});
-=======
-      var attributes = __assign(__assign({ role: 'application' }, global$f.isRtl() ? { dir: 'rtl' } : {}), isHidden ? { 'aria-hidden': 'true' } : {});
->>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60
       var outerContainer = build$1(OuterContainer.sketch({
         dom: {
           tag: 'div',
@@ -31595,11 +31049,7 @@
               updateTabviewHeight(dialog, tabview, maxTabHeight);
               remove$6(tabview, 'visibility');
               showTab(allTabs, comp);
-<<<<<<< HEAD
               global$f.requestAnimationFrame(function () {
-=======
-              global$g.requestAnimationFrame(function () {
->>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60
                 updateTabviewHeight(dialog, tabview, maxTabHeight);
               });
             });
@@ -31861,11 +31311,7 @@
       return ModalDialog.parts.body(bodySpec);
     };
 
-<<<<<<< HEAD
     var isTouch = global$9.deviceType.isTouch();
-=======
-    var isTouch = global$a.deviceType.isTouch();
->>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60
     var hiddenHeader = function (title, close) {
       return {
         dom: {
@@ -33046,11 +32492,7 @@
     };
 
     function Theme () {
-<<<<<<< HEAD
       global$g.add('silver', function (editor) {
-=======
-      global$h.add('silver', function (editor) {
->>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60
         var _a = setup$3(editor), uiMothership = _a.uiMothership, backstage = _a.backstage, renderUI = _a.renderUI, getUi = _a.getUi;
         Autocompleter.register(editor, backstage.shared);
         var windowMgr = setup({

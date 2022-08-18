@@ -4,11 +4,7 @@
  * For LGPL see License.txt in the project root for license information.
  * For commercial licenses see https://www.tiny.cloud/
  *
-<<<<<<< HEAD
  * Version: 5.10.4 (2022-04-27)
-=======
- * Version: 5.10.0 (2021-10-11)
->>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60
  */
 (function () {
     'use strict';
@@ -42,7 +38,6 @@
       return editor.getParam('link_default_protocol', 'http', 'string');
     };
 
-<<<<<<< HEAD
     var rangeEqualsBracketOrSpace = function (rangeString) {
       return /^[(\[{ \u00a0]$/.test(rangeString);
     };
@@ -60,29 +55,12 @@
     };
     var handleEnter = function (editor) {
       return parseCurrentLine(editor, -1);
-=======
-    var rangeEqualsDelimiterOrSpace = function (rangeString, delimiter) {
-      return rangeString === delimiter || rangeString === ' ' || rangeString.charCodeAt(0) === 160;
-    };
-    var handleEclipse = function (editor) {
-      parseCurrentLine(editor, -1, '(');
-    };
-    var handleSpacebar = function (editor) {
-      parseCurrentLine(editor, 0, '');
-    };
-    var handleEnter = function (editor) {
-      parseCurrentLine(editor, -1, '');
->>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60
     };
     var scopeIndex = function (container, index) {
       if (index < 0) {
         index = 0;
       }
-<<<<<<< HEAD
       if (isTextNode(container)) {
-=======
-      if (container.nodeType === 3) {
->>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60
         var len = container.data.length;
         if (index > len) {
           index = len;
@@ -91,22 +69,14 @@
       return index;
     };
     var setStart = function (rng, container, offset) {
-<<<<<<< HEAD
       if (!isElement(container) || container.hasChildNodes()) {
-=======
-      if (container.nodeType !== 1 || container.hasChildNodes()) {
->>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60
         rng.setStart(container, scopeIndex(container, offset));
       } else {
         rng.setStartBefore(container);
       }
     };
     var setEnd = function (rng, container, offset) {
-<<<<<<< HEAD
       if (!isElement(container) || container.hasChildNodes()) {
-=======
-      if (container.nodeType !== 1 || container.hasChildNodes()) {
->>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60
         rng.setEnd(container, scopeIndex(container, offset));
       } else {
         rng.setEndAfter(container);
@@ -118,19 +88,11 @@
     var isPunctuation = function (char) {
       return /[?!,.;:]/.test(char);
     };
-<<<<<<< HEAD
     var parseCurrentLine = function (editor, endOffset) {
       var end, endContainer, bookmark, text, prev, len, rngText;
       var autoLinkPattern = getAutoLinkPattern(editor);
       var defaultLinkTarget = getDefaultLinkTarget(editor);
       if (editor.dom.getParent(editor.selection.getNode(), 'a[href]') !== null) {
-=======
-    var parseCurrentLine = function (editor, endOffset, delimiter) {
-      var end, endContainer, bookmark, text, prev, len, rngText;
-      var autoLinkPattern = getAutoLinkPattern(editor);
-      var defaultLinkTarget = getDefaultLinkTarget(editor);
-      if (editor.selection.getNode().tagName === 'A') {
->>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60
         return;
       }
       var rng = editor.selection.getRng().cloneRange();
@@ -152,19 +114,11 @@
         endContainer = prev;
       } else {
         endContainer = rng.endContainer;
-<<<<<<< HEAD
         if (!isTextNode(endContainer) && endContainer.firstChild) {
           while (!isTextNode(endContainer) && endContainer.firstChild) {
             endContainer = endContainer.firstChild;
           }
           if (isTextNode(endContainer)) {
-=======
-        if (endContainer.nodeType !== 3 && endContainer.firstChild) {
-          while (endContainer.nodeType !== 3 && endContainer.firstChild) {
-            endContainer = endContainer.firstChild;
-          }
-          if (endContainer.nodeType === 3) {
->>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60
             setStart(rng, endContainer, 0);
             setEnd(rng, endContainer, endContainer.nodeValue.length);
           }
@@ -181,13 +135,8 @@
         setEnd(rng, endContainer, end >= 1 ? end - 1 : 0);
         end -= 1;
         rngText = rng.toString();
-<<<<<<< HEAD
       } while (!rangeEqualsBracketOrSpace(rngText) && end - 2 >= 0);
       if (rangeEqualsBracketOrSpace(rng.toString())) {
-=======
-      } while (rngText !== ' ' && rngText !== '' && rngText.charCodeAt(0) !== 160 && end - 2 >= 0 && rngText !== delimiter);
-      if (rangeEqualsDelimiterOrSpace(rng.toString(), delimiter)) {
->>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60
         setStart(rng, endContainer, end);
         setEnd(rng, endContainer, start);
         end += 1;
@@ -242,13 +191,8 @@
         return;
       }
       editor.on('keypress', function (e) {
-<<<<<<< HEAD
         if (e.keyCode === 41 || e.keyCode === 93 || e.keyCode === 125) {
           return handleBracket(editor);
-=======
-        if (e.keyCode === 41) {
-          return handleEclipse(editor);
->>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60
         }
       });
       editor.on('keyup', function (e) {

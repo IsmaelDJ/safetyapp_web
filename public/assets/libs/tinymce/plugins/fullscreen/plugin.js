@@ -4,11 +4,7 @@
  * For LGPL see License.txt in the project root for license information.
  * For commercial licenses see https://www.tiny.cloud/
  *
-<<<<<<< HEAD
  * Version: 5.10.4 (2022-04-27)
-=======
- * Version: 5.10.0 (2021-10-11)
->>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60
  */
 (function () {
     'use strict';
@@ -1287,17 +1283,10 @@
         editorContainerStyle.height = fullscreenInfo.containerHeight;
         editorContainerStyle.top = fullscreenInfo.containerTop;
         editorContainerStyle.left = fullscreenInfo.containerLeft;
-<<<<<<< HEAD
         cleanup();
         setScrollPos(fullscreenInfo.scrollPos);
         fullscreenState.set(null);
         fireFullscreenStateChanged(editor, false);
-=======
-        setScrollPos(fullscreenInfo.scrollPos);
-        fullscreenState.set(null);
-        fireFullscreenStateChanged(editor, false);
-        cleanup();
->>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60
         editor.off('remove', cleanup);
       }
     };

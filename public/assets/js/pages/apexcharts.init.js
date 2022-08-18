@@ -741,11 +741,7 @@ __webpack_require__.r(__webpack_exports__);
 /******/ 				if(__webpack_require__.o(installedChunks, chunkId) && installedChunks[chunkId]) {
 /******/ 					installedChunks[chunkId][0]();
 /******/ 				}
-<<<<<<< HEAD
 /******/ 				installedChunks[chunkId] = 0;
-=======
-/******/ 				installedChunks[chunkIds[i]] = 0;
->>>>>>> 2a47303148ee144fd7a50e625d3a19b1a897ba60
 /******/ 			}
 /******/ 			return __webpack_require__.O(result);
 /******/ 		}
