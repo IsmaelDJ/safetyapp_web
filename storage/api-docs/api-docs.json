@@ -1,0 +1,387 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Total's SafetyApp API Documentation",
+        "version": "1.0"
+    },
+    "paths": {
+        "/api/v1/responses": {
+            "get": {
+                "tags": [
+                    "Quiz response"
+                ],
+                "summary": "List all response",
+                "description": "Get all response",
+                "responses": {
+                    "default": {
+                        "description": "Empty"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Quiz response"
+                ],
+                "summary": "Store response",
+                "description": "Store response",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "employee_id": {
+                                        "type": "integer"
+                                    },
+                                    "quiz_question_id": {
+                                        "type": "integer"
+                                    },
+                                    "correct": {
+                                        "type": "boolean"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "Nothing"
+                    }
+                }
+            }
+        },
+        "/api/v1/responses/{response}": {
+            "get": {
+                "tags": [
+                    "Quiz response"
+                ],
+                "summary": "Get response by id",
+                "operationId": "get_response_by_id",
+                "parameters": [
+                    {
+                        "name": "response",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "Nothing"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Quiz response"
+                ],
+                "summary": "Update response",
+                "description": "Update response",
+                "parameters": [
+                    {
+                        "name": "response",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "employee_id": {
+                                        "type": "integer"
+                                    },
+                                    "quiz_question_id": {
+                                        "type": "integer"
+                                    },
+                                    "correct": {
+                                        "type": "boolean"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "Nothing"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Quiz response"
+                ],
+                "summary": "Delete response",
+                "operationId": "delete_response",
+                "parameters": [
+                    {
+                        "name": "response",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "Nothing"
+                    }
+                }
+            }
+        },
+        "/api/v1/responses/{quiz_question_id}/quizzes": {
+            "get": {
+                "tags": [
+                    "Quiz response"
+                ],
+                "summary": "Get response by id",
+                "operationId": "get_response_by_quiz_question_id",
+                "parameters": [
+                    {
+                        "name": "quiz_question_id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "Nothing"
+                    }
+                }
+            }
+        },
+        "/api/v1/responses/{employee_id}/employees": {
+            "get": {
+                "tags": [
+                    "Quiz response"
+                ],
+                "summary": "Get response by id",
+                "operationId": "get_response_by_employee_id",
+                "parameters": [
+                    {
+                        "name": "employee_id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "Nothing"
+                    }
+                }
+            }
+        },
+        "/api/v1/quizzes": {
+            "get": {
+                "tags": [
+                    "Quiz question"
+                ],
+                "summary": "List all quiz",
+                "description": "Get all quiz",
+                "responses": {
+                    "default": {
+                        "description": "Empty"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Quiz question"
+                ],
+                "summary": "Store quiz",
+                "description": "Store quiz",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "category_id": {
+                                        "type": "integer"
+                                    },
+                                    "description": {
+                                        "type": "string"
+                                    },
+                                    "image": {
+                                        "type": "file"
+                                    },
+                                    "fr": {
+                                        "type": "file"
+                                    },
+                                    "ar": {
+                                        "type": "file"
+                                    },
+                                    "ng": {
+                                        "type": "file"
+                                    },
+                                    "correct": {
+                                        "type": "boolean"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "Nothing"
+                    }
+                }
+            }
+        },
+        "/api/v1/quizzes/{quiz}": {
+            "get": {
+                "tags": [
+                    "Quiz question"
+                ],
+                "summary": "Get quiz by id",
+                "operationId": "get_quiz_by_id",
+                "parameters": [
+                    {
+                        "name": "quiz",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "Nothing"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Quiz question"
+                ],
+                "summary": "Update quiz",
+                "description": "Update quiz",
+                "parameters": [
+                    {
+                        "name": "quiz",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "category_id": {
+                                        "type": "integer"
+                                    },
+                                    "description": {
+                                        "type": "string"
+                                    },
+                                    "image": {
+                                        "type": "file"
+                                    },
+                                    "fr": {
+                                        "type": "file"
+                                    },
+                                    "ar": {
+                                        "type": "file"
+                                    },
+                                    "ng": {
+                                        "type": "file"
+                                    },
+                                    "correct": {
+                                        "type": "boolean"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "default": {
+                        "description": "Nothing"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "Quiz question"
+                ],
+                "summary": "Delete quiz",
+                "operationId": "delete_quiz",
+                "parameters": [
+                    {
+                        "name": "quiz",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "Nothing"
+                    }
+                }
+            }
+        },
+        "/api/v1/quizzes/{category_id}/category": {
+            "get": {
+                "tags": [
+                    "Quiz question"
+                ],
+                "summary": "Get quiz by id",
+                "operationId": "get_quiz_by_category_id",
+                "parameters": [
+                    {
+                        "name": "category_id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "Nothing"
+                    }
+                }
+            }
+        },
+        "/": {
+            "get": {
+                "description": "Home page",
+                "responses": {
+                    "default": {
+                        "description": "Welcome page"
+                    }
+                }
+            }
+        }
+    }
+}
