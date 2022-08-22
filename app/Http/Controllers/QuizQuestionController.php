@@ -56,9 +56,7 @@ class QuizQuestionController extends Controller
  
 
         $quizQuestion->save();
-     return "donnee enregistrees";
-/**
-        return redirect()->route('quiz_questions.show', ['quiz_question' => $quizQuestion])->with('success', 'Question modifiée !');**/
+        return redirect()->route('quiz_questions.show', ['quiz_question' => $quizQuestion])->with('success', 'Question modifiée !');
     }
 
 
