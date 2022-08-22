@@ -28,8 +28,8 @@ class QuizQuestionController extends Controller
 
     public function store(Request $request)
     {
-        return 'hello';
-       /** $request->validate(
+        
+        $request->validate(
             [
                 'category_id'    => 'required',
                 'description'    => 'required',
@@ -40,7 +40,8 @@ class QuizQuestionController extends Controller
                 'correct'        => 'required'
             ]
         );
-
+        return 'hello apres validation';
+        /**
         $quizQuestion = new QuizQuestion();
         $quizQuestion->category_id = $request->category_id;
         $quizQuestion->description = $request->description;
