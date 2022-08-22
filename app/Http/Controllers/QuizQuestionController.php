@@ -40,13 +40,18 @@ class QuizQuestionController extends Controller
             ]
         );
 
+        $image = uploadFile($request, 'image', 'qz_question_image');
+        $fr    = uploadFile($request, 'fr','rule_fr');
+        $ar    = uploadFile($request, 'ar','rule_ar');
+        $ng    = uploadFile($request, 'ng', 'rule_ng');
+
         $quizQuestion = QuizQuestion::create([
             'category_id'     => $request->category_id,
             'description'     => $request->description,
-            'image'           => uploadFile($request, 'image', 'qz_question_image'),
-            'fr'              => uploadFile($request, 'fr', 'qz_question_fr'),
-            'ar'              => uploadFile($request, 'ar', 'qz_question_ar'),
-            'ng'              => uploadFile($request, 'ng', 'qz_question_ng'),
+            'image'           => $image,
+            'fr'              => $fr,
+            'ar'              => $ar,
+            'ng'              => $ng,
             'correct'         => $request->correct == 'true'?true:false
         ]);
 

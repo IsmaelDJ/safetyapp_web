@@ -123,7 +123,7 @@ class EmployeeQuizResponseController extends Controller
      */
     public function index()
     {
-        return response()->json(EmployeeQuizResponse::all(), 200);;
+        return response()->json(EmployeeQuizResponse::with(["employee", "quiz_question"])->get(), 200);;
     }
 
     /**

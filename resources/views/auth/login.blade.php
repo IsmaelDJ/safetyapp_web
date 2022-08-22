@@ -56,7 +56,7 @@
                                             <label for="username" class="form-label">Email</label>
                                             <input name="email" type="email" class="form-control @error('email') is-invalid @enderror" value="{{ old('email') }}" id="username" placeholder="Entrez votre adresse email" autocomplete="email" autofocus>
                                             @error('email')
-                                            <span class="invalid-feedback" role="alert">
+                                                <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
                                                 </span>
                                             @enderror
@@ -73,8 +73,8 @@
                                                 <input type="password" name="password" class="form-control  @error('password') is-invalid @enderror" id="userpassword" placeholder="Entrez votre mot de passe" aria-label="Password" aria-describedby="password-addon">
                                                 <button class="btn btn-light " type="button" id="password-addon"><i class="mdi mdi-eye-outline"></i></button>
                                                 @error('password')
-                                                <span class="invalid-feedback" role="alert">
-                                                        <strong>Mot de passe invalid</strong>
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
                                                     </span>
                                                 @enderror
                                             </div>
