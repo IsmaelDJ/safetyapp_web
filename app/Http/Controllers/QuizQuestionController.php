@@ -52,12 +52,12 @@ class QuizQuestionController extends Controller
         $quizQuestion->fr    = uploadFile($request, 'fr','rule_fr');
         $quizQuestion->ar    = uploadFile($request, 'ar','rule_ar');
         $quizQuestion->ng    = uploadFile($request, 'ng', 'rule_ng');
-        return $quizQuestion->image;
+       
  
-/**
-        $quizQuestion->save();
-    
 
+        $quizQuestion->save();
+     return "donnee enregistrees";
+/**
         return redirect()->route('quiz_questions.show', ['quiz_question' => $quizQuestion])->with('success', 'Question modifiée !');**/
     }
 
