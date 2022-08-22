@@ -64,7 +64,7 @@ class EmployeeQuizResponseController extends Controller
 
     public function show(EmployeeQuizResponse $employeeQuizResponse)
     {
-        $employeeQuizResponses = EmployeeQuizResponse::paginate();
+        $employeeQuizResponses = EmployeeQuizResponse::paginate(4);
         return view('employee_quiz_responses.show', compact('employeeQuizResponse', 'employeeQuizResponses'));
     }
 
