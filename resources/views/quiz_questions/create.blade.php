@@ -40,7 +40,8 @@ type="text/css"/>
                                 name="image" type="file" onchange="PreviewImage();">
                                 @error('image')
                                 <span class="invalid-feedback" role="alert">
-                                    <strong>Image invalide</strong>
+                                    <strong>
+                                        /strong>
                                 </span>
                                 @enderror
                             </div>
@@ -83,7 +84,10 @@ type="text/css"/>
                                 <select
                                     class="form-select form-select-lg @error('correct') is-invalid @enderror"
                                     name="correct">
-                                        <option value="true" selected>
+                                        <option selected>
+                                            Selectionner une reponse
+                                        </option>
+                                        <option value="true">
                                             Reponse correcte
                                         </option>
                                         <option value="false">

@@ -17,8 +17,7 @@ class EmployeeQuizResponseController extends Controller
 
     public function index()
     {
-        $employeeQuizResponses = EmployeeQuizResponse::paginate();
-        //dd($employeeQuizResponses->employee_quiz_responses->first()->quiz_question);
+        $employeeQuizResponses = EmployeeQuizResponse::paginate(employeeQuizResponsesPerPage());
         return view('employee_quiz_responses.index', compact('employeeQuizResponses'));
     }
 
@@ -64,7 +63,7 @@ class EmployeeQuizResponseController extends Controller
 
     public function show(EmployeeQuizResponse $employeeQuizResponse)
     {
-        $employeeQuizResponses = EmployeeQuizResponse::paginate(4);
+        $employeeQuizResponses = EmployeeQuizResponse::paginate(employeeQuizResponsesShowPerPage());
         return view('employee_quiz_responses.show', compact('employeeQuizResponse', 'employeeQuizResponses'));
     }
 

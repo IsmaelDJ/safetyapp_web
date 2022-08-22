@@ -40,20 +40,17 @@ class QuizQuestionController extends Controller
             ]
         );
 
-        $image = uploadFile($request, 'image', 'qz_question_image');
-        $fr    = uploadFile($request, 'fr','rule_fr');
-        $ar    = uploadFile($request, 'ar','rule_ar');
-        $ng    = uploadFile($request, 'ng', 'rule_ng');
+        $quizQuestion = new QuizQuestion();
+        $quizQuestion->category_id = $request->category_id;
+        $quizQuestion->description = $request->description;
+        $quizQuestion->correct     = $request->correct == 'true'?true:false;
 
-        $quizQuestion = QuizQuestion::create([
-            'category_id'     => $request->category_id,
-            'description'     => $request->description,
-            'image'           => $image,
-            'fr'              => $fr,
-            'ar'              => $ar,
-            'ng'              => $ng,
-            'correct'         => $request->correct == 'true'?true:false
-        ]);
+        $quizQuestion->image = uploadFile($request, 'image', 'qz_question_image');
+        $quizQuestion->fr    = uploadFile($request, 'fr','rule_fr');
+        $quizQuestion->ar    = uploadFile($request, 'ar','rule_ar');
+        $quizQuestion->ng    = uploadFile($request, 'ng', 'rule_ng');
+
+        $quizQuestion->save();
 
         return redirect()->route('quiz_questions.show', ['quiz_question' => $quizQuestion])->with('success', 'Question modifiée !');
     }
@@ -61,7 +58,7 @@ class QuizQuestionController extends Controller
 
     public function show(QuizQuestion $quizQuestion)
     {
-        $quizQuestions = QuizQuestion::paginate(quizResponsePerPage());
+        $quizQuestions = QuizQuestion::paginate(quizQuestionsShowPerPage());
         return view('quiz_questions.show', compact('quizQuestion', 'quizQuestions'));
     }
 

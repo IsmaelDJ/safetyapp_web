@@ -33,9 +33,18 @@ function quizzesPerPage(){
     return 8;
 }
 function quizQuestionsPerPage(){
+    return 8;
+}
+
+function quizQuestionsShowPerPage(){
     return 4;
 }
-function quizResponsePerPage(){
+
+function employeeQuizResponsesPerPage(){
+    return 4;
+}
+
+function employeeQuizResponsesShowPerPage(){
     return 4;
 }
 
