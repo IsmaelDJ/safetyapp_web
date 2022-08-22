@@ -146,7 +146,7 @@ class EmployeeQuizResponseController extends Controller
      */
     public function show($id)
     {
-        return response()->json(EmployeeQuizResponse::find($id), 200);;
+        return response()->json(EmployeeQuizResponse::with(["employee", "quiz_question"])->find($id));;
     }
 
     /**
@@ -159,7 +159,7 @@ class EmployeeQuizResponseController extends Controller
     public function update(Request $request, $id)
     {
         EmployeeQuizResponse::find($id)->update($request->all());
-        return response()->json("Success", 200);
+        return response()->json("Success");
     }
 
     /**
@@ -171,7 +171,7 @@ class EmployeeQuizResponseController extends Controller
     public function destroy($id)
     {
         EmployeeQuizResponse::find($id)->delete();
-        return response()->json("Success", 200);
+        return response()->json("Success");
     }
 
     /**
@@ -182,7 +182,7 @@ class EmployeeQuizResponseController extends Controller
      */
     public function quizzes($quiz_question_id)
     {
-        return response()->json(EmployeeQuizResponse::where('quiz_question_id', $quiz_question_id)->get(), 200);
+        return response()->json(EmployeeQuizResponse::with(["employee", "quiz_question"])->where('quiz_question_id', $quiz_question_id)->get(), 200);
     }
     /**
      * Get all responses from the current user.
@@ -192,6 +192,6 @@ class EmployeeQuizResponseController extends Controller
      */
     public function employees($employee_id)
     {
-        return response()->json(EmployeeQuizResponse::where('employee_id', $employee_id)->get(), 200);
+        return response()->json(EmployeeQuizResponse::with(["employee", "quiz_question"])->where('employee_id', $employee_id)->get(), 200);
     }
 }

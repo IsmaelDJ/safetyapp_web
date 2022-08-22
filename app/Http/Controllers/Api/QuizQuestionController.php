@@ -124,7 +124,7 @@ class QuizQuestionController extends Controller
      */
     public function index()
     {
-        return response()->json(QuizQuestion::all(), 200);
+        return response()->json(QuizQuestion::with("category")->all(), 200);
     }
 
     /**
