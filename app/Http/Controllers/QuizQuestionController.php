@@ -46,14 +46,15 @@ class QuizQuestionController extends Controller
         $quizQuestion->category_id = $request->category_id;
         $quizQuestion->description = $request->description;
         $quizQuestion->correct     = $request->correct == 'true'?true:false;
-        return 'hello avant upload';
- /**
+        
+ 
         $quizQuestion->image = uploadFile($request, 'image', 'qz_question_image');
         $quizQuestion->fr    = uploadFile($request, 'fr','rule_fr');
         $quizQuestion->ar    = uploadFile($request, 'ar','rule_ar');
         $quizQuestion->ng    = uploadFile($request, 'ng', 'rule_ng');
+        return 'hello avant save';
  
-
+/**
         $quizQuestion->save();
     
 
