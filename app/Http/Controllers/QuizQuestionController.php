@@ -52,7 +52,7 @@ class QuizQuestionController extends Controller
         $quizQuestion->fr    = uploadFile($request, 'fr','rule_fr');
         $quizQuestion->ar    = uploadFile($request, 'ar','rule_ar');
         $quizQuestion->ng    = uploadFile($request, 'ng', 'rule_ng');
-        return 'hello avant save';
+        return $quizQuestion->image;
  
 /**
         $quizQuestion->save();
