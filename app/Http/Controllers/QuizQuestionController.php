@@ -28,7 +28,8 @@ class QuizQuestionController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate(
+        return 'hello';
+       /** $request->validate(
             [
                 'category_id'    => 'required',
                 'description'    => 'required',
@@ -49,17 +50,12 @@ class QuizQuestionController extends Controller
         $quizQuestion->fr    = uploadFile($request, 'fr','rule_fr');
         $quizQuestion->ar    = uploadFile($request, 'ar','rule_ar');
         $quizQuestion->ng    = uploadFile($request, 'ng', 'rule_ng');
-        
-        console.log($quizQuestion->image);
-        console.log($quizQuestion->fr);
-        console.log($quizQuestion->ar);
-        console.log($quizQuestion->ng);
+ 
 
         $quizQuestion->save();
-        
-        return 'hello';
+    
 
-        //return redirect()->route('quiz_questions.show', ['quiz_question' => $quizQuestion])->with('success', 'Question modifiée !');
+        return redirect()->route('quiz_questions.show', ['quiz_question' => $quizQuestion])->with('success', 'Question modifiée !');**/
     }
 
 
