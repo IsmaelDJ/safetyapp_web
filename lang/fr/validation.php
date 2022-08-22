@@ -106,7 +106,7 @@ return [
     'required_without_all' => 'L\':attribute field is required when none of :values are present.',
     'same' => 'L\':attribute et :other must match.',
     'size' => [
-        'numeric' => 'L\':attribute must be :size.',
+        'numeric' => 'L\':attribute doit être :size.',
         'file' => 'L\':attribute must be :size kilobytes.',
         'string' => 'L\':attribute must be :size characters.',
         'array' => 'L\':attribute must contain :size éléments.',
