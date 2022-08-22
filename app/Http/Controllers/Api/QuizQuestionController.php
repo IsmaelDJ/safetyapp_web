@@ -135,15 +135,33 @@ class QuizQuestionController extends Controller
      */
     public function store(Request $request)
     {
-    QuizQuestion::create([
-            'category_id'     => $request->category_id,
-            'description'     => $request->description,
-            'image'           => uploadFile($request, 'image', 'qz_question_image'),
-            'fr'              => uploadFile($request, 'fr', 'qz_question_fr'),
-            'ar'              => uploadFile($request, 'ar', 'qz_question_ar'),
-            'ng'              => uploadFile($request, 'ng', 'qz_question_ng'),
-            'correct'         => $request->correct == 'true'?true:false
-        ]);
+        $invalid = $request->validate(
+            [
+                'category_id'    => 'required',
+                'description'    => 'required',
+                'image'          => 'required|image|mimes:jpeg,png,jpg,gif',
+                'fr'             => 'required|mimes:application/octet-stream,audio/mpeg,mpga,mp3,wav',
+                'ar'             => 'required|mimes:application/octet-stream,audio/mpeg,mpga,mp3,wav',
+                'ng'             => 'required|mimes:application/octet-stream,audio/mpeg,mpga,mp3,wav',
+                'correct'        => 'required'
+            ]
+        );
+
+        if($invalid){
+            return response()->json($invalid);
+        }
+
+        $quizQuestion = new QuizQuestion();
+        $quizQuestion->category_id = $request->category_id;
+        $quizQuestion->description = $request->description;
+        $quizQuestion->correct     = $request->correct == 'true'?true:false;
+
+        $quizQuestion->image = uploadFile($request, 'image', 'qz_question_image');
+        $quizQuestion->fr    = uploadFile($request, 'fr','rule_fr');
+        $quizQuestion->ar    = uploadFile($request, 'ar','rule_ar');
+        $quizQuestion->ng    = uploadFile($request, 'ng', 'rule_ng');
+
+        $quizQuestion->save();
 
         return response()->json("Success", 201);
     }
