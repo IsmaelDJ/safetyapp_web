@@ -40,8 +40,7 @@ type="text/css"/>
                                 name="image" type="file" onchange="PreviewImage();">
                                 @error('image')
                                 <span class="invalid-feedback" role="alert">
-                                    <strong>
-                                        /strong>
+                                    <strong>Image invalide</strong>
                                 </span>
                                 @enderror
                             </div>
