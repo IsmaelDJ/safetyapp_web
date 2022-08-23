@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('quiz_questions', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('category_id')->constrained();
+            $table->foreignId('category_id')->constrained()->cascadeOnDelete();
             $table->text('description');
             $table->string('image');
             $table->string('fr');
