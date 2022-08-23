@@ -107,7 +107,10 @@ if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>"
                                     name="correct">
-                                        <option value="true" selected>
+                                        <option selected>
+                                            Selectionner une reponse
+                                        </option>
+                                        <option value="true">
                                             Reponse correcte
                                         </option>
                                         <option value="false">
