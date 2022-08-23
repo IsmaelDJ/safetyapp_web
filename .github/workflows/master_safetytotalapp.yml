@@ -56,5 +56,5 @@ jobs:
         with:
           app-name: 'SafetyTotalApp'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_67A4CB7DF7B04306A5B572376656125C }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_39921D5C1AB846AFBC6F33BC38FC1C49 }}
           package: .
