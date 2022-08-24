@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Models\EmployeeQuizResponse;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\QuizQuestionController;
 use App\Http\Controllers\Api\EmployeeQuizResponseController;
 
@@ -22,44 +23,47 @@ use App\Http\Controllers\Api\EmployeeQuizResponseController;
 |
 */
 
-Route::group([
-    'prefix' => 'v1'
-], function () {
+Route::post('/login', [AuthController::class, 'login']);
 
-    //categories
-    Route::get('categories', function () {
-        return Category::get();
+Route::middleware(['auth:sanctum'])->group(function () {
+    Route::group([
+        'prefix' => 'v1'
+    ], function () {
+        Route::get('/user', function (Request $request) {
+            return $request->user();
+        });
+
+        //categories
+        Route::get('categories', function () {
+            return Category::get();
+        });
+        Route::get('categories/{id}', function ($id) {
+            return Category::where('id', $id)->first();
+        });
+        Route::get('categories/{id}/rules', function ($id) {
+            return Rule::where('category_id', $id)->get();
+        });
+
+        //Rule
+        Route::get('rules', function () {
+            return Rule::get();
+        });
+        Route::get('rules/{id}', function ($id) {
+            return Rule::where('id', $id)->first();
+        });
+
+        //Quiz question
+
+        Route::apiResource('quizzes', QuizQuestionController::class);
+
+        Route::get('quizzes/{category_id}/category', [QuizQuestionController::class, 'category']);
+
+        //Quiz response
+        Route::apiResource('responses', EmployeeQuizResponseController::class);
+
+        Route::get('responses/{id}/quizzes', [EmployeeQuizResponseController::class, 'quizzes']);
+        Route::get('responses/{id}/employees', [EmployeeQuizResponseController::class, 'employees']);
     });
-    Route::get('categories/{id}', function ($id) {
-        return Category::where('id', $id)->first();
-    });
-    Route::get('categories/{id}/rules', function ($id) {
-        return Rule::where('category_id', $id)->get();
-    });
-
-    //Rule
-    Route::get('rules', function () {
-        return Rule::get();
-    });
-    Route::get('rules/{id}', function ($id) {
-        return Rule::where('id', $id)->first();
-    });
-
-    //Quiz question
-
-    Route::apiResource('quizzes', QuizQuestionController::class);
-
-    Route::get('quizzes/{category_id}/category', [QuizQuestionController::class, 'category']);
-
-    //Quiz response
-    Route::apiResource('responses', EmployeeQuizResponseController::class);
-
-    Route::get('responses/{id}/quizzes', [EmployeeQuizResponseController::class, 'quizzes']);
-    Route::get('responses/{id}/employees', [EmployeeQuizResponseController::class, 'employees']);
-});
-
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
 });
 
 if (env('APP_ENV') === 'production') {

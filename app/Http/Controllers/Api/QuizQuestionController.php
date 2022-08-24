@@ -135,7 +135,7 @@ class QuizQuestionController extends Controller
      */
     public function store(Request $request)
     {
-        $invalid = $request->validate(
+        $validation = $request->validate(
             [
                 'category_id'    => 'required',
                 'description'    => 'required',
@@ -147,8 +147,12 @@ class QuizQuestionController extends Controller
             ]
         );
 
-        if($invalid){
-            return response()->json($invalid);
+        if($validation->fails()){
+            return response()->json([
+                    'status' => false,
+                    'message'=> 'Validation error',
+                    'errors' => $validation->errors()
+            ], 401);
         }
 
         $quizQuestion = new QuizQuestion();
@@ -217,13 +221,21 @@ class QuizQuestionController extends Controller
             $quizQuestion->ng = uploadFile($request, 'ng', 'qz_question_ng');
         }
 
-        $request->validate(
+        $validation = $request->validate(
             [
                 'category_id'    => 'required',
                 'description'    => 'required',
                 'correct'        => 'required'
             ]
         );
+
+        if($validation->fails()){
+            return response()->json([
+                    'status' => false,
+                    'message'=> 'Validation error',
+                    'errors' => $validation->errors()
+            ], 401);
+        }
 
         $quizQuestion->category_id = $request->category_id;
         $quizQuestion->description = $request->description;

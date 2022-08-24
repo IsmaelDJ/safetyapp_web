@@ -59,6 +59,7 @@ Route::resource('employee_quiz_responses', EmployeeQuizResponseController::class
 Route::get('employee_quiz_responses', [EmployeeQuizResponseController::class,'index'])->name('employee_quiz_responses.index');
 Route::get('employee_quiz_responses/{quiz_question_id}/quizzes', [EmployeeQuizResponseController::class,'quizzes'])->name('employee_quiz_responses.quizzes');
 Route::get('employee_quiz_responses/{employee_id}/employees', [EmployeeQuizResponseController::class,'employees'])->name('employee_quiz_responses.employees');
+
 Route::get('{any}', [App\Http\Controllers\HomeController::class, 'index'])->name('index');
 
 if (env('APP_ENV') === 'production') {
