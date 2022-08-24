@@ -123,7 +123,6 @@ class QuizQuestionController extends Controller
     public function destroy(QuizQuestion $quizQuestion)
     {
         $quizQuestion->delete();
-        $quizQuestions = QuizQuestion::paginate(quizQuestionsPerPage());
-        return redirect()->route('quiz_questions.show', compact('quizQuestion', 'quizQuestions'))->with('success', "Question supprimée !");
+        return redirect()->route('quiz_questions.index')->with('success', "Question supprimée !");
     }
 }

@@ -62,4 +62,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+if (env('APP_ENV') === 'production') {
+    URL::forceScheme('https');
+}
 
