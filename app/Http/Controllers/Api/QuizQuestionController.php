@@ -6,114 +6,6 @@ use App\Models\QuizQuestion;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-/**
- * @OA\Get(
- *     path="/api/v1/quizzes",
- *     summary="List all quiz",
- *     tags={"Quiz question"},
- *     description="Get all quiz",
- *     @OA\Response(response="default", description="Empty")
- * )
- * @OA\Get(
- *   path="/api/v1/quizzes/{quiz}",
- *   tags={"Quiz question"},
- *   summary="Get quiz by id",
- *   operationId="get_quiz_by_id",
- *   @OA\Parameter(
- *      name="quiz",
- *      in="path",
- *      required=true,
- *      @OA\Schema(
- *           type="integer"
- *      )
- *   ),
- *  @OA\Response(response="default", description="Nothing")
- * )
- * @OA\Get(
- *   path="/api/v1/quizzes/{category_id}/category",
- *   tags={"Quiz question"},
- *   summary="Get quiz by id",
- *   operationId="get_quiz_by_category_id",
- *   @OA\Parameter(
- *      name="category_id",
- *      in="path",
- *      required=true,
- *      @OA\Schema(
- *           type="integer"
- *      )
- *   ),
- *  @OA\Response(response="default", description="Nothing")
- * )
- *  @OA\Post(
- *     path="/api/v1/quizzes",
- *     summary="Store quiz",
- *     tags={"Quiz question"},
- *     description="Store quiz",
- *      @OA\RequestBody(
- *          required=true,
- *          @OA\MediaType(
- *              mediaType="multipart/form-data",
- *              @OA\Schema(
- *                  @OA\Property(property="category_id", type="integer"),
- *                  @OA\Property(property="description", type="string"),
- *                  @OA\Property(property="image", type="file"),
- *                  @OA\Property(property="fr", type="file"),
- *                  @OA\Property(property="ar", type="file"),
- *                  @OA\Property(property="ng", type="file"),
- *                  @OA\Property(property="correct", type="boolean"),
- *               ),
- *           ),
- *       ),
- *     @OA\Response(response="default", description="Nothing")
- * )
- * @OA\Put(
- *     path="/api/v1/quizzes/{quiz}",
- *     summary="Update quiz",
- *     tags={"Quiz question"},
- *     description="Update quiz",
- *     @OA\Parameter(
- *          name="quiz",
- *          in="path",
- *          required=true,
- *          @OA\Schema(
- *           type="integer"
- *          )
- *      ),
- *      @OA\RequestBody(
- *          required=true,
- *          @OA\MediaType(
- *              mediaType="multipart/form-data",
- *              @OA\Schema(
- *                  @OA\Property(property="category_id", type="integer"),
- *                  @OA\Property(property="description", type="string"),
- *                  @OA\Property(property="image", type="file"),
- *                  @OA\Property(property="fr", type="file"),
- *                  @OA\Property(property="ar", type="file"),
- *                  @OA\Property(property="ng", type="file"),
- *                  @OA\Property(property="correct", type="boolean"),
- *               ),
- *           ),
- *       ),
- *     @OA\Response(response="default", description="Nothing")
- * )
- *
- * @OA\Delete(
- *   path="/api/v1/quizzes/{quiz}",
- *   tags={"Quiz question"},
- *   summary="Delete quiz",
- *   operationId="delete_quiz",
- *   @OA\Parameter(
- *      name="quiz",
- *      in="path",
- *      required=true,
- *      @OA\Schema(
- *           type="integer"
- *      )
- *   ),
- *  @OA\Response(response="default", description="Nothing")
- * )
- * */
-
 class QuizQuestionController extends Controller
 {
 
@@ -133,7 +25,7 @@ class QuizQuestionController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+   /* public function store(Request $request)
     {
         $validation = $request->validate(
             [
@@ -168,7 +60,7 @@ class QuizQuestionController extends Controller
         $quizQuestion->save();
 
         return response()->json("Success", 201);
-    }
+    }*/
 
     /**
      * Display the specified resource.
@@ -188,7 +80,7 @@ class QuizQuestionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    /* public function update(Request $request, $id)
     {
         $quizQuestion = QuizQuestion::find($id);
 
@@ -252,11 +144,11 @@ class QuizQuestionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    /*public function destroy($id)
     {
         QuizQuestion::find($id)->delete();
         return response()->json("Success", 200);
-    }
+    } */
     /**
      * Show question by rule's category.
      *

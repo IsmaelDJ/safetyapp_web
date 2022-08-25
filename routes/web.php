@@ -62,6 +62,6 @@ Route::get('employee_quiz_responses/{employee_id}/employees', [EmployeeQuizRespo
 
 Route::get('{any}', [App\Http\Controllers\HomeController::class, 'index'])->name('index');
 
-if (env('APP_ENV') === 'production') {
-    URL::forceScheme('https');
-}
+
+URL::forceScheme('https');
+

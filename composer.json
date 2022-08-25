@@ -9,13 +9,15 @@
         "darkaonline/l5-swagger": "^8.3",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
+        "illuminate/console": "^9.26",
         "infyomlabs/laravel-generator": "^4.0",
         "laravel/forge-cli": "^1.4",
         "laravel/forge-sdk": "^3.13",
         "laravel/framework": "^9.0",
         "laravel/sanctum": "^3.0",
         "laravel/tinker": "^2.5",
-        "laravel/ui": "^3.3"
+        "laravel/ui": "^3.3",
+        "ramsey/uuid": "^4.4"
     },
     "require-dev": {
         "spatie/laravel-ignition": "^1.0",
