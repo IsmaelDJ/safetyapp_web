@@ -23,7 +23,7 @@ class AuthController extends Controller
     
             $employee = Employee::where('uid', $request['uid'])->firstOrFail();
     
-            if(!($employee->password == $request('password'))){
+            if(!($employee->password == $request['password'])){
                 return response()->json([
                     'message' => 'Mot de passe incorrect'
                 ], 401);
