@@ -17,6 +17,7 @@ class AuthController extends Controller
         try{
             if (!$request->only('uid', 'password')) {
                 return response()->json([
+                    'status' => false,
                     'message' => 'Information de connection invalid'
                 ], 401);
             }
@@ -25,6 +26,7 @@ class AuthController extends Controller
     
             if(!($employee->password == $request['password'])){
                 return response()->json([
+                    'status' => false,
                     'message' => 'Mot de passe incorrect'
                 ], 401);
             }
@@ -37,6 +39,7 @@ class AuthController extends Controller
         }catch(Throwable $th){
            
             return response()->json([
+                'status'  => false,
                 'message' => $th->getMessage()
             ], 500);
         }
