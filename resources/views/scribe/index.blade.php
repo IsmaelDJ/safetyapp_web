@@ -176,14 +176,14 @@ You can switch the language used with the tabs at the top right (or from the nav
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost/api/v1/responses/et" \
+    "http://localhost/api/v1/responses/minima" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/v1/responses/et"
+    "http://localhost/api/v1/responses/minima"
 );
 
 const headers = {
@@ -245,7 +245,7 @@ fetch(url, {
                 <input type="text"
                name="id"
                data-endpoint="DELETEapi-v1-responses--id-"
-               value="et"
+               value="minima"
                data-component="url" hidden>
     <br>
 <p>The ID of the response.</p>
@@ -265,14 +265,14 @@ fetch(url, {
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost/api/v1/responses/odit/quizzes" \
+    --get "http://localhost/api/v1/responses/magni/quizzes" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/v1/responses/odit/quizzes"
+    "http://localhost/api/v1/responses/magni/quizzes"
 );
 
 const headers = {
@@ -351,7 +351,7 @@ access-control-allow-origin: *
                 <input type="text"
                name="id"
                data-endpoint="GETapi-v1-responses--id--quizzes"
-               value="odit"
+               value="magni"
                data-component="url" hidden>
     <br>
 <p>The ID of the response.</p>
@@ -371,14 +371,14 @@ access-control-allow-origin: *
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost/api/v1/responses/quaerat/employees" \
+    --get "http://localhost/api/v1/responses/quo/employees" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/v1/responses/quaerat/employees"
+    "http://localhost/api/v1/responses/quo/employees"
 );
 
 const headers = {
@@ -457,7 +457,7 @@ access-control-allow-origin: *
                 <input type="text"
                name="id"
                data-endpoint="GETapi-v1-responses--id--employees"
-               value="quaerat"
+               value="quo"
                data-component="url" hidden>
     <br>
 <p>The ID of the response.</p>
@@ -518,9 +518,9 @@ access-control-allow-origin: *
 &lt;head&gt;
     &lt;meta charset=&quot;UTF-8&quot;&gt;
     &lt;title&gt;Total Safety API&lt;/title&gt;
-    &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;https://localhost/docs/asset/swagger-ui.css?v=d6de32fafed0ea75ef760baa8ebe2bda&quot;&gt;
-    &lt;link rel=&quot;icon&quot; type=&quot;image/png&quot; href=&quot;https://localhost/docs/asset/favicon-32x32.png?v=40d4f2c38d1cd854ad463f16373cbcb6&quot; sizes=&quot;32x32&quot;/&gt;
-    &lt;link rel=&quot;icon&quot; type=&quot;image/png&quot; href=&quot;https://localhost/docs/asset/favicon-16x16.png?v=f0ae831196d55d8f4115b6c5e8ec5384&quot; sizes=&quot;16x16&quot;/&gt;
+    &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;http://localhost/docs/asset/swagger-ui.css?v=d6de32fafed0ea75ef760baa8ebe2bda&quot;&gt;
+    &lt;link rel=&quot;icon&quot; type=&quot;image/png&quot; href=&quot;http://localhost/docs/asset/favicon-32x32.png?v=40d4f2c38d1cd854ad463f16373cbcb6&quot; sizes=&quot;32x32&quot;/&gt;
+    &lt;link rel=&quot;icon&quot; type=&quot;image/png&quot; href=&quot;http://localhost/docs/asset/favicon-16x16.png?v=f0ae831196d55d8f4115b6c5e8ec5384&quot; sizes=&quot;16x16&quot;/&gt;
     &lt;style&gt;
     html
     {
@@ -545,18 +545,18 @@ access-control-allow-origin: *
 &lt;body&gt;
 &lt;div id=&quot;swagger-ui&quot;&gt;&lt;/div&gt;
 
-&lt;script src=&quot;https://localhost/docs/asset/swagger-ui-bundle.js?v=e0ae76d9795806abae1f7781d89d4f4b&quot;&gt;&lt;/script&gt;
-&lt;script src=&quot;https://localhost/docs/asset/swagger-ui-standalone-preset.js?v=8e0e2470d0530680f6f16c7817337891&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;http://localhost/docs/asset/swagger-ui-bundle.js?v=e0ae76d9795806abae1f7781d89d4f4b&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;http://localhost/docs/asset/swagger-ui-standalone-preset.js?v=8e0e2470d0530680f6f16c7817337891&quot;&gt;&lt;/script&gt;
 &lt;script&gt;
     window.onload = function() {
         // Build a system
         const ui = SwaggerUIBundle({
             dom_id: '#swagger-ui',
-            url: &quot;https://localhost/docs/api-docs.json&quot;,
+            url: &quot;http://localhost/docs/api-docs.json&quot;,
             operationsSorter: null,
             configUrl: null,
             validatorUrl: null,
-            oauth2RedirectUrl: &quot;https://localhost/api/oauth2-callback&quot;,
+            oauth2RedirectUrl: &quot;http://localhost/api/oauth2-callback&quot;,
 
             requestInterceptor: function(request) {
                 request.headers['X-CSRF-TOKEN'] = '';
@@ -1814,14 +1814,14 @@ access-control-allow-origin: *
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost/api/v1/quizzes/voluptatem" \
+    --get "http://localhost/api/v1/quizzes/earum" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/v1/quizzes/voluptatem"
+    "http://localhost/api/v1/quizzes/earum"
 );
 
 const headers = {
@@ -1900,7 +1900,7 @@ access-control-allow-origin: *
                 <input type="text"
                name="id"
                data-endpoint="GETapi-v1-quizzes--id-"
-               value="voluptatem"
+               value="earum"
                data-component="url" hidden>
     <br>
 <p>The ID of the quiz.</p>
@@ -1920,14 +1920,14 @@ access-control-allow-origin: *
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost/api/v1/quizzes/possimus/category" \
+    --get "http://localhost/api/v1/quizzes/deserunt/category" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/v1/quizzes/possimus/category"
+    "http://localhost/api/v1/quizzes/deserunt/category"
 );
 
 const headers = {
@@ -2006,7 +2006,7 @@ access-control-allow-origin: *
                 <input type="text"
                name="category_id"
                data-endpoint="GETapi-v1-quizzes--category_id--category"
-               value="possimus"
+               value="deserunt"
                data-component="url" hidden>
     <br>
 <p>The ID of the category.</p>
@@ -2320,14 +2320,14 @@ fetch(url, {
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost/api/v1/responses/impedit" \
+    --get "http://localhost/api/v1/responses/facilis" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/v1/responses/impedit"
+    "http://localhost/api/v1/responses/facilis"
 );
 
 const headers = {
@@ -2435,7 +2435,7 @@ access-control-allow-origin: *
                 <input type="text"
                name="id"
                data-endpoint="GETapi-v1-responses--id-"
-               value="impedit"
+               value="facilis"
                data-component="url" hidden>
     <br>
 <p>The ID of the response.</p>
@@ -2455,14 +2455,14 @@ access-control-allow-origin: *
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost/api/v1/responses/consequatur" \
+    "http://localhost/api/v1/responses/dolore" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/v1/responses/consequatur"
+    "http://localhost/api/v1/responses/dolore"
 );
 
 const headers = {
@@ -2528,7 +2528,7 @@ fetch(url, {
                 <input type="text"
                name="id"
                data-endpoint="PUTapi-v1-responses--id-"
-               value="consequatur"
+               value="dolore"
                data-component="url" hidden>
     <br>
 <p>The ID of the response.</p>
