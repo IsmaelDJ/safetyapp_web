@@ -30,25 +30,56 @@ use App\Http\Controllers\Api\EmployeeQuizResponseController;
 Route::group([
     'prefix' => 'v1'
 ], function () {
+    /**
+     * Logoin with uid & password
+     *
+     * @return \Illuminate\Http\Response
+     */
     Route::post('/login', [AuthController::class, 'login']);
-    Route::get('employees', function () {
-        return response()->json(Employee::get());
-    });
-    //categories
+    
+    /**
+     * Get list of rule's categories
+     *
+     * @return \Illuminate\Http\Response
+     */
     Route::get('categories', function () {
         return Category::get();
     });
+
+    /**
+     * Get catodry with current id
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
     Route::get('categories/{id}', function ($id) {
         return Category::where('id', $id)->first();
     });
+
+    /**
+     * Get all rules of current category
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
     Route::get('categories/{id}/rules', function ($id) {
         return Rule::where('category_id', $id)->get();
     });
 
-    //Rule
+    /**
+     * Get all rules
+     *
+     * @return \Illuminate\Http\Response
+     */
     Route::get('rules', function () {
         return Rule::get();
     });
+
+    /**
+     * Get rule with current id
+     *
+     * @return \Illuminate\Http\Response
+     */
     Route::get('rules/{id}', function ($id) {
         return Rule::where('id', $id)->first();
     });
@@ -57,6 +88,7 @@ Route::group([
     Route::get('quizzes',  [QuizQuestionController::class, 'index']);
     Route::get('quizzes/{id}', [QuizQuestionController::class, 'show']);
     Route::get('quizzes/{employee_id}/notanswered', [QuizQuestionController::class, 'notanswered']);
+    Route::get('quizzes/{employee_id}/notanswered', [QuizQuestionController::class, 'notanswereds']);
 
     Route::get('quizzes/{category_id}/category', [QuizQuestionController::class, 'category']);
 
@@ -67,6 +99,6 @@ Route::group([
     Route::get('responses/{id}/employees', [EmployeeQuizResponseController::class, 'employees']);
 });
 
-URL::forceScheme('https');
+//URL::forceScheme('https');
 
 

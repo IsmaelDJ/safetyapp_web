@@ -8,7 +8,7 @@ endpoints:
       - DELETE
     uri: 'api/v1/responses/{id}'
     metadata:
-      title: 'Remove the specified resource from storage.'
+      title: 'Remove the employee_quiz_response from storage.'
       description: ''
       authenticated: false
       custom: []
@@ -20,7 +20,7 @@ endpoints:
         name: id
         description: 'The ID of the response.'
         required: true
-        example: et
+        example: placeat
         type: string
         custom: []
     queryParameters: []
@@ -44,7 +44,7 @@ endpoints:
         name: id
         description: 'The ID of the response.'
         required: true
-        example: assumenda
+        example: ea
         type: string
         custom: []
     queryParameters: []
@@ -57,7 +57,7 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '46'
+          x-ratelimit-remaining: '35'
           access-control-allow-origin: '*'
         description: null
     responseFields: []
@@ -78,7 +78,7 @@ endpoints:
         name: id
         description: 'The ID of the response.'
         required: true
-        example: iusto
+        example: voluptatem
         type: string
         custom: []
     queryParameters: []
@@ -91,7 +91,7 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '45'
+          x-ratelimit-remaining: '34'
           access-control-allow-origin: '*'
         description: null
     responseFields: []
@@ -246,7 +246,7 @@ endpoints:
       - GET
     uri: api/v1/categories
     metadata:
-      title: ''
+      title: 'Get list of rule''s categories'
       description: ''
       authenticated: false
       custom: []
@@ -264,7 +264,7 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '57'
+          x-ratelimit-remaining: '46'
           access-control-allow-origin: '*'
         description: null
     responseFields: []
@@ -273,7 +273,7 @@ endpoints:
       - GET
     uri: 'api/v1/categories/{id}'
     metadata:
-      title: ''
+      title: 'Get catodry with current id'
       description: ''
       authenticated: false
       custom: []
@@ -298,7 +298,7 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '56'
+          x-ratelimit-remaining: '45'
           access-control-allow-origin: '*'
         description: null
     responseFields: []
@@ -307,7 +307,7 @@ endpoints:
       - GET
     uri: 'api/v1/categories/{id}/rules'
     metadata:
-      title: ''
+      title: 'Get all rules of current category'
       description: ''
       authenticated: false
       custom: []
@@ -332,7 +332,7 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '55'
+          x-ratelimit-remaining: '44'
           access-control-allow-origin: '*'
         description: null
     responseFields: []
@@ -341,7 +341,7 @@ endpoints:
       - GET
     uri: api/v1/rules
     metadata:
-      title: ''
+      title: 'Get all rules'
       description: ''
       authenticated: false
       custom: []
@@ -359,7 +359,7 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '54'
+          x-ratelimit-remaining: '43'
           access-control-allow-origin: '*'
         description: null
     responseFields: []
@@ -368,7 +368,7 @@ endpoints:
       - GET
     uri: 'api/v1/rules/{id}'
     metadata:
-      title: ''
+      title: 'Get rule with current id'
       description: ''
       authenticated: false
       custom: []
@@ -393,7 +393,7 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '53'
+          x-ratelimit-remaining: '42'
           access-control-allow-origin: '*'
         description: null
     responseFields: []
@@ -402,7 +402,7 @@ endpoints:
       - GET
     uri: api/v1/quizzes
     metadata:
-      title: 'Display a listing of the resource.'
+      title: 'Display a listing of the quiz.'
       description: ''
       authenticated: false
       custom: []
@@ -420,7 +420,7 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '52'
+          x-ratelimit-remaining: '41'
           access-control-allow-origin: '*'
         description: null
     responseFields: []
@@ -429,7 +429,7 @@ endpoints:
       - GET
     uri: 'api/v1/quizzes/{id}'
     metadata:
-      title: 'Display the specified resource.'
+      title: 'Display the QuizQestion.'
       description: ''
       authenticated: false
       custom: []
@@ -441,7 +441,7 @@ endpoints:
         name: id
         description: 'The ID of the quiz.'
         required: true
-        example: dignissimos
+        example: sunt
         type: string
         custom: []
     queryParameters: []
@@ -454,7 +454,7 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '51'
+          x-ratelimit-remaining: '40'
           access-control-allow-origin: '*'
         description: null
     responseFields: []
@@ -475,7 +475,7 @@ endpoints:
         name: category_id
         description: 'The ID of the category.'
         required: true
-        example: non
+        example: quidem
         type: string
         custom: []
     queryParameters: []
@@ -488,7 +488,7 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '49'
+          x-ratelimit-remaining: '38'
           access-control-allow-origin: '*'
         description: null
     responseFields: []
@@ -497,7 +497,7 @@ endpoints:
       - GET
     uri: api/v1/responses
     metadata:
-      title: 'Display a listing of the resource.'
+      title: 'Display a listing of quiz.'
       description: ''
       authenticated: false
       custom: []
@@ -515,7 +515,7 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '48'
+          x-ratelimit-remaining: '37'
           access-control-allow-origin: '*'
         description: null
     responseFields: []
@@ -524,7 +524,7 @@ endpoints:
       - POST
     uri: api/v1/responses
     metadata:
-      title: 'Store a newly created resource in storage.'
+      title: 'Store a newly created quiz in storage.'
       description: ''
       authenticated: false
       custom: []
@@ -541,7 +541,7 @@ endpoints:
       - GET
     uri: 'api/v1/responses/{id}'
     metadata:
-      title: 'Display the specified resource.'
+      title: 'Display the employee_quiz_response resource.'
       description: ''
       authenticated: false
       custom: []
@@ -553,7 +553,7 @@ endpoints:
         name: id
         description: 'The ID of the response.'
         required: true
-        example: iusto
+        example: temporibus
         type: string
         custom: []
     queryParameters: []
@@ -566,7 +566,7 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '47'
+          x-ratelimit-remaining: '36'
           access-control-allow-origin: '*'
         description: null
     responseFields: []
@@ -576,7 +576,7 @@ endpoints:
       - PATCH
     uri: 'api/v1/responses/{id}'
     metadata:
-      title: 'Update the specified resource in storage.'
+      title: 'Update the employee_quiz_response in storage.'
       description: ''
       authenticated: false
       custom: []
@@ -588,7 +588,7 @@ endpoints:
         name: id
         description: 'The ID of the response.'
         required: true
-        example: eius
+        example: ut
         type: string
         custom: []
     queryParameters: []
@@ -600,7 +600,7 @@ endpoints:
       - GET
     uri: 'api/v1/quizzes/{employee_id}/notanswered'
     metadata:
-      title: ''
+      title: 'Show question that employee with current id didn''t answer yet.'
       description: ''
       authenticated: false
       custom: []
@@ -612,7 +612,7 @@ endpoints:
         name: employee_id
         description: 'The ID of the employee.'
         required: true
-        example: et
+        example: enim
         type: string
         custom: []
     queryParameters: []
@@ -625,7 +625,7 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '50'
+          x-ratelimit-remaining: '39'
           access-control-allow-origin: '*'
         description: null
     responseFields: []

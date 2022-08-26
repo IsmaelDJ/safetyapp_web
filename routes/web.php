@@ -65,5 +65,5 @@ Route::get('/documentation-api', function () {
     return view('scribe.index');
 });
 
-URL::forceScheme('https');
+//URL::forceScheme('https');
 

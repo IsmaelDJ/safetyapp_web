@@ -9,7 +9,7 @@ use App\Models\EmployeeQuizResponse;
 class EmployeeQuizResponseController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Display a listing of quiz.
      *
      * @return \Illuminate\Http\Response
      */
@@ -19,7 +19,7 @@ class EmployeeQuizResponseController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store a newly created quiz in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
@@ -31,7 +31,7 @@ class EmployeeQuizResponseController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Display the employee_quiz_response resource.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
@@ -42,7 +42,7 @@ class EmployeeQuizResponseController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update the employee_quiz_response in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
@@ -55,7 +55,7 @@ class EmployeeQuizResponseController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Remove the employee_quiz_response from storage.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response

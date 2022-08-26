@@ -75,7 +75,7 @@
                 </li>
                                     <ul id="tocify-subheader-endpoints" class="tocify-subheader">
                                                     <li class="tocify-item level-2" data-unique="endpoints-DELETEapi-v1-responses--id-">
-                        <a href="#endpoints-DELETEapi-v1-responses--id-">Remove the specified resource from storage.</a>
+                        <a href="#endpoints-DELETEapi-v1-responses--id-">Remove the employee_quiz_response from storage.</a>
                     </li>
                                     <li class="tocify-item level-2" data-unique="endpoints-GETapi-v1-responses--id--quizzes">
                         <a href="#endpoints-GETapi-v1-responses--id--quizzes">Get all the answers to the current question</a>
@@ -93,43 +93,43 @@
                         <a href="#endpoints-POSTapi-v1-login">POST api/v1/login</a>
                     </li>
                                     <li class="tocify-item level-2" data-unique="endpoints-GETapi-v1-categories">
-                        <a href="#endpoints-GETapi-v1-categories">GET api/v1/categories</a>
+                        <a href="#endpoints-GETapi-v1-categories">Get list of rule&#039;s categories</a>
                     </li>
                                     <li class="tocify-item level-2" data-unique="endpoints-GETapi-v1-categories--id-">
-                        <a href="#endpoints-GETapi-v1-categories--id-">GET api/v1/categories/{id}</a>
+                        <a href="#endpoints-GETapi-v1-categories--id-">Get catodry with current id</a>
                     </li>
                                     <li class="tocify-item level-2" data-unique="endpoints-GETapi-v1-categories--id--rules">
-                        <a href="#endpoints-GETapi-v1-categories--id--rules">GET api/v1/categories/{id}/rules</a>
+                        <a href="#endpoints-GETapi-v1-categories--id--rules">Get all rules of current category</a>
                     </li>
                                     <li class="tocify-item level-2" data-unique="endpoints-GETapi-v1-rules">
-                        <a href="#endpoints-GETapi-v1-rules">GET api/v1/rules</a>
+                        <a href="#endpoints-GETapi-v1-rules">Get all rules</a>
                     </li>
                                     <li class="tocify-item level-2" data-unique="endpoints-GETapi-v1-rules--id-">
-                        <a href="#endpoints-GETapi-v1-rules--id-">GET api/v1/rules/{id}</a>
+                        <a href="#endpoints-GETapi-v1-rules--id-">Get rule with current id</a>
                     </li>
                                     <li class="tocify-item level-2" data-unique="endpoints-GETapi-v1-quizzes">
-                        <a href="#endpoints-GETapi-v1-quizzes">Display a listing of the resource.</a>
+                        <a href="#endpoints-GETapi-v1-quizzes">Display a listing of the quiz.</a>
                     </li>
                                     <li class="tocify-item level-2" data-unique="endpoints-GETapi-v1-quizzes--id-">
-                        <a href="#endpoints-GETapi-v1-quizzes--id-">Display the specified resource.</a>
+                        <a href="#endpoints-GETapi-v1-quizzes--id-">Display the QuizQestion.</a>
                     </li>
                                     <li class="tocify-item level-2" data-unique="endpoints-GETapi-v1-quizzes--category_id--category">
                         <a href="#endpoints-GETapi-v1-quizzes--category_id--category">Show question by rule&#039;s category.</a>
                     </li>
                                     <li class="tocify-item level-2" data-unique="endpoints-GETapi-v1-responses">
-                        <a href="#endpoints-GETapi-v1-responses">Display a listing of the resource.</a>
+                        <a href="#endpoints-GETapi-v1-responses">Display a listing of quiz.</a>
                     </li>
                                     <li class="tocify-item level-2" data-unique="endpoints-POSTapi-v1-responses">
-                        <a href="#endpoints-POSTapi-v1-responses">Store a newly created resource in storage.</a>
+                        <a href="#endpoints-POSTapi-v1-responses">Store a newly created quiz in storage.</a>
                     </li>
                                     <li class="tocify-item level-2" data-unique="endpoints-GETapi-v1-responses--id-">
-                        <a href="#endpoints-GETapi-v1-responses--id-">Display the specified resource.</a>
+                        <a href="#endpoints-GETapi-v1-responses--id-">Display the employee_quiz_response resource.</a>
                     </li>
                                     <li class="tocify-item level-2" data-unique="endpoints-PUTapi-v1-responses--id-">
-                        <a href="#endpoints-PUTapi-v1-responses--id-">Update the specified resource in storage.</a>
+                        <a href="#endpoints-PUTapi-v1-responses--id-">Update the employee_quiz_response in storage.</a>
                     </li>
                                     <li class="tocify-item level-2" data-unique="endpoints-GETapi-v1-quizzes--employee_id--notanswered">
-                        <a href="#endpoints-GETapi-v1-quizzes--employee_id--notanswered">GET api/v1/quizzes/{employee_id}/notanswered</a>
+                        <a href="#endpoints-GETapi-v1-quizzes--employee_id--notanswered">Show question that employee with current id didn&#039;t answer yet.</a>
                     </li>
                                                     </ul>
                             </ul>
@@ -166,7 +166,7 @@ You can switch the language used with the tabs at the top right (or from the nav
 
     
 
-            <h2 id="endpoints-DELETEapi-v1-responses--id-">Remove the specified resource from storage.</h2>
+            <h2 id="endpoints-DELETEapi-v1-responses--id-">Remove the employee_quiz_response from storage.</h2>
 
 <p>
 </p>
@@ -179,14 +179,14 @@ You can switch the language used with the tabs at the top right (or from the nav
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost/api/v1/responses/et" \
+    "http://localhost/api/v1/responses/placeat" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/v1/responses/et"
+    "http://localhost/api/v1/responses/placeat"
 );
 
 const headers = {
@@ -248,7 +248,7 @@ fetch(url, {
                 <input type="text"
                name="id"
                data-endpoint="DELETEapi-v1-responses--id-"
-               value="et"
+               value="placeat"
                data-component="url" hidden>
     <br>
 <p>The ID of the response.</p>
@@ -268,14 +268,14 @@ fetch(url, {
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost/api/v1/responses/assumenda/quizzes" \
+    --get "http://localhost/api/v1/responses/ea/quizzes" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/v1/responses/assumenda/quizzes"
+    "http://localhost/api/v1/responses/ea/quizzes"
 );
 
 const headers = {
@@ -301,7 +301,7 @@ fetch(url, {
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 x-ratelimit-limit: 60
-x-ratelimit-remaining: 46
+x-ratelimit-remaining: 35
 access-control-allow-origin: *
  </code></pre>
         </details>         <pre>
@@ -354,7 +354,7 @@ access-control-allow-origin: *
                 <input type="text"
                name="id"
                data-endpoint="GETapi-v1-responses--id--quizzes"
-               value="assumenda"
+               value="ea"
                data-component="url" hidden>
     <br>
 <p>The ID of the response.</p>
@@ -374,14 +374,14 @@ access-control-allow-origin: *
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost/api/v1/responses/iusto/employees" \
+    --get "http://localhost/api/v1/responses/voluptatem/employees" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/v1/responses/iusto/employees"
+    "http://localhost/api/v1/responses/voluptatem/employees"
 );
 
 const headers = {
@@ -407,7 +407,7 @@ fetch(url, {
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 x-ratelimit-limit: 60
-x-ratelimit-remaining: 45
+x-ratelimit-remaining: 34
 access-control-allow-origin: *
  </code></pre>
         </details>         <pre>
@@ -460,7 +460,7 @@ access-control-allow-origin: *
                 <input type="text"
                name="id"
                data-endpoint="GETapi-v1-responses--id--employees"
-               value="iusto"
+               value="voluptatem"
                data-component="url" hidden>
     <br>
 <p>The ID of the response.</p>
@@ -883,7 +883,7 @@ fetch(url, {
         </p>
                     </form>
 
-            <h2 id="endpoints-GETapi-v1-categories">GET api/v1/categories</h2>
+            <h2 id="endpoints-GETapi-v1-categories">Get list of rule&#039;s categories</h2>
 
 <p>
 </p>
@@ -929,7 +929,7 @@ fetch(url, {
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 x-ratelimit-limit: 60
-x-ratelimit-remaining: 57
+x-ratelimit-remaining: 46
 access-control-allow-origin: *
  </code></pre>
         </details>         <pre>
@@ -986,7 +986,7 @@ access-control-allow-origin: *
         </p>
                     </form>
 
-            <h2 id="endpoints-GETapi-v1-categories--id-">GET api/v1/categories/{id}</h2>
+            <h2 id="endpoints-GETapi-v1-categories--id-">Get catodry with current id</h2>
 
 <p>
 </p>
@@ -1032,7 +1032,7 @@ fetch(url, {
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 x-ratelimit-limit: 60
-x-ratelimit-remaining: 56
+x-ratelimit-remaining: 45
 access-control-allow-origin: *
  </code></pre>
         </details>         <pre>
@@ -1098,7 +1098,7 @@ access-control-allow-origin: *
             </p>
                     </form>
 
-            <h2 id="endpoints-GETapi-v1-categories--id--rules">GET api/v1/categories/{id}/rules</h2>
+            <h2 id="endpoints-GETapi-v1-categories--id--rules">Get all rules of current category</h2>
 
 <p>
 </p>
@@ -1144,7 +1144,7 @@ fetch(url, {
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 x-ratelimit-limit: 60
-x-ratelimit-remaining: 55
+x-ratelimit-remaining: 44
 access-control-allow-origin: *
  </code></pre>
         </details>         <pre>
@@ -1227,7 +1227,7 @@ access-control-allow-origin: *
             </p>
                     </form>
 
-            <h2 id="endpoints-GETapi-v1-rules">GET api/v1/rules</h2>
+            <h2 id="endpoints-GETapi-v1-rules">Get all rules</h2>
 
 <p>
 </p>
@@ -1273,7 +1273,7 @@ fetch(url, {
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 x-ratelimit-limit: 60
-x-ratelimit-remaining: 54
+x-ratelimit-remaining: 43
 access-control-allow-origin: *
  </code></pre>
         </details>         <pre>
@@ -1345,7 +1345,7 @@ access-control-allow-origin: *
         </p>
                     </form>
 
-            <h2 id="endpoints-GETapi-v1-rules--id-">GET api/v1/rules/{id}</h2>
+            <h2 id="endpoints-GETapi-v1-rules--id-">Get rule with current id</h2>
 
 <p>
 </p>
@@ -1391,7 +1391,7 @@ fetch(url, {
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 x-ratelimit-limit: 60
-x-ratelimit-remaining: 53
+x-ratelimit-remaining: 42
 access-control-allow-origin: *
  </code></pre>
         </details>         <pre>
@@ -1461,7 +1461,7 @@ access-control-allow-origin: *
             </p>
                     </form>
 
-            <h2 id="endpoints-GETapi-v1-quizzes">Display a listing of the resource.</h2>
+            <h2 id="endpoints-GETapi-v1-quizzes">Display a listing of the quiz.</h2>
 
 <p>
 </p>
@@ -1507,7 +1507,7 @@ fetch(url, {
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 x-ratelimit-limit: 60
-x-ratelimit-remaining: 52
+x-ratelimit-remaining: 41
 access-control-allow-origin: *
  </code></pre>
         </details>         <pre>
@@ -1804,7 +1804,7 @@ access-control-allow-origin: *
         </p>
                     </form>
 
-            <h2 id="endpoints-GETapi-v1-quizzes--id-">Display the specified resource.</h2>
+            <h2 id="endpoints-GETapi-v1-quizzes--id-">Display the QuizQestion.</h2>
 
 <p>
 </p>
@@ -1817,14 +1817,14 @@ access-control-allow-origin: *
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost/api/v1/quizzes/dignissimos" \
+    --get "http://localhost/api/v1/quizzes/sunt" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/v1/quizzes/dignissimos"
+    "http://localhost/api/v1/quizzes/sunt"
 );
 
 const headers = {
@@ -1850,7 +1850,7 @@ fetch(url, {
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 x-ratelimit-limit: 60
-x-ratelimit-remaining: 51
+x-ratelimit-remaining: 40
 access-control-allow-origin: *
  </code></pre>
         </details>         <pre>
@@ -1903,7 +1903,7 @@ access-control-allow-origin: *
                 <input type="text"
                name="id"
                data-endpoint="GETapi-v1-quizzes--id-"
-               value="dignissimos"
+               value="sunt"
                data-component="url" hidden>
     <br>
 <p>The ID of the quiz.</p>
@@ -1923,14 +1923,14 @@ access-control-allow-origin: *
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost/api/v1/quizzes/non/category" \
+    --get "http://localhost/api/v1/quizzes/quidem/category" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/v1/quizzes/non/category"
+    "http://localhost/api/v1/quizzes/quidem/category"
 );
 
 const headers = {
@@ -1956,7 +1956,7 @@ fetch(url, {
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 x-ratelimit-limit: 60
-x-ratelimit-remaining: 49
+x-ratelimit-remaining: 38
 access-control-allow-origin: *
  </code></pre>
         </details>         <pre>
@@ -2009,14 +2009,14 @@ access-control-allow-origin: *
                 <input type="text"
                name="category_id"
                data-endpoint="GETapi-v1-quizzes--category_id--category"
-               value="non"
+               value="quidem"
                data-component="url" hidden>
     <br>
 <p>The ID of the category.</p>
             </p>
                     </form>
 
-            <h2 id="endpoints-GETapi-v1-responses">Display a listing of the resource.</h2>
+            <h2 id="endpoints-GETapi-v1-responses">Display a listing of quiz.</h2>
 
 <p>
 </p>
@@ -2062,7 +2062,7 @@ fetch(url, {
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 x-ratelimit-limit: 60
-x-ratelimit-remaining: 48
+x-ratelimit-remaining: 37
 access-control-allow-origin: *
  </code></pre>
         </details>         <pre>
@@ -2232,7 +2232,7 @@ access-control-allow-origin: *
         </p>
                     </form>
 
-            <h2 id="endpoints-POSTapi-v1-responses">Store a newly created resource in storage.</h2>
+            <h2 id="endpoints-POSTapi-v1-responses">Store a newly created quiz in storage.</h2>
 
 <p>
 </p>
@@ -2310,7 +2310,7 @@ fetch(url, {
         </p>
                     </form>
 
-            <h2 id="endpoints-GETapi-v1-responses--id-">Display the specified resource.</h2>
+            <h2 id="endpoints-GETapi-v1-responses--id-">Display the employee_quiz_response resource.</h2>
 
 <p>
 </p>
@@ -2323,14 +2323,14 @@ fetch(url, {
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost/api/v1/responses/iusto" \
+    --get "http://localhost/api/v1/responses/temporibus" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/v1/responses/iusto"
+    "http://localhost/api/v1/responses/temporibus"
 );
 
 const headers = {
@@ -2356,7 +2356,7 @@ fetch(url, {
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 x-ratelimit-limit: 60
-x-ratelimit-remaining: 47
+x-ratelimit-remaining: 36
 access-control-allow-origin: *
  </code></pre>
         </details>         <pre>
@@ -2438,14 +2438,14 @@ access-control-allow-origin: *
                 <input type="text"
                name="id"
                data-endpoint="GETapi-v1-responses--id-"
-               value="iusto"
+               value="temporibus"
                data-component="url" hidden>
     <br>
 <p>The ID of the response.</p>
             </p>
                     </form>
 
-            <h2 id="endpoints-PUTapi-v1-responses--id-">Update the specified resource in storage.</h2>
+            <h2 id="endpoints-PUTapi-v1-responses--id-">Update the employee_quiz_response in storage.</h2>
 
 <p>
 </p>
@@ -2458,14 +2458,14 @@ access-control-allow-origin: *
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost/api/v1/responses/eius" \
+    "http://localhost/api/v1/responses/ut" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/v1/responses/eius"
+    "http://localhost/api/v1/responses/ut"
 );
 
 const headers = {
@@ -2531,14 +2531,14 @@ fetch(url, {
                 <input type="text"
                name="id"
                data-endpoint="PUTapi-v1-responses--id-"
-               value="eius"
+               value="ut"
                data-component="url" hidden>
     <br>
 <p>The ID of the response.</p>
             </p>
                     </form>
 
-            <h2 id="endpoints-GETapi-v1-quizzes--employee_id--notanswered">GET api/v1/quizzes/{employee_id}/notanswered</h2>
+            <h2 id="endpoints-GETapi-v1-quizzes--employee_id--notanswered">Show question that employee with current id didn&#039;t answer yet.</h2>
 
 <p>
 </p>
@@ -2551,14 +2551,14 @@ fetch(url, {
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost/api/v1/quizzes/et/notanswered" \
+    --get "http://localhost/api/v1/quizzes/enim/notanswered" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/v1/quizzes/et/notanswered"
+    "http://localhost/api/v1/quizzes/enim/notanswered"
 );
 
 const headers = {
@@ -2584,7 +2584,7 @@ fetch(url, {
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 x-ratelimit-limit: 60
-x-ratelimit-remaining: 50
+x-ratelimit-remaining: 39
 access-control-allow-origin: *
  </code></pre>
         </details>         <pre>
@@ -2648,7 +2648,7 @@ access-control-allow-origin: *
                 <input type="text"
                name="employee_id"
                data-endpoint="GETapi-v1-quizzes--employee_id--notanswered"
-               value="et"
+               value="enim"
                data-component="url" hidden>
     <br>
 <p>The ID of the employee.</p>

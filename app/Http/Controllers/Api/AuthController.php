@@ -17,7 +17,7 @@ class AuthController extends Controller
         try{
             if (!$request->only('uid', 'password')) {
                 return response()->json([
-                    'status' => false,
+                    'status'  => false,
                     'message' => 'Information de connection invalid'
                 ], 401);
             }
@@ -25,19 +25,22 @@ class AuthController extends Controller
             $employee = Employee::where('uid', $request['uid'])->first();
     
             if(!$employee){
-                return response()->json('Aucun employee correspondant à ce uid', 404);
+                return response()->json([
+                    'status'  => false,
+                    'message' => 'Information de connection invalid'
+                ], 401);
             }
 
             if(!($employee->password == $request['password'])){
                 return response()->json([
                     'status' => false,
-                    'message' => 'Mot de passe incorrect'
-                ], 404);
+                    'message' => 'Echec de connexion'
+                ], 401);
             }
     
             return response()->json([
                 'status'       =>  true,
-                'message'      => 'Connection reuissi',
+                'message'      => 'Connexion reuissi',
                 'employee'     =>  $employee,
             ]);
         }catch(Throwable $th){

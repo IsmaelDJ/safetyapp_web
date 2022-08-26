@@ -10,7 +10,7 @@ class QuizQuestionController extends Controller
 {
 
     /**
-     * Display a listing of the resource.
+     * Display a listing of the quiz.
      *
      * @return \Illuminate\Http\Response
      */
@@ -19,12 +19,7 @@ class QuizQuestionController extends Controller
         return response()->json(QuizQuestion::with("category")->get(), 200);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+   
    /* public function store(Request $request)
     {
         $validation = $request->validate(
@@ -63,23 +58,17 @@ class QuizQuestionController extends Controller
     }*/
 
     /**
-     * Display the specified resource.
+     * Display the QuizQestion.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Models\QuizQuestion;
      */
     public function show($id)
     {
         return response()->json(QuizQuestion::find($id), 200);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     /* public function update(Request $request, $id)
     {
         $quizQuestion = QuizQuestion::find($id);
@@ -159,9 +148,21 @@ class QuizQuestionController extends Controller
         return response()->json(QuizQuestion::where('category_id', $category_id)->get(), 200);
     }
 
+     /**
+     * Show question that employee with current id didn't answer yet.
+     *
+     * @param  int  $employee_id
+     * @return \Illuminate\Http\Response
+     */
     public function notanswered($employee_id){
         return response()->json(QuizQuestion::whereDoesntHave("employee_quiz_responses", function ($query) use($employee_id){
             $query->where("employee_id", $employee_id);
         })->first());
+    }
+
+    public function notanswereds($employee_id){
+        return response()->json(QuizQuestion::whereDoesntHave("employee_quiz_responses", function ($query) use($employee_id){
+            $query->where("employee_id", $employee_id);
+        }));
     }
 }

@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\Employee;
 use App\Models\QuizQuestion;
 use Illuminate\Http\Request;
 use App\Models\EmployeeQuizResponse;
+use App\Notifications\QuizNotification;
+use Illuminate\Support\Facades\Notification;
 
 class EmployeeQuizResponseController extends Controller
 {
@@ -44,19 +47,21 @@ class EmployeeQuizResponseController extends Controller
 
     public function store(Request $request)
     {
+        $user = User::all();
+
         $request->validate([
             'employee_id'      => 'required',
             'quiz_question_id' => 'required',
             'correct'          => 'required'
         ]);
 
-        EmployeeQuizResponse::create(
-            [
-                'employee_id'      => $request->employee_id,
-                'quiz_question_id' => $request->quiz_question_id,
-                'correct'          => $request->correct == 'true' ? true: false
-            ]);
+        EmployeeQuizResponse::create([
+            'employee_id'      => $request->employee_id,
+            'quiz_question_id' => $request->quiz_question_id,
+            'correct'          => $request->correct == 'true' ? true: false
+        ]);
         
+        Notification::send($user, new QuizNotification($request->employee_id, $request->quiz_question_id));
 
         return redirect()->route('employee_quiz_responses.index')->with('success', "Quiz avec reponse ajouté");
     }

@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "Laravel",
-        "_postman_id": "1129d39d-1875-449d-ab25-694d63e5456b",
+        "_postman_id": "162b15f3-56f8-4a39-a978-da3861d618f2",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -20,7 +20,7 @@
             "description": "",
             "item": [
                 {
-                    "name": "Remove the specified resource from storage.",
+                    "name": "Remove the employee_quiz_response from storage.",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
@@ -31,7 +31,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "et",
+                                    "value": "placeat",
                                     "description": "The ID of the response."
                                 }
                             ]
@@ -67,7 +67,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "assumenda",
+                                    "value": "ea",
                                     "description": "The ID of the response."
                                 }
                             ]
@@ -106,7 +106,7 @@
                                 },
                                 {
                                     "key": "x-ratelimit-remaining",
-                                    "value": "46"
+                                    "value": "35"
                                 },
                                 {
                                     "key": "access-control-allow-origin",
@@ -131,7 +131,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "iusto",
+                                    "value": "voluptatem",
                                     "description": "The ID of the response."
                                 }
                             ]
@@ -170,7 +170,7 @@
                                 },
                                 {
                                     "key": "x-ratelimit-remaining",
-                                    "value": "45"
+                                    "value": "34"
                                 },
                                 {
                                     "key": "access-control-allow-origin",
@@ -308,7 +308,7 @@
                     "response": []
                 },
                 {
-                    "name": "api\/v1\/categories",
+                    "name": "Get list of rule's categories",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
@@ -350,7 +350,7 @@
                                 },
                                 {
                                     "key": "x-ratelimit-remaining",
-                                    "value": "57"
+                                    "value": "46"
                                 },
                                 {
                                     "key": "access-control-allow-origin",
@@ -364,7 +364,7 @@
                     ]
                 },
                 {
-                    "name": "api\/v1\/categories\/{id}",
+                    "name": "Get catodry with current id",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
@@ -414,7 +414,7 @@
                                 },
                                 {
                                     "key": "x-ratelimit-remaining",
-                                    "value": "56"
+                                    "value": "45"
                                 },
                                 {
                                     "key": "access-control-allow-origin",
@@ -428,7 +428,7 @@
                     ]
                 },
                 {
-                    "name": "api\/v1\/categories\/{id}\/rules",
+                    "name": "Get all rules of current category",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
@@ -478,7 +478,7 @@
                                 },
                                 {
                                     "key": "x-ratelimit-remaining",
-                                    "value": "55"
+                                    "value": "44"
                                 },
                                 {
                                     "key": "access-control-allow-origin",
@@ -492,7 +492,7 @@
                     ]
                 },
                 {
-                    "name": "api\/v1\/rules",
+                    "name": "Get all rules",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
@@ -534,7 +534,7 @@
                                 },
                                 {
                                     "key": "x-ratelimit-remaining",
-                                    "value": "54"
+                                    "value": "43"
                                 },
                                 {
                                     "key": "access-control-allow-origin",
@@ -548,7 +548,7 @@
                     ]
                 },
                 {
-                    "name": "api\/v1\/rules\/{id}",
+                    "name": "Get rule with current id",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
@@ -598,7 +598,7 @@
                                 },
                                 {
                                     "key": "x-ratelimit-remaining",
-                                    "value": "53"
+                                    "value": "42"
                                 },
                                 {
                                     "key": "access-control-allow-origin",
@@ -612,7 +612,7 @@
                     ]
                 },
                 {
-                    "name": "Display a listing of the resource.",
+                    "name": "Display a listing of the quiz.",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
@@ -654,7 +654,7 @@
                                 },
                                 {
                                     "key": "x-ratelimit-remaining",
-                                    "value": "52"
+                                    "value": "41"
                                 },
                                 {
                                     "key": "access-control-allow-origin",
@@ -668,7 +668,7 @@
                     ]
                 },
                 {
-                    "name": "Display the specified resource.",
+                    "name": "Display the QuizQestion.",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
@@ -679,7 +679,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "dignissimos",
+                                    "value": "sunt",
                                     "description": "The ID of the quiz."
                                 }
                             ]
@@ -718,7 +718,7 @@
                                 },
                                 {
                                     "key": "x-ratelimit-remaining",
-                                    "value": "51"
+                                    "value": "40"
                                 },
                                 {
                                     "key": "access-control-allow-origin",
@@ -743,7 +743,7 @@
                                 {
                                     "id": "category_id",
                                     "key": "category_id",
-                                    "value": "non",
+                                    "value": "quidem",
                                     "description": "The ID of the category."
                                 }
                             ]
@@ -782,7 +782,7 @@
                                 },
                                 {
                                     "key": "x-ratelimit-remaining",
-                                    "value": "49"
+                                    "value": "38"
                                 },
                                 {
                                     "key": "access-control-allow-origin",
@@ -796,7 +796,7 @@
                     ]
                 },
                 {
-                    "name": "Display a listing of the resource.",
+                    "name": "Display a listing of quiz.",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
@@ -838,7 +838,7 @@
                                 },
                                 {
                                     "key": "x-ratelimit-remaining",
-                                    "value": "48"
+                                    "value": "37"
                                 },
                                 {
                                     "key": "access-control-allow-origin",
@@ -852,7 +852,7 @@
                     ]
                 },
                 {
-                    "name": "Store a newly created resource in storage.",
+                    "name": "Store a newly created quiz in storage.",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
@@ -880,7 +880,7 @@
                     "response": []
                 },
                 {
-                    "name": "Display the specified resource.",
+                    "name": "Display the employee_quiz_response resource.",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
@@ -891,7 +891,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "iusto",
+                                    "value": "temporibus",
                                     "description": "The ID of the response."
                                 }
                             ]
@@ -930,7 +930,7 @@
                                 },
                                 {
                                     "key": "x-ratelimit-remaining",
-                                    "value": "47"
+                                    "value": "36"
                                 },
                                 {
                                     "key": "access-control-allow-origin",
@@ -944,7 +944,7 @@
                     ]
                 },
                 {
-                    "name": "Update the specified resource in storage.",
+                    "name": "Update the employee_quiz_response in storage.",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
@@ -955,7 +955,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "eius",
+                                    "value": "ut",
                                     "description": "The ID of the response."
                                 }
                             ]
@@ -980,7 +980,7 @@
                     "response": []
                 },
                 {
-                    "name": "api\/v1\/quizzes\/{employee_id}\/notanswered",
+                    "name": "Show question that employee with current id didn't answer yet.",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
@@ -991,7 +991,7 @@
                                 {
                                     "id": "employee_id",
                                     "key": "employee_id",
-                                    "value": "et",
+                                    "value": "enim",
                                     "description": "The ID of the employee."
                                 }
                             ]
@@ -1030,7 +1030,7 @@
                                 },
                                 {
                                     "key": "x-ratelimit-remaining",
-                                    "value": "50"
+                                    "value": "39"
                                 },
                                 {
                                     "key": "access-control-allow-origin",
