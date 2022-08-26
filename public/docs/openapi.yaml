@@ -1,0 +1,1192 @@
+openapi: 3.0.3
+info:
+  title: Laravel
+  description: ''
+  version: 1.0.0
+servers:
+  -
+    url: 'http://localhost'
+paths:
+  '/api/v1/responses/{id}':
+    delete:
+      summary: 'Remove the specified resource from storage.'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+    get:
+      summary: 'Display the specified resource.'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  id: 1
+                  employee_id: 1
+                  quiz_question_id: 1
+                  correct: 1
+                  created_at: '2022-08-18T13:16:51.000000Z'
+                  updated_at: '2022-08-18T13:16:51.000000Z'
+                  employee:
+                    id: 1
+                    contractor_id: 1
+                    name: Gnandal
+                    phone: '5866662'
+                    uid: '6655'
+                    password: '7548'
+                    created_at: '2022-08-18T13:04:36.000000Z'
+                    updated_at: '2022-08-18T13:04:36.000000Z'
+                  quiz_question:
+                    id: 1
+                    category_id: 1
+                    description: kjfjd
+                    image: uploads/20220818130554_qz_question_image.png
+                    fr: uploads/20220818130554_qz_question_fr.mp3
+                    ar: uploads/20220818130554_qz_question_ar.mp3
+                    ng: uploads/20220818130554_qz_question_ng.mp3
+                    correct: 1
+                    created_at: '2022-08-18T13:05:54.000000Z'
+                    updated_at: '2022-08-18T17:26:32.000000Z'
+                properties:
+                  id:
+                    type: integer
+                    example: 1
+                  employee_id:
+                    type: integer
+                    example: 1
+                  quiz_question_id:
+                    type: integer
+                    example: 1
+                  correct:
+                    type: integer
+                    example: 1
+                  created_at:
+                    type: string
+                    example: '2022-08-18T13:16:51.000000Z'
+                  updated_at:
+                    type: string
+                    example: '2022-08-18T13:16:51.000000Z'
+                  employee:
+                    type: object
+                    example:
+                      id: 1
+                      contractor_id: 1
+                      name: Gnandal
+                      phone: '5866662'
+                      uid: '6655'
+                      password: '7548'
+                      created_at: '2022-08-18T13:04:36.000000Z'
+                      updated_at: '2022-08-18T13:04:36.000000Z'
+                  quiz_question:
+                    type: object
+                    example:
+                      id: 1
+                      category_id: 1
+                      description: kjfjd
+                      image: uploads/20220818130554_qz_question_image.png
+                      fr: uploads/20220818130554_qz_question_fr.mp3
+                      ar: uploads/20220818130554_qz_question_ar.mp3
+                      ng: uploads/20220818130554_qz_question_ng.mp3
+                      correct: 1
+                      created_at: '2022-08-18T13:05:54.000000Z'
+                      updated_at: '2022-08-18T17:26:32.000000Z'
+      tags:
+        - Endpoints
+      security: []
+    put:
+      summary: 'Update the specified resource in storage.'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the response.'
+        example: et
+        required: true
+        schema:
+          type: string
+  '/api/v1/responses/{id}/quizzes':
+    get:
+      summary: 'Get all the answers to the current question'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                example: []
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the response.'
+        example: assumenda
+        required: true
+        schema:
+          type: string
+  '/api/v1/responses/{id}/employees':
+    get:
+      summary: 'Get all responses from the current user.'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example: {  }
+                properties: {  }
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the response.'
+        example: iusto
+        required: true
+        schema:
+          type: string
+  /api/documentation:
+    get:
+      summary: 'Display Swagger API page.'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "<!DOCTYPE html>\r\n<html lang=\"en\">\r\n<head>\r\n    <meta charset=\"UTF-8\">\r\n    <title>Total Safety API</title>\r\n    <link rel=\"stylesheet\" type=\"text/css\" href=\"https://localhost/docs/asset/swagger-ui.css?v=d6de32fafed0ea75ef760baa8ebe2bda\">\r\n    <link rel=\"icon\" type=\"image/png\" href=\"https://localhost/docs/asset/favicon-32x32.png?v=40d4f2c38d1cd854ad463f16373cbcb6\" sizes=\"32x32\"/>\r\n    <link rel=\"icon\" type=\"image/png\" href=\"https://localhost/docs/asset/favicon-16x16.png?v=f0ae831196d55d8f4115b6c5e8ec5384\" sizes=\"16x16\"/>\r\n    <style>\r\n    html\r\n    {\r\n        box-sizing: border-box;\r\n        overflow: -moz-scrollbars-vertical;\r\n        overflow-y: scroll;\r\n    }\r\n    *,\r\n    *:before,\r\n    *:after\r\n    {\r\n        box-sizing: inherit;\r\n    }\r\n\r\n    body {\r\n      margin:0;\r\n      background: #fafafa;\r\n    }\r\n    </style>\r\n</head>\r\n\r\n<body>\r\n<div id=\"swagger-ui\"></div>\r\n\r\n<script src=\"https://localhost/docs/asset/swagger-ui-bundle.js?v=e0ae76d9795806abae1f7781d89d4f4b\"></script>\r\n<script src=\"https://localhost/docs/asset/swagger-ui-standalone-preset.js?v=8e0e2470d0530680f6f16c7817337891\"></script>\r\n<script>\r\n    window.onload = function() {\r\n        // Build a system\r\n        const ui = SwaggerUIBundle({\r\n            dom_id: '#swagger-ui',\r\n            url: \"https://localhost/docs/api-docs.json\",\r\n            operationsSorter: null,\r\n            configUrl: null,\r\n            validatorUrl: null,\r\n            oauth2RedirectUrl: \"https://localhost/api/oauth2-callback\",\r\n\r\n            requestInterceptor: function(request) {\r\n                request.headers['X-CSRF-TOKEN'] = '';\r\n                return request;\r\n            },\r\n\r\n            presets: [\r\n                SwaggerUIBundle.presets.apis,\r\n                SwaggerUIStandalonePreset\r\n            ],\r\n\r\n            plugins: [\r\n                SwaggerUIBundle.plugins.DownloadUrl\r\n            ],\r\n\r\n            layout: \"StandaloneLayout\",\r\n            docExpansion : \"none\",\r\n            deepLinking: true,\r\n            filter: true,\r\n            persistAuthorization: \"false\",\r\n\r\n        })\r\n\r\n        window.ui = ui\r\n\r\n            }\r\n</script>\r\n</body>\r\n</html>\r\n"
+      tags:
+        - Endpoints
+      security: []
+  /api/oauth2-callback:
+    get:
+      summary: 'Display Oauth2 callback pages.'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "<!doctype html>\n<html lang=\"en-US\">\n<head>\n    <title>Swagger UI: OAuth2 Redirect</title>\n</head>\n<body>\n<script>\n    'use strict';\n    function run () {\n        var oauth2 = window.opener.swaggerUIRedirectOauth2;\n        var sentState = oauth2.state;\n        var redirectUrl = oauth2.redirectUrl;\n        var isValid, qp, arr;\n\n        if (/code|token|error/.test(window.location.hash)) {\n            qp = window.location.hash.substring(1).replace('?', '&');\n        } else {\n            qp = location.search.substring(1);\n        }\n\n        arr = qp.split(\"&\");\n        arr.forEach(function (v,i,_arr) { _arr[i] = '\"' + v.replace('=', '\":\"') + '\"';});\n        qp = qp ? JSON.parse('{' + arr.join() + '}',\n                function (key, value) {\n                    return key === \"\" ? value : decodeURIComponent(value);\n                }\n        ) : {};\n\n        isValid = qp.state === sentState;\n\n        if ((\n          oauth2.auth.schema.get(\"flow\") === \"accessCode\" ||\n          oauth2.auth.schema.get(\"flow\") === \"authorizationCode\" ||\n          oauth2.auth.schema.get(\"flow\") === \"authorization_code\"\n        ) && !oauth2.auth.code) {\n            if (!isValid) {\n                oauth2.errCb({\n                    authId: oauth2.auth.name,\n                    source: \"auth\",\n                    level: \"warning\",\n                    message: \"Authorization may be unsafe, passed state was changed in server. The passed state wasn't returned from auth server.\"\n                });\n            }\n\n            if (qp.code) {\n                delete oauth2.state;\n                oauth2.auth.code = qp.code;\n                oauth2.callback({auth: oauth2.auth, redirectUrl: redirectUrl});\n            } else {\n                let oauthErrorMsg;\n                if (qp.error) {\n                    oauthErrorMsg = \"[\"+qp.error+\"]: \" +\n                        (qp.error_description ? qp.error_description+ \". \" : \"no accessCode received from the server. \") +\n                        (qp.error_uri ? \"More info: \"+qp.error_uri : \"\");\n                }\n\n                oauth2.errCb({\n                    authId: oauth2.auth.name,\n                    source: \"auth\",\n                    level: \"error\",\n                    message: oauthErrorMsg || \"[Authorization failed]: no accessCode received from the server.\"\n                });\n            }\n        } else {\n            oauth2.callback({auth: oauth2.auth, token: qp, isValid: isValid, redirectUrl: redirectUrl});\n        }\n        window.close();\n    }\n\n    if (document.readyState !== 'loading') {\n        run();\n    } else {\n        document.addEventListener('DOMContentLoaded', function () {\n            run();\n        });\n    }\n</script>\n</body>\n</html>\n"
+      tags:
+        - Endpoints
+      security: []
+  /api/v1/login:
+    post:
+      summary: ''
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+  /api/v1/categories:
+    get:
+      summary: ''
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                example:
+                  -
+                    id: 1
+                    name: FRV
+                    image: uploads/20220818130207_.png
+                    created_at: '2022-08-18T13:02:07.000000Z'
+                    updated_at: '2022-08-18T13:02:07.000000Z'
+      tags:
+        - Endpoints
+      security: []
+  '/api/v1/categories/{id}':
+    get:
+      summary: ''
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  id: 1
+                  name: FRV
+                  image: uploads/20220818130207_.png
+                  created_at: '2022-08-18T13:02:07.000000Z'
+                  updated_at: '2022-08-18T13:02:07.000000Z'
+                properties:
+                  id:
+                    type: integer
+                    example: 1
+                  name:
+                    type: string
+                    example: FRV
+                  image:
+                    type: string
+                    example: uploads/20220818130207_.png
+                  created_at:
+                    type: string
+                    example: '2022-08-18T13:02:07.000000Z'
+                  updated_at:
+                    type: string
+                    example: '2022-08-18T13:02:07.000000Z'
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the category.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  '/api/v1/categories/{id}/rules':
+    get:
+      summary: ''
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                example:
+                  -
+                    id: 1
+                    category_id: 1
+                    description: 'Regle 1'
+                    image: uploads/20220818130310_rule_image.png
+                    fr: uploads/20220818130310_rule_fr.mp3
+                    ar: uploads/20220818130310_rule_ar.mp3
+                    ng: uploads/20220818130310_rule_ng.mp3
+                    created_at: '2022-08-18T13:03:10.000000Z'
+                    updated_at: '2022-08-18T13:03:10.000000Z'
+                  -
+                    id: 2
+                    category_id: 1
+                    description: 'Regle 2'
+                    image: uploads/20220818130404_rule_image.png
+                    fr: uploads/20220818130404_rule_fr.mp3
+                    ar: uploads/20220818130404_rule_ar.mp3
+                    ng: uploads/20220818130404_rule_ng.mp3
+                    created_at: '2022-08-18T13:04:04.000000Z'
+                    updated_at: '2022-08-18T13:04:04.000000Z'
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the category.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  /api/v1/rules:
+    get:
+      summary: ''
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                example:
+                  -
+                    id: 1
+                    category_id: 1
+                    description: 'Regle 1'
+                    image: uploads/20220818130310_rule_image.png
+                    fr: uploads/20220818130310_rule_fr.mp3
+                    ar: uploads/20220818130310_rule_ar.mp3
+                    ng: uploads/20220818130310_rule_ng.mp3
+                    created_at: '2022-08-18T13:03:10.000000Z'
+                    updated_at: '2022-08-18T13:03:10.000000Z'
+                  -
+                    id: 2
+                    category_id: 1
+                    description: 'Regle 2'
+                    image: uploads/20220818130404_rule_image.png
+                    fr: uploads/20220818130404_rule_fr.mp3
+                    ar: uploads/20220818130404_rule_ar.mp3
+                    ng: uploads/20220818130404_rule_ng.mp3
+                    created_at: '2022-08-18T13:04:04.000000Z'
+                    updated_at: '2022-08-18T13:04:04.000000Z'
+      tags:
+        - Endpoints
+      security: []
+  '/api/v1/rules/{id}':
+    get:
+      summary: ''
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  id: 1
+                  category_id: 1
+                  description: 'Regle 1'
+                  image: uploads/20220818130310_rule_image.png
+                  fr: uploads/20220818130310_rule_fr.mp3
+                  ar: uploads/20220818130310_rule_ar.mp3
+                  ng: uploads/20220818130310_rule_ng.mp3
+                  created_at: '2022-08-18T13:03:10.000000Z'
+                  updated_at: '2022-08-18T13:03:10.000000Z'
+                properties:
+                  id:
+                    type: integer
+                    example: 1
+                  category_id:
+                    type: integer
+                    example: 1
+                  description:
+                    type: string
+                    example: 'Regle 1'
+                  image:
+                    type: string
+                    example: uploads/20220818130310_rule_image.png
+                  fr:
+                    type: string
+                    example: uploads/20220818130310_rule_fr.mp3
+                  ar:
+                    type: string
+                    example: uploads/20220818130310_rule_ar.mp3
+                  ng:
+                    type: string
+                    example: uploads/20220818130310_rule_ng.mp3
+                  created_at:
+                    type: string
+                    example: '2022-08-18T13:03:10.000000Z'
+                  updated_at:
+                    type: string
+                    example: '2022-08-18T13:03:10.000000Z'
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the rule.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  /api/v1/quizzes:
+    get:
+      summary: 'Display a listing of the resource.'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                example:
+                  -
+                    id: 1
+                    category_id: 1
+                    description: kjfjd
+                    image: uploads/20220818130554_qz_question_image.png
+                    fr: uploads/20220818130554_qz_question_fr.mp3
+                    ar: uploads/20220818130554_qz_question_ar.mp3
+                    ng: uploads/20220818130554_qz_question_ng.mp3
+                    correct: 1
+                    created_at: '2022-08-18T13:05:54.000000Z'
+                    updated_at: '2022-08-18T17:26:32.000000Z'
+                    category:
+                      id: 1
+                      name: FRV
+                      image: uploads/20220818130207_.png
+                      created_at: '2022-08-18T13:02:07.000000Z'
+                      updated_at: '2022-08-18T13:02:07.000000Z'
+                  -
+                    id: 2
+                    category_id: 1
+                    description: 'Quiz 1'
+                    image: uploads/20220818131027_qz_question_image.png
+                    fr: uploads/20220818131027_qz_question_fr.mp3
+                    ar: uploads/20220818131027_qz_question_ar.mp3
+                    ng: uploads/20220818131027_qz_question_ng.mp3
+                    correct: 0
+                    created_at: '2022-08-18T13:10:27.000000Z'
+                    updated_at: '2022-08-18T17:18:33.000000Z'
+                    category:
+                      id: 1
+                      name: FRV
+                      image: uploads/20220818130207_.png
+                      created_at: '2022-08-18T13:02:07.000000Z'
+                      updated_at: '2022-08-18T13:02:07.000000Z'
+                  -
+                    id: 3
+                    category_id: 1
+                    description: 'Quiz 1'
+                    image: uploads/20220818131259_qz_question_image.png
+                    fr: uploads/20220818131259_qz_question_fr.mp3
+                    ar: uploads/20220818131259_qz_question_ar.mp3
+                    ng: uploads/20220818131259_qz_question_ng.mp3
+                    correct: 0
+                    created_at: '2022-08-18T13:12:59.000000Z'
+                    updated_at: '2022-08-18T13:12:59.000000Z'
+                    category:
+                      id: 1
+                      name: FRV
+                      image: uploads/20220818130207_.png
+                      created_at: '2022-08-18T13:02:07.000000Z'
+                      updated_at: '2022-08-18T13:02:07.000000Z'
+                  -
+                    id: 4
+                    category_id: 1
+                    description: 'Quiz 1'
+                    image: uploads/20220818131439_qz_question_image.png
+                    fr: uploads/20220818131439_qz_question_fr.mp3
+                    ar: uploads/20220818131439_qz_question_ar.mp3
+                    ng: uploads/20220818131439_qz_question_ng.mp3
+                    correct: 0
+                    created_at: '2022-08-18T13:14:39.000000Z'
+                    updated_at: '2022-08-18T13:14:39.000000Z'
+                    category:
+                      id: 1
+                      name: FRV
+                      image: uploads/20220818130207_.png
+                      created_at: '2022-08-18T13:02:07.000000Z'
+                      updated_at: '2022-08-18T13:02:07.000000Z'
+                  -
+                    id: 5
+                    category_id: 1
+                    description: 'Quiz 1'
+                    image: uploads/20220818131546_qz_question_image.png
+                    fr: uploads/20220818131546_qz_question_fr.mp3
+                    ar: uploads/20220818131546_qz_question_ar.mp3
+                    ng: uploads/20220818131546_qz_question_ng.mp3
+                    correct: 0
+                    created_at: '2022-08-18T13:15:46.000000Z'
+                    updated_at: '2022-08-18T13:15:46.000000Z'
+                    category:
+                      id: 1
+                      name: FRV
+                      image: uploads/20220818130207_.png
+                      created_at: '2022-08-18T13:02:07.000000Z'
+                      updated_at: '2022-08-18T13:02:07.000000Z'
+                  -
+                    id: 6
+                    category_id: 1
+                    description: description
+                    image: uploads/20220818181229_qz_question_image.png
+                    fr: uploads/20220818181230_qz_question_fr.mp3
+                    ar: uploads/20220818181230_qz_question_ar.mp3
+                    ng: uploads/20220818181230_qz_question_ng.mp3
+                    correct: 1
+                    created_at: '2022-08-18T18:12:30.000000Z'
+                    updated_at: '2022-08-18T18:12:30.000000Z'
+                    category:
+                      id: 1
+                      name: FRV
+                      image: uploads/20220818130207_.png
+                      created_at: '2022-08-18T13:02:07.000000Z'
+                      updated_at: '2022-08-18T13:02:07.000000Z'
+                  -
+                    id: 7
+                    category_id: 1
+                    description: rete
+                    image: uploads/20220818202217_qz_question_image.png
+                    fr: uploads/20220818202217_qz_question_fr.mp3
+                    ar: uploads/20220818202217_qz_question_ar.mp3
+                    ng: uploads/20220818202217_qz_question_ng.mp3
+                    correct: 1
+                    created_at: '2022-08-18T20:22:17.000000Z'
+                    updated_at: '2022-08-18T20:22:17.000000Z'
+                    category:
+                      id: 1
+                      name: FRV
+                      image: uploads/20220818130207_.png
+                      created_at: '2022-08-18T13:02:07.000000Z'
+                      updated_at: '2022-08-18T13:02:07.000000Z'
+                  -
+                    id: 8
+                    category_id: 1
+                    description: quiz
+                    image: uploads/20220818234855_qz_question_image.png
+                    fr: uploads/20220818234855_qz_question_fr.mp3
+                    ar: uploads/20220818234855_qz_question_ar.mp3
+                    ng: uploads/20220818234855_qz_question_ng.mp3
+                    correct: 1
+                    created_at: '2022-08-18T23:48:55.000000Z'
+                    updated_at: '2022-08-18T23:48:55.000000Z'
+                    category:
+                      id: 1
+                      name: FRV
+                      image: uploads/20220818130207_.png
+                      created_at: '2022-08-18T13:02:07.000000Z'
+                      updated_at: '2022-08-18T13:02:07.000000Z'
+                  -
+                    id: 9
+                    category_id: 1
+                    description: essaie
+                    image: uploads/20220822081924_qz_question_image.png
+                    fr: uploads/20220822081924_rule_fr.mp3
+                    ar: uploads/20220822081924_rule_ar.mp3
+                    ng: uploads/20220822081924_rule_ng.mp3
+                    correct: 1
+                    created_at: '2022-08-22T08:19:24.000000Z'
+                    updated_at: '2022-08-22T08:19:24.000000Z'
+                    category:
+                      id: 1
+                      name: FRV
+                      image: uploads/20220818130207_.png
+                      created_at: '2022-08-18T13:02:07.000000Z'
+                      updated_at: '2022-08-18T13:02:07.000000Z'
+                  -
+                    id: 10
+                    category_id: 1
+                    description: essaie
+                    image: uploads/20220822081927_qz_question_image.png
+                    fr: uploads/20220822081927_rule_fr.mp3
+                    ar: uploads/20220822081927_rule_ar.mp3
+                    ng: uploads/20220822081927_rule_ng.mp3
+                    correct: 1
+                    created_at: '2022-08-22T08:19:27.000000Z'
+                    updated_at: '2022-08-22T08:19:27.000000Z'
+                    category:
+                      id: 1
+                      name: FRV
+                      image: uploads/20220818130207_.png
+                      created_at: '2022-08-18T13:02:07.000000Z'
+                      updated_at: '2022-08-18T13:02:07.000000Z'
+                  -
+                    id: 11
+                    category_id: 1
+                    description: essaie
+                    image: uploads/20220822084549_qz_question_image.png
+                    fr: uploads/20220822084549_rule_fr.mp3
+                    ar: uploads/20220822084549_rule_ar.mp3
+                    ng: uploads/20220822084549_rule_ng.mp3
+                    correct: 1
+                    created_at: '2022-08-22T08:45:49.000000Z'
+                    updated_at: '2022-08-22T08:45:49.000000Z'
+                    category:
+                      id: 1
+                      name: FRV
+                      image: uploads/20220818130207_.png
+                      created_at: '2022-08-18T13:02:07.000000Z'
+                      updated_at: '2022-08-18T13:02:07.000000Z'
+                  -
+                    id: 12
+                    category_id: 1
+                    description: essaytgghh
+                    image: uploads/20220822084706_qz_question_image.png
+                    fr: uploads/20220822084706_rule_fr.mp3
+                    ar: uploads/20220822084706_rule_ar.mp3
+                    ng: uploads/20220822084706_rule_ng.mp3
+                    correct: 1
+                    created_at: '2022-08-22T08:47:06.000000Z'
+                    updated_at: '2022-08-22T08:47:06.000000Z'
+                    category:
+                      id: 1
+                      name: FRV
+                      image: uploads/20220818130207_.png
+                      created_at: '2022-08-18T13:02:07.000000Z'
+                      updated_at: '2022-08-18T13:02:07.000000Z'
+                  -
+                    id: 13
+                    category_id: 1
+                    description: 'Essayons encore'
+                    image: uploads/20220822094238_qz_question_image.png
+                    fr: uploads/20220822094238_rule_fr.mp3
+                    ar: uploads/20220822094238_rule_ar.mp3
+                    ng: uploads/20220822094238_rule_ng.mp3
+                    correct: 1
+                    created_at: '2022-08-22T09:42:38.000000Z'
+                    updated_at: '2022-08-22T09:42:38.000000Z'
+                    category:
+                      id: 1
+                      name: FRV
+                      image: uploads/20220818130207_.png
+                      created_at: '2022-08-18T13:02:07.000000Z'
+                      updated_at: '2022-08-18T13:02:07.000000Z'
+      tags:
+        - Endpoints
+      security: []
+  '/api/v1/quizzes/{id}':
+    get:
+      summary: 'Display the specified resource.'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example: {  }
+                properties: {  }
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the quiz.'
+        example: dignissimos
+        required: true
+        schema:
+          type: string
+  '/api/v1/quizzes/{category_id}/category':
+    get:
+      summary: 'Show question by rule''s category.'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                example: []
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: category_id
+        description: 'The ID of the category.'
+        example: non
+        required: true
+        schema:
+          type: string
+  /api/v1/responses:
+    get:
+      summary: 'Display a listing of the resource.'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                example:
+                  -
+                    id: 1
+                    employee_id: 1
+                    quiz_question_id: 1
+                    correct: 1
+                    created_at: '2022-08-18T13:16:51.000000Z'
+                    updated_at: '2022-08-18T13:16:51.000000Z'
+                    employee:
+                      id: 1
+                      contractor_id: 1
+                      name: Gnandal
+                      phone: '5866662'
+                      uid: '6655'
+                      password: '7548'
+                      created_at: '2022-08-18T13:04:36.000000Z'
+                      updated_at: '2022-08-18T13:04:36.000000Z'
+                    quiz_question:
+                      id: 1
+                      category_id: 1
+                      description: kjfjd
+                      image: uploads/20220818130554_qz_question_image.png
+                      fr: uploads/20220818130554_qz_question_fr.mp3
+                      ar: uploads/20220818130554_qz_question_ar.mp3
+                      ng: uploads/20220818130554_qz_question_ng.mp3
+                      correct: 1
+                      created_at: '2022-08-18T13:05:54.000000Z'
+                      updated_at: '2022-08-18T17:26:32.000000Z'
+                  -
+                    id: 2
+                    employee_id: 1
+                    quiz_question_id: 2
+                    correct: 1
+                    created_at: '2022-08-18T13:17:03.000000Z'
+                    updated_at: '2022-08-18T13:17:03.000000Z'
+                    employee:
+                      id: 1
+                      contractor_id: 1
+                      name: Gnandal
+                      phone: '5866662'
+                      uid: '6655'
+                      password: '7548'
+                      created_at: '2022-08-18T13:04:36.000000Z'
+                      updated_at: '2022-08-18T13:04:36.000000Z'
+                    quiz_question:
+                      id: 2
+                      category_id: 1
+                      description: 'Quiz 1'
+                      image: uploads/20220818131027_qz_question_image.png
+                      fr: uploads/20220818131027_qz_question_fr.mp3
+                      ar: uploads/20220818131027_qz_question_ar.mp3
+                      ng: uploads/20220818131027_qz_question_ng.mp3
+                      correct: 0
+                      created_at: '2022-08-18T13:10:27.000000Z'
+                      updated_at: '2022-08-18T17:18:33.000000Z'
+                  -
+                    id: 3
+                    employee_id: 2
+                    quiz_question_id: 1
+                    correct: 1
+                    created_at: '2022-08-18T13:17:16.000000Z'
+                    updated_at: '2022-08-18T13:17:16.000000Z'
+                    employee:
+                      id: 2
+                      contractor_id: 1
+                      name: Ismael
+                      phone: '5866662'
+                      uid: '1808'
+                      password: '9816'
+                      created_at: '2022-08-18T13:04:54.000000Z'
+                      updated_at: '2022-08-18T13:04:54.000000Z'
+                    quiz_question:
+                      id: 1
+                      category_id: 1
+                      description: kjfjd
+                      image: uploads/20220818130554_qz_question_image.png
+                      fr: uploads/20220818130554_qz_question_fr.mp3
+                      ar: uploads/20220818130554_qz_question_ar.mp3
+                      ng: uploads/20220818130554_qz_question_ng.mp3
+                      correct: 1
+                      created_at: '2022-08-18T13:05:54.000000Z'
+                      updated_at: '2022-08-18T17:26:32.000000Z'
+                  -
+                    id: 4
+                    employee_id: 1
+                    quiz_question_id: 4
+                    correct: 1
+                    created_at: '2022-08-18T13:17:36.000000Z'
+                    updated_at: '2022-08-18T13:17:36.000000Z'
+                    employee:
+                      id: 1
+                      contractor_id: 1
+                      name: Gnandal
+                      phone: '5866662'
+                      uid: '6655'
+                      password: '7548'
+                      created_at: '2022-08-18T13:04:36.000000Z'
+                      updated_at: '2022-08-18T13:04:36.000000Z'
+                    quiz_question:
+                      id: 4
+                      category_id: 1
+                      description: 'Quiz 1'
+                      image: uploads/20220818131439_qz_question_image.png
+                      fr: uploads/20220818131439_qz_question_fr.mp3
+                      ar: uploads/20220818131439_qz_question_ar.mp3
+                      ng: uploads/20220818131439_qz_question_ng.mp3
+                      correct: 0
+                      created_at: '2022-08-18T13:14:39.000000Z'
+                      updated_at: '2022-08-18T13:14:39.000000Z'
+      tags:
+        - Endpoints
+      security: []
+    post:
+      summary: 'Store a newly created resource in storage.'
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+  '/api/v1/quizzes/{employee_id}/notanswered':
+    get:
+      summary: ''
+      description: ''
+      parameters:
+        -
+          in: header
+          name: Content-Type
+          description: ''
+          example: application/json
+          schema:
+            type: string
+        -
+          in: header
+          name: Accept
+          description: ''
+          example: application/json
+          schema:
+            type: string
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  id: 1
+                  category_id: 1
+                  description: kjfjd
+                  image: uploads/20220818130554_qz_question_image.png
+                  fr: uploads/20220818130554_qz_question_fr.mp3
+                  ar: uploads/20220818130554_qz_question_ar.mp3
+                  ng: uploads/20220818130554_qz_question_ng.mp3
+                  correct: 1
+                  created_at: '2022-08-18T13:05:54.000000Z'
+                  updated_at: '2022-08-18T17:26:32.000000Z'
+                properties:
+                  id:
+                    type: integer
+                    example: 1
+                  category_id:
+                    type: integer
+                    example: 1
+                  description:
+                    type: string
+                    example: kjfjd
+                  image:
+                    type: string
+                    example: uploads/20220818130554_qz_question_image.png
+                  fr:
+                    type: string
+                    example: uploads/20220818130554_qz_question_fr.mp3
+                  ar:
+                    type: string
+                    example: uploads/20220818130554_qz_question_ar.mp3
+                  ng:
+                    type: string
+                    example: uploads/20220818130554_qz_question_ng.mp3
+                  correct:
+                    type: integer
+                    example: 1
+                  created_at:
+                    type: string
+                    example: '2022-08-18T13:05:54.000000Z'
+                  updated_at:
+                    type: string
+                    example: '2022-08-18T17:26:32.000000Z'
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: employee_id
+        description: 'The ID of the employee.'
+        example: et
+        required: true
+        schema:
+          type: string
+tags:
+  -
+    name: Endpoints
+    description: ''

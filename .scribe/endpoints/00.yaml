@@ -18,7 +18,7 @@ endpoints:
         name: id
         description: 'The ID of the response.'
         required: true
-        example: minima
+        example: et
         type: string
         custom: []
     queryParameters: []
@@ -42,7 +42,7 @@ endpoints:
         name: id
         description: 'The ID of the response.'
         required: true
-        example: magni
+        example: assumenda
         type: string
         custom: []
     queryParameters: []
@@ -55,7 +55,7 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '49'
+          x-ratelimit-remaining: '46'
           access-control-allow-origin: '*'
         description: null
     responseFields: []
@@ -76,7 +76,7 @@ endpoints:
         name: id
         description: 'The ID of the response.'
         required: true
-        example: quo
+        example: iusto
         type: string
         custom: []
     queryParameters: []
@@ -84,12 +84,12 @@ endpoints:
     responses:
       -
         status: 200
-        content: '[]'
+        content: '{}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
           x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '48'
+          x-ratelimit-remaining: '45'
           access-control-allow-origin: '*'
         description: null
     responseFields: []
@@ -111,7 +111,7 @@ endpoints:
     responses:
       -
         status: 200
-        content: "<!DOCTYPE html>\r\n<html lang=\"en\">\r\n<head>\r\n    <meta charset=\"UTF-8\">\r\n    <title>Total Safety API</title>\r\n    <link rel=\"stylesheet\" type=\"text/css\" href=\"http://localhost/docs/asset/swagger-ui.css?v=d6de32fafed0ea75ef760baa8ebe2bda\">\r\n    <link rel=\"icon\" type=\"image/png\" href=\"http://localhost/docs/asset/favicon-32x32.png?v=40d4f2c38d1cd854ad463f16373cbcb6\" sizes=\"32x32\"/>\r\n    <link rel=\"icon\" type=\"image/png\" href=\"http://localhost/docs/asset/favicon-16x16.png?v=f0ae831196d55d8f4115b6c5e8ec5384\" sizes=\"16x16\"/>\r\n    <style>\r\n    html\r\n    {\r\n        box-sizing: border-box;\r\n        overflow: -moz-scrollbars-vertical;\r\n        overflow-y: scroll;\r\n    }\r\n    *,\r\n    *:before,\r\n    *:after\r\n    {\r\n        box-sizing: inherit;\r\n    }\r\n\r\n    body {\r\n      margin:0;\r\n      background: #fafafa;\r\n    }\r\n    </style>\r\n</head>\r\n\r\n<body>\r\n<div id=\"swagger-ui\"></div>\r\n\r\n<script src=\"http://localhost/docs/asset/swagger-ui-bundle.js?v=e0ae76d9795806abae1f7781d89d4f4b\"></script>\r\n<script src=\"http://localhost/docs/asset/swagger-ui-standalone-preset.js?v=8e0e2470d0530680f6f16c7817337891\"></script>\r\n<script>\r\n    window.onload = function() {\r\n        // Build a system\r\n        const ui = SwaggerUIBundle({\r\n            dom_id: '#swagger-ui',\r\n            url: \"http://localhost/docs/api-docs.json\",\r\n            operationsSorter: null,\r\n            configUrl: null,\r\n            validatorUrl: null,\r\n            oauth2RedirectUrl: \"http://localhost/api/oauth2-callback\",\r\n\r\n            requestInterceptor: function(request) {\r\n                request.headers['X-CSRF-TOKEN'] = '';\r\n                return request;\r\n            },\r\n\r\n            presets: [\r\n                SwaggerUIBundle.presets.apis,\r\n                SwaggerUIStandalonePreset\r\n            ],\r\n\r\n            plugins: [\r\n                SwaggerUIBundle.plugins.DownloadUrl\r\n            ],\r\n\r\n            layout: \"StandaloneLayout\",\r\n            docExpansion : \"none\",\r\n            deepLinking: true,\r\n            filter: true,\r\n            persistAuthorization: \"false\",\r\n\r\n        })\r\n\r\n        window.ui = ui\r\n\r\n            }\r\n</script>\r\n</body>\r\n</html>\r\n"
+        content: "<!DOCTYPE html>\r\n<html lang=\"en\">\r\n<head>\r\n    <meta charset=\"UTF-8\">\r\n    <title>Total Safety API</title>\r\n    <link rel=\"stylesheet\" type=\"text/css\" href=\"https://localhost/docs/asset/swagger-ui.css?v=d6de32fafed0ea75ef760baa8ebe2bda\">\r\n    <link rel=\"icon\" type=\"image/png\" href=\"https://localhost/docs/asset/favicon-32x32.png?v=40d4f2c38d1cd854ad463f16373cbcb6\" sizes=\"32x32\"/>\r\n    <link rel=\"icon\" type=\"image/png\" href=\"https://localhost/docs/asset/favicon-16x16.png?v=f0ae831196d55d8f4115b6c5e8ec5384\" sizes=\"16x16\"/>\r\n    <style>\r\n    html\r\n    {\r\n        box-sizing: border-box;\r\n        overflow: -moz-scrollbars-vertical;\r\n        overflow-y: scroll;\r\n    }\r\n    *,\r\n    *:before,\r\n    *:after\r\n    {\r\n        box-sizing: inherit;\r\n    }\r\n\r\n    body {\r\n      margin:0;\r\n      background: #fafafa;\r\n    }\r\n    </style>\r\n</head>\r\n\r\n<body>\r\n<div id=\"swagger-ui\"></div>\r\n\r\n<script src=\"https://localhost/docs/asset/swagger-ui-bundle.js?v=e0ae76d9795806abae1f7781d89d4f4b\"></script>\r\n<script src=\"https://localhost/docs/asset/swagger-ui-standalone-preset.js?v=8e0e2470d0530680f6f16c7817337891\"></script>\r\n<script>\r\n    window.onload = function() {\r\n        // Build a system\r\n        const ui = SwaggerUIBundle({\r\n            dom_id: '#swagger-ui',\r\n            url: \"https://localhost/docs/api-docs.json\",\r\n            operationsSorter: null,\r\n            configUrl: null,\r\n            validatorUrl: null,\r\n            oauth2RedirectUrl: \"https://localhost/api/oauth2-callback\",\r\n\r\n            requestInterceptor: function(request) {\r\n                request.headers['X-CSRF-TOKEN'] = '';\r\n                return request;\r\n            },\r\n\r\n            presets: [\r\n                SwaggerUIBundle.presets.apis,\r\n                SwaggerUIStandalonePreset\r\n            ],\r\n\r\n            plugins: [\r\n                SwaggerUIBundle.plugins.DownloadUrl\r\n            ],\r\n\r\n            layout: \"StandaloneLayout\",\r\n            docExpansion : \"none\",\r\n            deepLinking: true,\r\n            filter: true,\r\n            persistAuthorization: \"false\",\r\n\r\n        })\r\n\r\n        window.ui = ui\r\n\r\n            }\r\n</script>\r\n</body>\r\n</html>\r\n"
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -262,7 +262,7 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '59'
+          x-ratelimit-remaining: '57'
           access-control-allow-origin: '*'
         description: null
     responseFields: []
@@ -296,7 +296,7 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '58'
+          x-ratelimit-remaining: '56'
           access-control-allow-origin: '*'
         description: null
     responseFields: []
@@ -330,7 +330,7 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '57'
+          x-ratelimit-remaining: '55'
           access-control-allow-origin: '*'
         description: null
     responseFields: []
@@ -357,7 +357,7 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '56'
+          x-ratelimit-remaining: '54'
           access-control-allow-origin: '*'
         description: null
     responseFields: []
@@ -391,7 +391,7 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '55'
+          x-ratelimit-remaining: '53'
           access-control-allow-origin: '*'
         description: null
     responseFields: []
@@ -418,7 +418,7 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '54'
+          x-ratelimit-remaining: '52'
           access-control-allow-origin: '*'
         description: null
     responseFields: []
@@ -439,7 +439,7 @@ endpoints:
         name: id
         description: 'The ID of the quiz.'
         required: true
-        example: earum
+        example: dignissimos
         type: string
         custom: []
     queryParameters: []
@@ -452,7 +452,7 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '53'
+          x-ratelimit-remaining: '51'
           access-control-allow-origin: '*'
         description: null
     responseFields: []
@@ -473,7 +473,7 @@ endpoints:
         name: category_id
         description: 'The ID of the category.'
         required: true
-        example: deserunt
+        example: non
         type: string
         custom: []
     queryParameters: []
@@ -486,7 +486,7 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '52'
+          x-ratelimit-remaining: '49'
           access-control-allow-origin: '*'
         description: null
     responseFields: []
@@ -513,7 +513,7 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '51'
+          x-ratelimit-remaining: '48'
           access-control-allow-origin: '*'
         description: null
     responseFields: []
@@ -551,7 +551,7 @@ endpoints:
         name: id
         description: 'The ID of the response.'
         required: true
-        example: facilis
+        example: iusto
         type: string
         custom: []
     queryParameters: []
@@ -564,7 +564,7 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '50'
+          x-ratelimit-remaining: '47'
           access-control-allow-origin: '*'
         description: null
     responseFields: []
@@ -586,10 +586,44 @@ endpoints:
         name: id
         description: 'The ID of the response.'
         required: true
-        example: dolore
+        example: eius
         type: string
         custom: []
     queryParameters: []
     bodyParameters: []
     responses: []
+    responseFields: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/v1/quizzes/{employee_id}/notanswered'
+    metadata:
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      employee_id:
+        name: employee_id
+        description: 'The ID of the employee.'
+        required: true
+        example: et
+        type: string
+        custom: []
+    queryParameters: []
+    bodyParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"id":1,"category_id":1,"description":"kjfjd","image":"uploads\/20220818130554_qz_question_image.png","fr":"uploads\/20220818130554_qz_question_fr.mp3","ar":"uploads\/20220818130554_qz_question_ar.mp3","ng":"uploads\/20220818130554_qz_question_ng.mp3","correct":1,"created_at":"2022-08-18T13:05:54.000000Z","updated_at":"2022-08-18T17:26:32.000000Z"}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-ratelimit-limit: '60'
+          x-ratelimit-remaining: '50'
+          access-control-allow-origin: '*'
+        description: null
     responseFields: []

@@ -84,6 +84,6 @@ class EmployeeQuizResponseController extends Controller
      */
     public function employees($employee_id)
     {
-        return response()->json(EmployeeQuizResponse::with(["employee", "quiz_question"])->where('employee_id', $employee_id)->get(), 200);
+        return response()->json(EmployeeQuizResponse::with(["employee", "quiz_question"])->where('employee_id', $employee_id)->first(), 200);
     }
 }

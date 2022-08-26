@@ -158,4 +158,10 @@ class QuizQuestionController extends Controller
     public function category($category_id){
         return response()->json(QuizQuestion::where('category_id', $category_id)->get(), 200);
     }
+
+    public function notanswered($employee_id){
+        return response()->json(QuizQuestion::whereDoesntHave("employee_quiz_responses", function ($query) use($employee_id){
+            $query->where("employee_id", $employee_id);
+        })->first());
+    }
 }
