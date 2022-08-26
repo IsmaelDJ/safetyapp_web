@@ -18,8 +18,8 @@ class AuthController extends Controller
             if (!$request->only('uid', 'password')) {
                 return response()->json([
                     'status'  => false,
-                    'message' => 'Information de connection invalid'
-                ], 401);
+                    'message' => 'Mot de passe incorrect'
+                ], 200);
             }
     
             $employee = Employee::where('uid', $request['uid'])->first();
@@ -27,15 +27,15 @@ class AuthController extends Controller
             if(!$employee){
                 return response()->json([
                     'status'  => false,
-                    'message' => 'Information de connection invalid'
-                ], 401);
+                    'message' => 'Mot de passe incorrect'
+                ], 200);
             }
 
             if(!($employee->password == $request['password'])){
                 return response()->json([
                     'status' => false,
-                    'message' => 'Echec de connexion'
-                ], 401);
+                    'message' => 'Mot de passe incorrect'
+                ], 200);
             }
     
             return response()->json([
