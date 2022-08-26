@@ -22,13 +22,17 @@ class AuthController extends Controller
                 ], 401);
             }
     
-            $employee = Employee::where('uid', $request['uid'])->firstOrFail();
+            $employee = Employee::where('uid', $request['uid'])->first();
     
+            if(!$employee){
+                return response()->json('Aucun employee correspondant à ce uid', 404);
+            }
+
             if(!($employee->password == $request['password'])){
                 return response()->json([
                     'status' => false,
                     'message' => 'Mot de passe incorrect'
-                ], 401);
+                ], 404);
             }
     
             return response()->json([

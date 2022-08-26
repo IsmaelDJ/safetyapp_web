@@ -3,6 +3,7 @@
 use App\Models\Quiz;
 use App\Models\Rule;
 use App\Models\Category;
+use App\Models\Employee;
 use App\Models\QuizQuestion;
 use Illuminate\Http\Request;
 use App\Models\EmployeeQuizResponse;
@@ -30,7 +31,9 @@ Route::group([
     'prefix' => 'v1'
 ], function () {
     Route::post('/login', [AuthController::class, 'login']);
-
+    Route::get('employees', function () {
+        return response()->json(Employee::get());
+    });
     //categories
     Route::get('categories', function () {
         return Category::get();
