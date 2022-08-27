@@ -163,6 +163,6 @@ class QuizQuestionController extends Controller
     public function notanswereds($employee_id){
         return response()->json(QuizQuestion::whereDoesntHave("employee_quiz_responses", function ($query) use($employee_id){
             $query->where("employee_id", $employee_id);
-        }));
+        })->get());
     }
 }
