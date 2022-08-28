@@ -125,4 +125,8 @@ class HomeController extends Controller
             }
         }
     }
+
+    public function analyze() {
+        return view('analyze.index');
+    }
 }

@@ -1,13 +1,14 @@
 <?php
 
-use App\Http\Controllers\ContractorController;
-use App\Http\Controllers\EmployeeController;
-use App\Http\Controllers\EmployeeQuizResponseController;
-use App\Http\Controllers\QuizQuestionController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
 use \App\Http\Controllers\RuleController;
+use App\Http\Controllers\EmployeeController;
 use \App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ContractorController;
+use App\Http\Controllers\QuizQuestionController;
+use App\Http\Controllers\EmployeeQuizResponseController;
 
 /*
 |--------------------------------------------------------------------------
@@ -60,10 +61,12 @@ Route::get('employee_quiz_responses', [EmployeeQuizResponseController::class,'in
 Route::get('employee_quiz_responses/{quiz_question_id}/quizzes', [EmployeeQuizResponseController::class,'quizzes'])->name('employee_quiz_responses.quizzes');
 Route::get('employee_quiz_responses/{employee_id}/employees', [EmployeeQuizResponseController::class,'employees'])->name('employee_quiz_responses.employees');
 
-Route::get('{any}', [App\Http\Controllers\HomeController::class, 'index'])->name('index');
 Route::get('/documentation-api', function () {
     return view('scribe.index');
 });
+
+Route::get('/analyze', [App\Http\Controllers\HomeController::class, 'analyze'])->name('analyze.index');
+Route::get('{any}', [App\Http\Controllers\HomeController::class, 'index'])->name('index');
 
 //URL::forceScheme('https');
 

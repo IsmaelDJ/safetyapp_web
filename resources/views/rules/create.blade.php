@@ -22,8 +22,6 @@
                 @csrf
 
                 <div class="row">
-
-
                     <div class="col-md-5 col-xl-4">
                         <div class="auth-full-page-content p-md-5 p-4">
                             <div class="w-100">

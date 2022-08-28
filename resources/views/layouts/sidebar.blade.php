@@ -64,7 +64,7 @@
 
                 <li class="menu-title" key="t-menu">Suivi</li>
                 <li>
-                    <a href="#" class="waves-effect">
+                    <a href="{{route('analyze.index')}}" class="waves-effect">
                         <i class="bx bxs-analyse"></i>
                         <span>Analytique</span>
                     </a>

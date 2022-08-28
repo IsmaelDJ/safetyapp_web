@@ -88,7 +88,7 @@ Route::group([
     Route::get('quizzes',  [QuizQuestionController::class, 'index']);
     Route::get('quizzes/{id}', [QuizQuestionController::class, 'show']);
     Route::get('quizzes/{employee_id}/notanswered', [QuizQuestionController::class, 'notanswered']);
-    Route::get('quizzes/{employee_id}/notanswereds', [QuizQuestionController::class, 'notanswereds']);
+    Route::get('quizzes/{employee_id}/notanswereds   ', [QuizQuestionController::class, 'notanswereds']);
 
     Route::get('quizzes/{category_id}/category', [QuizQuestionController::class, 'category']);
 

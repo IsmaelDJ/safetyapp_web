@@ -1,4 +1,6 @@
-<?php $__env->startSection('title'); ?> Reponses <?php $__env->stopSection(); ?>
+
+
+<?php $__env->startSection('title'); ?> Règles <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('css'); ?>
     <!-- Bootstrap Css -->
@@ -16,12 +18,10 @@
     <div class="card">
 
         <div class="row g-0">
-            <form action="<?php echo e(route('quiz_responses.store')); ?>" method="post" enctype="multipart/form-data">
+            <form action="<?php echo e(route('rules.store')); ?>" method="post" enctype="multipart/form-data">
                 <?php echo csrf_field(); ?>
 
                 <div class="row">
-
-
                     <div class="col-md-5 col-xl-4">
                         <div class="auth-full-page-content p-md-5 p-4">
                             <div class="w-100">
@@ -67,10 +67,10 @@ unset($__errorArgs, $__bag); ?>
                         <div class="bg-soft pt-lg-5 p-4 col-md-10">
                             <div class="w-100">
 
-                                <label class="col-form-label">Réponse</label>
+                                <label class="col-form-label">Catégorie</label>
                                 <div>
                                     <select
-                                        class="form-select form-select-lg <?php $__errorArgs = ['correct'];
+                                        class="form-select form-select-lg <?php $__errorArgs = ['category_id'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }
@@ -78,32 +78,32 @@ $message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>"
-                                        name="correct">
-                                        <option selected>Selectionnez la valeur de la reponse</option>
-                                        <option value="true">
-                                            Reponse correcte
-                                        </option>
-                                        <option value="false">
-                                            Reponse incorrecte
-                                        </option>
+                                        name="category_id">
+                                        <option selected>Selectionnez une catégorie</option>
+                                        <?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                            <option value="<?php echo e($category->id); ?>">
+                                                <img src="<?php echo e(URL::asset($category->image)); ?>" alt="">
+                                                <?php echo e($category->name); ?>
+
+                                            </option>
+                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                     </select>
-                                    <?php $__errorArgs = ['correct'];
+                                    <?php $__errorArgs = ['category_id'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?>
                                     <span class="invalid-feedback" role="alert">
-                                    <strong>Valeur de reponse non selectionnée</strong>
+                                    <strong>Catégorie non selectionnée</strong>
                                 </span>
                                     <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>
                                 </div>
-
                                 <div class="mb-3 mt-3">
                                     <label for="description" class="form-label">Description</label>
-                                    <textarea id="" description placeholder="Entrez la question"
+                                    <textarea id="" description placeholder="Entrez la description de la règle"
                                               name="description"
                                               class="form-control form-control-lg <?php $__errorArgs = ['description'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
@@ -119,7 +119,7 @@ if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?>
                                     <span class="invalid-feedback" role="alert">
-                                    <strong>Question invalid</strong>
+                                    <strong>Description invalid</strong>
                                 </span>
                                     <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
@@ -220,7 +220,6 @@ unset($__errorArgs, $__bag); ?>
                     </div>
 
                 </div>
-                <input type="hidden" name="quiz_question_id" value="<?php echo e($quizQuestion->id); ?>">
 
             </form>
         </div>
@@ -242,4 +241,4 @@ unset($__errorArgs, $__bag); ?>
     </script>
 <?php $__env->stopSection(); ?>
 
-<?php echo $__env->make('layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /Applications/MAMP/htdocs/safetyapp/resources/views/quiz_responses/create.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\Users\Ismae\Downloads\safetyapp_web\resources\views/rules/create.blade.php ENDPATH**/ ?>

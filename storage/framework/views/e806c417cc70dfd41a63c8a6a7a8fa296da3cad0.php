@@ -43,12 +43,12 @@
                             <div class="essential_audio mt-4" data-url="<?php echo e(URL::asset($quizQuestion->fr)); ?>"></div>
                         </div>
                         <div class="mt-4 pb-4">
-                            <h5 class=" mt-4">Audio Français</h5>
-                            <div class="essential_audio mt-4" data-url="<?php echo e(URL::asset($quizQuestion->fr)); ?>"></div>
+                            <h5 class=" mt-4">Audio Arabe</h5>
+                            <div class="essential_audio mt-4" data-url="<?php echo e(URL::asset($quizQuestion->ar)); ?>"></div>
                         </div>
                         <div class="mt-4 pb-4">
-                            <h5 class=" mt-4">Audio Français</h5>
-                            <div class="essential_audio mt-4" data-url="<?php echo e(URL::asset($quizQuestion->fr)); ?>"></div>
+                            <h5 class=" mt-4">Audio Ngambaye</h5>
+                            <div class="essential_audio mt-4" data-url="<?php echo e(URL::asset($quizQuestion->ng)); ?>"></div>
                         </div>
                     </div>
                 </div>
