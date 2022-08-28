@@ -99,6 +99,6 @@ Route::group([
     Route::get('responses/{id}/employees', [EmployeeQuizResponseController::class, 'employees']);
 });
 
-//URL::forceScheme('https');
+URL::forceScheme('https');
 
 
