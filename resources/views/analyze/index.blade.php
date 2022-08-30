@@ -47,31 +47,7 @@
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-xl-3 col-sm-6 card ms-2 me-4">
-                <div class="text-center pt-4" dir="ltr">
-                    <h5 class="font-size-20 mb-3">Quiz</h5>
-                    <hr>
-                    <input class="knob" data-width="200" data-angleoffset="90" data-linecap="round"
-                    data-readOnly=true data-fgcolor="#3eac00" value="35">
-                </div>
-            </div>
-            <div class="col-xl-5 col-sm-6 card">
-                <div class="text-center pt-4" dir="ltr">
-                    <h5 class="font-size-20 mb-3">Quiz</h5>
-                    <hr>
-                    <div id="radial_chart" class="apex-charts" dir="ltr"></div>
-                </div>
-            </div>
-            <div class="col-xl-3 col-sm-6 card ms-4">
-                <div class="text-center pt-4" dir="ltr">
-                    <h5 class="font-size-20 mb-3">Quiz</h5>
-                    <hr>
-                    <input class="knob" data-width="200" data-angleoffset="90" data-linecap="round"
-                    data-readOnly=true data-fgcolor="#3eac00" value="35">
-                </div>
-            </div>
-        </div>
+    </div>
         <div class="row">
             <div class="col-xl-6">
                 <div class="card">
@@ -102,7 +78,7 @@
                             <ul class="list-group list-group-flush">
                                 <li class="list-group-item">
                                     <div class="py-2">
-                                        <h5 class="font-size-14">California <span class="float-end">78%</span></h5>
+                                        <h5 class="font-size-14">Quiz 1 <span class="float-end">78%</span></h5>
                                         <div class="progress animated-progess progress-sm">
                                             <div class="progress-bar" role="progressbar" style="width: 78%" aria-valuenow="78" aria-valuemin="0" aria-valuemax="100"></div>
                                         </div>
@@ -110,7 +86,7 @@
                                 </li>
                                 <li class="list-group-item">
                                     <div class="py-2">
-                                        <h5 class="font-size-14">Nevada <span class="float-end">69%</span></h5>
+                                        <h5 class="font-size-14">Quiz 2 <span class="float-end">69%</span></h5>
                                         <div class="progress animated-progess progress-sm">
                                             <div class="progress-bar bg-warning" role="progressbar" style="width: 69%" aria-valuenow="69" aria-valuemin="0" aria-valuemax="100"></div>
                                         </div>
@@ -118,7 +94,7 @@
                                 </li>
                                 <li class="list-group-item">
                                     <div class="py-2">
-                                        <h5 class="font-size-14">Texas <span class="float-end">61%</span></h5>
+                                        <h5 class="font-size-14">Quiz 3 <span class="float-end">61%</span></h5>
                                         <div class="progress animated-progess progress-sm">
                                             <div class="progress-bar bg-success" role="progressbar" style="width: 61%" aria-valuenow="61" aria-valuemin="0" aria-valuemax="100"></div>
                                         </div>
@@ -126,7 +102,7 @@
                                 </li>
                                 <li class="list-group-item">
                                     <div class="py-2">
-                                        <h5 class="font-size-14">Texas <span class="float-end">61%</span></h5>
+                                        <h5 class="font-size-14">Quiz 4 <span class="float-end">61%</span></h5>
                                         <div class="progress animated-progess progress-sm">
                                             <div class="progress-bar bg-success" role="progressbar" style="width: 61%" aria-valuenow="61" aria-valuemin="0" aria-valuemax="100"></div>
                                         </div>
