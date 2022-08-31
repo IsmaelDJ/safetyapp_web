@@ -259,18 +259,10 @@ type="text/css"/>
                     <div class="me-2">
                         <h5 class="card-title mb-3">Lecture par règle</h5>
                     </div>
-                    <div class="dropdown ms-auto">
-                        <a class="text-muted dropdown-toggle font-size-16" role="button" data-bs-toggle="dropdown" aria-haspopup="true">
-                            <i class="mdi mdi-dots-horizontal"></i>
+                    <div class="ms-auto">
+                        <a class="text-muted font-size-16">
+                            <i class="fa fa-plus"></i>
                         </a>
-                        
-                        <div class="dropdown-menu dropdown-menu-end">
-                            <a class="dropdown-item" href="#">Action</a>
-                            <a class="dropdown-item" href="#">Another action</a>
-                            <a class="dropdown-item" href="#">Something else here</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Separated link</a>
-                        </div>
                     </div>
                 </div>
                 
@@ -302,18 +294,10 @@ type="text/css"/>
                     <div class="me-2">
                         <h5 class="card-title mb-3">Lecture par catégorie de règle</h5>
                     </div>
-                    <div class="dropdown ms-auto">
-                        <a class="text-muted dropdown-toggle font-size-16" role="button" data-bs-toggle="dropdown" aria-haspopup="true">
-                            <i class="mdi mdi-dots-horizontal"></i>
+                    <div class="ms-auto">
+                        <a class="text-muted font-size-16">
+                            <i class="fa fa-plus"></i>
                         </a>
-                        
-                        <div class="dropdown-menu dropdown-menu-end">
-                            <a class="dropdown-item" href="#">Action</a>
-                            <a class="dropdown-item" href="#">Another action</a>
-                            <a class="dropdown-item" href="#">Something else here</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Separated link</a>
-                        </div>
                     </div>
                 </div>
                 
@@ -352,7 +336,19 @@ type="text/css"/>
     <div class="col-xl-4">
         <div class="card">
             <div class="card-body">
-                <h4 class="card-title mb-4">Lecture par employé</h4>
+                <div class="d-flex flex-wrap align-items-start">
+                    <div class="me-2">
+                        <h5 class="card-title mb-3">Lecture par employé</h5>
+                    </div>
+                    <div class="ms-auto">
+                        <a class="text-muted font-size-16">
+                            <i class="fa fa-plus"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <hr>
+
             <div class="table-responsive" data-simplebar style="max-height: 260px;">
                 <table class="table align-middle table-nowrap">
                     <tbody>
