@@ -368,7 +368,7 @@ type="text/css"/>
 
                             <td>
                                 <div class="text-end">
-                                    <h5 class="font-size-14 text-muted mb-0"><?php echo e($total_readings != 0 ? $bestEmployee->readings_count / $total_readings * 100 : 0); ?>%</h5>
+                                    <h5 class="font-size-14 text-muted mb-0"><?php echo e(round( $total_readings != 0 ? $bestEmployee->readings_count / $total_readings * 100 : 0, 2)); ?>%</h5>
                                 </div>
                             </td>
                         </tr>

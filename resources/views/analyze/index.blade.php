@@ -193,7 +193,7 @@ type="text/css"/>
 
                                         <td>
                                             <div class="text-end">
-                                                <h5 class="font-size-14 text-muted mb-0">{{ $employee_quiz_responses_total != 0 ? $quizBadAnswered->employee_quiz_responses_count / $employee_quiz_responses_total * 100 : 0}}%</h5>
+                                                <h5 class="font-size-14 text-muted mb-0">{{round( $employee_quiz_responses_total != 0 ? $quizBadAnswered->employee_quiz_responses_count / $employee_quiz_responses_total * 100 : 0, 1)}}%</h5>
                                             </div>
                                         </td>
                                     </tr>
@@ -232,7 +232,7 @@ type="text/css"/>
 
                                         <td>
                                             <div class="text-end">
-                                                <h5 class="font-size-14 text-muted mb-0">{{ $employee_quiz_responses_total != 0 ? $quizGoodAnswered->employee_quiz_responses_count / $employee_quiz_responses_total * 100 : 0}}%</h5>
+                                                <h5 class="font-size-14 text-muted mb-0">{{ round($employee_quiz_responses_total != 0 ? $quizGoodAnswered->employee_quiz_responses_count / $employee_quiz_responses_total * 100 : 0, 1)}}%</h5>
                                             </div>
                                         </td>
                                     </tr>
@@ -271,9 +271,9 @@ type="text/css"/>
                         @foreach($rulesMoreRead as $ruleMoreRead)
                         <li class="list-group-item">
                             <div class="py-2">
-                                <h5 class="font-size-14">{{ $ruleMoreRead->description }}<span class="float-end">{{ ($total_readings != 0 ? $ruleMoreRead->readings_count * 100 / $total_readings : 0 ). '%' }}</span></h5>
+                                <h5 class="font-size-14">{{ $ruleMoreRead->description }}<span class="float-end">{{ round(($total_readings != 0 ? $ruleMoreRead->readings_count * 100 / $total_readings : 0 , 1)). '%' }}</span></h5>
                                 <div class="progress animated-progess progress-sm">
-                                    <div class="progress-bar" role="progressbar" style="width: {{ $total_readings != 0 ? $ruleMoreRead->readings_count * 100 / $total_readings : 0}}%" aria-valuenow="{{ $ruleMoreRead->readings_count * 100 / $total_readings }}" aria-valuemin="0" aria-valuemax="100"></div>
+                                    <div class="progress-bar" role="progressbar" style="width: {{ round( $total_readings != 0 ? $ruleMoreRead->readings_count * 100 / $total_readings : 0, 1)}}%" aria-valuenow="{{ $ruleMoreRead->readings_count * 100 / $total_readings }}" aria-valuemin="0" aria-valuemax="100"></div>
                                 </div>
                             </div>
                         </li>
@@ -318,7 +318,7 @@ type="text/css"/>
                                 <div class="progress-outer mt-4">
                                     <div class="progress animated-progess bg-white">
                                         <div class="progress-bar bg-success progress-bar-info" style="width:{{ $total_readings != 0 ? $categoryMoreRead->readings_count * 100 / $total_readings : 0}}%;"></div>
-                                        <div class="progress-value">{{ $total_readings != 0 ? $categoryMoreRead->readings_count * 100 / $total_readings : 0}}%</div>
+                                        <div class="progress-value">{{ round($total_readings != 0 ? $categoryMoreRead->readings_count * 100 / $total_readings : 0, 1)}}%</div>
                                     </div>
                                 </div>
                                 @endforeach
@@ -364,7 +364,7 @@ type="text/css"/>
 
                             <td>
                                 <div class="text-end">
-                                    <h5 class="font-size-14 text-muted mb-0">{{ $total_readings != 0 ? $bestEmployee->readings_count / $total_readings * 100 : 0}}%</h5>
+                                    <h5 class="font-size-14 text-muted mb-0">{{round( $total_readings != 0 ? $bestEmployee->readings_count / $total_readings * 100 : 0, 1)}}%</h5>
                                 </div>
                             </td>
                         </tr>
