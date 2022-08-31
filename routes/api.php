@@ -114,6 +114,6 @@ Route::group([
     Route::get('responses/{id}/employees', [EmployeeQuizResponseController::class, 'employees'])->whereNumber('id');
 });
 
-//URL::forceScheme('https');
+URL::forceScheme('https');
 
 
