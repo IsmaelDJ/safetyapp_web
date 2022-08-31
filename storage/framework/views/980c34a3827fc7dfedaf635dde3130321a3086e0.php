@@ -354,12 +354,6 @@ type="text/css"/>
                     <tbody>
                         <?php $__currentLoopData = $bestEmployees; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $bestEmployee): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <tr>
-                            <td style="width: 50px;">
-                                <div class="font-size-22 text-primary">
-                                    1
-                                </div>
-                            </td>
-
                             <td>
                                 <div>
                                     <h5 class="font-size-14 mb-1"><?php echo e($bestEmployee->employee->name); ?></h5>

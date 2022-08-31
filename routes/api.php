@@ -89,7 +89,8 @@ Route::group([
     Route::get('employees/{employee_id}/rules/{rule_id}', function ($rule_id, $employee_id) {
         Reading::create([
             'employee_id' => $employee_id,
-            'rule_id'     => $rule_id
+            'rule_id'     => $rule_id,
+            'category_id'    => Rule::find($rule_id)->category_id
         ]);
         
         return response()->json(
