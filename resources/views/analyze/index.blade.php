@@ -350,12 +350,6 @@ type="text/css"/>
                     <tbody>
                         @foreach($bestEmployees as $bestEmployee)
                         <tr>
-                            <td style="width: 50px;">
-                                <div class="font-size-22 text-primary">
-                                    1
-                                </div>
-                            </td>
-
                             <td>
                                 <div>
                                     <h5 class="font-size-14 mb-1">{{ $bestEmployee->employee->name }}</h5>
