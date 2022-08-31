@@ -2,6 +2,7 @@
 
 use App\Models\Quiz;
 use App\Models\Rule;
+use App\Models\Reading;
 use App\Models\Category;
 use App\Models\Employee;
 use App\Models\QuizQuestion;
@@ -84,21 +85,35 @@ Route::group([
         return Rule::where('id', $id)->first();
     });
 
+    //Reading 
+    Route::get('employees/{employee_id}/rules/{rule_id}', function ($rule_id, $employee_id) {
+        Reading::create([
+            'employee_id' => $employee_id,
+            'rule_id'     => $rule_id
+        ]);
+        
+        return response()->json(
+           [ 
+            'status' => true
+            ]
+        );
+    })->whereNumber('employee_id')->whereNumber('rule_id');
+
     //Quiz question
     Route::get('quizzes',  [QuizQuestionController::class, 'index']);
-    Route::get('quizzes/{id}', [QuizQuestionController::class, 'show']);
-    Route::get('quizzes/{employee_id}/notanswered', [QuizQuestionController::class, 'notanswered']);
-    Route::get('quizzes/{employee_id}/notanswereds   ', [QuizQuestionController::class, 'notanswereds']);
+    Route::get('quizzes/{id}', [QuizQuestionController::class, 'show'])->whereNumber('id');
+    Route::get('quizzes/{employee_id}/notanswered', [QuizQuestionController::class, 'notanswered'])->whereNumber('employee_id');
+    Route::get('quizzes/{employee_id}/notanswereds   ', [QuizQuestionController::class, 'notanswereds'])->whereNumber('employee_id');
 
-    Route::get('quizzes/{category_id}/category', [QuizQuestionController::class, 'category']);
+    Route::get('quizzes/{category_id}/category', [QuizQuestionController::class, 'category'])->whereNumber('category_id');
 
     //Quiz response
     Route::apiResource('responses', EmployeeQuizResponseController::class);
 
-    Route::get('responses/{id}/quizzes', [EmployeeQuizResponseController::class, 'quizzes']);
-    Route::get('responses/{id}/employees', [EmployeeQuizResponseController::class, 'employees']);
+    Route::get('responses/{id}/quizzes', [EmployeeQuizResponseController::class, 'quizzes'])->whereNumber('id');
+    Route::get('responses/{id}/employees', [EmployeeQuizResponseController::class, 'employees'])->whereNumber('id');
 });
 
-URL::forceScheme('https');
+//URL::forceScheme('https');
 
 

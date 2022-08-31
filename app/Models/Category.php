@@ -18,6 +18,10 @@ class Category extends Model
         return $this->hasMany(QuizQuestion::class);
     }
 
+    public function readings() {
+        return $this->hasMany(Reading::class);
+    }
+
     public static function boot()
     {
         parent::boot();

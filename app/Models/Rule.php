@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Reading;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Rule extends Model
 {
@@ -11,6 +12,10 @@ class Rule extends Model
 
     public function category(){
         return $this->belongsTo(Category::class);
+    }
+
+    public function readings() {
+        return $this->hasMany(Reading::class);
     }
 
     public static function boot()

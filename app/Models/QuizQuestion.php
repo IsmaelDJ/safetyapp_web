@@ -17,7 +17,7 @@ class QuizQuestion extends Model
         return $this->belongsTo(Category::class);
     }
 
-     public function employee_quiz_responses() {
+    public function employee_quiz_responses() {
         return $this->hasMany(EmployeeQuizResponse::class);
     }
 
