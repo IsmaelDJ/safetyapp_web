@@ -21,47 +21,45 @@ class AnalyticController extends Controller
      */
     public function index()
     {
-        $num_items = 10;
-
         $quizNoAnswereds  = QuizQuestion::whereDoesntHave("employee_quiz_responses")
-        ->get()->forPage(1, $num_items);
+        ->paginate(10);
         
         $quizAnswereds    = QuizQuestion::whereHas("employee_quiz_responses")
         ->withCount("employee_quiz_responses")
         ->orderBy("employee_quiz_responses_count", 'desc')
-        ->get()->forPage(1, $num_items);
+        ->paginate(10);
         
         $quizBadAnswereds = QuizQuestion::whereHas("employee_quiz_responses", function ($query){
             $query->where("correct", false);
         })
         ->withCount("employee_quiz_responses")
         ->orderBy("employee_quiz_responses_count", 'desc')
-        ->get()->forPage(1, $num_items);
+        ->paginate(10);
 
         $quizGoodAnswereds = QuizQuestion::whereHas("employee_quiz_responses", function ($query){
             $query->where("correct", true);
         })
         ->withCount("employee_quiz_responses")
         ->orderBy("employee_quiz_responses_count", 'desc')
-        ->get()->forPage(1, $num_items);
+        ->paginate(10);
 
         $rulesMoreRead = Rule::whereHas("readings")
         ->withCount("readings")
         ->orderBy("readings_count", 'desc')
-        ->get()->forPage(1, $num_items);
+        ->paginate(10);
 
         $employee_quiz_responses_total = EmployeeQuizResponse::count();
 
         $categoriesMoreRead = Category::whereHas("readings")
         ->withCount("readings")
         ->orderBy("readings_count", 'desc')
-        ->get()->forPage(1, $num_items);
+        ->paginate(10);
 
         $bestEmployees = Reading::groupBy('employee_id')
             ->selectRaw('count(*) as readings_count, employee_id')
             ->with('employee')
             ->orderBy('readings_count', 'desc')
-            ->get()->forPage(1, $num_items);
+            ->paginate(10);
         
        // $analyticsData  = Analytics::fetchMostVisitedPages(Period::days(7));
 

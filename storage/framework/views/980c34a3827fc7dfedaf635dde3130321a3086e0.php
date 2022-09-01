@@ -195,7 +195,7 @@ type="text/css"/>
 
                                         <td>
                                             <div class="text-end">
-                                                <h5 class="font-size-14 text-muted mb-0"><?php echo e($employee_quiz_responses_total != 0 ? $quizBadAnswered->employee_quiz_responses_count / $employee_quiz_responses_total * 100 : 0); ?>%</h5>
+                                                <h5 class="font-size-14 text-muted mb-0"><?php echo e(round( $employee_quiz_responses_total != 0 ? $quizBadAnswered->employee_quiz_responses_count / $employee_quiz_responses_total * 100 : 0, 1)); ?>%</h5>
                                             </div>
                                         </td>
                                     </tr>
@@ -235,7 +235,7 @@ type="text/css"/>
 
                                         <td>
                                             <div class="text-end">
-                                                <h5 class="font-size-14 text-muted mb-0"><?php echo e($employee_quiz_responses_total != 0 ? $quizGoodAnswered->employee_quiz_responses_count / $employee_quiz_responses_total * 100 : 0); ?>%</h5>
+                                                <h5 class="font-size-14 text-muted mb-0"><?php echo e(round($employee_quiz_responses_total != 0 ? $quizGoodAnswered->employee_quiz_responses_count / $employee_quiz_responses_total * 100 : 0, 1)); ?>%</h5>
                                             </div>
                                         </td>
                                     </tr>
@@ -260,9 +260,15 @@ type="text/css"/>
                         <h5 class="card-title mb-3">Lecture par règle</h5>
                     </div>
                     <div class="ms-auto">
-                        <a class="text-muted font-size-16">
-                            <i class="fa fa-plus"></i>
-                        </a>
+                        <div class="dropdown ms-auto">
+                            <a class="text-muted font-size-16" role="button" data-bs-toggle="dropdown" aria-haspopup="true">
+                                <i class="mdi mdi-dots-horizontal"></i>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-end">
+                                <a class="dropdown-item" href="#">Voir plus</a>
+                                <a class="dropdown-item" href="#">Voir moins</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 
@@ -274,9 +280,9 @@ type="text/css"/>
                         <?php $__currentLoopData = $rulesMoreRead; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $ruleMoreRead): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <li class="list-group-item">
                             <div class="py-2">
-                                <h5 class="font-size-14"><?php echo e($ruleMoreRead->description); ?><span class="float-end"><?php echo e(($total_readings != 0 ? $ruleMoreRead->readings_count * 100 / $total_readings : 0 ). '%'); ?></span></h5>
+                                <h5 class="font-size-14"><?php echo e($ruleMoreRead->description); ?><span class="float-end"><?php echo e((round($total_readings != 0 ? $ruleMoreRead->readings_count * 100 / $total_readings : 0 , 1)). '%'); ?></span></h5>
                                 <div class="progress animated-progess progress-sm">
-                                    <div class="progress-bar" role="progressbar" style="width: <?php echo e($total_readings != 0 ? $ruleMoreRead->readings_count * 100 / $total_readings : 0); ?>%" aria-valuenow="<?php echo e($ruleMoreRead->readings_count * 100 / $total_readings); ?>" aria-valuemin="0" aria-valuemax="100"></div>
+                                    <div class="progress-bar" role="progressbar" style="width: <?php echo e(round( $total_readings != 0 ? $ruleMoreRead->readings_count * 100 / $total_readings : 0, 1)); ?>%" aria-valuenow="<?php echo e(round($total_readings != 0 ? $ruleMoreRead->readings_count * 100 / $total_readings : 0, 1)); ?>" aria-valuemin="0" aria-valuemax="100"></div>
                                 </div>
                             </div>
                         </li>
@@ -295,9 +301,15 @@ type="text/css"/>
                         <h5 class="card-title mb-3">Lecture par catégorie de règle</h5>
                     </div>
                     <div class="ms-auto">
-                        <a class="text-muted font-size-16">
-                            <i class="fa fa-plus"></i>
-                        </a>
+                        <div class="dropdown ms-auto">
+                            <a class="text-muted font-size-16" role="button" data-bs-toggle="dropdown" aria-haspopup="true">
+                                <i class="mdi mdi-dots-horizontal"></i>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-end">
+                                <a class="dropdown-item" href="#">Voir plus</a>
+                                <a class="dropdown-item" href="#">Voir moins</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 
@@ -322,7 +334,7 @@ type="text/css"/>
                                 <div class="progress-outer mt-4">
                                     <div class="progress animated-progess bg-white">
                                         <div class="progress-bar bg-success progress-bar-info" style="width:<?php echo e($total_readings != 0 ? $categoryMoreRead->readings_count * 100 / $total_readings : 0); ?>%;"></div>
-                                        <div class="progress-value"><?php echo e($total_readings != 0 ? $categoryMoreRead->readings_count * 100 / $total_readings : 0); ?>%</div>
+                                        <div class="progress-value"><?php echo e(round($total_readings != 0 ? $categoryMoreRead->readings_count * 100 / $total_readings : 0, 1)); ?>%</div>
                                     </div>
                                 </div>
                                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
@@ -341,9 +353,15 @@ type="text/css"/>
                         <h5 class="card-title mb-3">Lecture par employé</h5>
                     </div>
                     <div class="ms-auto">
-                        <a class="text-muted font-size-16">
-                            <i class="fa fa-plus"></i>
-                        </a>
+                        <div class="dropdown ms-auto">
+                            <a class="text-muted font-size-16" role="button" data-bs-toggle="dropdown" aria-haspopup="true">
+                                <i class="mdi mdi-dots-horizontal"></i>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-end">
+                                <a class="dropdown-item" id="showmoreEmployee">Voir plus</a>
+                                <a class="dropdown-item" id="showlessEmployee">Voir moins</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -368,7 +386,7 @@ type="text/css"/>
 
                             <td>
                                 <div class="text-end">
-                                    <h5 class="font-size-14 text-muted mb-0"><?php echo e(round( $total_readings != 0 ? $bestEmployee->readings_count / $total_readings * 100 : 0, 2)); ?>%</h5>
+                                    <h5 class="font-size-14 text-muted mb-0"><?php echo e(round( $total_readings != 0 ? $bestEmployee->readings_count / $total_readings * 100 : 0, 1)); ?>%</h5>
                                 </div>
                             </td>
                         </tr>

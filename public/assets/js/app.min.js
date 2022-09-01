@@ -245,6 +245,12 @@ File: Main Js File
         });
     }
 
+    function viewMore(){
+        $('#showmoreEmployee').click(function(){
+            axios.get('http://localhost:8000/viewmoreemployee')
+        });
+    }
+
     function init() {
         initMetisMenu();
         initLeftMenuCollapse();
@@ -259,6 +265,7 @@ File: Main Js File
         initPreloader();
         Waves.init();
         initCheckAll();
+        viewMore();
     }
 
     init();

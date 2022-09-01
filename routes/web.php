@@ -68,5 +68,5 @@ Route::get('/documentation-api', function () {
 Route::get('/analyze', [App\Http\Controllers\AnalyticController::class, 'index'])->name('analyze.index');
 Route::get('{any}', [App\Http\Controllers\HomeController::class, 'index'])->name('index');
 
-URL::forceScheme('https');
+//URL::forceScheme('https');
 

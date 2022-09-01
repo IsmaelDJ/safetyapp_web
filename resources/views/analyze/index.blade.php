@@ -257,9 +257,15 @@ type="text/css"/>
                         <h5 class="card-title mb-3">Lecture par règle</h5>
                     </div>
                     <div class="ms-auto">
-                        <a class="text-muted font-size-16">
-                            <i class="fa fa-plus"></i>
-                        </a>
+                        <div class="dropdown ms-auto">
+                            <a class="text-muted font-size-16" role="button" data-bs-toggle="dropdown" aria-haspopup="true">
+                                <i class="mdi mdi-dots-horizontal"></i>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-end">
+                                <a class="dropdown-item" href="#">Voir plus</a>
+                                <a class="dropdown-item" href="#">Voir moins</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 
@@ -271,9 +277,9 @@ type="text/css"/>
                         @foreach($rulesMoreRead as $ruleMoreRead)
                         <li class="list-group-item">
                             <div class="py-2">
-                                <h5 class="font-size-14">{{ $ruleMoreRead->description }}<span class="float-end">{{ round(($total_readings != 0 ? $ruleMoreRead->readings_count * 100 / $total_readings : 0 , 1)). '%' }}</span></h5>
+                                <h5 class="font-size-14">{{ $ruleMoreRead->description }}<span class="float-end">{{ (round($total_readings != 0 ? $ruleMoreRead->readings_count * 100 / $total_readings : 0 , 1)). '%' }}</span></h5>
                                 <div class="progress animated-progess progress-sm">
-                                    <div class="progress-bar" role="progressbar" style="width: {{ round( $total_readings != 0 ? $ruleMoreRead->readings_count * 100 / $total_readings : 0, 1)}}%" aria-valuenow="{{ $ruleMoreRead->readings_count * 100 / $total_readings }}" aria-valuemin="0" aria-valuemax="100"></div>
+                                    <div class="progress-bar" role="progressbar" style="width: {{ round( $total_readings != 0 ? $ruleMoreRead->readings_count * 100 / $total_readings : 0, 1)}}%" aria-valuenow="{{ round($total_readings != 0 ? $ruleMoreRead->readings_count * 100 / $total_readings : 0, 1) }}" aria-valuemin="0" aria-valuemax="100"></div>
                                 </div>
                             </div>
                         </li>
@@ -292,9 +298,15 @@ type="text/css"/>
                         <h5 class="card-title mb-3">Lecture par catégorie de règle</h5>
                     </div>
                     <div class="ms-auto">
-                        <a class="text-muted font-size-16">
-                            <i class="fa fa-plus"></i>
-                        </a>
+                        <div class="dropdown ms-auto">
+                            <a class="text-muted font-size-16" role="button" data-bs-toggle="dropdown" aria-haspopup="true">
+                                <i class="mdi mdi-dots-horizontal"></i>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-end">
+                                <a class="dropdown-item" href="#">Voir plus</a>
+                                <a class="dropdown-item" href="#">Voir moins</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 
@@ -337,9 +349,15 @@ type="text/css"/>
                         <h5 class="card-title mb-3">Lecture par employé</h5>
                     </div>
                     <div class="ms-auto">
-                        <a class="text-muted font-size-16">
-                            <i class="fa fa-plus"></i>
-                        </a>
+                        <div class="dropdown ms-auto">
+                            <a class="text-muted font-size-16" role="button" data-bs-toggle="dropdown" aria-haspopup="true">
+                                <i class="mdi mdi-dots-horizontal"></i>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-end">
+                                <a class="dropdown-item" id="showmoreEmployee">Voir plus</a>
+                                <a class="dropdown-item" id="showlessEmployee">Voir moins</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
