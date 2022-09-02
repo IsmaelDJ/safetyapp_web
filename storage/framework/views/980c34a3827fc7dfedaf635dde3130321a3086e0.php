@@ -113,7 +113,7 @@ type="text/css"/>
         <div class="card">
             <div class="card-body">
                 <h4 class="card-title mb-4">Quiz</h4>
-
+                
                 <ul class="nav nav-pills bg-light rounded" role="tablist">
                     <li class="nav-item">
                         <a class="nav-link active" data-bs-toggle="tab" href="#transactions-all-tab" role="tab">Non pratiqué</a>
@@ -137,23 +137,23 @@ type="text/css"/>
                                                 <img src="<?php echo e(isset($quizNoAnswered->image) ? asset($quizNoAnswered->image) : asset('/assets/images/users/avatar-1.jpg')); ?>" alt="" class="avatar-sm rounded-circle img-thumbnail">
                                             </div>
                                         </td>
-
+                                        
                                         <td>
                                             <div>
                                                 <h5 class="font-size-14 mb-1"><?php echo e($quizNoAnswered->description); ?></h5>
                                             </div>
                                         </td>
-
+                                        
                                         <td>
                                             <div class="text-end">
                                                 <a type="button" href="<?php echo e(route('categories.show', $quizNoAnswered->category)); ?>"
                                                     class="btn btn-success btn-rounded waves-effect waves-light "><i
-                                                        class="mdi mdi-tag me-1"></i> <?php echo e($quizNoAnswered->category->name); ?>
+                                                    class="mdi mdi-tag me-1"></i> <?php echo e($quizNoAnswered->category->name); ?>
 
                                                 </a>                                             
                                             </div>
                                         </td>
-
+                                        
                                         <td>
                                             <div class="text-end">
                                                 <h5 class="font-size-14 text-muted mb-0">0 %</h5>
@@ -176,23 +176,23 @@ type="text/css"/>
                                                 <img src="<?php echo e(isset($quizBadAnswered->image) ? asset($quizBadAnswered->image) : asset('/assets/images/users/avatar-1.jpg')); ?>" alt="" class="avatar-sm rounded-circle img-thumbnail">
                                             </div>
                                         </td>
-
+                                        
                                         <td>
                                             <div>
                                                 <h5 class="font-size-14 mb-1"><?php echo e($quizBadAnswered->description); ?></h5>
                                             </div>
                                         </td>
-
+                                        
                                         <td>
                                             <div class="text-end">
                                                 <a type="button" href="<?php echo e(route('categories.show', $quizBadAnswered->category)); ?>"
                                                     class="btn btn-success btn-rounded waves-effect waves-light "><i
-                                                        class="mdi mdi-tag me-1"></i> <?php echo e($quizBadAnswered->category->name); ?>
+                                                    class="mdi mdi-tag me-1"></i> <?php echo e($quizBadAnswered->category->name); ?>
 
                                                 </a>                                            
                                             </div>
                                         </td>
-
+                                        
                                         <td>
                                             <div class="text-end">
                                                 <h5 class="font-size-14 text-muted mb-0"><?php echo e(round( $employee_quiz_responses_total != 0 ? $quizBadAnswered->employee_quiz_responses_count / $employee_quiz_responses_total * 100 : 0, 1)); ?>%</h5>
@@ -204,7 +204,7 @@ type="text/css"/>
                             </table>
                         </div>
                     </div>
-
+                    
                     <div class="tab-pane" id="transactions-sell-tab" role="tabpanel">
                         <div class="table-responsive" data-simplebar style="max-height: 260px;">
                             <table class="table align-middle table-nowrap">
@@ -216,23 +216,23 @@ type="text/css"/>
                                                 <img src="<?php echo e(isset($quizGoodAnswered->image) ? asset($quizGoodAnswered->image) : asset('/assets/images/users/avatar-1.jpg')); ?>" alt="" class="avatar-sm rounded-circle img-thumbnail">
                                             </div>
                                         </td>
-
+                                        
                                         <td>
                                             <div>
                                                 <h5 class="font-size-14 mb-1"><?php echo e($quizGoodAnswered->description); ?></h5>
                                             </div>
                                         </td>
-
+                                        
                                         <td>
                                             <div class="text-end">
                                                 <a type="button" href="<?php echo e(route('categories.show', $quizGoodAnswered->category)); ?>"
                                                     class="btn btn-success btn-rounded waves-effect waves-light "><i
-                                                        class="mdi mdi-tag me-1"></i> <?php echo e($quizGoodAnswered->category->name); ?>
+                                                    class="mdi mdi-tag me-1"></i> <?php echo e($quizGoodAnswered->category->name); ?>
 
                                                 </a>
                                             </div>
                                         </td>
-
+                                        
                                         <td>
                                             <div class="text-end">
                                                 <h5 class="font-size-14 text-muted mb-0"><?php echo e(round($employee_quiz_responses_total != 0 ? $quizGoodAnswered->employee_quiz_responses_count / $employee_quiz_responses_total * 100 : 0, 1)); ?>%</h5>
@@ -244,7 +244,7 @@ type="text/css"/>
                             </table>
                         </div>
                     </div>
-
+                    
                 </div>
             </div>
         </div>
@@ -259,19 +259,7 @@ type="text/css"/>
                     <div class="me-2">
                         <h5 class="card-title mb-3">Lecture par règle</h5>
                     </div>
-                    <div class="ms-auto">
-                        <div class="dropdown ms-auto">
-                            <a class="text-muted font-size-16" role="button" data-bs-toggle="dropdown" aria-haspopup="true">
-                                <i class="mdi mdi-dots-horizontal"></i>
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-end">
-                                <a class="dropdown-item" href="#">Voir plus</a>
-                                <a class="dropdown-item" href="#">Voir moins</a>
-                            </div>
-                        </div>
-                    </div>
                 </div>
-                
                 
                 <hr>
                 
@@ -300,19 +288,7 @@ type="text/css"/>
                     <div class="me-2">
                         <h5 class="card-title mb-3">Lecture par catégorie de règle</h5>
                     </div>
-                    <div class="ms-auto">
-                        <div class="dropdown ms-auto">
-                            <a class="text-muted font-size-16" role="button" data-bs-toggle="dropdown" aria-haspopup="true">
-                                <i class="mdi mdi-dots-horizontal"></i>
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-end">
-                                <a class="dropdown-item" href="#">Voir plus</a>
-                                <a class="dropdown-item" href="#">Voir moins</a>
-                            </div>
-                        </div>
-                    </div>
                 </div>
-                
                 
                 <hr>
                 <div data-simplebar style="max-height: 260px;">
@@ -321,52 +297,41 @@ type="text/css"/>
                             <?php $__currentLoopData = $categoriesMoreRead; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $categoryMoreRead): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                             <div class="m-4 text text-end">
                                 <a type="button" href="<?php echo e(route('categories.show', $categoryMoreRead)); ?>"
-                                    class="btn btn-success btn-rounded waves-effect waves-light "><i
-                                         class="mdi mdi-tag me-1"></i> <?php echo e($categoryMoreRead->name); ?>
+                                class="btn btn-success btn-rounded waves-effect waves-light "><i
+                                class="mdi mdi-tag me-1"></i> <?php echo e($categoryMoreRead->name); ?>
 
-                                </a>
+                            </a>
+                        </div>
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                    </div>
+                    <div class="col-8">
+                        <div class="smart-progress">
+                            <?php $__currentLoopData = $categoriesMoreRead; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $categoryMoreRead): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                            <div class="progress-outer mt-4">
+                                <div class="progress animated-progess bg-white">
+                                    <div class="progress-bar bg-success progress-bar-info" style="width:<?php echo e($total_readings != 0 ? $categoryMoreRead->readings_count * 100 / $total_readings : 0); ?>%;"></div>
+                                    <div class="progress-value"><?php echo e(round($total_readings != 0 ? $categoryMoreRead->readings_count * 100 / $total_readings : 0, 1)); ?>%</div>
+                                </div>
                             </div>
                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                        </div>
-                        <div class="col-8">
-                            <div class="smart-progress">
-                                <?php $__currentLoopData = $categoriesMoreRead; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $categoryMoreRead): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                <div class="progress-outer mt-4">
-                                    <div class="progress animated-progess bg-white">
-                                        <div class="progress-bar bg-success progress-bar-info" style="width:<?php echo e($total_readings != 0 ? $categoryMoreRead->readings_count * 100 / $total_readings : 0); ?>%;"></div>
-                                        <div class="progress-value"><?php echo e(round($total_readings != 0 ? $categoryMoreRead->readings_count * 100 / $total_readings : 0, 1)); ?>%</div>
-                                    </div>
-                                </div>
-                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="col-xl-4">
-        <div class="card">
-            <div class="card-body">
-                <div class="d-flex flex-wrap align-items-start">
-                    <div class="me-2">
-                        <h5 class="card-title mb-3">Lecture par employé</h5>
-                    </div>
-                    <div class="ms-auto">
-                        <div class="dropdown ms-auto">
-                            <a class="text-muted font-size-16" role="button" data-bs-toggle="dropdown" aria-haspopup="true">
-                                <i class="mdi mdi-dots-horizontal"></i>
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-end">
-                                <a class="dropdown-item" id="showmoreEmployee">Voir plus</a>
-                                <a class="dropdown-item" id="showlessEmployee">Voir moins</a>
-                            </div>
-                        </div>
-                    </div>
+</div>
+<div class="col-xl-4">
+    <div class="card">
+        <div class="card-body">
+            <div class="d-flex flex-wrap align-items-start">
+                <div class="me-2">
+                    <h5 class="card-title mb-3">Lecture par employé</h5>
                 </div>
-
-                <hr>
-
+            </div>
+            
+            <hr>
+            
             <div class="table-responsive" data-simplebar style="max-height: 260px;">
                 <table class="table align-middle table-nowrap">
                     <tbody>
@@ -377,13 +342,13 @@ type="text/css"/>
                                     <h5 class="font-size-14 mb-1"><?php echo e($bestEmployee->employee->name); ?></h5>
                                 </div>
                             </td>
-
+                            
                             <td>
                                 <div>
                                     <h5 class="font-size-14 mb-1"><?php echo e($bestEmployee->employee->phone); ?></h5>
                                 </div>
                             </td>
-
+                            
                             <td>
                                 <div class="text-end">
                                     <h5 class="font-size-14 text-muted mb-0"><?php echo e(round( $total_readings != 0 ? $bestEmployee->readings_count / $total_readings * 100 : 0, 1)); ?>%</h5>
@@ -394,9 +359,9 @@ type="text/css"/>
                     </tbody>
                 </table>
             </div>
-            </div>
         </div>
     </div>
+</div>
 </div>
 </div>
 </div>

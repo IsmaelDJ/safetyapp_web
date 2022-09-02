@@ -2,11 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Rule;
 use App\Models\User;
-use Illuminate\Support\Facades\Auth;
+use App\Models\Reading;
+use App\Models\Employee;
+use App\Models\QuizQuestion;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 
 class HomeController extends Controller
@@ -38,7 +42,17 @@ class HomeController extends Controller
 
     public function root()
     {
-        return view('index');
+        $total_quizzes  = QuizQuestion::count();
+        $total_rules    = Rule::count();
+        $total_employees= Employee::count();
+        $total_readings = Reading::count(); 
+
+        return view('index', compact(
+            'total_quizzes',
+            'total_rules',
+            'total_employees',
+            'total_readings'
+        ));
     }
 
     /*Language Translation*/
