@@ -5,10 +5,12 @@ namespace App\Http\Controllers;
 use App\Models\Rule;
 use App\Models\User;
 use App\Models\Reading;
+use App\Models\Category;
 use App\Models\Employee;
 use App\Models\QuizQuestion;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
+use App\Models\EmployeeQuizResponse;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
@@ -42,17 +44,64 @@ class HomeController extends Controller
 
     public function root()
     {
+        $quizNoAnswereds  = QuizQuestion::whereDoesntHave("employee_quiz_responses")
+        ->paginate(10);
+        
+        $quizAnswereds    = QuizQuestion::whereHas("employee_quiz_responses")
+        ->withCount("employee_quiz_responses")
+        ->orderBy("employee_quiz_responses_count", 'desc')
+        ->paginate(10);
+        
+        $quizBadAnswereds = QuizQuestion::whereHas("employee_quiz_responses", function ($query){
+            $query->where("correct", false);
+        })
+        ->withCount("employee_quiz_responses")
+        ->orderBy("employee_quiz_responses_count", 'desc')
+        ->paginate(10);
+
+        $quizGoodAnswereds = QuizQuestion::whereHas("employee_quiz_responses", function ($query){
+            $query->where("correct", true);
+        })
+        ->withCount("employee_quiz_responses")
+        ->orderBy("employee_quiz_responses_count", 'desc')
+        ->paginate(10);
+
+        $rulesMoreRead = Rule::whereHas("readings")
+        ->withCount("readings")
+        ->orderBy("readings_count", 'desc')
+        ->paginate(10);
+
+        $employee_quiz_responses_total = EmployeeQuizResponse::count();
+
+        $categoriesMoreRead = Category::whereHas("readings")
+        ->withCount("readings")
+        ->orderBy("readings_count", 'desc')
+        ->paginate(10);
+
+        $bestEmployees = Reading::groupBy('employee_id')
+            ->selectRaw('count(*) as readings_count, employee_id')
+            ->with('employee')
+            ->orderBy('readings_count', 'desc')
+            ->paginate(10);
+        
+       // $analyticsData  = Analytics::fetchMostVisitedPages(Period::days(7));
+
         $total_quizzes  = QuizQuestion::count();
         $total_rules    = Rule::count();
         $total_employees= Employee::count();
         $total_readings = Reading::count(); 
 
-        return view('index', compact(
-            'total_quizzes',
-            'total_rules',
-            'total_employees',
-            'total_readings'
-        ));
+        return view('index',  compact('total_quizzes',
+                                             'total_rules', 
+                                             'total_employees',
+                                             'total_readings', 
+                                             'quizNoAnswereds', 
+                                             'quizGoodAnswereds',
+                                             'quizBadAnswereds',
+                                             'rulesMoreRead',
+                                             'categoriesMoreRead',
+                                             'bestEmployees',
+                                             'employee_quiz_responses_total'));
     }
 
     /*Language Translation*/
