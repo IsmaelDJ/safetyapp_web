@@ -79,7 +79,7 @@ type="text/css"/>
     <div class="col-xl-4">
         <div class="card">
             <div class="card-body">
-                <h4 class="card-title mb-4">Employée</h4>
+                <h4 class="card-title mb-4">Lecture par catégories</h4>
                 
                 <hr>
                 

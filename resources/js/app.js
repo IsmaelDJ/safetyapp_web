@@ -245,13 +245,17 @@ File: Main Js File
         });
     }
 
-    function viewMore(){
-        $('#showmoreEmployee').click(function(){
-            axios.get('http://localhost:8000/viewmoreemployee')
+    function makeInput() {
+        $('#edit_profil').on('click', function(e){
+            let name = $('#username').text();
+            $('#username').html('<input value="'+ name +'">');
         });
-    }
+     }
+
+
 
     function init() {
+        makeInput();
         initMetisMenu();
         initLeftMenuCollapse();
         initActiveMenu();

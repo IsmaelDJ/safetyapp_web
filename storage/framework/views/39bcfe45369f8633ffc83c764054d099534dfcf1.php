@@ -21,7 +21,7 @@
                                 <div class="flex-grow-1 align-self-center">
                                     <div class="text-muted">
                                         <p class="mb-2">Bienvenu sur Safety Analytique</p>
-                                        <h5 class="mb-1"><?php echo e(Auth::user()->name ? Auth::user()->name : "Nom et Prénom"); ?></h5>
+                                        <h5 class="mb-1" id="username"><?php echo e(Auth::user()->name ? Auth::user()->name : "Nom et Prénom"); ?></h5>
                                         <p class="mb-0"><?php echo e(Auth::user()->email ? Auth::user()->email : "Adresse email"); ?></p>
                                     </div>
                                 </div>
@@ -57,14 +57,81 @@
                         <div class="col-lg-4 d-none d-lg-block">
                             <div class="clearfix mt-4 mt-lg-0">
                                 <div class="dropdown float-end">
-                                    <button class="btn btn-primary" type="button">
+                                    <a  href="" class="btn btn-primary waves-effect waves-light btn-sm" data-bs-toggle="modal" data-bs-target=".update-profile">
                                         <i class="fa fa-edit"></i> Editer
-                                    </button>
+                                    </a>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <!-- end row -->
+
+                    <div class="modal fade update-profile" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="myLargeModalLabel">Editer votre profile</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <form class="form-horizontal" method="POST" enctype="multipart/form-data" id="update-profile">
+                                        <?php echo csrf_field(); ?>
+                                        <input type="hidden" value="<?php echo e(Auth::user()->id); ?>" id="data_id">
+                                        <div class="mb-3">
+                                            <label for="useremail" class="form-label">Email</label>
+                                            <input type="email" class="form-control <?php $__errorArgs = ['email'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>" id="useremail" value="<?php echo e(Auth::user()->email); ?>" name="email" placeholder="Enter email" autofocus>
+                                            <div class="text-danger" id="emailError" data-ajax-feedback="email"></div>
+                                        </div>
+                    
+                                        <div class="mb-3">
+                                            <label for="username" class="form-label">Nom</label>
+                                            <input type="text" class="form-control <?php $__errorArgs = ['name'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>" value="<?php echo e(Auth::user()->name); ?>" id="username" name="name" autofocus placeholder="Enter username">
+                                            <div class="text-danger" id="nameError" data-ajax-feedback="name"></div>
+                                        </div>
+                    
+                                        <div class="mb-3">
+                                            <label for="avatar">Photo de profile</label>
+                                            <div class="input-group">
+                                                <input type="file" class="form-control <?php $__errorArgs = ['avatar'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>" id="avatar" name="avatar" autofocus>
+                                                <label class="input-group-text" for="avatar">Upload</label>
+                                            </div>
+                                            <div class="text-start mt-2">
+                                                <img src="<?php echo e(asset(Auth::user()->avatar)); ?>" alt="" class="rounded-circle avatar-lg">
+                                            </div>
+                                            <div class="text-danger" role="alert" id="avatarError" data-ajax-feedback="avatar"></div>
+                                        </div>
+                    
+                                        <div class="mt-3 d-grid">
+                                            <button class="btn btn-primary waves-effect waves-light UpdateProfile" data-id="<?php echo e(Auth::user()->id); ?>" type="submit">Modifier</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div><!-- /.modal-content -->
+                        </div><!-- /.modal-dialog -->
+                    </div>
+
+
                 </div>
             </div>
         </div>
@@ -354,14 +421,50 @@
             </div>
         </div>
     </div>
+
 <?php $__env->stopSection(); ?>
 <?php $__env->startSection('script'); ?>
+@livewireScripts
 <script src="<?php echo e(URL::asset('/assets/libs/apexcharts/apexcharts.min.js')); ?>"></script>
 <script src="<?php echo e(URL::asset('/assets/libs/jquery-knob/jquery-knob.min.js')); ?>"></script>
 <script src="<?php echo e(URL::asset('/assets/js/pages/jquery-knob.init.js')); ?>"></script>
 <script src="<?php echo e(URL::asset('/assets/js/pages/saas-dashboard.init.js')); ?>"></script>
 <script src="<?php echo e(URL::asset('/assets/js/pages/apexcharts.init.js')); ?>"></script>
 <script src="<?php echo e(URL::asset('assets/js/essential_audio.js')); ?>"></script>
+<script>
+    $('#update-profile').on('submit', function(event) {
+        event.preventDefault();
+        var Id = $('#data_id').val();
+        let formData = new FormData(this);
+        $('#emailError').text('');
+        $('#nameError').text('');
+        $('#avatarError').text('');
+        $.ajax({
+            url: "<?php echo e(url('update-profile')); ?>" + "/" + Id,
+            type: "POST",
+            data: formData,
+            contentType: false,
+            processData: false,
+            success: function(response) {
+                $('#emailError').text('');
+                $('#nameError').text('');
+                $('#avatarError').text('');
+                if (response.isSuccess == false) {
+                    alert(response.Message);
+                } else if (response.isSuccess == true) {
+                    setTimeout(function() {
+                        window.location.reload();
+                    }, 1000);
+                }
+            },
+            error: function(response) {
+                $('#emailError').text(response.responseJSON.errors.email);
+                $('#nameError').text(response.responseJSON.errors.name);
+                $('#avatarError').text(response.responseJSON.errors.avatar);
+            }
+        });
+    });
+</script>
 <?php $__env->stopSection(); ?>
 
 <?php echo $__env->make('layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\Users\Ismae\Downloads\safetyapp_web\resources\views/index.blade.php ENDPATH**/ ?>

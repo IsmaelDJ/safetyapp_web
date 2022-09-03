@@ -30,10 +30,10 @@ function employeesPerPage(){
     return 8;
 }
 function quizzesPerPage(){
-    return 8;
+    return 4;
 }
 function quizQuestionsPerPage(){
-    return 8;
+    return 4;
 }
 
 function quizQuestionsShowPerPage(){
@@ -41,7 +41,7 @@ function quizQuestionsShowPerPage(){
 }
 
 function employeeQuizResponsesPerPage(){
-    return 4;
+    return 8;
 }
 
 function employeeQuizResponsesShowPerPage(){
