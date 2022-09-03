@@ -352,11 +352,11 @@ unset($__errorArgs, $__bag); ?>" id="avatar" name="avatar" autofocus>
                     <hr>
                     <div data-simplebar style="max-height: 260px;">
                         <div class="row w-100 mb-4">
-                            <div class="col-4 ps-4 font-size-16">
+                            <div class="col-4 font-size-14">
                                 <?php $__currentLoopData = $categoriesMoreRead; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $categoryMoreRead): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                <div class="m-4 text text-end">
+                                <div class="m-1 text text-end">
                                     <a type="button" href="<?php echo e(route('categories.show', $categoryMoreRead)); ?>"
-                                    class="btn btn-success btn-rounded waves-effect waves-light "><i
+                                    class="btn btn-success btn-sm btn-rounded waves-effect waves-light "><i
                                     class="mdi mdi-tag me-1"></i> <?php echo e($categoryMoreRead->name); ?>
 
                                 </a>
@@ -366,7 +366,7 @@ unset($__errorArgs, $__bag); ?>" id="avatar" name="avatar" autofocus>
                         <div class="col-8">
                             <div class="smart-progress">
                                 <?php $__currentLoopData = $categoriesMoreRead; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $categoryMoreRead): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                <div class="progress-outer mt-4">
+                                <div class="progress-outer mt-1">
                                     <div class="progress animated-progess bg-white">
                                         <div class="progress-bar bg-success progress-bar-info" style="width:<?php echo e($total_readings != 0 ? $categoryMoreRead->readings_count * 100 / $total_readings : 0); ?>%;"></div>
                                         <div class="progress-value"><?php echo e(round($total_readings != 0 ? $categoryMoreRead->readings_count * 100 / $total_readings : 0, 1)); ?>%</div>
