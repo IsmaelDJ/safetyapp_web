@@ -148,14 +148,14 @@ unset($__errorArgs, $__bag); ?>" id="avatar" name="avatar" autofocus>
                         <div class="clearfix">
                             <div class="float-end">
                                 <div class="input-group input-group-sm">
-                                    <select class="form-select form-select-sm">
+                                    <select id="select-month" class="form-select form-select-sm">
                                         <?php $__currentLoopData = $months; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $month): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                         <?php if($loop->iteration == $current_month): ?>
-                                        <option value="JA" selected> 
+                                        <option value="<?php echo e($loop->iteration); ?>" selected> 
                                             <a href="?month=<?php echo e($loop->iteration); ?>"> <?php echo e($month); ?></a>
                                         </option>
                                         <?php else: ?>
-                                        <option value="DE">
+                                        <option value="<?php echo e($loop->iteration); ?>">
                                             <a href="?month=<?php echo e($loop->iteration); ?>"> <?php echo e($month); ?></a>
                                         </option>
                                         <?php endif; ?>
@@ -474,6 +474,11 @@ unset($__errorArgs, $__bag); ?>" id="avatar" name="avatar" autofocus>
                 $('#avatarError').text(response.responseJSON.errors.avatar);
             }
         });
+    });
+</script>
+<script>
+    $('#select-month').change(function(e){
+        window.location.href = "?month="+ e.target.value;
     });
 </script>
 <?php $__env->stopSection(); ?>

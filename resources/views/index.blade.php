@@ -127,14 +127,14 @@
                         <div class="clearfix">
                             <div class="float-end">
                                 <div class="input-group input-group-sm">
-                                    <select class="form-select form-select-sm">
+                                    <select id="select-month" class="form-select form-select-sm">
                                         @foreach($months as $month)
                                         @if($loop->iteration == $current_month)
-                                        <option value="JA" selected> 
+                                        <option value="{{ $loop->iteration }}" selected> 
                                             <a href="?month={{ $loop->iteration }}"> {{ $month }}</a>
                                         </option>
                                         @else
-                                        <option value="DE">
+                                        <option value="{{ $loop->iteration }}">
                                             <a href="?month={{ $loop->iteration }}"> {{ $month }}</a>
                                         </option>
                                         @endif
@@ -447,6 +447,11 @@
                 $('#avatarError').text(response.responseJSON.errors.avatar);
             }
         });
+    });
+</script>
+<script>
+    $('#select-month').change(function(e){
+        window.location.href = "?month="+ e.target.value;
     });
 </script>
 @endsection
