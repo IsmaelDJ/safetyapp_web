@@ -20,8 +20,20 @@ type="text/css"/>
         <div class="row">
             <div class="card shadow mb-4">
                 <div class="card-body">
-                    <h4 class="card-title mb-4">Taux de lecture par moi</h4>
-                    
+                    <div class="clearfix">
+                        <div class="float-end">
+                            <div class="input-group input-group-sm">
+                                <select class="form-select form-select-sm">
+                                    <option value="JA" selected>Année Actuelle</option>
+                                    <option value="DE">Année passée</option>
+                                    <option value="NO">Année surpassé</option>
+                                    <option value="OC">Saisir l'année</option>
+                                </select>
+                                <label class="input-group-text">Année</label>
+                            </div>
+                        </div>
+                        <h4 class="card-title mb-4">Taux de lecture par moi</h4>
+                    </div>
                     <hr>
                    <div class="apex-charts">
                     <?php echo $readingChart->container(); ?>

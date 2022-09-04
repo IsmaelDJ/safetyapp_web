@@ -77,7 +77,9 @@ class AnalyticController extends Controller
         $total_categories  = Category::count();
         $total_contractors = Contractor::count();
 
-        $reading_per_month = Reading::select('id', 'created_at')->get()
+        $reading_per_month = Reading::select('id', 'created_at')
+        ->whereYear('created_at', now()->year)
+        ->get()
         ->groupBy(function($data){
             return Carbon::parse($data->created_at)->format('M');
         });
@@ -87,14 +89,14 @@ class AnalyticController extends Controller
 
         foreach($reading_per_month as $month => $readings){
             $reading_per_month_labels[] = $month;
-            $reading_per_month_data [] = round($total_readings != 0 ? count($readings)  * 100 / $total_readings:0, 1);
+            $reading_per_month_data [] = count($readings);
         }
 
         $readingChart = new ReadingChart();
         $readingChart->labels($reading_per_month_labels);
         $readingChart->label("Lecture");
         $readingChart->displayLegend(false);
-        $readingChart->dataset('Taux de lecture en % par moi', 'spline', $reading_per_month_data)
+        $readingChart->dataset('Lecture par moi', 'line', $reading_per_month_data)
         ->options([
             'color' => 'hsla(209, 100%, 53%, 1)'
         ]);
@@ -103,7 +105,7 @@ class AnalyticController extends Controller
         $quizChart->minimalist(true);
         $quizChart->displayLegend(true);
         $quizChart->labels(['Non pratiqué', 'Mal pratiqué', 'Bien pratiqué']);
-        $quizChart->dataset('Taux de lecture par moi', 'polarArea', [round($total_quizzes != 0 ? count($quizNoAnswereds)  * 100 / $total_quizzes : 0, 1), 
+        $quizChart->dataset('Lecture par moi', 'polarArea', [round($total_quizzes != 0 ? count($quizNoAnswereds)  * 100 / $total_quizzes : 0, 1), 
         round( $total_quizzes != 0 ? count($quizBadAnswereds) * 100 / $total_quizzes : 0, 1) , 
         round($total_quizzes != 0 ? count($quizGoodAnswereds) * 100 / $total_quizzes : 0, 1)])->backgroundColor( [
             'rgb(255, 99, 132)',
@@ -115,7 +117,7 @@ class AnalyticController extends Controller
         $ruleChart->minimalist(true);
         $ruleChart->displayLegend(true);
         $ruleChart->labels(['Lu', 'Non lu']);
-        $ruleChart->dataset('Taux de lecture par moi', 'doughnut', [round($total_rules != 0 ? count($rulesMoreRead) * 100 / $total_rules : 0, 1), 
+        $ruleChart->dataset('Lecture par moi', 'doughnut', [round($total_rules != 0 ? count($rulesMoreRead) * 100 / $total_rules : 0, 1), 
         round( $total_rules != 0 ? count($rulesNotRead) * 100 / $total_rules : 0, 1)])->backgroundColor([
             'rgb(54, 162, 235)',
             'rgb(255, 205, 86)'

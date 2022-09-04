@@ -23,7 +23,6 @@ use App\Http\Controllers\EmployeeQuizResponseController;
 
 Auth::routes();
 
-
 Route::get('/', [App\Http\Controllers\HomeController::class, 'root'])->name('root');
 
 //Update User Details

@@ -5,6 +5,7 @@ use App\Models\Rule;
 use App\Models\Reading;
 use App\Models\Category;
 use App\Models\Employee;
+use App\Models\Presence;
 use App\Models\QuizQuestion;
 use Illuminate\Http\Request;
 use App\Models\EmployeeQuizResponse;
@@ -99,6 +100,19 @@ Route::group([
             ]
         );
     })->whereNumber('employee_id')->whereNumber('rule_id');
+
+    //Reading 
+    Route::get('employees/{employee_id}/presence', function ($employee_id) {
+        Presence::create([
+            'employee_id' => $employee_id
+        ]);
+        
+        return response()->json(
+        [ 
+            'status' => true
+            ]
+        );
+    })->whereNumber('employee_id');
 
     //Quiz question
     Route::get('quizzes',  [QuizQuestionController::class, 'index']);

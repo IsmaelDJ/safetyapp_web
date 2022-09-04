@@ -7,6 +7,9 @@ use App\Models\User;
 use App\Models\Reading;
 use App\Models\Category;
 use App\Models\Employee;
+use App\Models\Presence;
+use App\Charts\ChartChart;
+use App\Charts\ReadingChart;
 use App\Models\QuizQuestion;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
@@ -42,8 +45,10 @@ class HomeController extends Controller
         return abort(404);
     }
 
-    public function root()
+    public function root(Request $request )
     {
+        $param_month = $request->query('month');
+
         $quizNoAnswereds  = QuizQuestion::whereDoesntHave("employee_quiz_responses")
         ->paginate(10);
         
@@ -91,6 +96,38 @@ class HomeController extends Controller
         $total_employees= Employee::count();
         $total_readings = Reading::count(); 
 
+
+        //get presence data
+        $presences = Presence::whereYear('created_at', now()->year)
+        ->whereMonth('created_at', ($param_month != null) ? $param_month : now()->month)
+        ->with('employee')
+        ->get()
+        ->groupBy(function($data){
+            return $data->created_at->day;
+        });
+
+        $prensence_labels = [];
+        $prensence_data   = [];
+
+        foreach($presences as $day=>$values){
+            $prensence_labels[] = $day;
+            $prensence_data[]   = count($values);
+        }
+
+        $presenceChart = new ReadingChart();
+
+        $presenceChart->labels($prensence_labels);
+        $presenceChart->displayLegend(false);
+        $presenceChart->label(false);
+        $presenceChart->dataset('Présence par jour', 'spline', $prensence_data)
+        ->options([
+            'color' => 'hsla(209, 100%, 53%, 1)'
+        ]);
+
+        $months = [" janv", "févr", "mars", "avri", "mai", "juin", "juil", 
+                "août", "sept", "octo", "nove", "déce"];
+        $current_month = ($param_month != null) ? $param_month : now()->month;
+
         return view('index',  compact('total_quizzes',
                                              'total_rules', 
                                              'total_employees',
@@ -101,6 +138,9 @@ class HomeController extends Controller
                                              'rulesMoreRead',
                                              'categoriesMoreRead',
                                              'bestEmployees',
+                                             'presenceChart',
+                                             'months',
+                                             'current_month',
                                              'employee_quiz_responses_total'));
     }
 
