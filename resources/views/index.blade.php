@@ -164,13 +164,13 @@
                 
                 <ul class="nav nav-pills bg-light rounded" role="tablist">
                     <li class="nav-item">
-                        <a class="nav-link active" data-bs-toggle="tab" href="#transactions-all-tab" role="tab">Attente</a>
+                        <a class="nav-link" data-bs-toggle="tab" href="#transactions-sell-tab" role="tab">Correcte</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" data-bs-toggle="tab" href="#transactions-buy-tab" role="tab">Faux</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" data-bs-toggle="tab" href="#transactions-sell-tab" role="tab">Correcte</a>
+                        <a class="nav-link active" data-bs-toggle="tab" href="#transactions-all-tab" role="tab">Attente</a>
                     </li>
                 </ul>
                 <div class="tab-content mt-4">
