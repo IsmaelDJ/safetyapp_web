@@ -51,43 +51,19 @@
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach($rules as $rule)
+                        @foreach($data as $item)
                             <tr>
                                 <td >
-                                    <div class="essential_audio" data-url="{{URL::asset($rule->fr)}}"></div>
+                                    {{ $item->employee->name }}
                                 </td>
-                                <td class="d-none d-xl-table-cell">
-                                    <div class="essential_audio" data-url="{{URL::asset($rule->ar)}}" ></div>
+                                <td >
+                                    {{ $item->employee->phone }}
                                 </td>
-                                <td class="d-none d-xl-table-cell">
-                                    <div class="essential_audio" data-url="{{URL::asset($rule->ng)}}" ></div>
+                                <td>
+                                    {{ $item->action }}
                                 </td>
-                                <td style="width: 200px">
-                                    <div class="d-flex gap-3">
-
-                                        <a href="{{route('rules.show', $rule)}}"
-                                           class="btn btn-default">Détails
-                                        </a>
-                                        <a href="{{route('rules.edit', $rule)}}"
-                                           class="btn btn-info">Modifier
-                                        </a>
-
-                                        <a href="{{route('rules.index')}}" class="btn btn-danger"
-                                           onclick="
-                                                   var result = confirm('Cette règle sera supprimée');
-                                                   if(result){
-                                                       event.preventDefault();
-                                                       document.getElementById('delete-form').submit();
-                                                   }
-                                                   ">
-                                            Supprimer</a>
-
-                                        <form method="POST" id="delete-form"
-                                              action="{{route('rules.destroy', [$rule])}}">
-                                            @csrf
-                                            <input type="hidden" name="_method" value="DELETE">
-                                        </form>
-                                    </div>
+                                <td>
+                                    {{ $item->date }}
                                 </td>
                             </tr>
                         @endforeach

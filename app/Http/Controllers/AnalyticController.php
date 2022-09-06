@@ -184,9 +184,26 @@ class AnalyticController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function showmore()
+    public function details()
     {
-        //
+        $data = [];
+
+        $events_quiz = EmployeeQuizResponse::with("employee")
+        ->with('quiz_question')
+        ->get();
+
+        $events_rule = Reading::whith('employee')
+        ->whith('rule')
+        ->get();
+
+        $events_presence = Presence::whith('employee')
+        ->get();
+
+        foreach($events_quiz as $event){
+            $tmp->employee = $event->employee;
+        }
+
+        return view('analyze.details', compact('data'));
     }
 
     /**

@@ -18,11 +18,11 @@ function rulesPerPage(){
 }
 
 function categoriesPerPage(){
-    return 8;
+    return 6;
 }
 
 function contractorsPerPage(){
-    return 10;
+    return 8;
 }
 
 

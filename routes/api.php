@@ -45,7 +45,7 @@ Route::group([
      * @return \Illuminate\Http\Response
      */
     Route::get('categories', function () {
-        return Category::get();
+        return Category::orderBy('position')->get();
     });
 
     /**
@@ -129,6 +129,6 @@ Route::group([
     Route::get('responses/{id}/employees', [EmployeeQuizResponseController::class, 'employees'])->whereNumber('id');
 });
 
-URL::forceScheme('https');
+//URL::forceScheme('https');
 
 
