@@ -30,6 +30,29 @@ class HomeController extends Controller
         $this->middleware('auth');
     }
 
+    public function storeUser(Request $request)
+    {
+        if ($request->has('avatar')) {
+            $avatar = $request->file('avatar');
+            $avatarName = time() . '.' . $avatar->getClientOriginalExtension();
+            $avatarPath = public_path('/images/');
+            $avatar->move($avatarPath, $avatarName);
+        }
+
+        User::create([
+            'name' => $request['name'],
+            'email' => $request['email'],
+            'password' => Hash::make($request['password']),
+            'avatar' => "/images/" . $avatarName,
+        ]);
+
+        return redirect()->route('register');
+    }
+
+    public function register(){
+        return view('auth.register');
+    }
+
     /**
      * Show the application dashboard.
      *
@@ -37,8 +60,6 @@ class HomeController extends Controller
      */
     public function index(Request $request)
     {
-
-
         if (view()->exists($request->path())) {
             return view($request->path());
         }
@@ -142,6 +163,10 @@ class HomeController extends Controller
                                              'months',
                                              'current_month',
                                              'employee_quiz_responses_total'));
+    }
+
+    public function search($term){
+        return view('search.index', compact('term'));
     }
 
     /*Language Translation*/

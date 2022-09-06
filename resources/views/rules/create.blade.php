@@ -43,8 +43,6 @@
                                 </span>
                                     @enderror
                                 </div>
-
-
                             </div>
                         </div>
                     </div>
@@ -68,8 +66,8 @@
                                     </select>
                                     @error('category_id')
                                     <span class="invalid-feedback" role="alert">
-                                    <strong>Catégorie non selectionnée</strong>
-                                </span>
+                                        <strong>Catégorie non selectionnée</strong>
+                                    </span>
                                     @enderror
                                 </div>
                                 <div class="mb-3 mt-3">

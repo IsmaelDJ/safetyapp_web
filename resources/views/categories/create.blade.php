@@ -39,6 +39,18 @@
                             </div>
 
                             <div class="mb-3">
+                                <label for="position" class="form-label">Position</label>
+                                <input type="number" class="form-control form-control-lg @error('position') is-invalid @enderror"
+                                       value="{{old('position')}}"
+                                       id="position" name="position" placeholder="Entrez la position de la catégorie">
+                                @error('position')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>Position invalid</strong>
+                                </span>
+                                @enderror
+                            </div>
+
+                            <div class="mb-3">
                                 <div>
                                     <label for="image" class="form-label">Image</label>
                                 </div>

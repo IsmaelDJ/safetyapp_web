@@ -8,6 +8,7 @@ use App\Http\Controllers\EmployeeController;
 use \App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ContractorController;
 use App\Http\Controllers\QuizQuestionController;
+use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\EmployeeQuizResponseController;
 
 /*
@@ -21,7 +22,14 @@ use App\Http\Controllers\EmployeeQuizResponseController;
 |
 */
 
-Auth::routes();
+Route::get('register', [HomeController::class, 'register'])->name('register');
+Route::post('storeUser', [HomeController::class, 'storeUser'])->name('storeUser');
+
+Auth::routes([
+    'register' => false, // Registration Routes...
+    'reset' => false, // Password Reset Routes...
+    'verify' => false, // Email Verification Routes...
+]);
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'root'])->name('root');
 
@@ -66,6 +74,7 @@ Route::get('/documentation-api', function () {
 
 Route::get('/analyze', [App\Http\Controllers\AnalyticController::class, 'index'])->name('analyze.index');
 Route::get('{any}', [App\Http\Controllers\HomeController::class, 'index'])->name('index');
+Route::get('/search/{term}', [App\Http\Controllers\HomeController::class, 'search'])->name('search');
 
 URL::forceScheme('https');
 

@@ -50,6 +50,7 @@
                         <table class="table align-middle ">
                             <thead>
                             <tr>
+                                <th class="align-middle">Position</th>
                                 <th class="align-middle">Image</th>
                                 <th class="align-middle">Description</th>
                                 <th class="align-middle">Actions</th>
@@ -58,9 +59,12 @@
                             <tbody>
                             <?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                 <tr>
+                                    <td style="width: 100px;">
+                                        <span class="text-muted mb-0 text-center"><?php echo e($category->position); ?></span>
+                                    </td>
                                     <td style="width: 150px;"><img src="<?php echo e(URL::asset($category->image)); ?>" alt=""
                                                                    class="avatar-md h-auto d-block rounded"></td>
-                                    <td >
+                                    <td>
                                         <p class="text-muted mb-0 text-justify"><?php echo e($category->name); ?></p>
                                     </td>
                                     <td  style="width: 200px">

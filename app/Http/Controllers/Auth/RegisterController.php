@@ -64,7 +64,7 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \App\Models\User
      */
-    protected function create(array $data)
+    public function create(array $data)
     {
         if (request()->has('avatar')) {
             $avatar = request()->file('avatar');
@@ -79,5 +79,9 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
             'avatar' => "/images/" . $avatarName,
         ]);
+    }
+
+    public function registerForm(){
+        return view('aut.register');
     }
 }

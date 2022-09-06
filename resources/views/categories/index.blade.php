@@ -49,6 +49,7 @@
                         <table class="table align-middle ">
                             <thead>
                             <tr>
+                                <th class="align-middle">Position</th>
                                 <th class="align-middle">Image</th>
                                 <th class="align-middle">Description</th>
                                 <th class="align-middle">Actions</th>
@@ -57,9 +58,12 @@
                             <tbody>
                             @foreach($categories as $category)
                                 <tr>
+                                    <td style="width: 100px;">
+                                        <span class="text-muted mb-0 text-center">{{$category->position}}</span>
+                                    </td>
                                     <td style="width: 150px;"><img src="{{URL::asset($category->image)}}" alt=""
                                                                    class="avatar-md h-auto d-block rounded"></td>
-                                    <td >
+                                    <td>
                                         <p class="text-muted mb-0 text-justify">{{$category->name}}</p>
                                     </td>
                                     <td  style="width: 200px">

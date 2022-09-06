@@ -141,7 +141,7 @@
                                         
                                         @endforeach
                                     </select>
-                                    <label class="input-group-text">Moi</label>
+                                    <label class="input-group-text">Mois</label>
                                 </div>
                             </div>
                             <h4 class="card-title mb-4">Présence</h4>

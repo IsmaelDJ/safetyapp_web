@@ -48,7 +48,7 @@
                                     </a>
                                 </div>
                                 <div class="p-2">
-                                    <form method="POST" class="form-horizontal" action="{{ route('register') }}" enctype="multipart/form-data">
+                                    <form method="POST" class="form-horizontal" action="{{ route('storeUser') }}" enctype="multipart/form-data">
                                         @csrf
                                         <div class="mb-3">
                                             <label for="useremail" class="form-label">Email</label>
@@ -122,15 +122,6 @@
 
                             </div>
                         </div>
-                        <div class="mt-5 text-center">
-
-                            <div>
-                                <p>Vous avez déjà un compte ? <a href="auth-login" class="fw-medium text-primary">
-                                        Connectez-vous</a> </p>
-
-                            </div>
-                        </div>
-
                     </div>
                 </div>
             </div>

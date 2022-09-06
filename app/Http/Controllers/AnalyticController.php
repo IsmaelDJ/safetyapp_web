@@ -26,6 +26,7 @@ class AnalyticController extends Controller
      */
     public function index()
     {
+
         $quizNoAnswereds  = QuizQuestion::whereDoesntHave("employee_quiz_responses")
         ->get();
         
@@ -104,10 +105,12 @@ class AnalyticController extends Controller
         $quizChart = new ChartChart();
         $quizChart->minimalist(true);
         $quizChart->displayLegend(true);
-        $quizChart->labels(['Non pratiqué', 'Mal pratiqué', 'Bien pratiqué']);
-        $quizChart->dataset('Lecture par moi', 'polarArea', [round($total_quizzes != 0 ? count($quizNoAnswereds)  * 100 / $total_quizzes : 0, 1), 
-        round( $total_quizzes != 0 ? count($quizBadAnswereds) * 100 / $total_quizzes : 0, 1) , 
-        round($total_quizzes != 0 ? count($quizGoodAnswereds) * 100 / $total_quizzes : 0, 1)])->backgroundColor( [
+        $quizChart->labels(['Bien pratiqué', 'Mal pratiqué', 'Non pratiqué']);
+        $quizChart->dataset('Lecture par mois', 'polarArea', 
+        [round($total_quizzes != 0 ? count($quizGoodAnswereds) * 100 / $total_quizzes : 0, 1), 
+        round( $total_quizzes != 0 ? count($quizBadAnswereds) * 100 / $total_quizzes : 0, 1), 
+        round($total_quizzes != 0 ? count($quizNoAnswereds)  * 100 / $total_quizzes : 0, 1)])
+        ->backgroundColor( [
             'rgb(255, 99, 132)',
             'rgb(255, 205, 86)',
             'rgb(54, 162, 235)'
@@ -117,7 +120,7 @@ class AnalyticController extends Controller
         $ruleChart->minimalist(true);
         $ruleChart->displayLegend(true);
         $ruleChart->labels(['Lu', 'Non lu']);
-        $ruleChart->dataset('Lecture par moi', 'doughnut', [round($total_rules != 0 ? count($rulesMoreRead) * 100 / $total_rules : 0, 1), 
+        $ruleChart->dataset('Lecture par mois', 'doughnut', [round($total_rules != 0 ? count($rulesMoreRead) * 100 / $total_rules : 0, 1), 
         round( $total_rules != 0 ? count($rulesNotRead) * 100 / $total_rules : 0, 1)])->backgroundColor([
             'rgb(54, 162, 235)',
             'rgb(255, 205, 86)'

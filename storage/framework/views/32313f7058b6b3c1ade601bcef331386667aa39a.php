@@ -132,14 +132,6 @@ unset($__errorArgs, $__bag); ?>
 
                             </div>
                         </div>
-                        <div class="mt-5 text-center">
-
-                            <div>
-                                <p>Vous n'avez pas encore un compte ? <a href="<?php echo e(url('register')); ?>" class="fw-medium text-primary">
-                                        Créez maintenant </a> </p>
-
-                            </div>
-                        </div>
 
                     </div>
                 </div>

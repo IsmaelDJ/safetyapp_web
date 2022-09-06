@@ -16,7 +16,7 @@ class CategoryController extends Controller
 
     public function index()
     {
-        $categories = Category::paginate(categoriesPerPage());
+        $categories = Category::orderBy('position')->paginate(categoriesPerPage());
         return view('categories.index', compact('categories'));
     }
 
@@ -31,6 +31,7 @@ class CategoryController extends Controller
     {
         $validate = $request->validate([
             'name' => 'required',
+            'position' => 'required',
             'image' => 'required|image|mimes:jpeg,png,jpg'
         ]);
 
@@ -39,6 +40,7 @@ class CategoryController extends Controller
         $path = uploadFile($request,'image');
         $category->image = $path;
         $category->name = $request->name;
+        $category->position = $request->position;
 
         $category->save();
         return redirect()->route('categories.index')->with('success', "Catégorie ajouté");
@@ -74,10 +76,12 @@ class CategoryController extends Controller
 
         $request->validate(
             [
-                'name' => 'required'
+                'name' => 'required',
+                'position'=> 'required'
             ]
         );
         $category->name = $request->name;
+        $category->position = $request->position;
         $category->update();
         return redirect()->route('categories.index')->with('success', "Catégorie modifiée");
     }

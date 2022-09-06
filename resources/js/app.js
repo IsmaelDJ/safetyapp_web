@@ -245,17 +245,7 @@ File: Main Js File
         });
     }
 
-    function makeInput() {
-        $('#edit_profil').on('click', function(e){
-            let name = $('#username').text();
-            $('#username').html('<input value="'+ name +'">');
-        });
-     }
-
-
-
     function init() {
-        makeInput();
         initMetisMenu();
         initLeftMenuCollapse();
         initActiveMenu();

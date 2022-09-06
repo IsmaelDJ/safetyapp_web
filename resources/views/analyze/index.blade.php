@@ -20,7 +20,7 @@ type="text/css"/>
         <div class="row">
             <div class="card shadow mb-4">
                 <div class="card-body">
-                    <h4 class="card-title mb-4">Taux de lecture par moi</h4>
+                    <h4 class="card-title mb-4">Taux de lecture par mois</h4>
                     <hr>
                    <div class="apex-charts">
                     {!! $readingChart->container() !!}
