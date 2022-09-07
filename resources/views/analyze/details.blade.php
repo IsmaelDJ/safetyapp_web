@@ -22,7 +22,6 @@
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
     @endif
-    {{ $term }}
     <!-- end col -->
     <div class="col-xl-12">
         <div class="card">
@@ -57,13 +56,10 @@
                                     {{ $item->employee->name }}
                                 </td>
                                 <td >
-                                    {{ $item->employee->phone }}
+                                    {{str::limit( $item->action->description, $limit = 20, $end = '...')}}
                                 </td>
                                 <td>
-                                    {{ $item->action }}
-                                </td>
-                                <td>
-                                    {{ $item->date }}
+                                    {{ $item->created_at }}
                                 </td>
                             </tr>
                         @endforeach
@@ -74,7 +70,7 @@
 
                 </div>
 
-                {{ $rules->links('vendor.pagination.round') }}
+                {{ $data->links('vendor.pagination.round') }}
             </div>
         </div>
         <!-- end card -->

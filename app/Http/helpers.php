@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Http\Request;
+use Illuminate\Pagination\Paginator;
+use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 function uploadFile(Request $request, $name, $sousfix =''){
     $ext = $request->file($name)->extension();
@@ -18,7 +21,7 @@ function rulesPerPage(){
 }
 
 function categoriesPerPage(){
-    return 6;
+    return 5;
 }
 
 function contractorsPerPage(){
@@ -48,4 +51,10 @@ function employeeQuizResponsesShowPerPage(){
     return 4;
 }
 
+function m_paginate($items, $perPage = 8, $page = null, $options = [])
+{
+    $page = $page ?: (Paginator::resolveCurrentPage() ?: 1);
+    $items = $items instanceof Collection ? $items : Collection::make($items);
+    return new LengthAwarePaginator($items->forPage($page, $perPage), $items->count(), $perPage, $page, $options);
+}
 

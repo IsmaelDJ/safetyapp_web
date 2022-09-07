@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use stdClass;
 use Analytics;
 use Carbon\Carbon;
 use App\Models\Rule;
 use App\Models\Reading;
 use App\Models\Category;
 use App\Models\Employee;
+use App\Models\Presence;
 use App\Charts\QuizChart;
 use App\Charts\ChartChart;
 use App\Models\Contractor;
@@ -192,17 +194,41 @@ class AnalyticController extends Controller
         ->with('quiz_question')
         ->get();
 
-        $events_rule = Reading::whith('employee')
-        ->whith('rule')
+        $events_rule = Reading::with('employee')
+        ->with('rule')
         ->get();
 
-        $events_presence = Presence::whith('employee')
+        $events_presence = Presence::with('employee')
         ->get();
 
         foreach($events_quiz as $event){
-            $tmp->employee = $event->employee;
+            $tmp = new stdClass();
+            $tmp->type      = 1;
+            $tmp->employee  = $event->employee;
+            $tmp->action    = $event->quiz_question;
+            $tmp->created_at= Date($event->created_at);
+            $data[] = $tmp;
         }
 
+        foreach($events_rule as $event){
+            $tmp = new stdClass();
+            $tmp->type      = 2;
+            $tmp->employee  = $event->employee;
+            $tmp->action    = $event->rule;
+            $tmp->created_at= Date($event->created_at);
+            $data[] = $tmp;
+        }
+
+        foreach($events_presence as $event){
+            $tmp = new stdClass();
+            $tmp->type      = 3;
+            $tmp->employee  = $event->employee;
+            $tmp->action    = 'Lancement de l\'aplication';
+            $tmp->created_at= Date($event->created_at);
+            $data[] = $tmp;
+        }
+
+        $data = m_paginate(collect($data)->sortBy('created_at'));
         return view('analyze.details', compact('data'));
     }
 
