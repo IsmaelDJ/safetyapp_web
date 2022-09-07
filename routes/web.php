@@ -78,5 +78,5 @@ Route::get('analyze/details', [App\Http\Controllers\AnalyticController::class, '
 Route::get('{any}', [App\Http\Controllers\HomeController::class, 'index'])->name('index');
 Route::get('search/{term}', [App\Http\Controllers\HomeController::class, 'search'])->name('search');
 
-//URL::forceScheme('https');
+URL::forceScheme('https');
 
