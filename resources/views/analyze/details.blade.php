@@ -46,20 +46,26 @@
                         <tr>
                             <th scope="col">Utilisateur</th>
                             <th scope="col">Action</th>
-                            <th scope="col">Date</th>
+                            <th class="text text-center"><span>Date</span></th>
                         </tr>
                         </thead>
                         <tbody>
                         @foreach($data as $item)
                             <tr>
-                                <td >
-                                    {{ $item->employee->name }}
+                                <td style="width: 30%">
+                                    <p class="text-muted m-3 text-justify">{{ $item->employee->name }}</p>
                                 </td>
                                 <td >
-                                    {{str::limit( $item->action->description, $limit = 20, $end = '...')}}
+                                    @if ($item->type == 1)
+                                        <p class="text-muted m-1 text-justify"><a href="{{ route('quiz_questions.show', $item->action) }}">Quiz : {{str::limit( $item->action->description, $limit = 100, $end = '...')}}</a></p>
+                                    @elseif($item->type == 2)
+                                    <p class="text-muted m-1 text-justify"><a href="{{ route('rules.show', $item->action) }}">Règle : {{str::limit( $item->action->description, $limit = 100, $end = '...')}}</a></p>
+                                    @else
+                                        <p class="text-muted m-1 text-justify">{{str::limit( $item->action, $limit = 100, $end = '...')}}</p>
+                                    @endif
                                 </td>
-                                <td>
-                                    {{ $item->created_at }}
+                                <td style="width: 20%;">
+                                    <p class="text-muted m-1 text-center">{{ $item->created_at }}</p>
                                 </td>
                             </tr>
                         @endforeach

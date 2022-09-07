@@ -51,10 +51,12 @@ function employeeQuizResponsesShowPerPage(){
     return 4;
 }
 
-function m_paginate($items, $perPage = 8, $page = null, $options = [])
+function m_paginate($items, $perPage = 8, $page = null, $path="/analyze/details", $options = [])
 {
     $page = $page ?: (Paginator::resolveCurrentPage() ?: 1);
     $items = $items instanceof Collection ? $items : Collection::make($items);
-    return new LengthAwarePaginator($items->forPage($page, $perPage), $items->count(), $perPage, $page, $options);
+    $paginator = new LengthAwarePaginator($items->forPage($page, $perPage), $items->count(), $perPage, $page, $options);
+    $paginator->setPath($path);
+    return $paginator;
 }
 

@@ -64,10 +64,14 @@
 
                 <li class="menu-title" key="t-menu">Suivi</li>
                 <li>
-                    <a href="{{route('analyze.index')}}" class="waves-effect">
+                    <a href="javascript: void(0);" class="has-arrow waves-effect">
                         <i class="bx bxs-analyse"></i>
                         <span>Analytique</span>
                     </a>
+                    <ul class="sub-menu" aria-expanded="true">
+                        <li><a href="{{route('analyze.index')}}" key="t-level-1-1">Visualisation</a></li>
+                        <li><a href="{{route('analyze.details')}}" key="t-level-1-1">Détails</a></li>
+                    </ul>
                 </li>
                 <li>
                     <a href="#" class="has-arrow waves-effect">

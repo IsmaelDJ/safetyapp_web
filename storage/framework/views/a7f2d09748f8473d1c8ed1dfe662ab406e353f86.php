@@ -47,23 +47,26 @@
                         <tr>
                             <th scope="col">Utilisateur</th>
                             <th scope="col">Action</th>
-                            <th scope="col">Date</th>
+                            <th class="text text-center"><span>Date</span></th>
                         </tr>
                         </thead>
                         <tbody>
                         <?php $__currentLoopData = $data; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                             <tr>
-                                <td >
-                                    <?php echo e($item->employee->name); ?>
-
+                                <td style="width: 30%">
+                                    <p class="text-muted m-3 text-justify"><?php echo e($item->employee->name); ?></p>
                                 </td>
                                 <td >
-                                    <?php echo e(str::limit( $item->action->description, $limit = 2, $end = '...')); ?>
-
+                                    <?php if($item->type == 1): ?>
+                                        <p class="text-muted m-1 text-justify"><a href="<?php echo e(route('quiz_questions.show', $item->action)); ?>">Quiz : <?php echo e(str::limit( $item->action->description, $limit = 100, $end = '...')); ?></a></p>
+                                    <?php elseif($item->type == 2): ?>
+                                    <p class="text-muted m-1 text-justify"><a href="<?php echo e(route('rules.show', $item->action)); ?>">Règle : <?php echo e(str::limit( $item->action->description, $limit = 100, $end = '...')); ?></a></p>
+                                    <?php else: ?>
+                                        <p class="text-muted m-1 text-justify"><?php echo e(str::limit( $item->action, $limit = 100, $end = '...')); ?></p>
+                                    <?php endif; ?>
                                 </td>
-                                <td>
-                                    <?php echo e($item->created_at); ?>
-
+                                <td style="width: 20%;">
+                                    <p class="text-muted m-1 text-center"><?php echo e($item->created_at); ?></p>
                                 </td>
                             </tr>
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
