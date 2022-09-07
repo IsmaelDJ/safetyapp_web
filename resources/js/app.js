@@ -259,7 +259,6 @@ File: Main Js File
         initPreloader();
         Waves.init();
         initCheckAll();
-        viewMore();
     }
 
     init();

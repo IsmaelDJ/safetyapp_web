@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use stdClass;
 use App\Models\Rule;
 use App\Models\User;
 use App\Models\Reading;
@@ -166,7 +167,33 @@ class HomeController extends Controller
     }
 
     public function search($term){
-        return view('search.index', compact('term'));
+        $data = [];
+
+        $quiz = QuizQuestion::where('description', 'LIKE', '%'.$term.'%')
+        ->get();
+
+        $rule = Rule::where('description', 'LIKE', '%'.$term.'%')
+        ->get();
+
+        foreach($quiz as $event){
+            $tmp = new stdClass();
+            $tmp->type      = 1;
+            $tmp->content    = $event;
+            $tmp->created_at= Date($event->created_at);
+            $data[] = $tmp;
+        }
+
+        foreach($rule as $event){
+            $tmp = new stdClass();
+            $tmp->type      = 2;
+            $tmp->content    = $event;
+            $tmp->created_at= Date($event->created_at);
+            $data[] = $tmp;
+        }
+
+        $data = m_paginate(collect($data)->sortBy('created_at'), 6);
+        $data->setPath("/search/".$term);
+        return view('search.index', compact('data'));
     }
 
     /*Language Translation*/

@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8"/>
     <title> @yield('title') | Tableau de bord</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 {{--    <meta content="Premium Multipurpose Admin & Dashboard Template" name="description"/>--}}
 {{--    <meta content="Themesbrand" name="author"/>--}}
 <!-- App favicon -->
@@ -42,6 +42,20 @@
 
     <!-- JAVASCRIPT -->
     @include('layouts.vendor-scripts')
+
+    <script>
+        $('#search').click(function(e){
+            window.location.href = "/search/"+ $('#search-input').val();
+         });
+    </script>
+    <script>
+        $('#search-input').on('keypress', function(e){
+            if(e.which == 13){
+                e.preventDefault();
+                window.location.href = "/search/"+ e.target.value;
+            }
+         });
+    </script>
     </body>
 
 </html>

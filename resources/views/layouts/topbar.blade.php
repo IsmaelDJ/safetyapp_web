@@ -29,8 +29,8 @@
            <!-- App Search-->
            <form class="app-search d-none d-lg-block">
             <div class="position-relative">
-                <input type="text" class="form-control" placeholder="Chercher...">
-                <span id="search" class="bx bx-search-alt"></span>
+                <input type="text" id="search-input" class="form-control" placeholder="Chercher...">
+                <span id="search" class="bx bx-search-alt" style="cursor: pointer"></span>
             </div>
         </form>
     </div>

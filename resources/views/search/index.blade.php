@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title') Règles @endsection
+@section('title') Search @endsection
 
 @section('css')
     <!-- Bootstrap Css -->
@@ -22,98 +22,45 @@
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
     @endif
-    {{ $term }}
     <!-- end col -->
-    <div class="col-xl-12">
+    <br class="m-md-4">
+    <div class="col-xl-10 offset-xl-1 col-md-10 offset-md-1 ">
         <div class="card">
             <div class="card-body">
-                <div class="d-flex align-items-start">
+                <div class="d-flex align-results-start">
                     <div class="me-2">
-                        <h5 class="card-title mb-4">Liste des règles</h5>
-                    </div>
-                    <div class="ms-auto">
-                        <div class="text-sm-end">
-                            <a type="button" href="{{route('rules.create')}}"
-                               class="btn btn-success btn-rounded waves-effect waves-light mb-2 me-2"><i
-                                    class="mdi mdi-plus me-1"></i> Ajouter
-                            </a>
-                        </div>
-                    </div>
+                        @if ($data->isEmpty())
+                            <h5 class="card-title m-4">Auccun resultat correspondant à ce terme de recherche</h5>
+                        @else
+                            <h5 class="card-title m-4">Resultat</h5>
+                        @endif
+                    </div> 
                 </div>
 
-                <div class="table-responsive">
-                    <table class="table align-middle ">
-                        <thead>
-                        <tr>
-                            <th scope="col">Illustration</th>
-                            <th scope="col">Description</th>
-                            <th scope="col" class="d-none d-xl-table-cell">Catégorie</th>
-                            <th scope="col">Audio Français</th>
-                            <th scope="col" class="d-none d-xl-table-cell">Audio Arabe</th>
-                            <th scope="col" class="d-none d-xl-table-cell">Audio Ngambaye</th>
-                            <th scope="col">Action</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        @foreach($rules as $rule)
-                            <tr>
-                                <td style="width: 150px;"><img src="{{URL::asset($rule->image)}}" alt=""
-                                                               class="avatar-md h-auto d-block rounded"></td>
-                                <td style="width: 250px">
-                                    <p class="text-muted mb-0 text-justify">{{$rule->description}}</p>
-                                </td>
-                                <td class="d-none d-xl-table-cell">
-                                    <a type="button" href="{{route('categories.show', $rule->category)}}"
-                                       class="btn btn-success btn-rounded waves-effect waves-light mb-2 me-2"><i
-                                            class="mdi mdi-tag me-1"></i> {{$rule->category->name}}
-                                    </a>
-                                </td>
-                                <td >
-                                    <div class="essential_audio" data-url="{{URL::asset($rule->fr)}}"></div>
-                                </td>
-                                <td class="d-none d-xl-table-cell">
-                                    <div class="essential_audio" data-url="{{URL::asset($rule->ar)}}" ></div>
-                                </td>
-                                <td class="d-none d-xl-table-cell">
-                                    <div class="essential_audio" data-url="{{URL::asset($rule->ng)}}" ></div>
-                                </td>
-                                <td style="width: 200px">
-                                    <div class="d-flex gap-3">
-
-                                        <a href="{{route('rules.show', $rule)}}"
-                                           class="btn btn-default">Détails
-                                        </a>
-                                        <a href="{{route('rules.edit', $rule)}}"
-                                           class="btn btn-info">Modifier
-                                        </a>
-
-                                        <a href="{{route('rules.index')}}" class="btn btn-danger"
-                                           onclick="
-                                                   var result = confirm('Cette règle sera supprimée');
-                                                   if(result){
-                                                       event.preventDefault();
-                                                       document.getElementById('delete-form').submit();
-                                                   }
-                                                   ">
-                                            Supprimer</a>
-
-                                        <form method="POST" id="delete-form"
-                                              action="{{route('rules.destroy', [$rule])}}">
-                                            @csrf
-                                            <input type="hidden" name="_method" value="DELETE">
-                                        </form>
-                                    </div>
-                                </td>
-                            </tr>
+                <div class="w-100">
+                    <ul class="list-group">
+                        @foreach($data as $result)
+                        <li class="list-group-item d-flex justify-content-between align-items-center p-4">
+                            <span style="width: 400px; font-size: 14px;" class="text text-justify"> 
+                                @if ($result->type == 1)
+                                    <span class="badge bg-success btn-rounded p-2 mb-2" style="width: 80px;"><i class="mdi mdi-tag me-1"></i> Quiz </span> <br> {{str::limit( $result->content->description, $limit = 150, $end = '...')}}
+                                @else
+                                    <span class="badge bg-primary btn-rounded p-2 mb-2" style="width: 80px;"><i class="mdi mdi-tag me-1"></i> Règle </span><br> {{str::limit( $result->content->description, $limit = 150, $end = '...')}}
+                                @endif</span>
+                            <span class="badge badge-primary badge-pill">
+                                @if ($result->type == 1)
+                                    <a href="{{ route('quiz_questions.show', $result->content) }}" style="border-radius: 4px;" class="btn btn-primary ">Details</a>
+                                @else
+                                    <a href="{{ route('rules.show', $result->content) }}" style="border-radius: 4px;" class="btn btn-primary ">Details</a>
+                                @endif
+                            </span>
+                        </li>
                         @endforeach
-
-                        </tbody>
-                    </table>
-
-
+                    </ul>
                 </div>
-
-                {{ $rules->links('vendor.pagination.round') }}
+            </div>
+            <div class="card-footer">
+                {{ $data->links('vendor.pagination.round') }}
             </div>
         </div>
         <!-- end card -->
@@ -121,7 +68,4 @@
     <!-- end col -->
 @endsection
 
-@section('script')
 
-    <script src="{{ URL::asset('assets/js/essential_audio.js')}}"></script>
-@endsection

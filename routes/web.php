@@ -72,11 +72,11 @@ Route::get('/documentation-api', function () {
     return view('scribe.index');
 });
 
-Route::get('/analyze', [App\Http\Controllers\AnalyticController::class, 'index'])->name('analyze.index');
-Route::get('/analyze/details', [App\Http\Controllers\AnalyticController::class, 'details'])->name('analyze.details');
+Route::get('analyze', [App\Http\Controllers\AnalyticController::class, 'index'])->name('analyze.index');
+Route::get('analyze/details', [App\Http\Controllers\AnalyticController::class, 'details'])->name('analyze.details');
 
 Route::get('{any}', [App\Http\Controllers\HomeController::class, 'index'])->name('index');
-Route::get('/search/{term}', [App\Http\Controllers\HomeController::class, 'search'])->name('search');
+Route::get('search/{term}', [App\Http\Controllers\HomeController::class, 'search'])->name('search');
 
-URL::forceScheme('https');
+//URL::forceScheme('https');
 

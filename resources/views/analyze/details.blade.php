@@ -28,7 +28,7 @@
             <div class="card-body">
                 <div class="d-flex align-items-start">
                     <div class="me-2">
-                        <h5 class="card-title mb-4">Liste des règles</h5>
+                        <h5 class="card-title mb-4">L'analytique</h5>
                     </div>
                     <div class="ms-auto">
                         <div class="text-sm-end">
