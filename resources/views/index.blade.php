@@ -29,7 +29,7 @@
                                 <div class="col-4">
                                     <div>
                                         <p class="text-muted text-truncate mb-2">Règles</p>
-                                        <h5 class="mb-0">{{ $total_rules }}</h5>
+                                        <h5 class="mb-0"> {{ $total_rules }}</h5>
                                     </div>
                                 </div>
                                 <div class="col-4">
@@ -188,7 +188,7 @@
                                         
                                         <td>
                                             <div>
-                                                <h5 class="font-size-14 mb-1">{{ $quizNoAnswered->description }}</h5>
+                                                <h5 class="font-size-14 mb-1">{{ str::limit($quizNoAnswered->description, $limit=20, $end='...') }} </h5>
                                             </div>
                                         </td>
                                         
@@ -196,7 +196,7 @@
                                             <div class="text-end">
                                                 <a type="button" href="{{route('categories.show', $quizNoAnswered->category)}}"
                                                     class="btn btn-success btn-rounded waves-effect waves-light "><i
-                                                    class="mdi mdi-tag me-1"></i> {{ $quizNoAnswered->category->name }}
+                                                    class="mdi mdi-tag me-1"></i> {{ Str::limit($quizNoAnswered->category->name, 4, '..') }}
                                                 </a>                                             
                                             </div>
                                         </td>
@@ -226,7 +226,7 @@
                                         
                                         <td>
                                             <div>
-                                                <h5 class="font-size-14 mb-1">{{ $quizBadAnswered->description }}</h5>
+                                                <h5 class="font-size-14 mb-1">{{ str::limit($quizBadAnswered->description, $limt=20, $end='...') }}</h5>
                                             </div>
                                         </td>
                                         
@@ -234,7 +234,7 @@
                                             <div class="text-end">
                                                 <a type="button" href="{{route('categories.show', $quizBadAnswered->category)}}"
                                                     class="btn btn-success btn-rounded waves-effect waves-light "><i
-                                                    class="mdi mdi-tag me-1"></i> {{ $quizBadAnswered->category->name }}
+                                                    class="mdi mdi-tag me-1"></i> {{ str::limit($quizBadAnswered->category->name, $limit=4, $end='..')}}
                                                 </a>                                            
                                             </div>
                                         </td>
@@ -265,7 +265,7 @@
                                         
                                         <td>
                                             <div>
-                                                <h5 class="font-size-14 mb-1">{{ $quizGoodAnswered->description }}</h5>
+                                                <h5 class="font-size-14 mb-1">{{ str::limit($quizGoodAnswered->description, $limit=20, $end='...') }}</h5>
                                             </div>
                                         </td>
                                         
@@ -273,7 +273,7 @@
                                             <div class="text-end">
                                                 <a type="button" href="{{route('categories.show', $quizGoodAnswered->category)}}"
                                                     class="btn btn-success btn-rounded waves-effect waves-light "><i
-                                                    class="mdi mdi-tag me-1"></i> {{ $quizGoodAnswered->category->name }}
+                                                    class="mdi mdi-tag me-1"></i> {{ str::limit($quizGoodAnswered->category->name, $limit=4, $end='..') }}
                                                 </a>
                                             </div>
                                         </td>
@@ -313,7 +313,7 @@
                         @foreach($rulesMoreRead as $ruleMoreRead)
                         <li class="list-group-item">
                             <div class="py-2">
-                                <h5 class="font-size-14">{{ $ruleMoreRead->description }}<span class="float-end">{{ (round($total_readings != 0 ? $ruleMoreRead->readings_count * 100 / $total_readings : 0 , 1)). '%' }}</span></h5>
+                                <h5 class="font-size-14">{{ str::limit($ruleMoreRead->description, $limit=20, $end='...') }}<span class="float-end">{{ (round($total_readings != 0 ? $ruleMoreRead->readings_count * 100 / $total_readings : 0 , 1)). '%' }}</span></h5>
                                 <div class="progress animated-progess progress-sm">
                                     <div class="progress-bar" role="progressbar" style="width: {{ round( $total_readings != 0 ? $ruleMoreRead->readings_count * 100 / $total_readings : 0, 1)}}%" aria-valuenow="{{ round($total_readings != 0 ? $ruleMoreRead->readings_count * 100 / $total_readings : 0, 1) }}" aria-valuemin="0" aria-valuemax="100"></div>
                                 </div>
@@ -343,7 +343,7 @@
                             <div class="mt-1 mb-1 text text-end">
                                 <a type="button" href="{{route('categories.show', $categoryMoreRead)}}"
                                 class="btn btn-success btn-sm btn-rounded waves-effect waves-light "><i
-                                class="mdi mdi-tag me-1"></i> {{ $categoryMoreRead->name }}
+                                class="mdi mdi-tag me-1"></i> {{ Str::limit($categoryMoreRead->name, 4, '..') }}
                             </a>
                         </div>
                         @endforeach

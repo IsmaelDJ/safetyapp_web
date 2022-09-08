@@ -13,6 +13,7 @@ use App\Models\Presence;
 use App\Charts\QuizChart;
 use App\Charts\ChartChart;
 use App\Models\Contractor;
+use Illuminate\Support\Str;
 use App\Charts\ReadingChart;
 use App\Models\QuizQuestion;
 use Illuminate\Http\Request;
@@ -146,7 +147,7 @@ class AnalyticController extends Controller
         $reading_by_category_label = [];
 
         foreach($categoriesMoreRead as $category){
-            $reading_by_category_label[]  = $category->name;
+            $reading_by_category_label[]  = Str::limit($category->name, 6, '..');
             $reading_by_category_data []  = $category->readings_count;
         }
 

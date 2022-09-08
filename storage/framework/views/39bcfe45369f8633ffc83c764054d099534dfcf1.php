@@ -29,7 +29,7 @@
                                 <div class="col-4">
                                     <div>
                                         <p class="text-muted text-truncate mb-2">Règles</p>
-                                        <h5 class="mb-0"><?php echo e($total_rules); ?></h5>
+                                        <h5 class="mb-0"> <?php echo e($total_rules); ?></h5>
                                     </div>
                                 </div>
                                 <div class="col-4">
@@ -210,7 +210,7 @@ unset($__errorArgs, $__bag); ?>" id="avatar" name="avatar" autofocus>
                                         
                                         <td>
                                             <div>
-                                                <h5 class="font-size-14 mb-1"><?php echo e($quizNoAnswered->description); ?></h5>
+                                                <h5 class="font-size-14 mb-1"><?php echo e(str::limit($quizNoAnswered->description, $limit=20, $end='...')); ?> </h5>
                                             </div>
                                         </td>
                                         
@@ -218,7 +218,7 @@ unset($__errorArgs, $__bag); ?>" id="avatar" name="avatar" autofocus>
                                             <div class="text-end">
                                                 <a type="button" href="<?php echo e(route('categories.show', $quizNoAnswered->category)); ?>"
                                                     class="btn btn-success btn-rounded waves-effect waves-light "><i
-                                                    class="mdi mdi-tag me-1"></i> <?php echo e($quizNoAnswered->category->name); ?>
+                                                    class="mdi mdi-tag me-1"></i> <?php echo e(Str::limit($quizNoAnswered->category->name, 4, '..')); ?>
 
                                                 </a>                                             
                                             </div>
@@ -249,7 +249,7 @@ unset($__errorArgs, $__bag); ?>" id="avatar" name="avatar" autofocus>
                                         
                                         <td>
                                             <div>
-                                                <h5 class="font-size-14 mb-1"><?php echo e($quizBadAnswered->description); ?></h5>
+                                                <h5 class="font-size-14 mb-1"><?php echo e(str::limit($quizBadAnswered->description, $limt=20, $end='...')); ?></h5>
                                             </div>
                                         </td>
                                         
@@ -257,7 +257,7 @@ unset($__errorArgs, $__bag); ?>" id="avatar" name="avatar" autofocus>
                                             <div class="text-end">
                                                 <a type="button" href="<?php echo e(route('categories.show', $quizBadAnswered->category)); ?>"
                                                     class="btn btn-success btn-rounded waves-effect waves-light "><i
-                                                    class="mdi mdi-tag me-1"></i> <?php echo e($quizBadAnswered->category->name); ?>
+                                                    class="mdi mdi-tag me-1"></i> <?php echo e(str::limit($quizBadAnswered->category->name, $limit=4, $end='..')); ?>
 
                                                 </a>                                            
                                             </div>
@@ -289,7 +289,7 @@ unset($__errorArgs, $__bag); ?>" id="avatar" name="avatar" autofocus>
                                         
                                         <td>
                                             <div>
-                                                <h5 class="font-size-14 mb-1"><?php echo e($quizGoodAnswered->description); ?></h5>
+                                                <h5 class="font-size-14 mb-1"><?php echo e(str::limit($quizGoodAnswered->description, $limit=20, $end='...')); ?></h5>
                                             </div>
                                         </td>
                                         
@@ -297,7 +297,7 @@ unset($__errorArgs, $__bag); ?>" id="avatar" name="avatar" autofocus>
                                             <div class="text-end">
                                                 <a type="button" href="<?php echo e(route('categories.show', $quizGoodAnswered->category)); ?>"
                                                     class="btn btn-success btn-rounded waves-effect waves-light "><i
-                                                    class="mdi mdi-tag me-1"></i> <?php echo e($quizGoodAnswered->category->name); ?>
+                                                    class="mdi mdi-tag me-1"></i> <?php echo e(str::limit($quizGoodAnswered->category->name, $limit=4, $end='..')); ?>
 
                                                 </a>
                                             </div>
@@ -338,7 +338,7 @@ unset($__errorArgs, $__bag); ?>" id="avatar" name="avatar" autofocus>
                         <?php $__currentLoopData = $rulesMoreRead; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $ruleMoreRead): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <li class="list-group-item">
                             <div class="py-2">
-                                <h5 class="font-size-14"><?php echo e($ruleMoreRead->description); ?><span class="float-end"><?php echo e((round($total_readings != 0 ? $ruleMoreRead->readings_count * 100 / $total_readings : 0 , 1)). '%'); ?></span></h5>
+                                <h5 class="font-size-14"><?php echo e(str::limit($ruleMoreRead->description, $limit=20, $end='...')); ?><span class="float-end"><?php echo e((round($total_readings != 0 ? $ruleMoreRead->readings_count * 100 / $total_readings : 0 , 1)). '%'); ?></span></h5>
                                 <div class="progress animated-progess progress-sm">
                                     <div class="progress-bar" role="progressbar" style="width: <?php echo e(round( $total_readings != 0 ? $ruleMoreRead->readings_count * 100 / $total_readings : 0, 1)); ?>%" aria-valuenow="<?php echo e(round($total_readings != 0 ? $ruleMoreRead->readings_count * 100 / $total_readings : 0, 1)); ?>" aria-valuemin="0" aria-valuemax="100"></div>
                                 </div>
@@ -368,7 +368,7 @@ unset($__errorArgs, $__bag); ?>" id="avatar" name="avatar" autofocus>
                             <div class="mt-1 mb-1 text text-end">
                                 <a type="button" href="<?php echo e(route('categories.show', $categoryMoreRead)); ?>"
                                 class="btn btn-success btn-sm btn-rounded waves-effect waves-light "><i
-                                class="mdi mdi-tag me-1"></i> <?php echo e($categoryMoreRead->name); ?>
+                                class="mdi mdi-tag me-1"></i> <?php echo e(Str::limit($categoryMoreRead->name, 4, '..')); ?>
 
                             </a>
                         </div>

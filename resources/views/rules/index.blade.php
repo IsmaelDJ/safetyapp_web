@@ -121,9 +121,4 @@
     <!-- end col -->
 @endsection
 
-@section('script')
-
-    <script src="{{ URL::asset('assets/js/essential_audio.js')}}"></script>
-@endsection
-
 

@@ -124,11 +124,6 @@
     <!-- end col -->
 <?php $__env->stopSection(); ?>
 
-<?php $__env->startSection('script'); ?>
-
-    <script src="<?php echo e(URL::asset('assets/js/essential_audio.js')); ?>"></script>
-<?php $__env->stopSection(); ?>
-
 
 
 <?php echo $__env->make('layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\Users\Ismae\Downloads\safetyapp_web\resources\views/rules/index.blade.php ENDPATH**/ ?>
