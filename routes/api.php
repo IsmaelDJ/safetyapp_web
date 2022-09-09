@@ -87,7 +87,8 @@ Route::group([
     });
 
     //Reading 
-    Route::get('employees/{employee_id}/rules/{rule_id}', function ($rule_id, $employee_id) {
+    Route::get('employees/{employee_id}/rules/{rule_id}', function ( $employee_id, $rule_id) {
+
         Reading::create([
             'employee_id' => $employee_id,
             'rule_id'     => $rule_id,
