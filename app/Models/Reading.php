@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\Rule;
+use App\Models\Driver;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -11,11 +12,11 @@ class Reading extends Model
     use HasFactory;
 
     
-    protected $fillable = ['employee_id', 'rule_id', 'category_id'];
+    protected $fillable = ['driver_id', 'rule_id', 'category_id'];
 
     public function employee() {
 
-        return $this->belongsTo(Employee::class);
+        return $this->belongsTo(Driver::class);
     }
 
     public function rule() {

@@ -41,7 +41,7 @@
                                 <div class="col-4">
                                     <div>
                                         <p class="text-muted text-truncate mb-2">Employés</p>
-                                        <h5 class="mb-0">{{ $total_employees }}</h5>
+                                        <h5 class="mb-0">{{ $total_drivers }}</h5>
                                         
                                     </div>
                                 </div>
@@ -241,7 +241,7 @@
                                         
                                         <td>
                                             <div class="text-end">
-                                                <h5 class="font-size-14 text-muted mb-0">{{round( $employee_quiz_responses_total != 0 ? $quizBadAnswered->employee_quiz_responses_count / $employee_quiz_responses_total * 100 : 0, 1)}}%</h5>
+                                                <h5 class="font-size-14 text-muted mb-0">{{round( $driver_quiz_responses_total != 0 ? $quizBadAnswered->driver_quiz_responses_count / $driver_quiz_responses_total * 100 : 0, 1)}}%</h5>
                                             </div>
                                         </td>
                                     </tr>
@@ -280,7 +280,7 @@
                                         
                                         <td>
                                             <div class="text-end">
-                                                <h5 class="font-size-14 text-muted mb-0">{{ round($employee_quiz_responses_total != 0 ? $quizGoodAnswered->employee_quiz_responses_count / $employee_quiz_responses_total * 100 : 0, 1)}}%</h5>
+                                                <h5 class="font-size-14 text-muted mb-0">{{ round($driver_quiz_responses_total != 0 ? $quizGoodAnswered->driver_quiz_responses_count / $driver_quiz_responses_total * 100 : 0, 1)}}%</h5>
                                             </div>
                                         </td>
                                     </tr>
@@ -379,23 +379,23 @@
             <div class="table-responsive" data-simplebar style="max-height: 260px;">
                 <table class="table align-middle table-nowrap">
                     <tbody>
-                        @foreach($bestEmployees as $bestEmployee)
+                        @foreach($bestDrivers as $bestDriver)
                         <tr>
                             <td>
                                 <div>
-                                    <h5 class="font-size-14 mb-1">{{ $bestEmployee->employee->name }}</h5>
+                                    <h5 class="font-size-14 mb-1">{{ $bestDriver->driver->name }}</h5>
                                 </div>
                             </td>
                             
                             <td>
                                 <div>
-                                    <h5 class="font-size-14 mb-1">{{ $bestEmployee->employee->phone }}</h5>
+                                    <h5 class="font-size-14 mb-1">{{ $bestDriver->driver->phone }}</h5>
                                 </div>
                             </td>
                             
                             <td>
                                 <div class="text-end">
-                                    <h5 class="font-size-14 text-muted mb-0">{{round( $total_readings != 0 ? $bestEmployee->readings_count / $total_readings * 100 : 0, 1)}}%</h5>
+                                    <h5 class="font-size-14 text-muted mb-0">{{round( $total_readings != 0 ? $bestDriver->readings_count / $total_readings * 100 : 0, 1)}}%</h5>
                                 </div>
                             </td>
                         </tr>

@@ -4,12 +4,12 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use \App\Http\Controllers\RuleController;
-use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\DriverController;
 use \App\Http\Controllers\CategoryController;
-use App\Http\Controllers\ContractorController;
+use App\Http\Controllers\CarrierController;
 use App\Http\Controllers\QuizQuestionController;
 use App\Http\Controllers\Auth\RegisterController;
-use App\Http\Controllers\EmployeeQuizResponseController;
+use App\Http\Controllers\DriverQuizResponseController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,17 +39,24 @@ Route::post('/update-password/{id}', [App\Http\Controllers\HomeController::class
 
 //Rule
 Route::resource('rules', RuleController::class);
+
 //Category
 Route::resource('categories', CategoryController::class);
 
-//contractor
-Route::resource('contractors', ContractorController::class);
+//carrier
+Route::get('carriers',  [CarrierController::class, 'index'])->name('carriers.index');
+Route::get('carriers/{id}',  [CarrierController::class, 'show'])->name('carriers.show');
+Route::post('carriers',  [CarrierController::class, 'store'])->name('carriers.store');
+Route::put('carriers/{id}', [CarrierController::class, 'update'])->name('carriers.update');
+Route::delete('carriers/{id}',  [CarrierController::class, 'destroy'])->name('carriers.destroy');
+Route::get('carriers/{id}/edit',  [CarrierController::class, 'edit'])->name('carriers.edit');
+Route::get('carriers/create',  [CarrierController::class, 'create'])->name('carriers.create');
 
 //employees
-Route::resource('employees', EmployeeController::class);
+Route::resource('drivers', DriverController::class);
 
-//contractor employee
-Route::get('contractor_employees/{contractor}', [ContractorController::class,'export_employees'])->name('contractor_employees');
+//carrier's driver
+Route::get('carrier_drivers/{carrier}', [CarrierController::class,'export_employees'])->name('carrier_drivers');
 
 //quiz question
 Route::resource('quiz_questions', QuizQuestionController::class);
@@ -59,10 +66,10 @@ Route::post('quiz_questions', [QuizQuestionController::class,'store'])->name('qu
 Route::get('quiz_questions/create', [QuizQuestionController::class,'create'])->name('quiz_questions.create');
 
 //quiz question avec reponse
-Route::resource('employee_quiz_responses', EmployeeQuizResponseController::class);
-Route::get('employee_quiz_responses', [EmployeeQuizResponseController::class,'index'])->name('employee_quiz_responses.index');
-Route::get('employee_quiz_responses/{quiz_question_id}/quizzes', [EmployeeQuizResponseController::class,'quizzes'])->name('employee_quiz_responses.quizzes');
-Route::get('employee_quiz_responses/{employee_id}/employees', [EmployeeQuizResponseController::class,'employees'])->name('employee_quiz_responses.employees');
+Route::resource('driver_quiz_responses', DriverQuizResponseController::class);
+Route::get('driver_quiz_responses', [DriverQuizResponseController::class,'index'])->name('driver_quiz_responses.index');
+Route::get('employee_quiz_responses/{quiz_question_id}/quizzes', [DriverQuizResponseController::class,'quizzes'])->name('driver_quiz_responses.quizzes');
+Route::get('driver_quiz_responses/{employee_id}/employees', [DriverQuizResponseController::class,'employees'])->name('driver_quiz_responses.employees');
 
 Route::get('/documentation-api', function () {
     return view('scribe.index');

@@ -6,19 +6,19 @@ use stdClass;
 use Analytics;
 use Carbon\Carbon;
 use App\Models\Rule;
+use App\Models\Driver;
+use App\Models\Carrier;
 use App\Models\Reading;
 use App\Models\Category;
-use App\Models\Employee;
 use App\Models\Presence;
 use App\Charts\QuizChart;
 use App\Charts\ChartChart;
-use App\Models\Contractor;
 use Illuminate\Support\Str;
 use App\Charts\ReadingChart;
 use App\Models\QuizQuestion;
 use Illuminate\Http\Request;
 use Spatie\Analytics\Period;
-use App\Models\EmployeeQuizResponse;
+use App\Models\DriverQuizResponse;
 
 class AnalyticController extends Controller
 {
@@ -30,26 +30,26 @@ class AnalyticController extends Controller
     public function index()
     {
 
-        $quizNoAnswereds  = QuizQuestion::whereDoesntHave("employee_quiz_responses")
+        $quizNoAnswereds  = QuizQuestion::whereDoesntHave("driver_quiz_responses")
         ->get();
         
-        $quizAnswereds    = QuizQuestion::whereHas("employee_quiz_responses")
-        ->withCount("employee_quiz_responses")
-        ->orderBy("employee_quiz_responses_count", 'desc')
+        $quizAnswereds    = QuizQuestion::whereHas("driver_quiz_responses")
+        ->withCount("driver_quiz_responses")
+        ->orderBy("driver_quiz_responses_count", 'desc')
         ->paginate(10);
         
-        $quizBadAnswereds = QuizQuestion::whereHas("employee_quiz_responses", function ($query){
+        $quizBadAnswereds = QuizQuestion::whereHas("driver_quiz_responses", function ($query){
             $query->where("correct", false);
         })
-        ->withCount("employee_quiz_responses")
-        ->orderBy("employee_quiz_responses_count", 'desc')
+        ->withCount("driver_quiz_responses")
+        ->orderBy("driver_quiz_responses_count", 'desc')
         ->paginate(10);
 
-        $quizGoodAnswereds = QuizQuestion::whereHas("employee_quiz_responses", function ($query){
+        $quizGoodAnswereds = QuizQuestion::whereHas("driver_quiz_responses", function ($query){
             $query->where("correct", true);
         })
-        ->withCount("employee_quiz_responses")
-        ->orderBy("employee_quiz_responses_count", 'desc')
+        ->withCount("driver_quiz_responses")
+        ->orderBy("driver_quiz_responses_count", 'desc')
         ->get();
 
         $rulesMoreRead = Rule::whereHas("readings")
@@ -59,16 +59,16 @@ class AnalyticController extends Controller
 
         $rulesNotRead = Rule::whereDoesntHave("readings")->get();
 
-        $employee_quiz_responses_total = EmployeeQuizResponse::count();
+        $driver_quiz_responses_total = DriverQuizResponse::count();
 
         $categoriesMoreRead = Category::whereHas("readings")
         ->withCount("readings")
         ->orderBy("readings_count", 'desc')
         ->get();
 
-        $bestEmployees = Reading::groupBy('employee_id')
-            ->selectRaw('count(*) as readings_count, employee_id')
-            ->with('employee')
+        $bestdrivers = Reading::groupBy('driver_id')
+            ->selectRaw('count(*) as readings_count, driver_id')
+            ->with('driver')
             ->orderBy('readings_count', 'desc')
             ->get();
         
@@ -76,10 +76,10 @@ class AnalyticController extends Controller
 
         $total_quizzes     = QuizQuestion::count();
         $total_rules       = Rule::count();
-        $total_employees   = Employee::count();
+        $total_drivers     = Driver::count();
         $total_readings    = Reading::count(); 
         $total_categories  = Category::count();
-        $total_contractors = Contractor::count();
+        $total_carriers    = Carrier::count();
 
         $reading_per_month = Reading::select('id', 'created_at')
         ->whereYear('created_at', now()->year)
@@ -133,7 +133,7 @@ class AnalyticController extends Controller
         $globalChart->displayLegend(false);
         $globalChart->labels(['Catégories', 'Règles', 'Lecture', 'Sous-traitant', 'Employées', 'Quiz']);
         $globalChart->dataset('Statut global', 'bar',
-         [  $total_categories, $total_rules, $total_readings, $total_contractors, $total_employees,  $total_quizzes])
+         [  $total_categories, $total_rules, $total_readings, $total_carriers, $total_drivers,  $total_quizzes])
         ->backgroundColor([
             'rgba(255, 99, 132, 0.6)',
             'rgba(255, 159, 64, 0.6)',
@@ -166,20 +166,20 @@ class AnalyticController extends Controller
 
         return view('analyze.index', compact('total_quizzes',
                                              'total_rules', 
-                                             'total_employees',
+                                             'total_drivers',
                                              'total_readings', 
                                              'quizNoAnswereds', 
                                              'quizGoodAnswereds',
                                              'quizBadAnswereds',
                                              'rulesMoreRead',
                                              'categoriesMoreRead',
-                                             'bestEmployees',
+                                             'bestdrivers',
                                              'readingChart',
                                              'quizChart',
                                              'ruleChart',
                                              'globalChart',
                                              'categorieReadingChart',
-                                             'employee_quiz_responses_total'));
+                                             'driver_quiz_responses_total'));
     }
 
     /**
@@ -191,21 +191,21 @@ class AnalyticController extends Controller
     {
         $data = [];
 
-        $events_quiz = EmployeeQuizResponse::with("employee")
+        $events_quiz = DriverQuizResponse::with("driver")
         ->with('quiz_question')
         ->get();
 
-        $events_rule = Reading::with('employee')
+        $events_rule = Reading::with('driver')
         ->with('rule')
         ->get();
 
-        $events_presence = Presence::with('employee')
+        $events_presence = Presence::with('driver')
         ->get();
 
         foreach($events_quiz as $event){
             $tmp = new stdClass();
             $tmp->type      = 1;
-            $tmp->employee  = $event->employee;
+            $tmp->driver  = $event->driver;
             $tmp->action    = $event->quiz_question;
             $tmp->created_at= Date($event->created_at);
             $data[] = $tmp;
@@ -214,7 +214,7 @@ class AnalyticController extends Controller
         foreach($events_rule as $event){
             $tmp = new stdClass();
             $tmp->type      = 2;
-            $tmp->employee  = $event->employee;
+            $tmp->driver  = $event->driver;
             $tmp->action    = $event->rule;
             $tmp->created_at= Date($event->created_at);
             $data[] = $tmp;
@@ -223,7 +223,7 @@ class AnalyticController extends Controller
         foreach($events_presence as $event){
             $tmp = new stdClass();
             $tmp->type      = 3;
-            $tmp->employee  = $event->employee;
+            $tmp->driver  = $event->driver;
             $tmp->action    = 'Lancement de l\'aplication';
             $tmp->created_at= Date($event->created_at);
             $data[] = $tmp;
@@ -234,59 +234,4 @@ class AnalyticController extends Controller
         return view('analyze.details', compact('data'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
 }

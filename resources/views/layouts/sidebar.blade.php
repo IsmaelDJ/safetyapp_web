@@ -15,6 +15,7 @@
                         <span key="t-starter-page">Tableau de bord</span>
                     </a>
                 </li>
+                @can('doAdvanced')
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
                         <i class="bx bx-list-ol"></i>
@@ -25,7 +26,6 @@
                         <li><a href="{{route('rules.create')}}" key="t-level-1-1">Ajouter</a></li>
                     </ul>
                 </li>
-
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
                         <i class="bx bx-slider-alt"></i>
@@ -36,32 +36,31 @@
                         <li><a href="{{route('categories.create')}}" key="t-level-1-1">Ajouter</a></li>
                     </ul>
                 </li>
+                @endcan
 
-
-                <li class="menu-title" key="t-menu">Sous-traitants</li>
+                <li class="menu-title" key="t-menu">Transport</li>
+                @can('doAdvanced')
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
                         <i class="bx bxs-business"></i>
-                        <span key="t-multi-level">Sous-traitants</span>
+                        <span key="t-multi-level">Transporteurs</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="true">
-                        <li><a href="{{route('contractors.index')}}" key="t-level-1-1">Tous les sous-traitants</a></li>
-                        <li><a href="{{route('contractors.create')}}" key="t-level-1-1">Ajouter</a></li>
+                        <li><a href="{{route('carriers.index')}}" key="t-level-1-1">Tous les tranporteurs</a></li>
+                        <li><a href="{{route('carriers.create')}}" key="t-level-1-1">Ajouter</a></li>
                     </ul>
                 </li>
+                @endcan
                 <li>
-
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
                         <i class="bx bxs-user-detail"></i>
-                        <span key="t-multi-level">Utilisateurs</span>
+                        <span key="t-multi-level">Chauffeurs</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="true">
-                        <li><a href="{{route('employees.index')}}" key="t-level-1-1">Tous les utilisateurs</a></li>
-                        <li><a href="{{route('employees.create')}}" key="t-level-1-1">Ajouter</a></li>
+                        <li><a href="{{route('drivers.index')}}" key="t-level-1-1">Tous les chauffeurs</a></li>
+                        <li><a href="{{route('drivers.create')}}" key="t-level-1-1">Ajouter</a></li>
                     </ul>
                 </li>
-
-
                 <li class="menu-title" key="t-menu">Suivi</li>
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
@@ -73,6 +72,7 @@
                         <li><a href="{{route('analyze.details')}}" key="t-level-1-1">Détails</a></li>
                     </ul>
                 </li>
+                @can('doAdvanced')
                 <li>
                     <a href="#" class="has-arrow waves-effect">
                         <i class="bx bx-list-check"></i>
@@ -81,10 +81,10 @@
                     <ul class="sub-menu" aria-expanded="true">
                         <li><a href="{{route('quiz_questions.index')}}" key="t-level-1-1">Tous les quiz</a></li>
                         <li><a href="{{route('quiz_questions.create')}}" key="t-level-1-1">Ajouter</a></li>
-                        <li><a href="{{route('employee_quiz_responses.index')}}" key="t-level-1-1">Réponses</a></li>
+                        <li><a href="{{route('driver_quiz_responses.index')}}" key="t-level-1-1">Réponses</a></li>
                     </ul>
                 </li>
-
+                @endcan
 
             </ul>
         </div>

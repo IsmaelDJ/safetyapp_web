@@ -17,7 +17,7 @@
 
     @section('content')
 
-        <div class="account-pages my-5 pt-sm-5">
+        <div class="account-pages my-2 pt-sm-5">
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-md-8 col-lg-6 col-xl-5">
@@ -50,7 +50,7 @@
                                 <div class="p-2">
                                     <form method="POST" class="form-horizontal" action="{{ route('storeUser') }}" enctype="multipart/form-data">
                                         @csrf
-                                        <div class="mb-3">
+                                        <div class="mb-2">
                                             <label for="useremail" class="form-label">Email</label>
                                             <input type="email" class="form-control @error('email') is-invalid @enderror" id="useremail"
                                                    value="{{ old('email') }}" name="email" placeholder="Entrez votre adresse email" autofocus required>
@@ -61,7 +61,7 @@
                                             @enderror
                                         </div>
 
-                                        <div class="mb-3">
+                                        <div class="mb-2">
                                             <label for="username" class="form-label">Nom</label>
                                             <input type="text" class="form-control @error('name') is-invalid @enderror"
                                                    value="{{ old('name') }}" id="username" name="name" autofocus required
@@ -73,7 +73,7 @@
                                             @enderror
                                         </div>
 
-                                        <div class="mb-3">
+                                        <div class="mb-2">
                                             <label for="userpassword" class="form-label">Mot de passe</label>
                                             <input type="password" class="form-control @error('password') is-invalid @enderror" id="userpassword" name="password"
                                                    placeholder="Enter un mot de passe" autofocus required>
@@ -84,7 +84,7 @@
                                             @enderror
                                         </div>
 
-                                        <div class="mb-3">
+                                        <div class="mb-2">
                                             <label for="confirmpassword" class="form-label">Confirmer le mot de passe</label>
                                             <input type="password" class="form-control @error('password_confirmation') is-invalid @enderror" id="confirmpassword"
                                                    name="password_confirmation" placeholder="Repetez le mot de passe" autofocus required>
@@ -94,9 +94,22 @@
                                                         </span>
                                             @enderror
                                         </div>
-
-
-                                        <div class="mb-3">
+                                        <div class="mb-2">
+                                            <label class="form-label">Rôle</label>
+                                            <select
+                                                class="form-select form-select-lg @error('role') is-invalid @enderror"
+                                                name="role">
+                                                <option value="" selected>Selectionnez un role</option>
+                                                    <option value="admin">Admin</option>
+                                                    <option value="transporteur">Trasporteur</option>
+                                                </select>
+                                            @error('role')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>Role non selectionnée</strong>
+                                            </span>
+                                            @enderror
+                                        </div>
+                                        <div class="mb-2">
                                             <label for="avatar">Photo de profile</label>
                                             <div class="input-group">
                                                 <input type="file" class="form-control @error('avatar') is-invalid @enderror" id="inputGroupFile02" name="avatar" autofocus required>

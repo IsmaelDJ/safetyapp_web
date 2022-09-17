@@ -20,6 +20,7 @@ class User extends Authenticatable
     protected $fillable = [
         'name',
         'email',
+        'role',
         'password',
         'avatar',
         'expires_at'
@@ -43,4 +44,28 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function isSuperAdmin(){
+        return $this->role == 'superadmin';
+    }
+
+    public function isAdmin(){
+        return $this->role == 'admin';
+    }
+
+    public function isCarrier(){
+        return $this->role == 'transporteur';
+    }
+
+    /**
+     * Get the carrier that owns the User
+     */
+    public function carrier()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function drivers(){
+        return $this->hasMany(Driver::class);
+    }
 }

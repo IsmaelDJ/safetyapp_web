@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use stdClass;
+use App\Models\Role;
 use App\Models\Rule;
 use App\Models\User;
+use App\Models\Driver;
 use App\Models\Reading;
 use App\Models\Category;
 use App\Models\Employee;
@@ -13,8 +15,8 @@ use App\Charts\ChartChart;
 use App\Charts\ReadingChart;
 use App\Models\QuizQuestion;
 use Illuminate\Http\Request;
+use App\Models\DriverQuizResponse;
 use Illuminate\Support\Facades\App;
-use App\Models\EmployeeQuizResponse;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
@@ -33,21 +35,25 @@ class HomeController extends Controller
 
     public function storeUser(Request $request)
     {
-        if ($request->has('avatar')) {
-            $avatar = $request->file('avatar');
-            $avatarName = time() . '.' . $avatar->getClientOriginalExtension();
-            $avatarPath = public_path('/images/');
-            $avatar->move($avatarPath, $avatarName);
-        }
-
-        User::create([
-            'name' => $request['name'],
-            'email' => $request['email'],
-            'password' => Hash::make($request['password']),
-            'avatar' => "/images/" . $avatarName,
+        $request->validate([
+            'name'    => 'required',
+            'email'   => 'required|email',
+            'role'    => 'required',
+            'password'=> 'required',
+            'avatar'  => 'required|image|mimes:jpg,jpeg,png'
         ]);
 
-        return redirect()->route('register');
+        $avatar = uploadFile($request, 'avatar', 'user_avatar');
+
+        User::create([
+            'role'     => $request['role'],
+            'name'     => $request['name'],
+            'email'    => $request['email'],
+            'password' => Hash::make($request['password']),
+            'avatar'   => $avatar,
+        ]);
+
+        return redirect()->route('root');
     }
 
     public function register(){
@@ -71,26 +77,26 @@ class HomeController extends Controller
     {
         $param_month = $request->query('month');
 
-        $quizNoAnswereds  = QuizQuestion::whereDoesntHave("employee_quiz_responses")
+        $quizNoAnswereds  = QuizQuestion::whereDoesntHave("driver_quiz_responses")
         ->paginate(10);
         
-        $quizAnswereds    = QuizQuestion::whereHas("employee_quiz_responses")
-        ->withCount("employee_quiz_responses")
-        ->orderBy("employee_quiz_responses_count", 'desc')
+        $quizAnswereds    = QuizQuestion::whereHas("driver_quiz_responses")
+        ->withCount("driver_quiz_responses")
+        ->orderBy("driver_quiz_responses_count", 'desc')
         ->paginate(10);
         
-        $quizBadAnswereds = QuizQuestion::whereHas("employee_quiz_responses", function ($query){
+        $quizBadAnswereds = QuizQuestion::whereHas("driver_quiz_responses", function ($query){
             $query->where("correct", false);
         })
-        ->withCount("employee_quiz_responses")
-        ->orderBy("employee_quiz_responses_count", 'desc')
+        ->withCount("driver_quiz_responses")
+        ->orderBy("driver_quiz_responses_count", 'desc')
         ->paginate(10);
 
-        $quizGoodAnswereds = QuizQuestion::whereHas("employee_quiz_responses", function ($query){
+        $quizGoodAnswereds = QuizQuestion::whereHas("driver_quiz_responses", function ($query){
             $query->where("correct", true);
         })
-        ->withCount("employee_quiz_responses")
-        ->orderBy("employee_quiz_responses_count", 'desc')
+        ->withCount("driver_quiz_responses")
+        ->orderBy("driver_quiz_responses_count", 'desc')
         ->paginate(10);
 
         $rulesMoreRead = Rule::whereHas("readings")
@@ -98,16 +104,16 @@ class HomeController extends Controller
         ->orderBy("readings_count", 'desc')
         ->paginate(10);
 
-        $employee_quiz_responses_total = EmployeeQuizResponse::count();
+        $driver_quiz_responses_total = DriverQuizResponse::count();
 
         $categoriesMoreRead = Category::whereHas("readings")
         ->withCount("readings")
         ->orderBy("readings_count", 'desc')
         ->paginate(10);
 
-        $bestEmployees = Reading::groupBy('employee_id')
-            ->selectRaw('count(*) as readings_count, employee_id')
-            ->with('employee')
+        $bestDrivers = Reading::groupBy('driver_id')
+            ->selectRaw('count(*) as readings_count, driver_id')
+            ->with('driver')
             ->orderBy('readings_count', 'desc')
             ->paginate(10);
         
@@ -115,14 +121,14 @@ class HomeController extends Controller
 
         $total_quizzes  = QuizQuestion::count();
         $total_rules    = Rule::count();
-        $total_employees= Employee::count();
+        $total_drivers  = Driver::count();
         $total_readings = Reading::count(); 
 
 
         //get presence data
         $presences = Presence::whereYear('created_at', now()->year)
         ->whereMonth('created_at', ($param_month != null) ? $param_month : now()->month)
-        ->with('employee')
+        ->with('driver')
         ->get()
         ->groupBy(function($data){
             return $data->created_at->day;
@@ -152,18 +158,18 @@ class HomeController extends Controller
 
         return view('index',  compact('total_quizzes',
                                              'total_rules', 
-                                             'total_employees',
+                                             'total_drivers',
                                              'total_readings', 
                                              'quizNoAnswereds', 
                                              'quizGoodAnswereds',
                                              'quizBadAnswereds',
                                              'rulesMoreRead',
                                              'categoriesMoreRead',
-                                             'bestEmployees',
+                                             'bestDrivers',
                                              'presenceChart',
                                              'months',
                                              'current_month',
-                                             'employee_quiz_responses_total'));
+                                             'driver_quiz_responses_total'));
     }
 
     public function search($term){

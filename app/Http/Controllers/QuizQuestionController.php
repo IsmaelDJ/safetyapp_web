@@ -5,12 +5,14 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\QuizQuestion;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 
 class QuizQuestionController extends Controller
 {
     public function __construct()
     {
         $this->middleware('auth');
+        if(Gate::allows('doAdvanced')) abort(401);
     }
 
     public function index()

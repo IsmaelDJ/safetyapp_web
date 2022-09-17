@@ -114,7 +114,7 @@ return [
     'starts_with' => 'L\':attribute must start with one of the following: :values.',
     'string' => 'L\':attribute must be a string.',
     'timezone' => 'L\':attribute doit être une zone valide.',
-    'unique' => 'L\':attribute has already been taken.',
+    'unique' => 'La valeur exist déjà.',
     'uploaded' => 'L\':attribute failed to upload.',
     'url' => 'L\':attribute format is invalid.',
     'uuid' => 'L\':attribute doit être une UUID valide.',

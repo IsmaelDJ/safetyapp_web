@@ -24,12 +24,12 @@ function categoriesPerPage(){
     return 5;
 }
 
-function contractorsPerPage(){
+function carriersPerPage(){
     return 8;
 }
 
 
-function employeesPerPage(){
+function driversPerPage(){
     return 8;
 }
 function quizzesPerPage(){
@@ -43,11 +43,11 @@ function quizQuestionsShowPerPage(){
     return 4;
 }
 
-function employeeQuizResponsesPerPage(){
+function driverQuizResponsesPerPage(){
     return 8;
 }
 
-function employeeQuizResponsesShowPerPage(){
+function driverQuizResponsesShowPerPage(){
     return 4;
 }
 

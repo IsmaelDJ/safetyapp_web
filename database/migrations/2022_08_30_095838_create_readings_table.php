@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('readings', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('employee_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('driver_id')->constrained()->cascadeOnDelete();
             $table->foreignId('rule_id')->constrained()->cascadeOnDelete();
             $table->foreignId('category_id')->constrained();
             $table->timestamps();
