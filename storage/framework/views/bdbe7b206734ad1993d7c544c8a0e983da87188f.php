@@ -1,6 +1,7 @@
 
 
-<?php $__env->startSection('title'); ?> Règles <?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('title'); ?> Utilisateurs <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('css'); ?>
     <!-- Bootstrap Css -->
@@ -16,31 +17,13 @@
 
 <?php $__env->startSection('content'); ?>
 
-    <?php if(session()->has('success')): ?>
-        <div class="alert alert-success alert-dismissible fade show" role="alert">
-            <?php echo e(session('success')); ?>
-
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-    <?php endif; ?>
     <!-- end col -->
-    <div class="col-xl-12">
+    <div class="col-xl-8 ms-auto me-auto mt-5">
         <div class="card">
             <div class="card-body">
                 <div class="d-flex align-items-start">
                     <div class="me-2">
                         <h5 class="card-title mb-4">L'analytique</h5>
-                    </div>
-                    <div class="ms-auto">
-                        <div class="text-sm-end">
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-info btn-rounded waves-effect waves-light mb-2 dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Exporter <i class="mdi mdi-chevron-down"></i></button>
-                                <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="<?php echo e(route('carriers.export.xlsx')); ?>" >Format Excel</a>
-                                    <a class="dropdown-item" href="<?php echo e(route('analyze.export.details')); ?>">Format PDF</a>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
 
@@ -78,12 +61,7 @@
 
                         </tbody>
                     </table>
-
-
                 </div>
-
-                <?php echo e($data->links('vendor.pagination.round')); ?>
-
             </div>
         </div>
         <!-- end card -->
@@ -92,8 +70,7 @@
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('script'); ?>
-
-    <script src="<?php echo e(URL::asset('assets/js/essential_audio.js')); ?>"></script>
+<script>window.print()</script>
 <?php $__env->stopSection(); ?>
 
-<?php echo $__env->make('layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\laragon\www\safetyapp_web\resources\views/analyze/details.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('layouts.master-without-nav', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\laragon\www\safetyapp_web\resources\views/analyze/export-details.blade.php ENDPATH**/ ?>

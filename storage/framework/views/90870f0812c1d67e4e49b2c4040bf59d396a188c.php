@@ -15,7 +15,7 @@
                             </div>
                             <div class="flex-grow-1 align-self-center">
                                 <div class="text-muted">
-                                    <p class="mb-2">Bienvenu sur Safety Analytique</p>
+                                    <p class="mb-2">Bienvenu sur SafetyApp</p>
                                     <h5 class="mb-1" id="username"><?php echo e(Auth::user()->name ? Auth::user()->name : "Nom et Prénom"); ?></h5>
                                     <p class="mb-0"><?php echo e(Auth::user()->email ? Auth::user()->email : "Adresse email"); ?></p>
                                 </div>
@@ -195,7 +195,6 @@ unset($__errorArgs, $__bag); ?>" id="avatar" name="avatar" autofocus>
 <div class="row">
     <div class="col-xl-8">
         <div class="row">
-            
             <div class="col-xl-12">
                 <div class="card">
                     <div class="card-body">
@@ -371,6 +370,16 @@ unset($__errorArgs, $__bag); ?>" id="avatar" name="avatar" autofocus>
                     
                 </div>
             </div>
+            <div class="card-footer">
+                <div class="btn-group float-end">
+                    <button type="button" class="btn btn-primary btn-sm waves-effect waves-light mb-2 dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Détails <i class="mdi mdi-chevron-down"></i></button>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="<?php echo e(route('analyze.quiz.correct')); ?>" >Correcte</a>
+                        <a class="dropdown-item" href="<?php echo e(route('analyze.quiz.false')); ?>">Faux</a>
+                        <a class="dropdown-item" href="<?php echo e(route('analyze.quiz.waitting')); ?>">En Attente</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>  
@@ -387,7 +396,7 @@ unset($__errorArgs, $__bag); ?>" id="avatar" name="avatar" autofocus>
                 
                 <hr>
                 
-                <div  data-simplebar style="max-height: 260px;">
+                <div class="mb-3" data-simplebar style="max-height: 260px;">
                     <ul class="list-group list-group-flush">
                         <?php $__currentLoopData = $rulesMoreRead; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $ruleMoreRead): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <li class="list-group-item">
@@ -400,6 +409,11 @@ unset($__errorArgs, $__bag); ?>" id="avatar" name="avatar" autofocus>
                         </li>
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                     </ul>
+                </div>
+            </div>
+            <div class="card-footer">
+                <div class="btn-group float-end">
+                    <a href="#" class="btn btn-primary btn-sm">Détails <i class="mdi mdi-arrow-right ms-1"></i></a>
                 </div>
             </div>
         </div>
@@ -416,17 +430,17 @@ unset($__errorArgs, $__bag); ?>" id="avatar" name="avatar" autofocus>
                 
                 <hr>
                 <div data-simplebar style="max-height: 260px;">
-                    <div class="row w-100 mb-4">
+                    <div class="row w-100 mb-3">
                         <div class="col-4 font-size-14">
                             <?php $__currentLoopData = $categoriesMoreRead; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $categoryMoreRead): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                             <div class="mt-1 mb-1 text text-end">
                                 <a type="button" href="<?php echo e(route('categories.show', $categoryMoreRead)); ?>"
-                                class="btn btn-success btn-sm btn-rounded waves-effect waves-light "><i
-                                class="mdi mdi-tag me-1"></i> <?php echo e(Str::limit($categoryMoreRead->name, 4, '..')); ?>
+                                    class="btn btn-success btn-sm btn-rounded waves-effect waves-light "><i
+                                    class="mdi mdi-tag me-1"></i> <?php echo e(Str::limit($categoryMoreRead->name, 4, '..')); ?>
 
-                            </a>
-                        </div>
-                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                </a>
+                            </div>
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                     </div>
                     <div class="col-8">
                         <div class="smart-progress">
@@ -441,6 +455,11 @@ unset($__errorArgs, $__bag); ?>" id="avatar" name="avatar" autofocus>
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+        <div class="card-footer">
+            <div class="btn-group float-end">
+                <a href="#" class="btn btn-primary btn-sm">Détails <i class="mdi mdi-arrow-right ms-1"></i></a>
             </div>
         </div>
     </div>
@@ -482,6 +501,11 @@ unset($__errorArgs, $__bag); ?>" id="avatar" name="avatar" autofocus>
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                     </tbody>
                 </table>
+            </div>
+        </div>
+        <div class="card-footer">
+            <div class="btn-group float-end">
+                <a href="#" class="btn btn-primary btn-sm">Détails <i class="mdi mdi-arrow-right ms-1"></i></a>
             </div>
         </div>
     </div>

@@ -1,6 +1,7 @@
-@extends('layouts.master')
 
-@section('title') Règles @endsection
+@extends('layouts.master-without-nav')
+
+@section('title') Utilisateurs @endsection
 
 @section('css')
     <!-- Bootstrap Css -->
@@ -16,30 +17,13 @@
 
 @section('content')
 
-    @if(session()->has('success'))
-        <div class="alert alert-success alert-dismissible fade show" role="alert">
-            {{session('success')}}
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-    @endif
     <!-- end col -->
-    <div class="col-xl-12">
+    <div class="col-xl-8 ms-auto me-auto mt-5">
         <div class="card">
             <div class="card-body">
                 <div class="d-flex align-items-start">
                     <div class="me-2">
                         <h5 class="card-title mb-4">L'analytique</h5>
-                    </div>
-                    <div class="ms-auto">
-                        <div class="text-sm-end">
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-info btn-rounded waves-effect waves-light mb-2 dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Exporter <i class="mdi mdi-chevron-down"></i></button>
-                                <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="{{route('analyze.export.xlsx.details')}}" >Format Excel</a>
-                                    <a class="dropdown-item" href="{{route('analyze.export.pdf.details')}}">Format PDF</a>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
 
@@ -77,11 +61,7 @@
 
                         </tbody>
                     </table>
-
-
                 </div>
-
-                {{ $data->links('vendor.pagination.round') }}
             </div>
         </div>
         <!-- end card -->
@@ -90,6 +70,5 @@
 @endsection
 
 @section('script')
-
-    <script src="{{ URL::asset('assets/js/essential_audio.js')}}"></script>
+<script>window.print()</script>
 @endsection

@@ -18,10 +18,22 @@ use App\Charts\ReadingChart;
 use App\Models\QuizQuestion;
 use Illuminate\Http\Request;
 use Spatie\Analytics\Period;
+use App\Exports\DetailsExport;
+use App\Exports\QuizFalseExport;
+use App\Exports\QuizCorrectExport;
+use App\Exports\RuleNotReadExport;
 use App\Models\DriverQuizResponse;
+use App\Exports\QuizWaittingExport;
+use App\Exports\RuleMostReadExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class AnalyticController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     /**
      * Display a listing of the resource.
      *
@@ -223,7 +235,7 @@ class AnalyticController extends Controller
         foreach($events_presence as $event){
             $tmp = new stdClass();
             $tmp->type      = 3;
-            $tmp->driver  = $event->driver;
+            $tmp->driver   = $event->driver;
             $tmp->action    = 'Lancement de l\'aplication';
             $tmp->created_at= Date($event->created_at);
             $data[] = $tmp;
@@ -234,4 +246,163 @@ class AnalyticController extends Controller
         return view('analyze.details', compact('data'));
     }
 
+    public function quiz_waitting(){
+        $quizzes  = QuizQuestion::whereDoesntHave("driver_quiz_responses")
+        ->paginate(10);
+
+        return view('analyze.quiz-waitting', compact('quizzes'));
+    }
+
+    public function quiz_false(){
+        $quizzes = QuizQuestion::whereHas("driver_quiz_responses", function ($query){
+            $query->where("correct", false);
+        })
+        ->withCount("driver_quiz_responses")
+        ->orderBy("driver_quiz_responses_count", 'desc')
+        ->paginate(10);
+
+        return view('analyze.quiz-false', compact('quizzes'));
+    }
+
+    public function quiz_correct(){
+        $quizzes = QuizQuestion::whereHas("driver_quiz_responses", function ($query){
+            $query->where("correct", true);
+        })
+        ->withCount("driver_quiz_responses")
+        ->orderBy("driver_quiz_responses_count", 'desc')
+        ->paginate(10);
+
+        return view('analyze.quiz-correct', compact('quizzes'));
+    }
+
+    public function rule_more_read(){
+        $rules = Rule::whereHas("readings")
+        ->withCount("readings")
+        ->orderBy("readings_count", 'desc')
+        ->paginate(10);
+
+        return view('analyze.rule-read', compact('rules'));
+    }
+
+    public function rule_not_read(){
+        $rules = Rule::whereDoesntHave("readings")->paginate(10);
+
+        return view('analyze.rule-not-read', compact('rules'));
+    }
+
+    public function export_details()
+    {
+        $data = [];
+
+        $events_quiz = DriverQuizResponse::with("driver")
+        ->with('quiz_question')
+        ->get();
+
+        $events_rule = Reading::with('driver')
+        ->with('rule')
+        ->get();
+
+        $events_presence = Presence::with('driver')
+        ->get();
+
+        foreach($events_quiz as $event){
+            $tmp = new stdClass();
+            $tmp->type      = 1;
+            $tmp->driver    = $event->driver;
+            $tmp->action    = $event->quiz_question;
+            $tmp->created_at= Date($event->created_at);
+            $data[] = $tmp;
+        }
+
+        foreach($events_rule as $event){
+            $tmp            = new stdClass();
+            $tmp->type      = 2;
+            $tmp->driver    = $event->driver;
+            $tmp->action    = $event->rule;
+            $tmp->created_at= Date($event->created_at);
+            $data[] = $tmp;
+        }
+
+        foreach($events_presence as $event){
+            $tmp = new stdClass();
+            $tmp->type      = 3;
+            $tmp->driver   = $event->driver;
+            $tmp->action    = 'Lancement de l\'aplication';
+            $tmp->created_at= Date($event->created_at);
+            $data[] = $tmp;
+        }
+
+        $data = collect($data)->sortBy('created_at');
+        return view('analyze.export-details', compact('data'));
+    }
+
+    public function export_quiz_waitting(){
+        $quizzes  = QuizQuestion::whereDoesntHave("driver_quiz_responses")
+        ->get();
+
+        return view('analyze.export-quiz-waitting', compact('quizzes'));
+    }
+
+    public function export_quiz_false(){
+        $quizzes = QuizQuestion::whereHas("driver_quiz_responses", function ($query){
+            $query->where("correct", false);
+        })
+        ->withCount("driver_quiz_responses")
+        ->orderBy("driver_quiz_responses_count", 'desc')
+        ->get();
+
+        return view('analyze.export-quiz-false', compact('quizzes'));
+    }
+
+    public function export_quiz_correct(){
+        $quizzes = QuizQuestion::whereHas("driver_quiz_responses", function ($query){
+            $query->where("correct", true);
+        })
+        ->withCount("driver_quiz_responses")
+        ->orderBy("driver_quiz_responses_count", 'desc')
+        ->get();
+
+        return view('analyze.export-quiz-correct', compact('quizzes'));
+    }
+
+    public function export_rule_more_read(){
+        $rules = Rule::whereHas("readings")
+        ->withCount("readings")
+        ->orderBy("readings_count", 'desc')
+        ->get();
+
+        return view('analyze.export-rule-read', compact('rules'));
+    }
+
+    public function export_rule_not_read(){
+        $rules = Rule::whereDoesntHave("readings")->get();
+
+        return view('analyze.export-rule-not-read', compact('rules'));
+    }
+
+    //xlsx exportation
+    public function export_xlsx_details()
+    {
+        return Excel::download(new DetailsExport, date('YmdHis').'_'.'details.xlsx');
+    }
+
+    public function export_xlsx_quiz_waitting(){
+        return Excel::download(new QuizWaittingExport, date('YmdHis').'_'.'quiz_attente.xlsx');
+    }
+
+    public function export_xlsx_quiz_false(){
+        return Excel::download(new QuizFalseExport, date('YmdHis').'_'.'quiz_faux.xlsx');
+    }
+
+    public function export_xlsx_quiz_correct(){
+        return Excel::download(new QuizCorrectExport, date('YmdHis').'_'.'quiz_correct.xlsx');
+    }
+
+    public function export_xlsx_rule_more_read(){
+        return Excel::download(new RuleMostReadExport, date('YmdHis').'_'.'rule_more_read.xlsx');
+    }
+
+    public function export_xlsx_rule_not_read(){
+        return Excel::download(new RuleNotReadExport, date('YmdHis').'_'.'rule_not_read.xlsx');
+    }
 }

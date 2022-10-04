@@ -15,7 +15,7 @@
                             </div>
                             <div class="flex-grow-1 align-self-center">
                                 <div class="text-muted">
-                                    <p class="mb-2">Bienvenu sur Safety Analytique</p>
+                                    <p class="mb-2">Bienvenu sur SafetyApp</p>
                                     <h5 class="mb-1" id="username">{{ Auth::user()->name ? Auth::user()->name : "Nom et Prénom" }}</h5>
                                     <p class="mb-0">{{ Auth::user()->email ? Auth::user()->email : "Adresse email" }}</p>
                                 </div>
@@ -146,7 +146,6 @@
 <div class="row">
     <div class="col-xl-8">
         <div class="row">
-            
             <div class="col-xl-12">
                 <div class="card">
                     <div class="card-body">
@@ -318,6 +317,16 @@
                     
                 </div>
             </div>
+            <div class="card-footer">
+                <div class="btn-group float-end">
+                    <button type="button" class="btn btn-primary btn-sm waves-effect waves-light mb-2 dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Détails <i class="mdi mdi-chevron-down"></i></button>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="{{route('analyze.quiz.correct')}}" >Correcte</a>
+                        <a class="dropdown-item" href="{{route('analyze.quiz.false')}}">Faux</a>
+                        <a class="dropdown-item" href="{{route('analyze.quiz.waitting')}}">En Attente</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>  
@@ -334,7 +343,7 @@
                 
                 <hr>
                 
-                <div  data-simplebar style="max-height: 260px;">
+                <div class="mb-3" data-simplebar style="max-height: 260px;">
                     <ul class="list-group list-group-flush">
                         @foreach($rulesMoreRead as $ruleMoreRead)
                         <li class="list-group-item">
@@ -347,6 +356,11 @@
                         </li>
                         @endforeach
                     </ul>
+                </div>
+            </div>
+            <div class="card-footer">
+                <div class="btn-group float-end">
+                    <a href="#" class="btn btn-primary btn-sm">Détails <i class="mdi mdi-arrow-right ms-1"></i></a>
                 </div>
             </div>
         </div>
@@ -363,16 +377,16 @@
                 
                 <hr>
                 <div data-simplebar style="max-height: 260px;">
-                    <div class="row w-100 mb-4">
+                    <div class="row w-100 mb-3">
                         <div class="col-4 font-size-14">
                             @foreach($categoriesMoreRead as $categoryMoreRead)
                             <div class="mt-1 mb-1 text text-end">
                                 <a type="button" href="{{route('categories.show', $categoryMoreRead)}}"
-                                class="btn btn-success btn-sm btn-rounded waves-effect waves-light "><i
-                                class="mdi mdi-tag me-1"></i> {{ Str::limit($categoryMoreRead->name, 4, '..') }}
-                            </a>
-                        </div>
-                        @endforeach
+                                    class="btn btn-success btn-sm btn-rounded waves-effect waves-light "><i
+                                    class="mdi mdi-tag me-1"></i> {{ Str::limit($categoryMoreRead->name, 4, '..') }}
+                                </a>
+                            </div>
+                            @endforeach
                     </div>
                     <div class="col-8">
                         <div class="smart-progress">
@@ -387,6 +401,11 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+        <div class="card-footer">
+            <div class="btn-group float-end">
+                <a href="#" class="btn btn-primary btn-sm">Détails <i class="mdi mdi-arrow-right ms-1"></i></a>
             </div>
         </div>
     </div>
@@ -428,6 +447,11 @@
                         @endforeach
                     </tbody>
                 </table>
+            </div>
+        </div>
+        <div class="card-footer">
+            <div class="btn-group float-end">
+                <a href="#" class="btn btn-primary btn-sm">Détails <i class="mdi mdi-arrow-right ms-1"></i></a>
             </div>
         </div>
     </div>

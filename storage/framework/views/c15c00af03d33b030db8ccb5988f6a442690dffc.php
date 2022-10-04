@@ -16,29 +16,13 @@ type="text/css"/>
 
 <?php $__env->startSection('content'); ?>
 <div class="row">
-    <div class="col-xl-8">
-        <div class="row">
-            <div class="card shadow mb-4">
-                <div class="card-body">
-                    <h4 class="card-title mb-4">Taux de lecture par mois</h4>
-                    <hr>
-                   <div class="apex-charts">
-                    <?php echo $readingChart->container(); ?>
-
-                   </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-xl-4">
-        <div class="card">
+    <div class="col-xl-12">
+        <div class="card shadow mb-4">
             <div class="card-body">
-                <h4 class="card-title mb-4">Statut global</h4>
-                
+                <h4 class="card-title d-inline-block mb-4">Taux de lecture par mois</h4>
                 <hr>
-                
-                <div class="card-block">
-                    <?php echo $globalChart->container(); ?>
+                <div class="apex-charts">
+                <?php echo $readingChart->container(); ?>
 
                 </div>
             </div>
@@ -50,8 +34,14 @@ type="text/css"/>
     <div class="col-xl-4">
         <div class="card">
             <div class="card-body">
-                <h4 class="card-title mb-4">Quiz</h4>
-                
+                <h4 class="card-title mb-2 d-inline-block">Quiz</h4>
+                <div class="btn-group float-end">
+                    <button type="button" class="btn btn-info btn-sm waves-effect waves-light mb-2 dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Détails <i class="mdi mdi-chevron-down"></i></button>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="<?php echo e(route('carriers.export.xlsx')); ?>" >Quiz lu</a>
+                        <a class="dropdown-item" href="<?php echo e(route('carriers.export.pdf')); ?>">Quiz non lu</a>
+                    </div>
+                </div>
                 <hr>
                 
                 <div class="card-block">
@@ -64,8 +54,15 @@ type="text/css"/>
     <div class="col-xl-4">
         <div class="card">
             <div class="card-body">
-                <h4 class="card-title mb-4">Règles</h4>
-                
+                <h4 class="card-title d-inline-block mb-2">Règles</h4>
+                <div class="btn-group float-end">
+                    <button type="button" class="btn btn-primary btn-sm waves-effect waves-light mb-2 dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Détails <i class="mdi mdi-chevron-down"></i></button>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="<?php echo e(route('carriers.export.xlsx')); ?>" >Quiz lu</a>
+                        <a class="dropdown-item" href="<?php echo e(route('carriers.export.pdf')); ?>">Quiz non lu</a>
+                    </div>
+                </div>
+
                 <hr>
                 
                 <div class="card-block">
@@ -78,8 +75,15 @@ type="text/css"/>
     <div class="col-xl-4">
         <div class="card">
             <div class="card-body">
-                <h4 class="card-title mb-4">Lecture par catégories</h4>
-                
+                <h4 class="card-title d-inline-block mb-2">Lecture par catégories</h4>
+                <div class="btn-group float-end">
+                    <button type="button" class="btn btn-primary btn-sm waves-effect waves-light mb-2 dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Détails <i class="mdi mdi-chevron-down"></i></button>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="<?php echo e(route('carriers.export.xlsx')); ?>" >Quiz lu</a>
+                        <a class="dropdown-item" href="<?php echo e(route('carriers.export.pdf')); ?>">Quiz non lu</a>
+                    </div>
+                </div>
+
                 <hr>
                 
                 <div class="card-block">
