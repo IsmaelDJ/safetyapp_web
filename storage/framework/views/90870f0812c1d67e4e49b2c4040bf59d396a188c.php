@@ -376,7 +376,7 @@ unset($__errorArgs, $__bag); ?>" id="avatar" name="avatar" autofocus>
                     <div class="dropdown-menu">
                         <a class="dropdown-item" href="<?php echo e(route('analyze.quiz.correct')); ?>" >Correcte</a>
                         <a class="dropdown-item" href="<?php echo e(route('analyze.quiz.false')); ?>">Faux</a>
-                        <a class="dropdown-item" href="<?php echo e(route('analyze.quiz.waitting')); ?>">En Attente</a>
+                        <a class="dropdown-item" href="<?php echo e(route('analyze.quiz.waitting')); ?>">Non pratiqué</a>
                     </div>
                 </div>
             </div>
@@ -413,7 +413,7 @@ unset($__errorArgs, $__bag); ?>" id="avatar" name="avatar" autofocus>
             </div>
             <div class="card-footer">
                 <div class="btn-group float-end">
-                    <a href="#" class="btn btn-primary btn-sm">Détails <i class="mdi mdi-arrow-right ms-1"></i></a>
+                    <a href="<?php echo e(route('analyze.rule.read')); ?>" class="btn btn-primary btn-sm">Détails <i class="mdi mdi-arrow-right ms-1"></i></a>
                 </div>
             </div>
         </div>
@@ -459,7 +459,7 @@ unset($__errorArgs, $__bag); ?>" id="avatar" name="avatar" autofocus>
         </div>
         <div class="card-footer">
             <div class="btn-group float-end">
-                <a href="#" class="btn btn-primary btn-sm">Détails <i class="mdi mdi-arrow-right ms-1"></i></a>
+                <a href="<?php echo e(route('analyze.category.read')); ?>" class="btn btn-primary btn-sm">Détails <i class="mdi mdi-arrow-right ms-1"></i></a>
             </div>
         </div>
     </div>
@@ -505,7 +505,7 @@ unset($__errorArgs, $__bag); ?>" id="avatar" name="avatar" autofocus>
         </div>
         <div class="card-footer">
             <div class="btn-group float-end">
-                <a href="#" class="btn btn-primary btn-sm">Détails <i class="mdi mdi-arrow-right ms-1"></i></a>
+                <a href="<?php echo e(route('analyze.driver.read')); ?>" class="btn btn-primary btn-sm">Détails <i class="mdi mdi-arrow-right ms-1"></i></a>
             </div>
         </div>
     </div>

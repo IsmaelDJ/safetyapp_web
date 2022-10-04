@@ -83,6 +83,8 @@ Route::get('analyze/quiz/false', [App\Http\Controllers\AnalyticController::class
 Route::get('analyze/quiz/correct', [App\Http\Controllers\AnalyticController::class, 'quiz_correct'])->name('analyze.quiz.correct');
 Route::get('analyze/quiz/waitting', [App\Http\Controllers\AnalyticController::class, 'quiz_waitting'])->name('analyze.quiz.waitting');
 Route::get('analyze/rule/read', [App\Http\Controllers\AnalyticController::class, 'rule_more_read'])->name('analyze.rule.read');
+Route::get('analyze/driver/read', [App\Http\Controllers\AnalyticController::class, 'from_best_driver'])->name('analyze.driver.read');
+Route::get('analyze/category/read', [App\Http\Controllers\AnalyticController::class, 'category_more_read'])->name('analyze.category.read');
 Route::get('analyze/rule/notread', [App\Http\Controllers\AnalyticController::class, 'rule_not_read'])->name('analyze.rule.notread');
 //analyze : pdf exportation 
 Route::get('analyze/export/pdf/details', [App\Http\Controllers\AnalyticController::class, 'export_details'])->name('analyze.export.details');

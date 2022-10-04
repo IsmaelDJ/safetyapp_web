@@ -120,7 +120,7 @@ class AnalyticController extends Controller
         $quizChart = new ChartChart();
         $quizChart->minimalist(true);
         $quizChart->displayLegend(true);
-        $quizChart->labels(['Bien pratiqué', 'Mal pratiqué', 'Non pratiqué']);
+        $quizChart->labels(['Correct', 'Faux', 'Non pratiqué']);
         $quizChart->dataset('Lecture par mois', 'polarArea', 
         [round($total_quizzes != 0 ? count($quizGoodAnswereds) * 100 / $total_quizzes : 0, 1), 
         round( $total_quizzes != 0 ? count($quizBadAnswereds) * 100 / $total_quizzes : 0, 1), 
@@ -290,6 +290,26 @@ class AnalyticController extends Controller
         return view('analyze.rule-not-read', compact('rules'));
     }
 
+    public function category_more_read(){
+        $categories = Category::whereHas("readings")
+        ->withCount("readings")
+        ->orderBy("readings_count", 'desc')
+        ->paginate(10);
+
+        return view('analyze.category-more-read', compact('categories'));
+    }
+
+    public function from_best_driver(){
+        $drivers = Reading::groupBy('driver_id')
+            ->selectRaw('count(*) as readings_count, driver_id')
+            ->with('driver')
+            ->orderBy('readings_count', 'desc')
+            ->paginate(10);
+        
+        return view('analyze.from-best-driver', compact('drivers'));
+    }
+        
+    //pdf exportation
     public function export_details()
     {
         $data = [];

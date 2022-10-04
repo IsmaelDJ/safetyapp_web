@@ -35,10 +35,11 @@ type="text/css"/>
             <div class="card-body">
                 <h4 class="card-title mb-2 d-inline-block">Quiz</h4>
                 <div class="btn-group float-end">
-                    <button type="button" class="btn btn-info btn-sm waves-effect waves-light mb-2 dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Détails <i class="mdi mdi-chevron-down"></i></button>
+                    <button type="button" class="btn btn-primary btn-sm waves-effect waves-light mb-2 dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Détails <i class="mdi mdi-chevron-down"></i></button>
                     <div class="dropdown-menu">
-                        <a class="dropdown-item" href="{{route('carriers.export.xlsx')}}" >Quiz lu</a>
-                        <a class="dropdown-item" href="{{route('carriers.export.pdf')}}">Quiz non lu</a>
+                        <a class="dropdown-item" href="{{route('analyze.quiz.correct')}}" >Correcte</a>
+                        <a class="dropdown-item" href="{{route('analyze.quiz.false')}}">Faux</a>
+                        <a class="dropdown-item" href="{{route('analyze.quiz.waitting')}}">Non pratiqué</a>
                     </div>
                 </div>
                 <hr>
@@ -56,8 +57,8 @@ type="text/css"/>
                 <div class="btn-group float-end">
                     <button type="button" class="btn btn-primary btn-sm waves-effect waves-light mb-2 dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Détails <i class="mdi mdi-chevron-down"></i></button>
                     <div class="dropdown-menu">
-                        <a class="dropdown-item" href="{{route('carriers.export.xlsx')}}" >Quiz lu</a>
-                        <a class="dropdown-item" href="{{route('carriers.export.pdf')}}">Quiz non lu</a>
+                        <a class="dropdown-item" href="{{route('analyze.rule.read')}}" >Règles lus</a>
+                        <a class="dropdown-item" href="{{route('analyze.rule.notread')}}">Règles non lus</a>
                     </div>
                 </div>
 

@@ -29,8 +29,8 @@
                             <div class="btn-group">
                                 <button type="button" class="btn btn-info btn-rounded waves-effect waves-light mb-2 dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Exporter <i class="mdi mdi-chevron-down"></i></button>
                                 <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="<?php echo e(route('carriers.export.xlsx')); ?>" >Format Excel</a>
-                                    <a class="dropdown-item" href="<?php echo e(route('carriers.export.pdf')); ?>">Format PDF</a>
+                                    <a class="dropdown-item" href="<?php echo e(route('analyze.export.xlsx.rule.notread')); ?>" >Format Excel</a>
+                                    <a class="dropdown-item" href="<?php echo e(route('analyze.export.pdf.rule.notread')); ?>">Format PDF</a>
                                 </div>
                             </div>
                         </div>
