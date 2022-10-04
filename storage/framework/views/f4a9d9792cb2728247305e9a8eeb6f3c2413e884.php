@@ -10,6 +10,8 @@
 <!-- App favicon -->
     <link rel="shortcut icon" href="<?php echo e(URL::asset('assets/images/favicon.png')); ?>">
     <?php echo $__env->make('layouts.head-css', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+    <?php echo \Livewire\Livewire::styles(); ?>
+
 </head>
 
 <?php $__env->startSection('body'); ?>
@@ -56,6 +58,9 @@
             }
          });
     </script>
+    <?php echo $__env->yieldPushContent('script'); ?>
+    <?php echo \Livewire\Livewire::scripts(); ?>
+
     </body>
 
 </html>

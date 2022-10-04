@@ -10,6 +10,7 @@
 <!-- App favicon -->
     <link rel="shortcut icon" href="{{ URL::asset('assets/images/favicon.png') }}">
     @include('layouts.head-css')
+    @livewireStyles
 </head>
 
 @section('body')
@@ -56,6 +57,8 @@
             }
          });
     </script>
+    @stack('script')
+    @livewireScripts
     </body>
 
 </html>

@@ -16,17 +16,7 @@ type="text/css"/>
 
 @section('content')
 <div class="row">
-    <div class="col-xl-12">
-        <div class="card shadow mb-4">
-            <div class="card-body">
-                <h4 class="card-title d-inline-block mb-4">Taux de lecture par mois</h4>
-                <hr>
-                <div class="apex-charts">
-                {!! $readingChart->container() !!}
-                </div>
-            </div>
-        </div>
-    </div>
+    @livewire('chart-reading')
 </div>  
 
 <div class="row">

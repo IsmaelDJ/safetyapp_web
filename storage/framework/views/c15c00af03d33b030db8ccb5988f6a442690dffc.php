@@ -16,18 +16,21 @@ type="text/css"/>
 
 <?php $__env->startSection('content'); ?>
 <div class="row">
-    <div class="col-xl-12">
-        <div class="card shadow mb-4">
-            <div class="card-body">
-                <h4 class="card-title d-inline-block mb-4">Taux de lecture par mois</h4>
-                <hr>
-                <div class="apex-charts">
-                <?php echo $readingChart->container(); ?>
-
-                </div>
-            </div>
-        </div>
-    </div>
+    <?php
+if (! isset($_instance)) {
+    $html = \Livewire\Livewire::mount('chart-reading')->html();
+} elseif ($_instance->childHasBeenRendered('D22QSgr')) {
+    $componentId = $_instance->getRenderedChildComponentId('D22QSgr');
+    $componentTag = $_instance->getRenderedChildComponentTagName('D22QSgr');
+    $html = \Livewire\Livewire::dummyMount($componentId, $componentTag);
+    $_instance->preserveRenderedChild('D22QSgr');
+} else {
+    $response = \Livewire\Livewire::mount('chart-reading');
+    $html = $response->html();
+    $_instance->logRenderedChild('D22QSgr', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
+}
+echo $html;
+?>
 </div>  
 
 <div class="row">

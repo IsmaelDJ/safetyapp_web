@@ -91,8 +91,6 @@ class HomeController extends Controller
 
     public function root(Request $request )
     {
-        $param_month = $request->query('month');
-
         $quizNoAnswereds  = QuizQuestion::whereDoesntHave("driver_quiz_responses")
         ->paginate(10);
         
@@ -139,39 +137,7 @@ class HomeController extends Controller
         $total_rules    = Rule::count();
         $total_drivers  = Driver::count();
         $total_readings = Reading::count(); 
-
-
-        //get presence data
-        $presences = Presence::whereYear('created_at', now()->year)
-        ->whereMonth('created_at', ($param_month != null) ? $param_month : now()->month)
-        ->with('driver')
-        ->get()
-        ->groupBy(function($data){
-            return $data->created_at->day;
-        });
-
-        $prensence_labels = [];
-        $prensence_data   = [];
-
-        foreach($presences as $day=>$values){
-            $prensence_labels[] = $day;
-            $prensence_data[]   = count($values);
-        }
-
-        $presenceChart = new ReadingChart();
-
-        $presenceChart->labels($prensence_labels);
-        $presenceChart->displayLegend(false);
-        $presenceChart->label(false);
-        $presenceChart->dataset('Présence par jour', 'spline', $prensence_data)
-        ->options([
-            'color' => 'hsla(209, 100%, 53%, 1)'
-        ]);
-
-        $months = [" janv", "févr", "mars", "avri", "mai", "juin", "juil", 
-                "août", "sept", "octo", "nove", "déce"];
-        $current_month = ($param_month != null) ? $param_month : now()->month;
-
+        
         return view('index',  compact('total_quizzes',
                                              'total_rules', 
                                              'total_drivers',
@@ -182,9 +148,6 @@ class HomeController extends Controller
                                              'rulesMoreRead',
                                              'categoriesMoreRead',
                                              'bestDrivers',
-                                             'presenceChart',
-                                             'months',
-                                             'current_month',
                                              'driver_quiz_responses_total'));
     }
 

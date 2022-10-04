@@ -194,43 +194,21 @@ unset($__errorArgs, $__bag); ?>" id="avatar" name="avatar" autofocus>
 </div>
 <div class="row">
     <div class="col-xl-8">
-        <div class="row">
-            <div class="col-xl-12">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="clearfix">
-                            <div class="float-end">
-                                <div class="input-group input-group-sm">
-                                    <select id="select-month" class="form-select form-select-sm">
-                                        <?php $__currentLoopData = $months; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $month): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                        <?php if($loop->iteration == $current_month): ?>
-                                        <option value="<?php echo e($loop->iteration); ?>" selected> 
-                                            <a href="?month=<?php echo e($loop->iteration); ?>"> <?php echo e($month); ?></a>
-                                        </option>
-                                        <?php else: ?>
-                                        <option value="<?php echo e($loop->iteration); ?>">
-                                            <a href="?month=<?php echo e($loop->iteration); ?>"> <?php echo e($month); ?></a>
-                                        </option>
-                                        <?php endif; ?>
-                                        
-                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                                    </select>
-                                    <label class="input-group-text">Mois</label>
-                                </div>
-                            </div>
-                            <h4 class="card-title mb-4">Présence</h4>
-                        </div>
-                        
-                        <div class="row">
-                            <div>
-                                <?php echo $presenceChart->container(); ?>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <?php
+if (! isset($_instance)) {
+    $html = \Livewire\Livewire::mount('chart-presence')->html();
+} elseif ($_instance->childHasBeenRendered('a2M0M0Q')) {
+    $componentId = $_instance->getRenderedChildComponentId('a2M0M0Q');
+    $componentTag = $_instance->getRenderedChildComponentTagName('a2M0M0Q');
+    $html = \Livewire\Livewire::dummyMount($componentId, $componentTag);
+    $_instance->preserveRenderedChild('a2M0M0Q');
+} else {
+    $response = \Livewire\Livewire::mount('chart-presence');
+    $html = $response->html();
+    $_instance->logRenderedChild('a2M0M0Q', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
+}
+echo $html;
+?>
     </div>
     <div class="col-xl-4">
         <div class="card">
@@ -513,8 +491,6 @@ unset($__errorArgs, $__bag); ?>" id="avatar" name="avatar" autofocus>
 
 <?php $__env->stopSection(); ?>
 <?php $__env->startSection('script'); ?>
-<?php echo $presenceChart->script(); ?>
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js" charset="utf-8"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highcharts/6.0.6/highcharts.js" charset="utf-8"></script>
 <script src="<?php echo e(URL::asset('/assets/js/pages/jquery-knob.init.js')); ?>"></script>

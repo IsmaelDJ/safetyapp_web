@@ -145,42 +145,7 @@
 </div>
 <div class="row">
     <div class="col-xl-8">
-        <div class="row">
-            <div class="col-xl-12">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="clearfix">
-                            <div class="float-end">
-                                <div class="input-group input-group-sm">
-                                    <select id="select-month" class="form-select form-select-sm">
-                                        @foreach($months as $month)
-                                        @if($loop->iteration == $current_month)
-                                        <option value="{{ $loop->iteration }}" selected> 
-                                            <a href="?month={{ $loop->iteration }}"> {{ $month }}</a>
-                                        </option>
-                                        @else
-                                        <option value="{{ $loop->iteration }}">
-                                            <a href="?month={{ $loop->iteration }}"> {{ $month }}</a>
-                                        </option>
-                                        @endif
-                                        
-                                        @endforeach
-                                    </select>
-                                    <label class="input-group-text">Mois</label>
-                                </div>
-                            </div>
-                            <h4 class="card-title mb-4">Présence</h4>
-                        </div>
-                        
-                        <div class="row">
-                            <div>
-                                {!! $presenceChart->container() !!}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        @livewire('chart-presence')
     </div>
     <div class="col-xl-4">
         <div class="card">
@@ -459,7 +424,6 @@
 
 @endsection
 @section('script')
-{!! $presenceChart->script() !!}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js" charset="utf-8"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highcharts/6.0.6/highcharts.js" charset="utf-8"></script>
 <script src="{{ URL::asset('/assets/js/pages/jquery-knob.init.js') }}"></script>
