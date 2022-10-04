@@ -18,7 +18,9 @@
         "laravel/sanctum": "^3.0",
         "laravel/tinker": "^2.5",
         "laravel/ui": "^4.0",
-        "maatwebsite/excel": "*",
+        "livewire/livewire": "^2.10",
+        "maatwebsite/excel": "^3.1",
+        "mpdf/mpdf": "^8.1",
         "ramsey/uuid": "^4.4",
         "spatie/laravel-analytics": "^4.1"
     },

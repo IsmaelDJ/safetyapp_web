@@ -20,19 +20,16 @@
             <div class="col-xl-3">
                 <div class="card" style="height: 80vh">
                     <div class="card-body">
-                        <div class="card-body" style="height: 100vh;">
-                            <img src="{{URL::asset($carrier->avatar)}}" alt="" class="img-fluid rounded mb-4" width="300" height="300">
-                            <h5 class="card-title">{{$carrier->name}}</h5>
+                        <div class="card-body">
+                            <img src="{{URL::asset($carrier->user->avatar)}}" alt="" class="img-fluid rounded mb-4" width="300" height="100">
+                            <h5 class="card-title">{{$carrier->user->name}}</h5>
                         </div>
                         <i class="mdi mdi-map-marker me-1 "></i><span class="text-muted">E-mail</span>
-                        <h4 class="lead mb-4">{{$carrier->email}}</h4>
-                        @if (isset($carrier->carrier))
+                        <h4 class="lead mb-4">{{$carrier->user->email}}</h4>
                         <i class="mdi mdi-phone me-1 "></i><span class="text-muted">Tel</span>
-                        <h4 class="lead mb-4">{{$carrier->carrier->phone}}</h4>
+                        <h4 class="lead mb-4">{{$carrier->phone}}</h4>
                         <i class="mdi mdi-map-marker me-1 "></i><span class="text-muted">Adresse</span>
-                        <h4 class="lead mb-4">{{$carrier->carrier->address}}</h4>
-                        @endif
-
+                        <h4 class="lead mb-4">{{$carrier->address}}</h4>
                     </div>
                 </div>
             </div>

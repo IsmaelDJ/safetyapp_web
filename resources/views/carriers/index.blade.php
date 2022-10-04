@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title') Sous-traitants @endsection
+@section('title') Transporteurs @endsection
 
 @section('css')
     <!-- Bootstrap Css -->
@@ -28,14 +28,23 @@
             <div class="card-body">
                 <div class="d-flex align-items-start">
                     <div class="me-2">
-                        <h5 class="card-title mb-4">Liste de sous-traitants</h5>
+                        <h5 class="card-title mb-4">Liste de transporteurs</h5>
                     </div>
                     <div class="ms-auto">
                         <div class="text-sm-end">
-                            <a type="button" href="{{route('carriers.create')}}"
-                               class="btn btn-success btn-rounded waves-effect waves-light mb-2 me-2"><i
-                                    class="mdi mdi-plus me-1"></i> Ajouter
-                            </a>
+                            <div class="btn-group">
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-info btn-rounded waves-effect waves-light mb-2 dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Exporter <i class="mdi mdi-chevron-down"></i></button>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="{{route('carriers.export.xlsx')}}" >Format Excel</a>
+                                        <a class="dropdown-item" href="{{route('carriers.export.pdf')}}">Format PDF</a>
+                                    </div>
+                                </div>
+                                <a type="button" href="{{route('carriers.create')}}"
+                                class="btn btn-success btn-rounded waves-effect waves-light mb-2 me-2"><i
+                                        class="mdi mdi-plus me-1"></i> Ajouter
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -44,6 +53,7 @@
                     <table class="table align-middle ">
                         <thead>
                         <tr>
+                            <th class="text-center" scope="col">Image</th>
                             <th class="align-middle">Nom</th>
                             <th class="align-middle">Numéro de téléphone</th>
                             <th class="align-middle">Adresse</th>
@@ -53,8 +63,11 @@
                         <tbody>
                         @foreach($carriers as $carrier)
                             <tr>
+                                <td class="text-center">
+                                    <img class="rounded-circle" src="{{asset($carrier->user->avatar)}}" alt="avatar" height="35" width="35">
+                                </td>
                                 <td >
-                                    <p class="text-muted mb-0 text-justify">{{$carrier->name}}</p>
+                                    <p class="text-muted mb-0 text-justify">{{$carrier->user->name}}</p>
                                 </td>
                                 <td >
                                     <p class="text-muted mb-0 text-justify">{{$carrier->phone}}</p>

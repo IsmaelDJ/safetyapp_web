@@ -11,7 +11,7 @@
                     <div class="col-lg-4">
                         <div class="d-flex">
                             <div class="flex-shrink-0 me-3">
-                                <img src="{{ isset(Auth::user()->avatar) ? asset(Auth::user()->avatar) : asset('/assets/images/users/avatar-1.jpg') }}" alt="" class="avatar-md rounded-circle img-thumbnail">
+                                <img src="{{ isset(Auth::user()->avatar) ? asset(Auth::user()->avatar) : asset('images/users/avatar-1.jpg') }}" alt="" class="avatar-md rounded-circle img-thumbnail">
                             </div>
                             <div class="flex-grow-1 align-self-center">
                                 <div class="text-muted">
@@ -40,7 +40,7 @@
                                 </div>
                                 <div class="col-4">
                                     <div>
-                                        <p class="text-muted text-truncate mb-2">Employés</p>
+                                        <p class="text-muted text-truncate mb-2">Chauffeurs</p>
                                         <h5 class="mb-0">{{ $total_drivers }}</h5>
                                         
                                     </div>
@@ -91,6 +91,32 @@
                                         <div class="text-danger" id="nameError" data-ajax-feedback="name"></div>
                                     </div>
                                     
+                                    @if (Auth::user()->role == 'transporteur')
+                                        <div class="mb-3">
+                                            <label for="phone" class="form-label">Numéro de téléphone</label>
+                                            <input required 
+                                            type="text" class="form-control form-control-lg @error('phone') is-invalid @enderror"
+                                                value="{{isset(Auth::user()->carrier->phone)?Auth::user()->carrier->phone:null}}"
+                                                id="phone" name="phone" placeholder="Entrez le numéro de téléphone du sous-traitant">
+                                            @error('phone')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>Nom invalid</strong>
+                                            </span>
+                                            @enderror
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="address" class="form-label">Adresse</label>
+                                            <input required type="text" class="form-control form-control-lg @error('address') is-invalid @enderror"
+                                                value="{{isset(Auth::user()->carrier->address)?Auth::user()->carrier->address:null}}"
+                                                id="address" name="address" placeholder="Entrez l'adresse du sous-traitant">
+                                            @error('address')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>Nom invalid</strong>
+                                            </span>
+                                            @enderror
+                                        </div>
+                                        @endif
+
                                     <div class="mb-3">
                                         <label for="avatar">Photo de profile</label>
                                         <div class="input-group">
@@ -370,7 +396,7 @@
         <div class="card-body">
             <div class="d-flex flex-wrap align-items-start">
                 <div class="me-2">
-                    <h5 class="card-title mb-3">Lecture par employé</h5>
+                    <h5 class="card-title mb-3">Lecture par chauffeur</h5>
                 </div>
             </div>
             

@@ -44,7 +44,7 @@
                     <table class="table align-middle ">
                         <thead>
                         <tr>
-                            <th scope="col">Utilisateur</th>
+                            <th scope="col">Chauffeur</th>
                             <th scope="col">Action</th>
                             <th class="text text-center"><span>Date</span></th>
                         </tr>
@@ -53,7 +53,7 @@
                         @foreach($data as $item)
                             <tr>
                                 <td style="width: 30%">
-                                    <p class="text-muted m-3 text-justify">{{ $item->employee->name }}</p>
+                                    <p class="text-muted m-3 text-justify">{{ $item->driver->name }}</p>
                                 </td>
                                 <td >
                                     @if ($item->type == 1)

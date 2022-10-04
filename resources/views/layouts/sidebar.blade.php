@@ -47,7 +47,6 @@
                     </a>
                     <ul class="sub-menu" aria-expanded="true">
                         <li><a href="{{route('carriers.index')}}" key="t-level-1-1">Tous les tranporteurs</a></li>
-                        <li><a href="{{route('carriers.create')}}" key="t-level-1-1">Ajouter</a></li>
                     </ul>
                 </li>
                 @endcan

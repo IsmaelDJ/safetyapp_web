@@ -52,12 +52,14 @@ Route::delete('carriers/{id}',  [CarrierController::class, 'destroy'])->name('ca
 Route::get('carriers/{id}/edit',  [CarrierController::class, 'edit'])->name('carriers.edit');
 Route::get('carriers/create',  [CarrierController::class, 'create'])->name('carriers.create');
 
-//employees
+//drivers
 Route::resource('drivers', DriverController::class);
-
+Route::get('drivers/xlsx/export', [DriverController::class, 'export_xlsx'])->name('drivers.export.xlsx');
+Route::get('drivers/pdf/export', [DriverController::class, 'export_pdf'])->name('drivers.export.pdf');
 //carrier's driver
-Route::get('carrier_drivers/{carrier}', [CarrierController::class,'export_employees'])->name('carrier_drivers');
-
+Route::get('carrier_drivers/{carrier}', [CarrierController::class,'export_drivers'])->name('carrier_drivers');
+Route::get('carriers/xlsx/export', [CarrierController::class, 'export_xlsx'])->name('carriers.export.xlsx');
+Route::get('carriers/pdf/export', [CarrierController::class, 'export_pdf'])->name('carriers.export.pdf');
 //quiz question
 Route::resource('quiz_questions', QuizQuestionController::class);
 
@@ -81,5 +83,4 @@ Route::get('analyze/details', [App\Http\Controllers\AnalyticController::class, '
 Route::get('{any}', [App\Http\Controllers\HomeController::class, 'index'])->name('index');
 Route::get('search/{term}', [App\Http\Controllers\HomeController::class, 'search'])->name('search');
 
-//URL::forceScheme('https');
 

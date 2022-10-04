@@ -205,16 +205,16 @@ class AnalyticController extends Controller
         foreach($events_quiz as $event){
             $tmp = new stdClass();
             $tmp->type      = 1;
-            $tmp->driver  = $event->driver;
+            $tmp->driver    = $event->driver;
             $tmp->action    = $event->quiz_question;
             $tmp->created_at= Date($event->created_at);
             $data[] = $tmp;
         }
 
         foreach($events_rule as $event){
-            $tmp = new stdClass();
+            $tmp            = new stdClass();
             $tmp->type      = 2;
-            $tmp->driver  = $event->driver;
+            $tmp->driver    = $event->driver;
             $tmp->action    = $event->rule;
             $tmp->created_at= Date($event->created_at);
             $data[] = $tmp;

@@ -33,10 +33,20 @@
                     </div>
                     <div class="ms-auto">
                         <div class="text-sm-end">
-                            <a type="button" href="{{route('drivers.create')}}"
-                               class="btn btn-success btn-rounded waves-effect waves-light mb-2 me-2"><i
+                            <div class="btn-group   !spacing" role="group">
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-info btn-rounded waves-effect waves-light mb-2 dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Exporter <i class="mdi mdi-chevron-down"></i></button>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="{{route('drivers.export.xlsx')}}" >Format Excel</a>
+                                        <a class="dropdown-item" href="{{route('drivers.export.pdf')}}">Format PDF</a>
+                                    </div>
+                                </div>
+                                
+                                <a type="button" href="{{route('drivers.create')}}"
+                                    class="btn btn-success btn-rounded waves-effect waves-light mb-2 me-2"><i
                                     class="mdi mdi-plus me-1"></i> Ajouter
-                            </a>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -45,6 +55,7 @@
                     <table class="table align-middle ">
                         <thead>
                         <tr>
+                            <th class="text-center" scope="col">Avatar</th>
                             <th scope="col">Nom</th>
                             <th scope="col">Transporteur</th>
                             <th scope="col">Numéro de téléphone</th>
@@ -57,6 +68,9 @@
                         @foreach($drivers as $driver)
                         @can('view', $driver)
                             <tr>
+                                <td class="text-center">
+                                    <img class="rounded-circle" src="{{asset($driver->avatar)}}" alt="avatar" height="35" width="35">
+                                </td>
                                 <td>
                                     <p class="text-muted mb-0 text-justify">{{$driver->name}}</p>
                                 </td>
@@ -125,7 +139,9 @@
 @endsection
 
 @section('script')
-
+    <script>
+        $('')
+    </script>
     <script src="{{ URL::asset('assets/js/essential_audio.js')}}"></script>
 @endsection
 

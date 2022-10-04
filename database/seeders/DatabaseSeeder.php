@@ -23,7 +23,7 @@ class DatabaseSeeder extends Seeder
                 'name'     => 'ismatech',
                 'email'    => 'contact@ismatech.co',
                 'password' => Hash::make('la magie'),
-                'avatar'   => 'uploads/logo.png',
+                'avatar'   => '/images/1664845880.png',
             ]
             );
     }

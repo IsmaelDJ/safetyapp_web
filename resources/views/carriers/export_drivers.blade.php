@@ -49,7 +49,7 @@
                                     <p class="text-muted mb-0 text-justify">{{$driver->phone}}</p>
                                 </td>
                                 <td style="width: 250px">
-                                    <p class="text-muted mb-0 text-justify">{{$driver->uid}}</p>
+                                    <p class="text-muted mb-0 text-justify">{{$driver->obc}}</p>
                                 </td>
                                 <td style="width: 250px">
                                     <p class="text-muted mb-0 text-justify">{{$driver->password}}</p>

@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title') Sous-traitants @endsection
+@section('title') transporteurs @endsection
 
 @section('css')
     <!-- Bootstrap Css -->
@@ -22,15 +22,16 @@
                 <div class="auth-full-page-content p-md-5 p-4">
                     <div class="w-100">
 
-                        <h4 class="card-title mb-4">Modifier le sous-traitant</h4>
+                        <h4 class="card-title mb-4">Modifier le transporteur</h4>
 
                         <form action="{{route('carriers.update', $carrier)}}" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="mb-3">
                                 <label for="name" class="form-label">Nom</label>
-                                <input type="text" class="form-control form-control-lg @error('name') is-invalid @enderror"
-                                       value="{{$carrier->name}}"
-                                       id="name" name="name" placeholder="Entrez le nom du sous-traitant">
+                                <input 
+                                    type="text" class="form-control form-control-lg @error('name') is-invalid @enderror"
+                                    value="{{$carrier->name}}"
+                                    id="name" name="name" placeholder="Entrez le nom du transporteur">
                                 @error('name')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>Nom invalid</strong>
@@ -41,7 +42,7 @@
                                 <label for="phone" class="form-label">Numéro de téléphone</label>
                                 <input type="text" class="form-control form-control-lg @error('phone') is-invalid @enderror"
                                        value="{{$carrier->phone}}"
-                                       id="phone" name="phone" placeholder="Entrez le numéro de téléphone du sous-traitant">
+                                       id="phone" name="phone" placeholder="Entrez le numéro de téléphone du transporteur">
                                 @error('phone')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>Nom invalid</strong>
@@ -52,7 +53,7 @@
                                 <label for="address" class="form-label">Adresse</label>
                                 <input type="text" class="form-control form-control-lg @error('address') is-invalid @enderror"
                                        value="{{$carrier->address}}"
-                                       id="address" name="address" placeholder="Entrez l'adresse du sous-traitant">
+                                       id="address" name="address" placeholder="Entrez l'adresse du transporteur">
                                 @error('address')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>Nom invalid</strong>

@@ -7,6 +7,7 @@ use App\Models\Role;
 use App\Models\Rule;
 use App\Models\User;
 use App\Models\Driver;
+use App\Models\Carrier;
 use App\Models\Reading;
 use App\Models\Category;
 use App\Models\Employee;
@@ -43,15 +44,30 @@ class HomeController extends Controller
             'avatar'  => 'required|image|mimes:jpg,jpeg,png'
         ]);
 
+        if($request->has('phone')){
+            $request->validate([
+                'phone'  =>'required',
+                'address'=>'required',
+            ]);
+        }
+
         $avatar = uploadFile($request, 'avatar', 'user_avatar');
 
-        User::create([
+        $user = User::create([
             'role'     => $request['role'],
             'name'     => $request['name'],
             'email'    => $request['email'],
             'password' => Hash::make($request['password']),
             'avatar'   => $avatar,
         ]);
+
+        if($request->has('phone')){
+            Carrier::create([
+                'user_id' => $user->id,
+                'phone'   => $request->phone,
+                'address' => $request->address,
+            ]);            
+        }
 
         return redirect()->route('root');
     }
@@ -236,6 +252,22 @@ class HomeController extends Controller
         }
 
         $user->update();
+
+        if($request->has('phone')){
+            $request->validate([
+                'phone'  =>'required',
+                'address'=>'required',
+            ]);
+        }
+
+        if($request->has('phone')){
+            Carrier::create([
+                'user_id' => $user->id,
+                'phone'   => $request->phone,
+                'address' => $request->address,
+            ]);            
+        }
+
         if ($user) {
             Session::flash('message', 'User Details Updated successfully!');
             Session::flash('alert-class', 'alert-success');

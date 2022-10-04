@@ -20,13 +20,13 @@
             <div class="col-xl-3">
                 <div class="card">
                     <div class="card-body" style="height: 100vh">
-                        <div class="card-body" style="height: 100vh;">
+                        <div class="card-body">
                             <img src="{{URL::asset($driver->avatar)}}" alt="" class="img-fluid rounded mb-4">
                             <h5 class="card-title">{{$driver->name}}</h5>
                         </div>
                         <i class="mdi mdi-phone me-1 "></i><span class="text-muted">Tel</span>
                         <h4 class="lead mb-4">{{$driver->phone}}</h4>
-                        <i class="mdi mdi-map-marker me-1 "></i><span class="text-muted">Clé OBC</span>
+                        <i class="mdi mdi-key me-1 "></i><span class="text-muted">Clé OBC</span>
                         <h4 class="lead mb-4">{{$driver->obc}}</h4>
                         <i class="mdi mdi-map-marker me-1 "></i><span class="text-muted">Mot de passe</span>
                         <h4 class="lead mb-4">{{$driver->password}}</h4>

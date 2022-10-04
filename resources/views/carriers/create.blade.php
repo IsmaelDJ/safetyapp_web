@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title') Sous-traitants @endsection
+@section('title') Transporteurs @endsection
 
 @section('css')
     <!-- Bootstrap Css -->

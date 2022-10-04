@@ -2,10 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use stdClass;
 use App\Models\User;
 use App\Models\Driver;
-use App\Models\carrier;
+use App\Models\Carrier;
 use Illuminate\Http\Request;
+use App\Exports\CarriersExport;
+use App\Exports\CarriersExportPDF;
+use Maatwebsite\Excel\Facades\Excel;
 
 class CarrierController extends Controller
 {
@@ -16,7 +20,7 @@ class CarrierController extends Controller
 
     public function index()
     {
-        $carriers = User::where('role', 'transporteur')->paginate(carriersPerPage());
+        $carriers = Carrier::paginate(carriersPerPage());
         return view('carriers.index', compact('carriers'));
     }
 
@@ -48,20 +52,20 @@ class CarrierController extends Controller
 
     public function show($id)
     {
-        $carrier        = User::where('id', $id)->first();
-        $carrierDrivers = Driver::paginate(driversPerPage());
+        $carrier        = Carrier::find($id);
+        $carrierDrivers = Driver::where('user_id', $carrier->user_id)->paginate(driversPerPage());
         return view('carriers.show', compact('carrier', 'carrierDrivers'));
     }
 
-    public function export_Drivers($id)
+    public function export_drivers(Carrier $carrier)
     {
-        $Drivers = Driver::where('user_id', $carrier->id)->get();
-        return view('carriers.export_Drivers', compact('carrier', 'Drivers'));
+        $drivers = Driver::where('user_id', $carrier->user_id)->get();
+        return view('carriers.export_drivers', compact('carrier', 'drivers'));
     }
 
     public function edit($id)
     {
-        dd('edit');
+        $carrier = Carrier::find($id);
         return view('carriers.edit',compact('carrier'));
     }
 
@@ -90,5 +94,29 @@ class CarrierController extends Controller
     {
         User::find($id)->delete();
         return redirect()->route('carriers.index')->with('success', "Transporteur supprimé !");
+    }
+
+    public function export_xlsx(){
+        return Excel::download(new CarriersExport, date('YmdHis').'_'.'carriers.xlsx');
+    }
+
+    public function export_pdf(){
+        $data = [];
+        $carriers = Carrier::with('user')->get();
+        $iteration = 0;
+        foreach($carriers as $carrier){
+            $iteration += 1;
+            $tmp = new stdClass();
+            $tmp->number    = $iteration;
+            $tmp->name      = $carrier->user->name;
+            $tmp->phone     = $carrier->phone;
+            $tmp->address   = $carrier->address;
+            
+            $data[] = $tmp;
+        }
+
+        $carriers = collect($data);
+
+        return view('carriers.export_pdf', compact('carriers'));    
     }
 }

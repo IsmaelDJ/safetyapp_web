@@ -13,9 +13,12 @@ use App\Models\Presence;
 use App\Charts\ReadingChart;
 use App\Models\QuizQuestion;
 use Illuminate\Http\Request;
+use App\Exports\DriversExport;
+use App\Exports\DriversExportPDF;
 use App\Models\driverQuizResponse;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
+use Maatwebsite\Excel\Facades\Excel;
 
 class DriverController extends Controller
 {
@@ -177,20 +180,33 @@ class DriverController extends Controller
             $driver->avatar = uploadFile($request, 'avatar','driver_avatar');
         }
 
-        $request->validate(
-            [
-                'obc' => 'required|unique:drivers',
-                'name'=>'required',
-                'user_id'=>'required',
-                'phone'=>'required',
-            ]
-        );
+        if(Gate::allows('doAdvanced')){
+            $request->validate(
+                [
+                    'obc'    => 'required',
+                    'name'   =>'required',
+                    'user_id'=>'required',
+                    'phone'  =>'required',
+                ]);
+            
+            $driver->user_id = $request->user_id;
+        }
 
+        else {
+            $request->validate(
+                [
+                    'obc'  => 'required',
+                    'name' =>'required',
+                    'phone'=>'required',
+                ]
+            );
+            
+            $driver->user_id = Auth::user()->id;
+        }
 
         $driver->name    = $request->name;
         $driver->phone   = $request->phone;
         $driver->obc     = $request->obc;
-        $driver->user_id = $request->user_id;
 
         $driver->update();
         return redirect()->route('drivers.index')->with('success', "Chauffeur modifié");
@@ -201,5 +217,32 @@ class DriverController extends Controller
     {
         $driver->delete();
         return redirect()->route('drivers.index')->with('success', "Chauffeur supprimé !");
+    }
+
+    public function export_xlsx(){
+        return Excel::download(new DriversExport, date('YmdHis').'_'.'drivers.xlsx');
+    }
+
+    public function export_pdf(){
+        $data = [];
+        $drivers = Driver::with('user')->get();
+
+        $iteration = 0;
+        foreach($drivers as $driver){
+            $iteration += 1;
+            $tmp = new stdClass();
+            $tmp->number    = $iteration;
+            $tmp->name      = $driver->name;
+            $tmp->carrier   = $driver->user->name;
+            $tmp->obc       = $driver->obc;
+            $tmp->phone     = $driver->phone;
+            $tmp->password  = $driver->password;
+            
+            $data[] = $tmp;
+        }
+
+        $drivers = collect($data);
+
+        return view('drivers.export_pdf', compact('drivers'));
     }
 }
