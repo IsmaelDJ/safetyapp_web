@@ -4,9 +4,9 @@ namespace App\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\EmployeeQuizResponse;
+use App\Models\DriverQuizResponse;
 
-class EmployeeQuizResponseController extends Controller
+class DriverQuizResponseController extends Controller
 {
     /**
      * Display a listing of quiz.
@@ -15,7 +15,7 @@ class EmployeeQuizResponseController extends Controller
      */
     public function index()
     {
-        return response()->json(EmployeeQuizResponse::with(["employee", "quiz_question"])->get(), 200);;
+        return response()->json(DriverQuizResponse::with(["driver", "quiz_question"])->get(), 200);;
     }
 
     /**
@@ -26,23 +26,23 @@ class EmployeeQuizResponseController extends Controller
      */
     public function store(Request $request)
     {
-        EmployeeQuizResponse::create($request->all());
+        DriverQuizResponse::create($request->all());
         return response()->json("Success", 201);
     }
 
     /**
-     * Display the employee_quiz_response resource.
+     * Display the Driver_quiz_response resource.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-        return response()->json(EmployeeQuizResponse::with(["employee", "quiz_question"])->find($id));;
+        return response()->json(DriverQuizResponse::with(["driver", "quiz_question"])->find($id));;
     }
 
     /**
-     * Update the employee_quiz_response in storage.
+     * Update the Driver_quiz_response in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
@@ -50,19 +50,19 @@ class EmployeeQuizResponseController extends Controller
      */
     public function update(Request $request, $id)
     {
-        EmployeeQuizResponse::find($id)->update($request->all());
+        DriverQuizResponse::find($id)->update($request->all());
         return response()->json("Success");
     }
 
     /**
-     * Remove the employee_quiz_response from storage.
+     * Remove the Driver_quiz_response from storage.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-        EmployeeQuizResponse::find($id)->delete();
+        DriverQuizResponse::find($id)->delete();
         return response()->json("Success");
     }
 
@@ -74,16 +74,16 @@ class EmployeeQuizResponseController extends Controller
      */
     public function quizzes($quiz_question_id)
     {
-        return response()->json(EmployeeQuizResponse::with(["employee", "quiz_question"])->where('quiz_question_id', $quiz_question_id)->get(), 200);
+        return response()->json(DriverQuizResponse::with(["driver", "quiz_question"])->where('quiz_question_id', $quiz_question_id)->get(), 200);
     }
     /**
      * Get all responses from the current user.
      *
-     * @param  int  $employee_id
+     * @param  int  $driver_id
      * @return \Illuminate\Http\Response
      */
-    public function employees($employee_id)
+    public function Drivers($driver_id)
     {
-        return response()->json(EmployeeQuizResponse::with(["employee", "quiz_question"])->where('employee_id', $employee_id)->first(), 200);
+        return response()->json(DriverQuizResponse::with(["driver", "quiz_question"])->where('Driver_id', $driver_id)->first(), 200);
     }
 }
