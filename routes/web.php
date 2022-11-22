@@ -50,7 +50,6 @@ Route::post('carriers',  [CarrierController::class, 'store'])->name('carriers.st
 Route::put('carriers/{id}', [CarrierController::class, 'update'])->name('carriers.update');
 Route::delete('carriers/{id}',  [CarrierController::class, 'destroy'])->name('carriers.destroy');
 Route::get('carriers/{id}/edit',  [CarrierController::class, 'edit'])->name('carriers.edit');
-Route::get('carriers/create',  [CarrierController::class, 'create'])->name('carriers.create');
 
 //drivers
 Route::resource('drivers', DriverController::class);

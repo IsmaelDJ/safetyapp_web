@@ -40,7 +40,7 @@
                                         <a class="dropdown-item" href="{{route('carriers.export.pdf')}}">Format PDF</a>
                                     </div>
                                 </div>
-                                <a type="button" href="{{route('carriers.create')}}"
+                                <a type="button" href="{{route('register')}}"
                                 class="btn btn-success btn-rounded waves-effect waves-light mb-2 me-2"><i
                                         class="mdi mdi-plus me-1"></i> Ajouter
                                 </a>
