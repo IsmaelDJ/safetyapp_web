@@ -40,7 +40,7 @@
                         <tbody>
                         <?php $__currentLoopData = $data; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                             <tr>
-                                <th scope="row"><?php echo e($loop->iteration); ?></th scope="row">
+                                <th class="text-center" scope="row"><?php echo e($loop->iteration); ?></th scope="row">
                                 <td style="width: 30%">
                                     <p class="text-muted m-3 text-justify"><?php echo e($item->driver->name); ?></p>
                                 </td>
