@@ -186,7 +186,7 @@
                                                             ">
                                                     Supprimer</a>
         
-                                                <form method="POST" id="delete-form{{$driverQuizResponse->id}}"
+                                                <form method="POST" id="delete-form-{{$driverQuizResponse->id}}"
                                                         action="{{route('driver_quiz_responses.destroy', [$driverQuizResponse])}}">
                                                     @csrf
                                                     <input type="hidden" name="_method" value="DELETE">

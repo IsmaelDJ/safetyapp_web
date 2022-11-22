@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use Throwable;
-use App\Models\Employee;
+use App\Models\Driver;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -22,16 +22,16 @@ class AuthController extends Controller
                 ], 200);
             }
     
-            $employee = Employee::where('uid', $request['uid'])->first();
+            $driver = Driver::where('uid', $request['uid'])->first();
     
-            if(!$employee){
+            if(!$driver){
                 return response()->json([
                     'status'  => false,
                     'message' => 'Mot de passe incorrect'
                 ], 200);
             }
 
-            if(!($employee->password == $request['password'])){
+            if(!($driver->password == $request['password'])){
                 return response()->json([
                     'status' => false,
                     'message' => 'Mot de passe incorrect'
@@ -41,7 +41,7 @@ class AuthController extends Controller
             return response()->json([
                 'status'       =>  true,
                 'message'      => 'Connexion reuissi',
-                'employee'     =>  $employee,
+                'driver'     =>  $driver,
             ]);
         }catch(Throwable $th){
            

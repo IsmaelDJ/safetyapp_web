@@ -30,7 +30,7 @@ class AuthServiceProvider extends ServiceProvider
         $this->registerPolicies();
 
         Gate::define('doAdvanced', function(User $user){
-            return ($user->iSadmin() or $user->isSuperAdmin());
+            return ($user->isAdmin() or $user->isSuperAdmin());
         });
     }
 }
