@@ -142,12 +142,12 @@
                                                    var result = confirm('Cette reponse sera supprimée');
                                                    if(result){
                                                        event.preventDefault();
-                                                       document.getElementById('delete-form').submit();
+                                                       document.getElementById('delete-form{{$tmpQuizQuestion->id}}').submit();
                                                    }
                                                    ">
                                             Supprimer</a>
 
-                                        <form method="POST" id="delete-form"
+                                        <form method="POST" id="delete-form{{$tmpQuizQuestion->id}}"
                                               action="{{route('quiz_questions.destroy', [$tmpQuizQuestion])}}">
                                             @csrf
                                             <input type="hidden" name="_method" value="DELETE">

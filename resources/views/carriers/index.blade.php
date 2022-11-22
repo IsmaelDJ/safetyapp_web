@@ -90,12 +90,12 @@
                                                    var result = confirm('Ce contractant et ses employés seront supprimée');
                                                    if(result){
                                                        event.preventDefault();
-                                                       document.getElementById('delete-form').submit();
+                                                       document.getElementById('delete-form{{$carrier->id}}').submit();
                                                    }
                                                    ">
                                             Supprimer</a>
 
-                                        <form method="POST" id="delete-form"
+                                        <form method="POST" id="delete-form{{$carrier->id}}"
                                               action="{{route('carriers.destroy', [$carrier])}}">
                                             @csrf
                                             <input type="hidden" name="_method" value="DELETE">

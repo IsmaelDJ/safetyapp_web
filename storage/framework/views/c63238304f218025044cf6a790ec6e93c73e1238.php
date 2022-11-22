@@ -1,28 +1,29 @@
-@extends('layouts.master')
 
-@section('title') Catégories @endsection
 
-@section('css')
+<?php $__env->startSection('title'); ?> Catégories <?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('css'); ?>
     <!-- Bootstrap Css -->
-    <link href="{{ URL::asset('/assets/css/bootstrap.min.css') }}" id="bootstrap-style" rel="stylesheet"
+    <link href="<?php echo e(URL::asset('/assets/css/bootstrap.min.css')); ?>" id="bootstrap-style" rel="stylesheet"
           type="text/css"/>
     <!-- Icons Css -->
-    <link href="{{ URL::asset('/assets/css/icons.min.css') }}" rel="stylesheet" type="text/css"/>
+    <link href="<?php echo e(URL::asset('/assets/css/icons.min.css')); ?>" rel="stylesheet" type="text/css"/>
     <!-- App Css-->
-    <link href="{{ URL::asset('/assets/css/app.min.css') }}" id="app-style" rel="stylesheet" type="text/css"/>
+    <link href="<?php echo e(URL::asset('/assets/css/app.min.css')); ?>" id="app-style" rel="stylesheet" type="text/css"/>
 
-@endsection
+<?php $__env->stopSection(); ?>
 
-@section('content')
+<?php $__env->startSection('content'); ?>
 
-    @if(session()->has('success'))
+    <?php if(session()->has('success')): ?>
         <div class="alert alert-success alert-dismissible fade show" role="alert">
-            {{session('success')}}
+            <?php echo e(session('success')); ?>
+
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
-    @endif
+    <?php endif; ?>
 
-    @isset($categories)
+    <?php if(isset($categories)): ?>
 
 
         <!-- end row -->
@@ -37,7 +38,7 @@
                         </div>
                         <div class="ms-auto">
                             <div class="text-sm-end">
-                                <a type="button" href="{{route('categories.create')}}"
+                                <a type="button" href="<?php echo e(route('categories.create')); ?>"
                                    class="btn btn-success btn-rounded waves-effect waves-light mb-2 me-2"><i
                                         class="mdi mdi-plus me-1"></i> Ajouter
                                 </a>
@@ -56,44 +57,44 @@
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach($categories as $category)
+                            <?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                 <tr>
                                     <td style="width: 100px;">
-                                        <span class="text-muted mb-0 text-center">{{$category->position}}</span>
+                                        <span class="text-muted mb-0 text-center"><?php echo e($category->position); ?></span>
                                     </td>
-                                    <td style="width: 150px;"><img src="{{URL::asset($category->image)}}" alt=""
+                                    <td style="width: 150px;"><img src="<?php echo e(URL::asset($category->image)); ?>" alt=""
                                                                    class="avatar-md h-auto d-block rounded"></td>
                                     <td>
-                                        <p class="text-muted mb-0 text-justify">{{$category->name}}</p>
+                                        <p class="text-muted mb-0 text-justify"><?php echo e($category->name); ?></p>
                                     </td>
                                     <td  style="width: 200px">
                                         <div class="d-flex gap-3">
-                                            <a href="{{route('categories.show', $category)}}"
+                                            <a href="<?php echo e(route('categories.show', $category)); ?>"
                                                class="btn btn-default">Détails
                                             </a>
-                                            <a href="{{route('categories.edit', $category)}}"
+                                            <a href="<?php echo e(route('categories.edit', $category)); ?>"
                                                class="btn btn-info">Modifier
                                             </a>
 
-                                            <a href="{{route('categories.index')}}" class="btn btn-danger"
+                                            <a href="<?php echo e(route('categories.index')); ?>" class="btn btn-danger"
                                                onclick="
                                                    var result = confirm('Cette catégorie et ses règles seront supprimée');
                                                    if(result){
                                                        event.preventDefault();
-                                                       document.getElementById('delete-form{{$category->id}}').submit();
+                                                       document.getElementById('delete-form<?php echo e($category->id); ?>').submit();
                                                    }
                                                    ">
                                                 Supprimer</a>
 
-                                            <form method="POST" id="delete-form{{$category->id}}"
-                                                  action="{{route('categories.destroy', [$category])}}">
-                                                @csrf
+                                            <form method="POST" id="delete-form<?php echo e($category->id); ?>"
+                                                  action="<?php echo e(route('categories.destroy', [$category])); ?>">
+                                                <?php echo csrf_field(); ?>
                                                 <input type="hidden" name="_method" value="DELETE">
                                             </form>
                                         </div>
                                     </td>
                                 </tr>
-                            @endforeach
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
                             </tbody>
                         </table>
@@ -101,16 +102,19 @@
 
                     </div>
 
-                    {{ $categories->links('vendor.pagination.round') }}
+                    <?php echo e($categories->links('vendor.pagination.round')); ?>
+
                 </div>
             </div>
             <!-- end card -->
         </div>
 
-    @endisset
+    <?php endif; ?>
 
-@endsection
-
-
+<?php $__env->stopSection(); ?>
 
 
+
+
+
+<?php echo $__env->make('layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\laragon\www\safetyapp_web\resources\views/categories/index.blade.php ENDPATH**/ ?>

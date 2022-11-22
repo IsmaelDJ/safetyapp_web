@@ -108,12 +108,12 @@
                                                    var result = confirm('Cet utilisateur sera supprimée');
                                                    if(result){
                                                        event.preventDefault();
-                                                       document.getElementById('delete-form').submit();
+                                                       document.getElementById('delete-form{{$driver->id}}').submit();
                                                    }
                                                    ">
                                             Supprimer</a>
 
-                                        <form method="POST" id="delete-form"
+                                        <form method="POST" id="delete-form{{$driver->id}}"
                                               action="{{route('drivers.destroy', [$driver])}}">
                                             @csrf
                                             <input type="hidden" name="_method" value="DELETE">
