@@ -2,16 +2,17 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Driver;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Presence extends Model
 {
     use HasFactory;
-    protected $fillable = ['employee_id'];
+    protected $fillable = ['driver_id'];
 
-    public function employee() {
+    public function driver() {
 
-        return $this->belongsTo(Employee::class);
+        return $this->belongsTo(Driver::class);
     }
 }
