@@ -424,11 +424,7 @@
 
 @endsection
 @section('script')
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js" charset="utf-8"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highcharts/6.0.6/highcharts.js" charset="utf-8"></script>
-<script src="{{ URL::asset('/assets/js/pages/jquery-knob.init.js') }}"></script>
-<script src="{{ URL::asset('/assets/js/pages/saas-dashboard.init.js') }}"></script>
-<script src="{{ URL::asset('assets/js/essential_audio.js')}}"></script>
+
 <script>
     $('#update-profile').on('submit', function(event) {
         event.preventDefault();

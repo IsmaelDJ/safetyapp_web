@@ -38,8 +38,9 @@
 </div>
 
 <?php $__env->startPush('script'); ?>
-    <?php if (! $__env->hasRenderedOnce('067de375-2c57-464f-aedf-5427fc46f8d2')): $__env->markAsRenderedOnce('067de375-2c57-464f-aedf-5427fc46f8d2'); ?>
+    <?php if (! $__env->hasRenderedOnce('f5e33b3a-645e-4f9d-a3a3-80d84608d7fc')): $__env->markAsRenderedOnce('f5e33b3a-645e-4f9d-a3a3-80d84608d7fc'); ?>
         <script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/highcharts/6.0.6/highcharts.js" charset="utf-8"></script>
             <?php echo $presenceChart->script(); ?>
 
         </script>

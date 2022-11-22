@@ -58,9 +58,9 @@
             }
          });
     </script>
-    <?php echo $__env->yieldPushContent('script'); ?>
     <?php echo \Livewire\Livewire::scripts(); ?>
 
+    <?php echo $__env->yieldPushContent('script'); ?>
     </body>
 
 </html>

@@ -197,15 +197,15 @@ unset($__errorArgs, $__bag); ?>" id="avatar" name="avatar" autofocus>
         <?php
 if (! isset($_instance)) {
     $html = \Livewire\Livewire::mount('chart-presence')->html();
-} elseif ($_instance->childHasBeenRendered('a2M0M0Q')) {
-    $componentId = $_instance->getRenderedChildComponentId('a2M0M0Q');
-    $componentTag = $_instance->getRenderedChildComponentTagName('a2M0M0Q');
+} elseif ($_instance->childHasBeenRendered('d5OuKI8')) {
+    $componentId = $_instance->getRenderedChildComponentId('d5OuKI8');
+    $componentTag = $_instance->getRenderedChildComponentTagName('d5OuKI8');
     $html = \Livewire\Livewire::dummyMount($componentId, $componentTag);
-    $_instance->preserveRenderedChild('a2M0M0Q');
+    $_instance->preserveRenderedChild('d5OuKI8');
 } else {
     $response = \Livewire\Livewire::mount('chart-presence');
     $html = $response->html();
-    $_instance->logRenderedChild('a2M0M0Q', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
+    $_instance->logRenderedChild('d5OuKI8', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
 }
 echo $html;
 ?>
@@ -491,11 +491,7 @@ echo $html;
 
 <?php $__env->stopSection(); ?>
 <?php $__env->startSection('script'); ?>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js" charset="utf-8"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highcharts/6.0.6/highcharts.js" charset="utf-8"></script>
-<script src="<?php echo e(URL::asset('/assets/js/pages/jquery-knob.init.js')); ?>"></script>
-<script src="<?php echo e(URL::asset('/assets/js/pages/saas-dashboard.init.js')); ?>"></script>
-<script src="<?php echo e(URL::asset('assets/js/essential_audio.js')); ?>"></script>
+
 <script>
     $('#update-profile').on('submit', function(event) {
         event.preventDefault();

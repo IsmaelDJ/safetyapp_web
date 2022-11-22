@@ -87,16 +87,17 @@ type="text/css"/>
 @endsection
 
 @section('script')
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js" charset="utf-8"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highcharts/6.0.6/highcharts.js" charset="utf-8"></script>
+
+<script src="{{ URL::asset('/assets/libs/jquery-knob/jquery-knob.min.js') }}"></script>
+<script src="{{ URL::asset('/assets/js/pages/jquery-knob.init.js') }}"></script>
+<script src="{{ URL::asset('assets/js/essential_audio.js')}}"></script>
 {!! $readingChart->script() !!}
 {!! $quizChart->script() !!}
 {!! $ruleChart->script() !!}
 {!! $globalChart->script() !!}
 {!! $categorieReadingChart->script() !!}
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js" charset="utf-8"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highcharts/6.0.6/highcharts.js" charset="utf-8"></script>
-<script src="{{ URL::asset('/assets/libs/jquery-knob/jquery-knob.min.js') }}"></script>
-<script src="{{ URL::asset('/assets/js/pages/jquery-knob.init.js') }}"></script>
-<script src="{{ URL::asset('assets/js/essential_audio.js')}}"></script>
 @endsection
 
 

@@ -37,6 +37,7 @@
 @push('script')
     @once
         <script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/highcharts/6.0.6/highcharts.js" charset="utf-8"></script>
             {!! $presenceChart->script() !!}
         </script>
     @endonce    

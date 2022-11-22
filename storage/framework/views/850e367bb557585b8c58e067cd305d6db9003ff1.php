@@ -4,7 +4,7 @@
             <div class="clearfix">
                 <div class="float-end">
                     <div class="input-group input-group-sm">
-                        <select wire:model='year' id="select-year" class="form-select form-select-sm">
+                        <select wire:model='year' class="form-select form-select-sm">
                             <?php $__currentLoopData = range(0, $range); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $iteration): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                 <option value="<?php echo e($first_year + $iteration); ?>">
                                     <?php echo e($first_year + $iteration); ?>
@@ -26,8 +26,11 @@
     </div>
 </div>
 <?php $__env->startPush('script'); ?>
-    <?php if (! $__env->hasRenderedOnce('5692a738-211f-4a06-b79d-ffad08a4ac2a')): $__env->markAsRenderedOnce('5692a738-211f-4a06-b79d-ffad08a4ac2a'); ?>
-    <?php echo $readingChart->script(); ?>
+    <?php if (! $__env->hasRenderedOnce('8067166c-dd28-402e-aca7-29ba5be24d70')): $__env->markAsRenderedOnce('8067166c-dd28-402e-aca7-29ba5be24d70'); ?>
+     <script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highcharts/6.0.6/highcharts.js" charset="utf-8"></script>
+        <?php echo $readingChart->script(); ?>
 
+     </script>
     <?php endif; ?>
 <?php $__env->stopPush(); ?><?php /**PATH C:\laragon\www\safetyapp_web\resources\views/livewire/chart-reading.blade.php ENDPATH**/ ?>

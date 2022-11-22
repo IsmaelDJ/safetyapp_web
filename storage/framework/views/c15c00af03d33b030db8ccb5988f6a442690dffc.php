@@ -19,15 +19,15 @@ type="text/css"/>
     <?php
 if (! isset($_instance)) {
     $html = \Livewire\Livewire::mount('chart-reading')->html();
-} elseif ($_instance->childHasBeenRendered('D22QSgr')) {
-    $componentId = $_instance->getRenderedChildComponentId('D22QSgr');
-    $componentTag = $_instance->getRenderedChildComponentTagName('D22QSgr');
+} elseif ($_instance->childHasBeenRendered('t11Z7sI')) {
+    $componentId = $_instance->getRenderedChildComponentId('t11Z7sI');
+    $componentTag = $_instance->getRenderedChildComponentTagName('t11Z7sI');
     $html = \Livewire\Livewire::dummyMount($componentId, $componentTag);
-    $_instance->preserveRenderedChild('D22QSgr');
+    $_instance->preserveRenderedChild('t11Z7sI');
 } else {
     $response = \Livewire\Livewire::mount('chart-reading');
     $html = $response->html();
-    $_instance->logRenderedChild('D22QSgr', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
+    $_instance->logRenderedChild('t11Z7sI', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
 }
 echo $html;
 ?>
@@ -104,6 +104,12 @@ echo $html;
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('script'); ?>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js" charset="utf-8"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highcharts/6.0.6/highcharts.js" charset="utf-8"></script>
+
+<script src="<?php echo e(URL::asset('/assets/libs/jquery-knob/jquery-knob.min.js')); ?>"></script>
+<script src="<?php echo e(URL::asset('/assets/js/pages/jquery-knob.init.js')); ?>"></script>
+<script src="<?php echo e(URL::asset('assets/js/essential_audio.js')); ?>"></script>
 <?php echo $readingChart->script(); ?>
 
 <?php echo $quizChart->script(); ?>
@@ -114,11 +120,6 @@ echo $html;
 
 <?php echo $categorieReadingChart->script(); ?>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js" charset="utf-8"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highcharts/6.0.6/highcharts.js" charset="utf-8"></script>
-<script src="<?php echo e(URL::asset('/assets/libs/jquery-knob/jquery-knob.min.js')); ?>"></script>
-<script src="<?php echo e(URL::asset('/assets/js/pages/jquery-knob.init.js')); ?>"></script>
-<script src="<?php echo e(URL::asset('assets/js/essential_audio.js')); ?>"></script>
 <?php $__env->stopSection(); ?>
 
 
