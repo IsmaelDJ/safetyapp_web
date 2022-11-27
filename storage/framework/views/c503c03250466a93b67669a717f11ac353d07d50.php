@@ -103,12 +103,12 @@
                                                    var result = confirm('Cette reponse sera supprimée');
                                                    if(result){
                                                        event.preventDefault();
-                                                       document.getElementById('delete-form').submit();
+                                                       document.getElementById('delete-form<?php echo e($currentQuizQuestion->id); ?>').submit();
                                                    }
                                                    ">
                                             Supprimer</a>
 
-                                        <form method="POST" id="delete-form"
+                                        <form method="POST" id="delete-form<?php echo e($currentQuizQuestion->id); ?>"
                                               action="<?php echo e(route('quiz_questions.destroy', [$currentQuizQuestion])); ?>">
                                             <?php echo csrf_field(); ?>
                                             <input type="hidden" name="_method" value="DELETE">

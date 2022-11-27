@@ -14,7 +14,7 @@ class Reading extends Model
     
     protected $fillable = ['driver_id', 'rule_id', 'category_id'];
 
-    public function employee() {
+    public function driver() {
 
         return $this->belongsTo(Driver::class);
     }

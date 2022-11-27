@@ -197,15 +197,15 @@ unset($__errorArgs, $__bag); ?>" id="avatar" name="avatar" autofocus>
         <?php
 if (! isset($_instance)) {
     $html = \Livewire\Livewire::mount('chart-presence')->html();
-} elseif ($_instance->childHasBeenRendered('d5OuKI8')) {
-    $componentId = $_instance->getRenderedChildComponentId('d5OuKI8');
-    $componentTag = $_instance->getRenderedChildComponentTagName('d5OuKI8');
+} elseif ($_instance->childHasBeenRendered('47OyCtl')) {
+    $componentId = $_instance->getRenderedChildComponentId('47OyCtl');
+    $componentTag = $_instance->getRenderedChildComponentTagName('47OyCtl');
     $html = \Livewire\Livewire::dummyMount($componentId, $componentTag);
-    $_instance->preserveRenderedChild('d5OuKI8');
+    $_instance->preserveRenderedChild('47OyCtl');
 } else {
     $response = \Livewire\Livewire::mount('chart-presence');
     $html = $response->html();
-    $_instance->logRenderedChild('d5OuKI8', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
+    $_instance->logRenderedChild('47OyCtl', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
 }
 echo $html;
 ?>
@@ -235,7 +235,13 @@ echo $html;
                                     <tr>
                                         <td style="width: 50px;">
                                             <div class="font-size-22 text-primary">
-                                                <img src="<?php echo e(isset($quizNoAnswered->image) ? asset($quizNoAnswered->image) : asset('/assets/images/users/avatar-1.jpg')); ?>" alt="" class="avatar-sm rounded-circle img-thumbnail">
+                                                <img 
+                                                src="<?php echo e(isset($quizNoAnswered->image) ? asset($quizNoAnswered->image) : asset('/assets/images/users/avatar-1.jpg')); ?>" 
+                                                alt="Illustration" 
+                                                width="35" 
+                                                height="35" 
+                                                style="object-fit: cover" 
+                                                class="avatar-sm rounded-circle border">
                                             </div>
                                         </td>
                                         
@@ -274,7 +280,13 @@ echo $html;
                                     <tr>
                                         <td style="width: 50px;">
                                             <div class="font-size-22 text-primary">
-                                                <img src="<?php echo e(isset($quizBadAnswered->image) ? asset($quizBadAnswered->image) : asset('/assets/images/users/avatar-1.jpg')); ?>" alt="" class="avatar-sm rounded-circle img-thumbnail">
+                                                <img 
+                                                src="<?php echo e(isset($quizBadAnswered->image) ? asset($quizBadAnswered->image) : asset('/assets/images/users/avatar-1.jpg')); ?>" 
+                                                alt="Illustration" 
+                                                width="35" 
+                                                height="35" 
+                                                style="object-fit: cover" 
+                                                class="avatar-sm rounded-circle border">
                                             </div>
                                         </td>
                                         
@@ -314,7 +326,13 @@ echo $html;
                                     <tr>
                                         <td style="width: 50px;">
                                             <div class="font-size-22 text-primary">
-                                                <img src="<?php echo e(isset($quizGoodAnswered->image) ? asset($quizGoodAnswered->image) : asset('/assets/images/users/avatar-1.jpg')); ?>" alt="" class="avatar-sm rounded-circle img-thumbnail">
+                                                <img 
+                                                src="<?php echo e(isset($quizGoodAnswered->image) ? asset($quizGoodAnswered->image) : asset('/assets/images/users/avatar-1.jpg')); ?>"
+                                                alt="Illustration" 
+                                                width="35" 
+                                                height="35" 
+                                                style="object-fit: cover" 
+                                                class="avatar-sm rounded-circle border">
                                             </div>
                                         </td>
                                         
@@ -491,6 +509,13 @@ echo $html;
 
 <?php $__env->stopSection(); ?>
 <?php $__env->startSection('script'); ?>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js" charset="utf-8"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highcharts/6.0.6/highcharts.js" charset="utf-8"></script>
+
+<script src="<?php echo e(URL::asset('/assets/libs/jquery-knob/jquery-knob.min.js')); ?>"></script>
+<script src="<?php echo e(URL::asset('/assets/js/pages/jquery-knob.init.js')); ?>"></script>
+<script src="<?php echo e(URL::asset('assets/js/essential_audio.js')); ?>"></script>
 
 <script>
     $('#update-profile').on('submit', function(event) {

@@ -87,12 +87,12 @@ Route::group([
     });
 
     //Reading 
-    Route::get('Drivers/{Driver_id}/rules/{rule_id}', function ( $Driver_id, $rule_id) {
+    Route::get('Drivers/{driver_id}/rules/{rule_id}', function ( $driver_id, $rule_id) {
 
         Reading::create([
-            'Driver_id' => $Driver_id,
+            'driver_id'   => $driver_id,
             'rule_id'     => $rule_id,
-            'category_id'    => Rule::find($rule_id)->category_id
+            'category_id' => Rule::find($rule_id)->category_id
         ]);
         
         return response()->json(
