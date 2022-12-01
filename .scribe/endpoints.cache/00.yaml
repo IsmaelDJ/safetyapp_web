@@ -8,7 +8,7 @@ endpoints:
       - DELETE
     uri: 'api/v1/responses/{id}'
     metadata:
-      title: 'Remove the employee_quiz_response from storage.'
+      title: 'Remove the Driver_quiz_response from storage.'
       description: ''
       authenticated: false
       custom: []
@@ -20,7 +20,7 @@ endpoints:
         name: id
         description: 'The ID of the response.'
         required: true
-        example: placeat
+        example: veniam
         type: string
         custom: []
     queryParameters: []
@@ -44,7 +44,7 @@ endpoints:
         name: id
         description: 'The ID of the response.'
         required: true
-        example: ea
+        example: '9'
         type: string
         custom: []
     queryParameters: []
@@ -57,41 +57,7 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '35'
-          access-control-allow-origin: '*'
-        description: null
-    responseFields: []
-  -
-    httpMethods:
-      - GET
-    uri: 'api/v1/responses/{id}/employees'
-    metadata:
-      title: 'Get all responses from the current user.'
-      description: ''
-      authenticated: false
-      custom: []
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters:
-      id:
-        name: id
-        description: 'The ID of the response.'
-        required: true
-        example: voluptatem
-        type: string
-        custom: []
-    queryParameters: []
-    bodyParameters: []
-    responses:
-      -
-        status: 200
-        content: '{}'
-        headers:
-          cache-control: 'no-cache, private'
-          content-type: application/json
-          x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '34'
+          x-ratelimit-remaining: '46'
           access-control-allow-origin: '*'
         description: null
     responseFields: []
@@ -113,7 +79,80 @@ endpoints:
     responses:
       -
         status: 200
-        content: "<!DOCTYPE html>\r\n<html lang=\"en\">\r\n<head>\r\n    <meta charset=\"UTF-8\">\r\n    <title>Total Safety API</title>\r\n    <link rel=\"stylesheet\" type=\"text/css\" href=\"https://localhost/docs/asset/swagger-ui.css?v=d6de32fafed0ea75ef760baa8ebe2bda\">\r\n    <link rel=\"icon\" type=\"image/png\" href=\"https://localhost/docs/asset/favicon-32x32.png?v=40d4f2c38d1cd854ad463f16373cbcb6\" sizes=\"32x32\"/>\r\n    <link rel=\"icon\" type=\"image/png\" href=\"https://localhost/docs/asset/favicon-16x16.png?v=f0ae831196d55d8f4115b6c5e8ec5384\" sizes=\"16x16\"/>\r\n    <style>\r\n    html\r\n    {\r\n        box-sizing: border-box;\r\n        overflow: -moz-scrollbars-vertical;\r\n        overflow-y: scroll;\r\n    }\r\n    *,\r\n    *:before,\r\n    *:after\r\n    {\r\n        box-sizing: inherit;\r\n    }\r\n\r\n    body {\r\n      margin:0;\r\n      background: #fafafa;\r\n    }\r\n    </style>\r\n</head>\r\n\r\n<body>\r\n<div id=\"swagger-ui\"></div>\r\n\r\n<script src=\"https://localhost/docs/asset/swagger-ui-bundle.js?v=e0ae76d9795806abae1f7781d89d4f4b\"></script>\r\n<script src=\"https://localhost/docs/asset/swagger-ui-standalone-preset.js?v=8e0e2470d0530680f6f16c7817337891\"></script>\r\n<script>\r\n    window.onload = function() {\r\n        // Build a system\r\n        const ui = SwaggerUIBundle({\r\n            dom_id: '#swagger-ui',\r\n            url: \"https://localhost/docs/api-docs.json\",\r\n            operationsSorter: null,\r\n            configUrl: null,\r\n            validatorUrl: null,\r\n            oauth2RedirectUrl: \"https://localhost/api/oauth2-callback\",\r\n\r\n            requestInterceptor: function(request) {\r\n                request.headers['X-CSRF-TOKEN'] = '';\r\n                return request;\r\n            },\r\n\r\n            presets: [\r\n                SwaggerUIBundle.presets.apis,\r\n                SwaggerUIStandalonePreset\r\n            ],\r\n\r\n            plugins: [\r\n                SwaggerUIBundle.plugins.DownloadUrl\r\n            ],\r\n\r\n            layout: \"StandaloneLayout\",\r\n            docExpansion : \"none\",\r\n            deepLinking: true,\r\n            filter: true,\r\n            persistAuthorization: \"false\",\r\n\r\n        })\r\n\r\n        window.ui = ui\r\n\r\n            }\r\n</script>\r\n</body>\r\n</html>\r\n"
+        content: |
+          <!DOCTYPE html>
+          <html lang="en">
+          <head>
+              <meta charset="UTF-8">
+              <title>Total Safety API</title>
+              <link rel="stylesheet" type="text/css" href="http://localhost:8000/docs/asset/swagger-ui.css?v=6a24e45b818fda6899992f4a31e1ec3a">
+              <link rel="icon" type="image/png" href="http://localhost:8000/docs/asset/favicon-32x32.png?v=40d4f2c38d1cd854ad463f16373cbcb6" sizes="32x32"/>
+              <link rel="icon" type="image/png" href="http://localhost:8000/docs/asset/favicon-16x16.png?v=f0ae831196d55d8f4115b6c5e8ec5384" sizes="16x16"/>
+              <style>
+              html
+              {
+                  box-sizing: border-box;
+                  overflow: -moz-scrollbars-vertical;
+                  overflow-y: scroll;
+              }
+              *,
+              *:before,
+              *:after
+              {
+                  box-sizing: inherit;
+              }
+
+              body {
+                margin:0;
+                background: #fafafa;
+              }
+              </style>
+          </head>
+
+          <body>
+          <div id="swagger-ui"></div>
+
+          <script src="http://localhost:8000/docs/asset/swagger-ui-bundle.js?v=7db2beb83e1a0a5a728360ec186a1244"></script>
+          <script src="http://localhost:8000/docs/asset/swagger-ui-standalone-preset.js?v=145fbb8d6c4c4bab4a35dd28225eec30"></script>
+          <script>
+              window.onload = function() {
+                  // Build a system
+                  const ui = SwaggerUIBundle({
+                      dom_id: '#swagger-ui',
+                      url: "http://localhost:8000/docs/api-docs.json",
+                      operationsSorter: null,
+                      configUrl: null,
+                      validatorUrl: null,
+                      oauth2RedirectUrl: "http://localhost:8000/api/oauth2-callback",
+
+                      requestInterceptor: function(request) {
+                          request.headers['X-CSRF-TOKEN'] = '';
+                          return request;
+                      },
+
+                      presets: [
+                          SwaggerUIBundle.presets.apis,
+                          SwaggerUIStandalonePreset
+                      ],
+
+                      plugins: [
+                          SwaggerUIBundle.plugins.DownloadUrl
+                      ],
+
+                      layout: "StandaloneLayout",
+                      docExpansion : "none",
+                      deepLinking: true,
+                      filter: true,
+                      persistAuthorization: "false",
+
+                  })
+
+                  window.ui = ui
+
+                      }
+          </script>
+          </body>
+          </html>
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -259,12 +298,12 @@ endpoints:
     responses:
       -
         status: 200
-        content: '[{"id":1,"name":"FRV","image":"uploads\/20220818130207_.png","created_at":"2022-08-18T13:02:07.000000Z","updated_at":"2022-08-18T13:02:07.000000Z"}]'
+        content: '[]'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
           x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '46'
+          x-ratelimit-remaining: '59'
           access-control-allow-origin: '*'
         description: null
     responseFields: []
@@ -285,7 +324,7 @@ endpoints:
         name: id
         description: 'The ID of the category.'
         required: true
-        example: 1
+        example: 12
         type: integer
         custom: []
     queryParameters: []
@@ -293,12 +332,12 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"id":1,"name":"FRV","image":"uploads\/20220818130207_.png","created_at":"2022-08-18T13:02:07.000000Z","updated_at":"2022-08-18T13:02:07.000000Z"}'
+        content: ''
         headers:
+          content-type: 'text/html; charset=UTF-8'
           cache-control: 'no-cache, private'
-          content-type: application/json
           x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '45'
+          x-ratelimit-remaining: '58'
           access-control-allow-origin: '*'
         description: null
     responseFields: []
@@ -319,7 +358,7 @@ endpoints:
         name: id
         description: 'The ID of the category.'
         required: true
-        example: 1
+        example: 10
         type: integer
         custom: []
     queryParameters: []
@@ -327,12 +366,12 @@ endpoints:
     responses:
       -
         status: 200
-        content: '[{"id":1,"category_id":1,"description":"Regle 1","image":"uploads\/20220818130310_rule_image.png","fr":"uploads\/20220818130310_rule_fr.mp3","ar":"uploads\/20220818130310_rule_ar.mp3","ng":"uploads\/20220818130310_rule_ng.mp3","created_at":"2022-08-18T13:03:10.000000Z","updated_at":"2022-08-18T13:03:10.000000Z"},{"id":2,"category_id":1,"description":"Regle 2","image":"uploads\/20220818130404_rule_image.png","fr":"uploads\/20220818130404_rule_fr.mp3","ar":"uploads\/20220818130404_rule_ar.mp3","ng":"uploads\/20220818130404_rule_ng.mp3","created_at":"2022-08-18T13:04:04.000000Z","updated_at":"2022-08-18T13:04:04.000000Z"}]'
+        content: '[]'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
           x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '44'
+          x-ratelimit-remaining: '57'
           access-control-allow-origin: '*'
         description: null
     responseFields: []
@@ -354,12 +393,12 @@ endpoints:
     responses:
       -
         status: 200
-        content: '[{"id":1,"category_id":1,"description":"Regle 1","image":"uploads\/20220818130310_rule_image.png","fr":"uploads\/20220818130310_rule_fr.mp3","ar":"uploads\/20220818130310_rule_ar.mp3","ng":"uploads\/20220818130310_rule_ng.mp3","created_at":"2022-08-18T13:03:10.000000Z","updated_at":"2022-08-18T13:03:10.000000Z"},{"id":2,"category_id":1,"description":"Regle 2","image":"uploads\/20220818130404_rule_image.png","fr":"uploads\/20220818130404_rule_fr.mp3","ar":"uploads\/20220818130404_rule_ar.mp3","ng":"uploads\/20220818130404_rule_ng.mp3","created_at":"2022-08-18T13:04:04.000000Z","updated_at":"2022-08-18T13:04:04.000000Z"}]'
+        content: '[]'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
           x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '43'
+          x-ratelimit-remaining: '56'
           access-control-allow-origin: '*'
         description: null
     responseFields: []
@@ -380,7 +419,7 @@ endpoints:
         name: id
         description: 'The ID of the rule.'
         required: true
-        example: 1
+        example: 16
         type: integer
         custom: []
     queryParameters: []
@@ -388,12 +427,12 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"id":1,"category_id":1,"description":"Regle 1","image":"uploads\/20220818130310_rule_image.png","fr":"uploads\/20220818130310_rule_fr.mp3","ar":"uploads\/20220818130310_rule_ar.mp3","ng":"uploads\/20220818130310_rule_ng.mp3","created_at":"2022-08-18T13:03:10.000000Z","updated_at":"2022-08-18T13:03:10.000000Z"}'
+        content: ''
         headers:
+          content-type: 'text/html; charset=UTF-8'
           cache-control: 'no-cache, private'
-          content-type: application/json
           x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '42'
+          x-ratelimit-remaining: '55'
           access-control-allow-origin: '*'
         description: null
     responseFields: []
@@ -415,12 +454,12 @@ endpoints:
     responses:
       -
         status: 200
-        content: '[{"id":1,"category_id":1,"description":"kjfjd","image":"uploads\/20220818130554_qz_question_image.png","fr":"uploads\/20220818130554_qz_question_fr.mp3","ar":"uploads\/20220818130554_qz_question_ar.mp3","ng":"uploads\/20220818130554_qz_question_ng.mp3","correct":1,"created_at":"2022-08-18T13:05:54.000000Z","updated_at":"2022-08-18T17:26:32.000000Z","category":{"id":1,"name":"FRV","image":"uploads\/20220818130207_.png","created_at":"2022-08-18T13:02:07.000000Z","updated_at":"2022-08-18T13:02:07.000000Z"}},{"id":2,"category_id":1,"description":"Quiz 1","image":"uploads\/20220818131027_qz_question_image.png","fr":"uploads\/20220818131027_qz_question_fr.mp3","ar":"uploads\/20220818131027_qz_question_ar.mp3","ng":"uploads\/20220818131027_qz_question_ng.mp3","correct":0,"created_at":"2022-08-18T13:10:27.000000Z","updated_at":"2022-08-18T17:18:33.000000Z","category":{"id":1,"name":"FRV","image":"uploads\/20220818130207_.png","created_at":"2022-08-18T13:02:07.000000Z","updated_at":"2022-08-18T13:02:07.000000Z"}},{"id":3,"category_id":1,"description":"Quiz 1","image":"uploads\/20220818131259_qz_question_image.png","fr":"uploads\/20220818131259_qz_question_fr.mp3","ar":"uploads\/20220818131259_qz_question_ar.mp3","ng":"uploads\/20220818131259_qz_question_ng.mp3","correct":0,"created_at":"2022-08-18T13:12:59.000000Z","updated_at":"2022-08-18T13:12:59.000000Z","category":{"id":1,"name":"FRV","image":"uploads\/20220818130207_.png","created_at":"2022-08-18T13:02:07.000000Z","updated_at":"2022-08-18T13:02:07.000000Z"}},{"id":4,"category_id":1,"description":"Quiz 1","image":"uploads\/20220818131439_qz_question_image.png","fr":"uploads\/20220818131439_qz_question_fr.mp3","ar":"uploads\/20220818131439_qz_question_ar.mp3","ng":"uploads\/20220818131439_qz_question_ng.mp3","correct":0,"created_at":"2022-08-18T13:14:39.000000Z","updated_at":"2022-08-18T13:14:39.000000Z","category":{"id":1,"name":"FRV","image":"uploads\/20220818130207_.png","created_at":"2022-08-18T13:02:07.000000Z","updated_at":"2022-08-18T13:02:07.000000Z"}},{"id":5,"category_id":1,"description":"Quiz 1","image":"uploads\/20220818131546_qz_question_image.png","fr":"uploads\/20220818131546_qz_question_fr.mp3","ar":"uploads\/20220818131546_qz_question_ar.mp3","ng":"uploads\/20220818131546_qz_question_ng.mp3","correct":0,"created_at":"2022-08-18T13:15:46.000000Z","updated_at":"2022-08-18T13:15:46.000000Z","category":{"id":1,"name":"FRV","image":"uploads\/20220818130207_.png","created_at":"2022-08-18T13:02:07.000000Z","updated_at":"2022-08-18T13:02:07.000000Z"}},{"id":6,"category_id":1,"description":"description","image":"uploads\/20220818181229_qz_question_image.png","fr":"uploads\/20220818181230_qz_question_fr.mp3","ar":"uploads\/20220818181230_qz_question_ar.mp3","ng":"uploads\/20220818181230_qz_question_ng.mp3","correct":1,"created_at":"2022-08-18T18:12:30.000000Z","updated_at":"2022-08-18T18:12:30.000000Z","category":{"id":1,"name":"FRV","image":"uploads\/20220818130207_.png","created_at":"2022-08-18T13:02:07.000000Z","updated_at":"2022-08-18T13:02:07.000000Z"}},{"id":7,"category_id":1,"description":"rete","image":"uploads\/20220818202217_qz_question_image.png","fr":"uploads\/20220818202217_qz_question_fr.mp3","ar":"uploads\/20220818202217_qz_question_ar.mp3","ng":"uploads\/20220818202217_qz_question_ng.mp3","correct":1,"created_at":"2022-08-18T20:22:17.000000Z","updated_at":"2022-08-18T20:22:17.000000Z","category":{"id":1,"name":"FRV","image":"uploads\/20220818130207_.png","created_at":"2022-08-18T13:02:07.000000Z","updated_at":"2022-08-18T13:02:07.000000Z"}},{"id":8,"category_id":1,"description":"quiz","image":"uploads\/20220818234855_qz_question_image.png","fr":"uploads\/20220818234855_qz_question_fr.mp3","ar":"uploads\/20220818234855_qz_question_ar.mp3","ng":"uploads\/20220818234855_qz_question_ng.mp3","correct":1,"created_at":"2022-08-18T23:48:55.000000Z","updated_at":"2022-08-18T23:48:55.000000Z","category":{"id":1,"name":"FRV","image":"uploads\/20220818130207_.png","created_at":"2022-08-18T13:02:07.000000Z","updated_at":"2022-08-18T13:02:07.000000Z"}},{"id":9,"category_id":1,"description":"essaie","image":"uploads\/20220822081924_qz_question_image.png","fr":"uploads\/20220822081924_rule_fr.mp3","ar":"uploads\/20220822081924_rule_ar.mp3","ng":"uploads\/20220822081924_rule_ng.mp3","correct":1,"created_at":"2022-08-22T08:19:24.000000Z","updated_at":"2022-08-22T08:19:24.000000Z","category":{"id":1,"name":"FRV","image":"uploads\/20220818130207_.png","created_at":"2022-08-18T13:02:07.000000Z","updated_at":"2022-08-18T13:02:07.000000Z"}},{"id":10,"category_id":1,"description":"essaie","image":"uploads\/20220822081927_qz_question_image.png","fr":"uploads\/20220822081927_rule_fr.mp3","ar":"uploads\/20220822081927_rule_ar.mp3","ng":"uploads\/20220822081927_rule_ng.mp3","correct":1,"created_at":"2022-08-22T08:19:27.000000Z","updated_at":"2022-08-22T08:19:27.000000Z","category":{"id":1,"name":"FRV","image":"uploads\/20220818130207_.png","created_at":"2022-08-18T13:02:07.000000Z","updated_at":"2022-08-18T13:02:07.000000Z"}},{"id":11,"category_id":1,"description":"essaie","image":"uploads\/20220822084549_qz_question_image.png","fr":"uploads\/20220822084549_rule_fr.mp3","ar":"uploads\/20220822084549_rule_ar.mp3","ng":"uploads\/20220822084549_rule_ng.mp3","correct":1,"created_at":"2022-08-22T08:45:49.000000Z","updated_at":"2022-08-22T08:45:49.000000Z","category":{"id":1,"name":"FRV","image":"uploads\/20220818130207_.png","created_at":"2022-08-18T13:02:07.000000Z","updated_at":"2022-08-18T13:02:07.000000Z"}},{"id":12,"category_id":1,"description":"essaytgghh","image":"uploads\/20220822084706_qz_question_image.png","fr":"uploads\/20220822084706_rule_fr.mp3","ar":"uploads\/20220822084706_rule_ar.mp3","ng":"uploads\/20220822084706_rule_ng.mp3","correct":1,"created_at":"2022-08-22T08:47:06.000000Z","updated_at":"2022-08-22T08:47:06.000000Z","category":{"id":1,"name":"FRV","image":"uploads\/20220818130207_.png","created_at":"2022-08-18T13:02:07.000000Z","updated_at":"2022-08-18T13:02:07.000000Z"}},{"id":13,"category_id":1,"description":"Essayons encore","image":"uploads\/20220822094238_qz_question_image.png","fr":"uploads\/20220822094238_rule_fr.mp3","ar":"uploads\/20220822094238_rule_ar.mp3","ng":"uploads\/20220822094238_rule_ng.mp3","correct":1,"created_at":"2022-08-22T09:42:38.000000Z","updated_at":"2022-08-22T09:42:38.000000Z","category":{"id":1,"name":"FRV","image":"uploads\/20220818130207_.png","created_at":"2022-08-18T13:02:07.000000Z","updated_at":"2022-08-18T13:02:07.000000Z"}}]'
+        content: '[]'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
           x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '41'
+          x-ratelimit-remaining: '52'
           access-control-allow-origin: '*'
         description: null
     responseFields: []
@@ -441,7 +480,7 @@ endpoints:
         name: id
         description: 'The ID of the quiz.'
         required: true
-        example: sunt
+        example: '9942'
         type: string
         custom: []
     queryParameters: []
@@ -454,7 +493,7 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '40'
+          x-ratelimit-remaining: '51'
           access-control-allow-origin: '*'
         description: null
     responseFields: []
@@ -475,7 +514,7 @@ endpoints:
         name: category_id
         description: 'The ID of the category.'
         required: true
-        example: quidem
+        example: '2'
         type: string
         custom: []
     queryParameters: []
@@ -488,7 +527,7 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '38'
+          x-ratelimit-remaining: '49'
           access-control-allow-origin: '*'
         description: null
     responseFields: []
@@ -510,12 +549,12 @@ endpoints:
     responses:
       -
         status: 200
-        content: '[{"id":1,"employee_id":1,"quiz_question_id":1,"correct":1,"created_at":"2022-08-18T13:16:51.000000Z","updated_at":"2022-08-18T13:16:51.000000Z","employee":{"id":1,"contractor_id":1,"name":"Gnandal","phone":"5866662","uid":"6655","password":"7548","created_at":"2022-08-18T13:04:36.000000Z","updated_at":"2022-08-18T13:04:36.000000Z"},"quiz_question":{"id":1,"category_id":1,"description":"kjfjd","image":"uploads\/20220818130554_qz_question_image.png","fr":"uploads\/20220818130554_qz_question_fr.mp3","ar":"uploads\/20220818130554_qz_question_ar.mp3","ng":"uploads\/20220818130554_qz_question_ng.mp3","correct":1,"created_at":"2022-08-18T13:05:54.000000Z","updated_at":"2022-08-18T17:26:32.000000Z"}},{"id":2,"employee_id":1,"quiz_question_id":2,"correct":1,"created_at":"2022-08-18T13:17:03.000000Z","updated_at":"2022-08-18T13:17:03.000000Z","employee":{"id":1,"contractor_id":1,"name":"Gnandal","phone":"5866662","uid":"6655","password":"7548","created_at":"2022-08-18T13:04:36.000000Z","updated_at":"2022-08-18T13:04:36.000000Z"},"quiz_question":{"id":2,"category_id":1,"description":"Quiz 1","image":"uploads\/20220818131027_qz_question_image.png","fr":"uploads\/20220818131027_qz_question_fr.mp3","ar":"uploads\/20220818131027_qz_question_ar.mp3","ng":"uploads\/20220818131027_qz_question_ng.mp3","correct":0,"created_at":"2022-08-18T13:10:27.000000Z","updated_at":"2022-08-18T17:18:33.000000Z"}},{"id":3,"employee_id":2,"quiz_question_id":1,"correct":1,"created_at":"2022-08-18T13:17:16.000000Z","updated_at":"2022-08-18T13:17:16.000000Z","employee":{"id":2,"contractor_id":1,"name":"Ismael","phone":"5866662","uid":"1808","password":"9816","created_at":"2022-08-18T13:04:54.000000Z","updated_at":"2022-08-18T13:04:54.000000Z"},"quiz_question":{"id":1,"category_id":1,"description":"kjfjd","image":"uploads\/20220818130554_qz_question_image.png","fr":"uploads\/20220818130554_qz_question_fr.mp3","ar":"uploads\/20220818130554_qz_question_ar.mp3","ng":"uploads\/20220818130554_qz_question_ng.mp3","correct":1,"created_at":"2022-08-18T13:05:54.000000Z","updated_at":"2022-08-18T17:26:32.000000Z"}},{"id":4,"employee_id":1,"quiz_question_id":4,"correct":1,"created_at":"2022-08-18T13:17:36.000000Z","updated_at":"2022-08-18T13:17:36.000000Z","employee":{"id":1,"contractor_id":1,"name":"Gnandal","phone":"5866662","uid":"6655","password":"7548","created_at":"2022-08-18T13:04:36.000000Z","updated_at":"2022-08-18T13:04:36.000000Z"},"quiz_question":{"id":4,"category_id":1,"description":"Quiz 1","image":"uploads\/20220818131439_qz_question_image.png","fr":"uploads\/20220818131439_qz_question_fr.mp3","ar":"uploads\/20220818131439_qz_question_ar.mp3","ng":"uploads\/20220818131439_qz_question_ng.mp3","correct":0,"created_at":"2022-08-18T13:14:39.000000Z","updated_at":"2022-08-18T13:14:39.000000Z"}}]'
+        content: '[]'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
           x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '37'
+          x-ratelimit-remaining: '48'
           access-control-allow-origin: '*'
         description: null
     responseFields: []
@@ -541,7 +580,7 @@ endpoints:
       - GET
     uri: 'api/v1/responses/{id}'
     metadata:
-      title: 'Display the employee_quiz_response resource.'
+      title: 'Display the Driver_quiz_response resource.'
       description: ''
       authenticated: false
       custom: []
@@ -553,7 +592,7 @@ endpoints:
         name: id
         description: 'The ID of the response.'
         required: true
-        example: temporibus
+        example: quisquam
         type: string
         custom: []
     queryParameters: []
@@ -561,12 +600,12 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"id":1,"employee_id":1,"quiz_question_id":1,"correct":1,"created_at":"2022-08-18T13:16:51.000000Z","updated_at":"2022-08-18T13:16:51.000000Z","employee":{"id":1,"contractor_id":1,"name":"Gnandal","phone":"5866662","uid":"6655","password":"7548","created_at":"2022-08-18T13:04:36.000000Z","updated_at":"2022-08-18T13:04:36.000000Z"},"quiz_question":{"id":1,"category_id":1,"description":"kjfjd","image":"uploads\/20220818130554_qz_question_image.png","fr":"uploads\/20220818130554_qz_question_fr.mp3","ar":"uploads\/20220818130554_qz_question_ar.mp3","ng":"uploads\/20220818130554_qz_question_ng.mp3","correct":1,"created_at":"2022-08-18T13:05:54.000000Z","updated_at":"2022-08-18T17:26:32.000000Z"}}'
+        content: '{}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
           x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '36'
+          x-ratelimit-remaining: '47'
           access-control-allow-origin: '*'
         description: null
     responseFields: []
@@ -576,7 +615,7 @@ endpoints:
       - PATCH
     uri: 'api/v1/responses/{id}'
     metadata:
-      title: 'Update the employee_quiz_response in storage.'
+      title: 'Update the Driver_quiz_response in storage.'
       description: ''
       authenticated: false
       custom: []
@@ -588,7 +627,7 @@ endpoints:
         name: id
         description: 'The ID of the response.'
         required: true
-        example: ut
+        example: doloremque
         type: string
         custom: []
     queryParameters: []
@@ -598,7 +637,580 @@ endpoints:
   -
     httpMethods:
       - GET
-    uri: 'api/v1/quizzes/{employee_id}/notanswered'
+    uri: 'api/v1/drivers/{driver_id}/rules/{rule_id}'
+    metadata:
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      driver_id:
+        name: driver_id
+        description: 'The ID of the driver.'
+        required: true
+        example: 1
+        type: integer
+        custom: []
+      rule_id:
+        name: rule_id
+        description: 'The ID of the rule.'
+        required: true
+        example: 48
+        type: integer
+        custom: []
+    queryParameters: []
+    bodyParameters: []
+    responses:
+      -
+        status: 500
+        content: |-
+          {
+              "message": "Attempt to read property \"category_id\" on null",
+              "exception": "ErrorException",
+              "file": "/home/chad/laravel-workspace/safetyapp_web/routes/api.php",
+              "line": 95,
+              "trace": [
+                  {
+                      "file": "/home/chad/laravel-workspace/safetyapp_web/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php",
+                      "line": 259,
+                      "function": "handleError",
+                      "class": "Illuminate\\Foundation\\Bootstrap\\HandleExceptions",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/chad/laravel-workspace/safetyapp_web/routes/api.php",
+                      "line": 95,
+                      "function": "Illuminate\\Foundation\\Bootstrap\\{closure}",
+                      "class": "Illuminate\\Foundation\\Bootstrap\\HandleExceptions",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/chad/laravel-workspace/safetyapp_web/vendor/laravel/framework/src/Illuminate/Routing/CallableDispatcher.php",
+                      "line": 40,
+                      "function": "{closure}",
+                      "class": "Illuminate\\Routing\\RouteFileRegistrar",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/chad/laravel-workspace/safetyapp_web/vendor/laravel/framework/src/Illuminate/Routing/Route.php",
+                      "line": 236,
+                      "function": "dispatch",
+                      "class": "Illuminate\\Routing\\CallableDispatcher",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/chad/laravel-workspace/safetyapp_web/vendor/laravel/framework/src/Illuminate/Routing/Route.php",
+                      "line": 207,
+                      "function": "runCallable",
+                      "class": "Illuminate\\Routing\\Route",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/chad/laravel-workspace/safetyapp_web/vendor/laravel/framework/src/Illuminate/Routing/Router.php",
+                      "line": 725,
+                      "function": "run",
+                      "class": "Illuminate\\Routing\\Route",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/chad/laravel-workspace/safetyapp_web/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
+                      "line": 141,
+                      "function": "Illuminate\\Routing\\{closure}",
+                      "class": "Illuminate\\Routing\\Router",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/chad/laravel-workspace/safetyapp_web/vendor/laravel/framework/src/Illuminate/Routing/Middleware/SubstituteBindings.php",
+                      "line": 50,
+                      "function": "Illuminate\\Pipeline\\{closure}",
+                      "class": "Illuminate\\Pipeline\\Pipeline",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/chad/laravel-workspace/safetyapp_web/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
+                      "line": 180,
+                      "function": "handle",
+                      "class": "Illuminate\\Routing\\Middleware\\SubstituteBindings",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/chad/laravel-workspace/safetyapp_web/vendor/laravel/framework/src/Illuminate/Routing/Middleware/ThrottleRequests.php",
+                      "line": 126,
+                      "function": "Illuminate\\Pipeline\\{closure}",
+                      "class": "Illuminate\\Pipeline\\Pipeline",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/chad/laravel-workspace/safetyapp_web/vendor/laravel/framework/src/Illuminate/Routing/Middleware/ThrottleRequests.php",
+                      "line": 102,
+                      "function": "handleRequest",
+                      "class": "Illuminate\\Routing\\Middleware\\ThrottleRequests",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/chad/laravel-workspace/safetyapp_web/vendor/laravel/framework/src/Illuminate/Routing/Middleware/ThrottleRequests.php",
+                      "line": 54,
+                      "function": "handleRequestUsingNamedLimiter",
+                      "class": "Illuminate\\Routing\\Middleware\\ThrottleRequests",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/chad/laravel-workspace/safetyapp_web/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
+                      "line": 180,
+                      "function": "handle",
+                      "class": "Illuminate\\Routing\\Middleware\\ThrottleRequests",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/chad/laravel-workspace/safetyapp_web/vendor/laravel/sanctum/src/Http/Middleware/EnsureFrontendRequestsAreStateful.php",
+                      "line": 33,
+                      "function": "Illuminate\\Pipeline\\{closure}",
+                      "class": "Illuminate\\Pipeline\\Pipeline",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/chad/laravel-workspace/safetyapp_web/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
+                      "line": 141,
+                      "function": "Laravel\\Sanctum\\Http\\Middleware\\{closure}",
+                      "class": "Laravel\\Sanctum\\Http\\Middleware\\EnsureFrontendRequestsAreStateful",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/chad/laravel-workspace/safetyapp_web/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
+                      "line": 116,
+                      "function": "Illuminate\\Pipeline\\{closure}",
+                      "class": "Illuminate\\Pipeline\\Pipeline",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/chad/laravel-workspace/safetyapp_web/vendor/laravel/sanctum/src/Http/Middleware/EnsureFrontendRequestsAreStateful.php",
+                      "line": 34,
+                      "function": "then",
+                      "class": "Illuminate\\Pipeline\\Pipeline",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/chad/laravel-workspace/safetyapp_web/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
+                      "line": 180,
+                      "function": "handle",
+                      "class": "Laravel\\Sanctum\\Http\\Middleware\\EnsureFrontendRequestsAreStateful",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/chad/laravel-workspace/safetyapp_web/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
+                      "line": 116,
+                      "function": "Illuminate\\Pipeline\\{closure}",
+                      "class": "Illuminate\\Pipeline\\Pipeline",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/chad/laravel-workspace/safetyapp_web/vendor/laravel/framework/src/Illuminate/Routing/Router.php",
+                      "line": 726,
+                      "function": "then",
+                      "class": "Illuminate\\Pipeline\\Pipeline",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/chad/laravel-workspace/safetyapp_web/vendor/laravel/framework/src/Illuminate/Routing/Router.php",
+                      "line": 703,
+                      "function": "runRouteWithinStack",
+                      "class": "Illuminate\\Routing\\Router",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/chad/laravel-workspace/safetyapp_web/vendor/laravel/framework/src/Illuminate/Routing/Router.php",
+                      "line": 667,
+                      "function": "runRoute",
+                      "class": "Illuminate\\Routing\\Router",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/chad/laravel-workspace/safetyapp_web/vendor/laravel/framework/src/Illuminate/Routing/Router.php",
+                      "line": 656,
+                      "function": "dispatchToRoute",
+                      "class": "Illuminate\\Routing\\Router",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/chad/laravel-workspace/safetyapp_web/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php",
+                      "line": 190,
+                      "function": "dispatch",
+                      "class": "Illuminate\\Routing\\Router",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/chad/laravel-workspace/safetyapp_web/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
+                      "line": 141,
+                      "function": "Illuminate\\Foundation\\Http\\{closure}",
+                      "class": "Illuminate\\Foundation\\Http\\Kernel",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/chad/laravel-workspace/safetyapp_web/vendor/livewire/livewire/src/DisableBrowserCache.php",
+                      "line": 19,
+                      "function": "Illuminate\\Pipeline\\{closure}",
+                      "class": "Illuminate\\Pipeline\\Pipeline",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/chad/laravel-workspace/safetyapp_web/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
+                      "line": 180,
+                      "function": "handle",
+                      "class": "Livewire\\DisableBrowserCache",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/chad/laravel-workspace/safetyapp_web/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php",
+                      "line": 21,
+                      "function": "Illuminate\\Pipeline\\{closure}",
+                      "class": "Illuminate\\Pipeline\\Pipeline",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/chad/laravel-workspace/safetyapp_web/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ConvertEmptyStringsToNull.php",
+                      "line": 31,
+                      "function": "handle",
+                      "class": "Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/chad/laravel-workspace/safetyapp_web/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
+                      "line": 180,
+                      "function": "handle",
+                      "class": "Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/chad/laravel-workspace/safetyapp_web/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php",
+                      "line": 21,
+                      "function": "Illuminate\\Pipeline\\{closure}",
+                      "class": "Illuminate\\Pipeline\\Pipeline",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/chad/laravel-workspace/safetyapp_web/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TrimStrings.php",
+                      "line": 40,
+                      "function": "handle",
+                      "class": "Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/chad/laravel-workspace/safetyapp_web/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
+                      "line": 180,
+                      "function": "handle",
+                      "class": "Illuminate\\Foundation\\Http\\Middleware\\TrimStrings",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/chad/laravel-workspace/safetyapp_web/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ValidatePostSize.php",
+                      "line": 27,
+                      "function": "Illuminate\\Pipeline\\{closure}",
+                      "class": "Illuminate\\Pipeline\\Pipeline",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/chad/laravel-workspace/safetyapp_web/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
+                      "line": 180,
+                      "function": "handle",
+                      "class": "Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/chad/laravel-workspace/safetyapp_web/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/PreventRequestsDuringMaintenance.php",
+                      "line": 86,
+                      "function": "Illuminate\\Pipeline\\{closure}",
+                      "class": "Illuminate\\Pipeline\\Pipeline",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/chad/laravel-workspace/safetyapp_web/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
+                      "line": 180,
+                      "function": "handle",
+                      "class": "Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/chad/laravel-workspace/safetyapp_web/vendor/fruitcake/laravel-cors/src/HandleCors.php",
+                      "line": 52,
+                      "function": "Illuminate\\Pipeline\\{closure}",
+                      "class": "Illuminate\\Pipeline\\Pipeline",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/chad/laravel-workspace/safetyapp_web/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
+                      "line": 180,
+                      "function": "handle",
+                      "class": "Fruitcake\\Cors\\HandleCors",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/chad/laravel-workspace/safetyapp_web/vendor/laravel/framework/src/Illuminate/Http/Middleware/TrustProxies.php",
+                      "line": 39,
+                      "function": "Illuminate\\Pipeline\\{closure}",
+                      "class": "Illuminate\\Pipeline\\Pipeline",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/chad/laravel-workspace/safetyapp_web/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
+                      "line": 180,
+                      "function": "handle",
+                      "class": "Illuminate\\Http\\Middleware\\TrustProxies",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/chad/laravel-workspace/safetyapp_web/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
+                      "line": 116,
+                      "function": "Illuminate\\Pipeline\\{closure}",
+                      "class": "Illuminate\\Pipeline\\Pipeline",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/chad/laravel-workspace/safetyapp_web/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php",
+                      "line": 165,
+                      "function": "then",
+                      "class": "Illuminate\\Pipeline\\Pipeline",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/chad/laravel-workspace/safetyapp_web/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php",
+                      "line": 134,
+                      "function": "sendRequestThroughRouter",
+                      "class": "Illuminate\\Foundation\\Http\\Kernel",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/chad/laravel-workspace/safetyapp_web/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php",
+                      "line": 299,
+                      "function": "handle",
+                      "class": "Illuminate\\Foundation\\Http\\Kernel",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/chad/laravel-workspace/safetyapp_web/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php",
+                      "line": 287,
+                      "function": "callLaravelOrLumenRoute",
+                      "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/chad/laravel-workspace/safetyapp_web/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php",
+                      "line": 89,
+                      "function": "makeApiCall",
+                      "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/chad/laravel-workspace/safetyapp_web/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php",
+                      "line": 45,
+                      "function": "makeResponseCall",
+                      "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/chad/laravel-workspace/safetyapp_web/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php",
+                      "line": 35,
+                      "function": "makeResponseCallIfConditionsPass",
+                      "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/chad/laravel-workspace/safetyapp_web/vendor/knuckleswtf/scribe/src/Extracting/Extractor.php",
+                      "line": 222,
+                      "function": "__invoke",
+                      "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/chad/laravel-workspace/safetyapp_web/vendor/knuckleswtf/scribe/src/Extracting/Extractor.php",
+                      "line": 179,
+                      "function": "iterateThroughStrategies",
+                      "class": "Knuckles\\Scribe\\Extracting\\Extractor",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/chad/laravel-workspace/safetyapp_web/vendor/knuckleswtf/scribe/src/Extracting/Extractor.php",
+                      "line": 116,
+                      "function": "fetchResponses",
+                      "class": "Knuckles\\Scribe\\Extracting\\Extractor",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/chad/laravel-workspace/safetyapp_web/vendor/knuckleswtf/scribe/src/GroupedEndpoints/GroupedEndpointsFromApp.php",
+                      "line": 123,
+                      "function": "processRoute",
+                      "class": "Knuckles\\Scribe\\Extracting\\Extractor",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/chad/laravel-workspace/safetyapp_web/vendor/knuckleswtf/scribe/src/GroupedEndpoints/GroupedEndpointsFromApp.php",
+                      "line": 80,
+                      "function": "extractEndpointsInfoFromLaravelApp",
+                      "class": "Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/chad/laravel-workspace/safetyapp_web/vendor/knuckleswtf/scribe/src/GroupedEndpoints/GroupedEndpointsFromApp.php",
+                      "line": 56,
+                      "function": "extractEndpointsInfoAndWriteToDisk",
+                      "class": "Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/chad/laravel-workspace/safetyapp_web/vendor/knuckleswtf/scribe/src/Commands/GenerateDocumentation.php",
+                      "line": 55,
+                      "function": "get",
+                      "class": "Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/chad/laravel-workspace/safetyapp_web/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php",
+                      "line": 36,
+                      "function": "handle",
+                      "class": "Knuckles\\Scribe\\Commands\\GenerateDocumentation",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/chad/laravel-workspace/safetyapp_web/vendor/laravel/framework/src/Illuminate/Container/Util.php",
+                      "line": 41,
+                      "function": "Illuminate\\Container\\{closure}",
+                      "class": "Illuminate\\Container\\BoundMethod",
+                      "type": "::"
+                  },
+                  {
+                      "file": "/home/chad/laravel-workspace/safetyapp_web/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php",
+                      "line": 93,
+                      "function": "unwrapIfClosure",
+                      "class": "Illuminate\\Container\\Util",
+                      "type": "::"
+                  },
+                  {
+                      "file": "/home/chad/laravel-workspace/safetyapp_web/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php",
+                      "line": 37,
+                      "function": "callBoundMethod",
+                      "class": "Illuminate\\Container\\BoundMethod",
+                      "type": "::"
+                  },
+                  {
+                      "file": "/home/chad/laravel-workspace/safetyapp_web/vendor/laravel/framework/src/Illuminate/Container/Container.php",
+                      "line": 651,
+                      "function": "call",
+                      "class": "Illuminate\\Container\\BoundMethod",
+                      "type": "::"
+                  },
+                  {
+                      "file": "/home/chad/laravel-workspace/safetyapp_web/vendor/laravel/framework/src/Illuminate/Console/Command.php",
+                      "line": 144,
+                      "function": "call",
+                      "class": "Illuminate\\Container\\Container",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/chad/laravel-workspace/safetyapp_web/vendor/symfony/console/Command/Command.php",
+                      "line": 291,
+                      "function": "execute",
+                      "class": "Illuminate\\Console\\Command",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/chad/laravel-workspace/safetyapp_web/vendor/laravel/framework/src/Illuminate/Console/Command.php",
+                      "line": 126,
+                      "function": "run",
+                      "class": "Symfony\\Component\\Console\\Command\\Command",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/chad/laravel-workspace/safetyapp_web/vendor/symfony/console/Application.php",
+                      "line": 1002,
+                      "function": "run",
+                      "class": "Illuminate\\Console\\Command",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/chad/laravel-workspace/safetyapp_web/vendor/symfony/console/Application.php",
+                      "line": 299,
+                      "function": "doRunCommand",
+                      "class": "Symfony\\Component\\Console\\Application",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/chad/laravel-workspace/safetyapp_web/vendor/symfony/console/Application.php",
+                      "line": 171,
+                      "function": "doRun",
+                      "class": "Symfony\\Component\\Console\\Application",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/chad/laravel-workspace/safetyapp_web/vendor/laravel/framework/src/Illuminate/Console/Application.php",
+                      "line": 102,
+                      "function": "run",
+                      "class": "Symfony\\Component\\Console\\Application",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/chad/laravel-workspace/safetyapp_web/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php",
+                      "line": 151,
+                      "function": "run",
+                      "class": "Illuminate\\Console\\Application",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/chad/laravel-workspace/safetyapp_web/artisan",
+                      "line": 37,
+                      "function": "handle",
+                      "class": "Illuminate\\Foundation\\Console\\Kernel",
+                      "type": "->"
+                  }
+              ]
+          }
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-ratelimit-limit: '60'
+          x-ratelimit-remaining: '54'
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/v1/drivers/{driver_id}/presence'
+    metadata:
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      driver_id:
+        name: driver_id
+        description: 'The ID of the driver.'
+        required: true
+        example: 1
+        type: integer
+        custom: []
+    queryParameters: []
+    bodyParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"status":true}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-ratelimit-limit: '60'
+          x-ratelimit-remaining: '53'
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/v1/quizzes/{driver_id}/notanswered'
     metadata:
       title: 'Show question that employee with current id didn''t answer yet.'
       description: ''
@@ -608,11 +1220,11 @@ endpoints:
       Content-Type: application/json
       Accept: application/json
     urlParameters:
-      employee_id:
-        name: employee_id
-        description: 'The ID of the employee.'
+      driver_id:
+        name: driver_id
+        description: 'The ID of the driver.'
         required: true
-        example: enim
+        example: '203910'
         type: string
         custom: []
     queryParameters: []
@@ -620,12 +1232,443 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"id":1,"category_id":1,"description":"kjfjd","image":"uploads\/20220818130554_qz_question_image.png","fr":"uploads\/20220818130554_qz_question_fr.mp3","ar":"uploads\/20220818130554_qz_question_ar.mp3","ng":"uploads\/20220818130554_qz_question_ng.mp3","correct":1,"created_at":"2022-08-18T13:05:54.000000Z","updated_at":"2022-08-18T17:26:32.000000Z"}'
+        content: '{}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
           x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '39'
+          x-ratelimit-remaining: '50'
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/v1/quizzes/{driver_id}/notanswereds   '
+    metadata:
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      driver_id:
+        name: driver_id
+        description: 'The ID of the driver.'
+        required: true
+        example: '575852'
+        type: string
+        custom: []
+    queryParameters: []
+    bodyParameters: []
+    responses:
+      -
+        status: 404
+        content: |-
+          {
+              "message": "",
+              "exception": "Symfony\\Component\\HttpKernel\\Exception\\NotFoundHttpException",
+              "file": "/home/chad/laravel-workspace/safetyapp_web/vendor/laravel/framework/src/Illuminate/Routing/AbstractRouteCollection.php",
+              "line": 44,
+              "trace": [
+                  {
+                      "file": "/home/chad/laravel-workspace/safetyapp_web/vendor/laravel/framework/src/Illuminate/Routing/RouteCollection.php",
+                      "line": 162,
+                      "function": "handleMatchedRoute",
+                      "class": "Illuminate\\Routing\\AbstractRouteCollection",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/chad/laravel-workspace/safetyapp_web/vendor/laravel/framework/src/Illuminate/Routing/Router.php",
+                      "line": 680,
+                      "function": "match",
+                      "class": "Illuminate\\Routing\\RouteCollection",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/chad/laravel-workspace/safetyapp_web/vendor/laravel/framework/src/Illuminate/Routing/Router.php",
+                      "line": 667,
+                      "function": "findRoute",
+                      "class": "Illuminate\\Routing\\Router",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/chad/laravel-workspace/safetyapp_web/vendor/laravel/framework/src/Illuminate/Routing/Router.php",
+                      "line": 656,
+                      "function": "dispatchToRoute",
+                      "class": "Illuminate\\Routing\\Router",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/chad/laravel-workspace/safetyapp_web/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php",
+                      "line": 190,
+                      "function": "dispatch",
+                      "class": "Illuminate\\Routing\\Router",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/chad/laravel-workspace/safetyapp_web/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
+                      "line": 141,
+                      "function": "Illuminate\\Foundation\\Http\\{closure}",
+                      "class": "Illuminate\\Foundation\\Http\\Kernel",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/chad/laravel-workspace/safetyapp_web/vendor/livewire/livewire/src/DisableBrowserCache.php",
+                      "line": 19,
+                      "function": "Illuminate\\Pipeline\\{closure}",
+                      "class": "Illuminate\\Pipeline\\Pipeline",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/chad/laravel-workspace/safetyapp_web/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
+                      "line": 180,
+                      "function": "handle",
+                      "class": "Livewire\\DisableBrowserCache",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/chad/laravel-workspace/safetyapp_web/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php",
+                      "line": 21,
+                      "function": "Illuminate\\Pipeline\\{closure}",
+                      "class": "Illuminate\\Pipeline\\Pipeline",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/chad/laravel-workspace/safetyapp_web/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ConvertEmptyStringsToNull.php",
+                      "line": 31,
+                      "function": "handle",
+                      "class": "Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/chad/laravel-workspace/safetyapp_web/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
+                      "line": 180,
+                      "function": "handle",
+                      "class": "Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/chad/laravel-workspace/safetyapp_web/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php",
+                      "line": 21,
+                      "function": "Illuminate\\Pipeline\\{closure}",
+                      "class": "Illuminate\\Pipeline\\Pipeline",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/chad/laravel-workspace/safetyapp_web/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TrimStrings.php",
+                      "line": 40,
+                      "function": "handle",
+                      "class": "Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/chad/laravel-workspace/safetyapp_web/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
+                      "line": 180,
+                      "function": "handle",
+                      "class": "Illuminate\\Foundation\\Http\\Middleware\\TrimStrings",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/chad/laravel-workspace/safetyapp_web/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ValidatePostSize.php",
+                      "line": 27,
+                      "function": "Illuminate\\Pipeline\\{closure}",
+                      "class": "Illuminate\\Pipeline\\Pipeline",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/chad/laravel-workspace/safetyapp_web/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
+                      "line": 180,
+                      "function": "handle",
+                      "class": "Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/chad/laravel-workspace/safetyapp_web/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/PreventRequestsDuringMaintenance.php",
+                      "line": 86,
+                      "function": "Illuminate\\Pipeline\\{closure}",
+                      "class": "Illuminate\\Pipeline\\Pipeline",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/chad/laravel-workspace/safetyapp_web/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
+                      "line": 180,
+                      "function": "handle",
+                      "class": "Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/chad/laravel-workspace/safetyapp_web/vendor/fruitcake/laravel-cors/src/HandleCors.php",
+                      "line": 52,
+                      "function": "Illuminate\\Pipeline\\{closure}",
+                      "class": "Illuminate\\Pipeline\\Pipeline",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/chad/laravel-workspace/safetyapp_web/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
+                      "line": 180,
+                      "function": "handle",
+                      "class": "Fruitcake\\Cors\\HandleCors",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/chad/laravel-workspace/safetyapp_web/vendor/laravel/framework/src/Illuminate/Http/Middleware/TrustProxies.php",
+                      "line": 39,
+                      "function": "Illuminate\\Pipeline\\{closure}",
+                      "class": "Illuminate\\Pipeline\\Pipeline",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/chad/laravel-workspace/safetyapp_web/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
+                      "line": 180,
+                      "function": "handle",
+                      "class": "Illuminate\\Http\\Middleware\\TrustProxies",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/chad/laravel-workspace/safetyapp_web/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php",
+                      "line": 116,
+                      "function": "Illuminate\\Pipeline\\{closure}",
+                      "class": "Illuminate\\Pipeline\\Pipeline",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/chad/laravel-workspace/safetyapp_web/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php",
+                      "line": 165,
+                      "function": "then",
+                      "class": "Illuminate\\Pipeline\\Pipeline",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/chad/laravel-workspace/safetyapp_web/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php",
+                      "line": 134,
+                      "function": "sendRequestThroughRouter",
+                      "class": "Illuminate\\Foundation\\Http\\Kernel",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/chad/laravel-workspace/safetyapp_web/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php",
+                      "line": 299,
+                      "function": "handle",
+                      "class": "Illuminate\\Foundation\\Http\\Kernel",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/chad/laravel-workspace/safetyapp_web/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php",
+                      "line": 287,
+                      "function": "callLaravelOrLumenRoute",
+                      "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/chad/laravel-workspace/safetyapp_web/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php",
+                      "line": 89,
+                      "function": "makeApiCall",
+                      "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/chad/laravel-workspace/safetyapp_web/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php",
+                      "line": 45,
+                      "function": "makeResponseCall",
+                      "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/chad/laravel-workspace/safetyapp_web/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php",
+                      "line": 35,
+                      "function": "makeResponseCallIfConditionsPass",
+                      "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/chad/laravel-workspace/safetyapp_web/vendor/knuckleswtf/scribe/src/Extracting/Extractor.php",
+                      "line": 222,
+                      "function": "__invoke",
+                      "class": "Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/chad/laravel-workspace/safetyapp_web/vendor/knuckleswtf/scribe/src/Extracting/Extractor.php",
+                      "line": 179,
+                      "function": "iterateThroughStrategies",
+                      "class": "Knuckles\\Scribe\\Extracting\\Extractor",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/chad/laravel-workspace/safetyapp_web/vendor/knuckleswtf/scribe/src/Extracting/Extractor.php",
+                      "line": 116,
+                      "function": "fetchResponses",
+                      "class": "Knuckles\\Scribe\\Extracting\\Extractor",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/chad/laravel-workspace/safetyapp_web/vendor/knuckleswtf/scribe/src/GroupedEndpoints/GroupedEndpointsFromApp.php",
+                      "line": 123,
+                      "function": "processRoute",
+                      "class": "Knuckles\\Scribe\\Extracting\\Extractor",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/chad/laravel-workspace/safetyapp_web/vendor/knuckleswtf/scribe/src/GroupedEndpoints/GroupedEndpointsFromApp.php",
+                      "line": 80,
+                      "function": "extractEndpointsInfoFromLaravelApp",
+                      "class": "Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/chad/laravel-workspace/safetyapp_web/vendor/knuckleswtf/scribe/src/GroupedEndpoints/GroupedEndpointsFromApp.php",
+                      "line": 56,
+                      "function": "extractEndpointsInfoAndWriteToDisk",
+                      "class": "Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/chad/laravel-workspace/safetyapp_web/vendor/knuckleswtf/scribe/src/Commands/GenerateDocumentation.php",
+                      "line": 55,
+                      "function": "get",
+                      "class": "Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/chad/laravel-workspace/safetyapp_web/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php",
+                      "line": 36,
+                      "function": "handle",
+                      "class": "Knuckles\\Scribe\\Commands\\GenerateDocumentation",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/chad/laravel-workspace/safetyapp_web/vendor/laravel/framework/src/Illuminate/Container/Util.php",
+                      "line": 41,
+                      "function": "Illuminate\\Container\\{closure}",
+                      "class": "Illuminate\\Container\\BoundMethod",
+                      "type": "::"
+                  },
+                  {
+                      "file": "/home/chad/laravel-workspace/safetyapp_web/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php",
+                      "line": 93,
+                      "function": "unwrapIfClosure",
+                      "class": "Illuminate\\Container\\Util",
+                      "type": "::"
+                  },
+                  {
+                      "file": "/home/chad/laravel-workspace/safetyapp_web/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php",
+                      "line": 37,
+                      "function": "callBoundMethod",
+                      "class": "Illuminate\\Container\\BoundMethod",
+                      "type": "::"
+                  },
+                  {
+                      "file": "/home/chad/laravel-workspace/safetyapp_web/vendor/laravel/framework/src/Illuminate/Container/Container.php",
+                      "line": 651,
+                      "function": "call",
+                      "class": "Illuminate\\Container\\BoundMethod",
+                      "type": "::"
+                  },
+                  {
+                      "file": "/home/chad/laravel-workspace/safetyapp_web/vendor/laravel/framework/src/Illuminate/Console/Command.php",
+                      "line": 144,
+                      "function": "call",
+                      "class": "Illuminate\\Container\\Container",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/chad/laravel-workspace/safetyapp_web/vendor/symfony/console/Command/Command.php",
+                      "line": 291,
+                      "function": "execute",
+                      "class": "Illuminate\\Console\\Command",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/chad/laravel-workspace/safetyapp_web/vendor/laravel/framework/src/Illuminate/Console/Command.php",
+                      "line": 126,
+                      "function": "run",
+                      "class": "Symfony\\Component\\Console\\Command\\Command",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/chad/laravel-workspace/safetyapp_web/vendor/symfony/console/Application.php",
+                      "line": 1002,
+                      "function": "run",
+                      "class": "Illuminate\\Console\\Command",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/chad/laravel-workspace/safetyapp_web/vendor/symfony/console/Application.php",
+                      "line": 299,
+                      "function": "doRunCommand",
+                      "class": "Symfony\\Component\\Console\\Application",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/chad/laravel-workspace/safetyapp_web/vendor/symfony/console/Application.php",
+                      "line": 171,
+                      "function": "doRun",
+                      "class": "Symfony\\Component\\Console\\Application",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/chad/laravel-workspace/safetyapp_web/vendor/laravel/framework/src/Illuminate/Console/Application.php",
+                      "line": 102,
+                      "function": "run",
+                      "class": "Symfony\\Component\\Console\\Application",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/chad/laravel-workspace/safetyapp_web/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php",
+                      "line": 151,
+                      "function": "run",
+                      "class": "Illuminate\\Console\\Application",
+                      "type": "->"
+                  },
+                  {
+                      "file": "/home/chad/laravel-workspace/safetyapp_web/artisan",
+                      "line": 37,
+                      "function": "handle",
+                      "class": "Illuminate\\Foundation\\Console\\Kernel",
+                      "type": "->"
+                  }
+              ]
+          }
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/v1/responses/{id}/drivers'
+    metadata:
+      title: 'Get all responses from the current user.'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the response.'
+        required: true
+        example: '58473091'
+        type: string
+        custom: []
+    queryParameters: []
+    bodyParameters: []
+    responses:
+      -
+        status: 200
+        content: '{}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-ratelimit-limit: '60'
+          x-ratelimit-remaining: '45'
           access-control-allow-origin: '*'
         description: null
     responseFields: []

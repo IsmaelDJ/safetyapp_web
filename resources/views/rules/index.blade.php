@@ -92,13 +92,13 @@
                                                    var result = confirm('Cette règle sera supprimée');
                                                    if(result){
                                                        event.preventDefault();
-                                                       document.getElementById('delete-form').submit();
+                                                       document.getElementById('delete-form{{$rule->id}}').submit();
                                                    }
                                                    ">
                                             Supprimer</a>
 
-                                        <form method="POST" id="delete-form"
-                                              action="{{route('rules.destroy', [$rule])}}">
+                                        <form method="POST" id="delete-form{{$rule->id}}"
+                                              action="{{route('rules.destroy', $rule)}}">
                                             @csrf
                                             <input type="hidden" name="_method" value="DELETE">
                                         </form>

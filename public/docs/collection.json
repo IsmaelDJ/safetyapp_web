@@ -5,12 +5,12 @@
             "key": "baseUrl",
             "type": "string",
             "name": "string",
-            "value": "http:\/\/localhost"
+            "value": "http:\/\/localhost:8000"
         }
     ],
     "info": {
         "name": "Laravel",
-        "_postman_id": "162b15f3-56f8-4a39-a978-da3861d618f2",
+        "_postman_id": "b08d0c11-dec6-45a3-89be-c6c9d3c42a45",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -20,7 +20,7 @@
             "description": "",
             "item": [
                 {
-                    "name": "Remove the employee_quiz_response from storage.",
+                    "name": "Remove the Driver_quiz_response from storage.",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
@@ -31,7 +31,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "placeat",
+                                    "value": "veniam",
                                     "description": "The ID of the response."
                                 }
                             ]
@@ -67,7 +67,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "ea",
+                                    "value": "9",
                                     "description": "The ID of the response."
                                 }
                             ]
@@ -106,7 +106,7 @@
                                 },
                                 {
                                     "key": "x-ratelimit-remaining",
-                                    "value": "35"
+                                    "value": "46"
                                 },
                                 {
                                     "key": "access-control-allow-origin",
@@ -115,70 +115,6 @@
                             ],
                             "code": 200,
                             "body": "[]",
-                            "name": ""
-                        }
-                    ]
-                },
-                {
-                    "name": "Get all responses from the current user.",
-                    "request": {
-                        "url": {
-                            "host": "{{baseUrl}}",
-                            "path": "api\/v1\/responses\/:id\/employees",
-                            "query": [],
-                            "raw": "{{baseUrl}}\/api\/v1\/responses\/:id\/employees",
-                            "variable": [
-                                {
-                                    "id": "id",
-                                    "key": "id",
-                                    "value": "voluptatem",
-                                    "description": "The ID of the response."
-                                }
-                            ]
-                        },
-                        "method": "GET",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": null,
-                        "description": "",
-                        "auth": {
-                            "type": "noauth"
-                        }
-                    },
-                    "response": [
-                        {
-                            "header": [
-                                {
-                                    "key": "cache-control",
-                                    "value": "no-cache, private"
-                                },
-                                {
-                                    "key": "content-type",
-                                    "value": "application\/json"
-                                },
-                                {
-                                    "key": "x-ratelimit-limit",
-                                    "value": "60"
-                                },
-                                {
-                                    "key": "x-ratelimit-remaining",
-                                    "value": "34"
-                                },
-                                {
-                                    "key": "access-control-allow-origin",
-                                    "value": "*"
-                                }
-                            ],
-                            "code": 200,
-                            "body": "{}",
                             "name": ""
                         }
                     ]
@@ -226,7 +162,7 @@
                                 }
                             ],
                             "code": 200,
-                            "body": "<!DOCTYPE html>\r\n<html lang=\"en\">\r\n<head>\r\n    <meta charset=\"UTF-8\">\r\n    <title>Total Safety API<\/title>\r\n    <link rel=\"stylesheet\" type=\"text\/css\" href=\"https:\/\/localhost\/docs\/asset\/swagger-ui.css?v=d6de32fafed0ea75ef760baa8ebe2bda\">\r\n    <link rel=\"icon\" type=\"image\/png\" href=\"https:\/\/localhost\/docs\/asset\/favicon-32x32.png?v=40d4f2c38d1cd854ad463f16373cbcb6\" sizes=\"32x32\"\/>\r\n    <link rel=\"icon\" type=\"image\/png\" href=\"https:\/\/localhost\/docs\/asset\/favicon-16x16.png?v=f0ae831196d55d8f4115b6c5e8ec5384\" sizes=\"16x16\"\/>\r\n    <style>\r\n    html\r\n    {\r\n        box-sizing: border-box;\r\n        overflow: -moz-scrollbars-vertical;\r\n        overflow-y: scroll;\r\n    }\r\n    *,\r\n    *:before,\r\n    *:after\r\n    {\r\n        box-sizing: inherit;\r\n    }\r\n\r\n    body {\r\n      margin:0;\r\n      background: #fafafa;\r\n    }\r\n    <\/style>\r\n<\/head>\r\n\r\n<body>\r\n<div id=\"swagger-ui\"><\/div>\r\n\r\n<script src=\"https:\/\/localhost\/docs\/asset\/swagger-ui-bundle.js?v=e0ae76d9795806abae1f7781d89d4f4b\"><\/script>\r\n<script src=\"https:\/\/localhost\/docs\/asset\/swagger-ui-standalone-preset.js?v=8e0e2470d0530680f6f16c7817337891\"><\/script>\r\n<script>\r\n    window.onload = function() {\r\n        \/\/ Build a system\r\n        const ui = SwaggerUIBundle({\r\n            dom_id: '#swagger-ui',\r\n            url: \"https:\/\/localhost\/docs\/api-docs.json\",\r\n            operationsSorter: null,\r\n            configUrl: null,\r\n            validatorUrl: null,\r\n            oauth2RedirectUrl: \"https:\/\/localhost\/api\/oauth2-callback\",\r\n\r\n            requestInterceptor: function(request) {\r\n                request.headers['X-CSRF-TOKEN'] = '';\r\n                return request;\r\n            },\r\n\r\n            presets: [\r\n                SwaggerUIBundle.presets.apis,\r\n                SwaggerUIStandalonePreset\r\n            ],\r\n\r\n            plugins: [\r\n                SwaggerUIBundle.plugins.DownloadUrl\r\n            ],\r\n\r\n            layout: \"StandaloneLayout\",\r\n            docExpansion : \"none\",\r\n            deepLinking: true,\r\n            filter: true,\r\n            persistAuthorization: \"false\",\r\n\r\n        })\r\n\r\n        window.ui = ui\r\n\r\n            }\r\n<\/script>\r\n<\/body>\r\n<\/html>\r\n",
+                            "body": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <title>Total Safety API<\/title>\n    <link rel=\"stylesheet\" type=\"text\/css\" href=\"http:\/\/localhost:8000\/docs\/asset\/swagger-ui.css?v=6a24e45b818fda6899992f4a31e1ec3a\">\n    <link rel=\"icon\" type=\"image\/png\" href=\"http:\/\/localhost:8000\/docs\/asset\/favicon-32x32.png?v=40d4f2c38d1cd854ad463f16373cbcb6\" sizes=\"32x32\"\/>\n    <link rel=\"icon\" type=\"image\/png\" href=\"http:\/\/localhost:8000\/docs\/asset\/favicon-16x16.png?v=f0ae831196d55d8f4115b6c5e8ec5384\" sizes=\"16x16\"\/>\n    <style>\n    html\n    {\n        box-sizing: border-box;\n        overflow: -moz-scrollbars-vertical;\n        overflow-y: scroll;\n    }\n    *,\n    *:before,\n    *:after\n    {\n        box-sizing: inherit;\n    }\n\n    body {\n      margin:0;\n      background: #fafafa;\n    }\n    <\/style>\n<\/head>\n\n<body>\n<div id=\"swagger-ui\"><\/div>\n\n<script src=\"http:\/\/localhost:8000\/docs\/asset\/swagger-ui-bundle.js?v=7db2beb83e1a0a5a728360ec186a1244\"><\/script>\n<script src=\"http:\/\/localhost:8000\/docs\/asset\/swagger-ui-standalone-preset.js?v=145fbb8d6c4c4bab4a35dd28225eec30\"><\/script>\n<script>\n    window.onload = function() {\n        \/\/ Build a system\n        const ui = SwaggerUIBundle({\n            dom_id: '#swagger-ui',\n            url: \"http:\/\/localhost:8000\/docs\/api-docs.json\",\n            operationsSorter: null,\n            configUrl: null,\n            validatorUrl: null,\n            oauth2RedirectUrl: \"http:\/\/localhost:8000\/api\/oauth2-callback\",\n\n            requestInterceptor: function(request) {\n                request.headers['X-CSRF-TOKEN'] = '';\n                return request;\n            },\n\n            presets: [\n                SwaggerUIBundle.presets.apis,\n                SwaggerUIStandalonePreset\n            ],\n\n            plugins: [\n                SwaggerUIBundle.plugins.DownloadUrl\n            ],\n\n            layout: \"StandaloneLayout\",\n            docExpansion : \"none\",\n            deepLinking: true,\n            filter: true,\n            persistAuthorization: \"false\",\n\n        })\n\n        window.ui = ui\n\n            }\n<\/script>\n<\/body>\n<\/html>\n",
                             "name": ""
                         }
                     ]
@@ -350,7 +286,7 @@
                                 },
                                 {
                                     "key": "x-ratelimit-remaining",
-                                    "value": "46"
+                                    "value": "59"
                                 },
                                 {
                                     "key": "access-control-allow-origin",
@@ -358,7 +294,7 @@
                                 }
                             ],
                             "code": 200,
-                            "body": "[{\"id\":1,\"name\":\"FRV\",\"image\":\"uploads\\\/20220818130207_.png\",\"created_at\":\"2022-08-18T13:02:07.000000Z\",\"updated_at\":\"2022-08-18T13:02:07.000000Z\"}]",
+                            "body": "[]",
                             "name": ""
                         }
                     ]
@@ -375,7 +311,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "1",
+                                    "value": "12",
                                     "description": "The ID of the category."
                                 }
                             ]
@@ -401,12 +337,12 @@
                         {
                             "header": [
                                 {
-                                    "key": "cache-control",
-                                    "value": "no-cache, private"
+                                    "key": "content-type",
+                                    "value": "text\/html; charset=UTF-8"
                                 },
                                 {
-                                    "key": "content-type",
-                                    "value": "application\/json"
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
                                 },
                                 {
                                     "key": "x-ratelimit-limit",
@@ -414,7 +350,7 @@
                                 },
                                 {
                                     "key": "x-ratelimit-remaining",
-                                    "value": "45"
+                                    "value": "58"
                                 },
                                 {
                                     "key": "access-control-allow-origin",
@@ -422,7 +358,7 @@
                                 }
                             ],
                             "code": 200,
-                            "body": "{\"id\":1,\"name\":\"FRV\",\"image\":\"uploads\\\/20220818130207_.png\",\"created_at\":\"2022-08-18T13:02:07.000000Z\",\"updated_at\":\"2022-08-18T13:02:07.000000Z\"}",
+                            "body": "",
                             "name": ""
                         }
                     ]
@@ -439,7 +375,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "1",
+                                    "value": "10",
                                     "description": "The ID of the category."
                                 }
                             ]
@@ -478,7 +414,7 @@
                                 },
                                 {
                                     "key": "x-ratelimit-remaining",
-                                    "value": "44"
+                                    "value": "57"
                                 },
                                 {
                                     "key": "access-control-allow-origin",
@@ -486,7 +422,7 @@
                                 }
                             ],
                             "code": 200,
-                            "body": "[{\"id\":1,\"category_id\":1,\"description\":\"Regle 1\",\"image\":\"uploads\\\/20220818130310_rule_image.png\",\"fr\":\"uploads\\\/20220818130310_rule_fr.mp3\",\"ar\":\"uploads\\\/20220818130310_rule_ar.mp3\",\"ng\":\"uploads\\\/20220818130310_rule_ng.mp3\",\"created_at\":\"2022-08-18T13:03:10.000000Z\",\"updated_at\":\"2022-08-18T13:03:10.000000Z\"},{\"id\":2,\"category_id\":1,\"description\":\"Regle 2\",\"image\":\"uploads\\\/20220818130404_rule_image.png\",\"fr\":\"uploads\\\/20220818130404_rule_fr.mp3\",\"ar\":\"uploads\\\/20220818130404_rule_ar.mp3\",\"ng\":\"uploads\\\/20220818130404_rule_ng.mp3\",\"created_at\":\"2022-08-18T13:04:04.000000Z\",\"updated_at\":\"2022-08-18T13:04:04.000000Z\"}]",
+                            "body": "[]",
                             "name": ""
                         }
                     ]
@@ -534,7 +470,7 @@
                                 },
                                 {
                                     "key": "x-ratelimit-remaining",
-                                    "value": "43"
+                                    "value": "56"
                                 },
                                 {
                                     "key": "access-control-allow-origin",
@@ -542,7 +478,7 @@
                                 }
                             ],
                             "code": 200,
-                            "body": "[{\"id\":1,\"category_id\":1,\"description\":\"Regle 1\",\"image\":\"uploads\\\/20220818130310_rule_image.png\",\"fr\":\"uploads\\\/20220818130310_rule_fr.mp3\",\"ar\":\"uploads\\\/20220818130310_rule_ar.mp3\",\"ng\":\"uploads\\\/20220818130310_rule_ng.mp3\",\"created_at\":\"2022-08-18T13:03:10.000000Z\",\"updated_at\":\"2022-08-18T13:03:10.000000Z\"},{\"id\":2,\"category_id\":1,\"description\":\"Regle 2\",\"image\":\"uploads\\\/20220818130404_rule_image.png\",\"fr\":\"uploads\\\/20220818130404_rule_fr.mp3\",\"ar\":\"uploads\\\/20220818130404_rule_ar.mp3\",\"ng\":\"uploads\\\/20220818130404_rule_ng.mp3\",\"created_at\":\"2022-08-18T13:04:04.000000Z\",\"updated_at\":\"2022-08-18T13:04:04.000000Z\"}]",
+                            "body": "[]",
                             "name": ""
                         }
                     ]
@@ -559,7 +495,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "1",
+                                    "value": "16",
                                     "description": "The ID of the rule."
                                 }
                             ]
@@ -585,12 +521,12 @@
                         {
                             "header": [
                                 {
-                                    "key": "cache-control",
-                                    "value": "no-cache, private"
+                                    "key": "content-type",
+                                    "value": "text\/html; charset=UTF-8"
                                 },
                                 {
-                                    "key": "content-type",
-                                    "value": "application\/json"
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
                                 },
                                 {
                                     "key": "x-ratelimit-limit",
@@ -598,7 +534,7 @@
                                 },
                                 {
                                     "key": "x-ratelimit-remaining",
-                                    "value": "42"
+                                    "value": "55"
                                 },
                                 {
                                     "key": "access-control-allow-origin",
@@ -606,7 +542,7 @@
                                 }
                             ],
                             "code": 200,
-                            "body": "{\"id\":1,\"category_id\":1,\"description\":\"Regle 1\",\"image\":\"uploads\\\/20220818130310_rule_image.png\",\"fr\":\"uploads\\\/20220818130310_rule_fr.mp3\",\"ar\":\"uploads\\\/20220818130310_rule_ar.mp3\",\"ng\":\"uploads\\\/20220818130310_rule_ng.mp3\",\"created_at\":\"2022-08-18T13:03:10.000000Z\",\"updated_at\":\"2022-08-18T13:03:10.000000Z\"}",
+                            "body": "",
                             "name": ""
                         }
                     ]
@@ -654,7 +590,7 @@
                                 },
                                 {
                                     "key": "x-ratelimit-remaining",
-                                    "value": "41"
+                                    "value": "52"
                                 },
                                 {
                                     "key": "access-control-allow-origin",
@@ -662,7 +598,7 @@
                                 }
                             ],
                             "code": 200,
-                            "body": "[{\"id\":1,\"category_id\":1,\"description\":\"kjfjd\",\"image\":\"uploads\\\/20220818130554_qz_question_image.png\",\"fr\":\"uploads\\\/20220818130554_qz_question_fr.mp3\",\"ar\":\"uploads\\\/20220818130554_qz_question_ar.mp3\",\"ng\":\"uploads\\\/20220818130554_qz_question_ng.mp3\",\"correct\":1,\"created_at\":\"2022-08-18T13:05:54.000000Z\",\"updated_at\":\"2022-08-18T17:26:32.000000Z\",\"category\":{\"id\":1,\"name\":\"FRV\",\"image\":\"uploads\\\/20220818130207_.png\",\"created_at\":\"2022-08-18T13:02:07.000000Z\",\"updated_at\":\"2022-08-18T13:02:07.000000Z\"}},{\"id\":2,\"category_id\":1,\"description\":\"Quiz 1\",\"image\":\"uploads\\\/20220818131027_qz_question_image.png\",\"fr\":\"uploads\\\/20220818131027_qz_question_fr.mp3\",\"ar\":\"uploads\\\/20220818131027_qz_question_ar.mp3\",\"ng\":\"uploads\\\/20220818131027_qz_question_ng.mp3\",\"correct\":0,\"created_at\":\"2022-08-18T13:10:27.000000Z\",\"updated_at\":\"2022-08-18T17:18:33.000000Z\",\"category\":{\"id\":1,\"name\":\"FRV\",\"image\":\"uploads\\\/20220818130207_.png\",\"created_at\":\"2022-08-18T13:02:07.000000Z\",\"updated_at\":\"2022-08-18T13:02:07.000000Z\"}},{\"id\":3,\"category_id\":1,\"description\":\"Quiz 1\",\"image\":\"uploads\\\/20220818131259_qz_question_image.png\",\"fr\":\"uploads\\\/20220818131259_qz_question_fr.mp3\",\"ar\":\"uploads\\\/20220818131259_qz_question_ar.mp3\",\"ng\":\"uploads\\\/20220818131259_qz_question_ng.mp3\",\"correct\":0,\"created_at\":\"2022-08-18T13:12:59.000000Z\",\"updated_at\":\"2022-08-18T13:12:59.000000Z\",\"category\":{\"id\":1,\"name\":\"FRV\",\"image\":\"uploads\\\/20220818130207_.png\",\"created_at\":\"2022-08-18T13:02:07.000000Z\",\"updated_at\":\"2022-08-18T13:02:07.000000Z\"}},{\"id\":4,\"category_id\":1,\"description\":\"Quiz 1\",\"image\":\"uploads\\\/20220818131439_qz_question_image.png\",\"fr\":\"uploads\\\/20220818131439_qz_question_fr.mp3\",\"ar\":\"uploads\\\/20220818131439_qz_question_ar.mp3\",\"ng\":\"uploads\\\/20220818131439_qz_question_ng.mp3\",\"correct\":0,\"created_at\":\"2022-08-18T13:14:39.000000Z\",\"updated_at\":\"2022-08-18T13:14:39.000000Z\",\"category\":{\"id\":1,\"name\":\"FRV\",\"image\":\"uploads\\\/20220818130207_.png\",\"created_at\":\"2022-08-18T13:02:07.000000Z\",\"updated_at\":\"2022-08-18T13:02:07.000000Z\"}},{\"id\":5,\"category_id\":1,\"description\":\"Quiz 1\",\"image\":\"uploads\\\/20220818131546_qz_question_image.png\",\"fr\":\"uploads\\\/20220818131546_qz_question_fr.mp3\",\"ar\":\"uploads\\\/20220818131546_qz_question_ar.mp3\",\"ng\":\"uploads\\\/20220818131546_qz_question_ng.mp3\",\"correct\":0,\"created_at\":\"2022-08-18T13:15:46.000000Z\",\"updated_at\":\"2022-08-18T13:15:46.000000Z\",\"category\":{\"id\":1,\"name\":\"FRV\",\"image\":\"uploads\\\/20220818130207_.png\",\"created_at\":\"2022-08-18T13:02:07.000000Z\",\"updated_at\":\"2022-08-18T13:02:07.000000Z\"}},{\"id\":6,\"category_id\":1,\"description\":\"description\",\"image\":\"uploads\\\/20220818181229_qz_question_image.png\",\"fr\":\"uploads\\\/20220818181230_qz_question_fr.mp3\",\"ar\":\"uploads\\\/20220818181230_qz_question_ar.mp3\",\"ng\":\"uploads\\\/20220818181230_qz_question_ng.mp3\",\"correct\":1,\"created_at\":\"2022-08-18T18:12:30.000000Z\",\"updated_at\":\"2022-08-18T18:12:30.000000Z\",\"category\":{\"id\":1,\"name\":\"FRV\",\"image\":\"uploads\\\/20220818130207_.png\",\"created_at\":\"2022-08-18T13:02:07.000000Z\",\"updated_at\":\"2022-08-18T13:02:07.000000Z\"}},{\"id\":7,\"category_id\":1,\"description\":\"rete\",\"image\":\"uploads\\\/20220818202217_qz_question_image.png\",\"fr\":\"uploads\\\/20220818202217_qz_question_fr.mp3\",\"ar\":\"uploads\\\/20220818202217_qz_question_ar.mp3\",\"ng\":\"uploads\\\/20220818202217_qz_question_ng.mp3\",\"correct\":1,\"created_at\":\"2022-08-18T20:22:17.000000Z\",\"updated_at\":\"2022-08-18T20:22:17.000000Z\",\"category\":{\"id\":1,\"name\":\"FRV\",\"image\":\"uploads\\\/20220818130207_.png\",\"created_at\":\"2022-08-18T13:02:07.000000Z\",\"updated_at\":\"2022-08-18T13:02:07.000000Z\"}},{\"id\":8,\"category_id\":1,\"description\":\"quiz\",\"image\":\"uploads\\\/20220818234855_qz_question_image.png\",\"fr\":\"uploads\\\/20220818234855_qz_question_fr.mp3\",\"ar\":\"uploads\\\/20220818234855_qz_question_ar.mp3\",\"ng\":\"uploads\\\/20220818234855_qz_question_ng.mp3\",\"correct\":1,\"created_at\":\"2022-08-18T23:48:55.000000Z\",\"updated_at\":\"2022-08-18T23:48:55.000000Z\",\"category\":{\"id\":1,\"name\":\"FRV\",\"image\":\"uploads\\\/20220818130207_.png\",\"created_at\":\"2022-08-18T13:02:07.000000Z\",\"updated_at\":\"2022-08-18T13:02:07.000000Z\"}},{\"id\":9,\"category_id\":1,\"description\":\"essaie\",\"image\":\"uploads\\\/20220822081924_qz_question_image.png\",\"fr\":\"uploads\\\/20220822081924_rule_fr.mp3\",\"ar\":\"uploads\\\/20220822081924_rule_ar.mp3\",\"ng\":\"uploads\\\/20220822081924_rule_ng.mp3\",\"correct\":1,\"created_at\":\"2022-08-22T08:19:24.000000Z\",\"updated_at\":\"2022-08-22T08:19:24.000000Z\",\"category\":{\"id\":1,\"name\":\"FRV\",\"image\":\"uploads\\\/20220818130207_.png\",\"created_at\":\"2022-08-18T13:02:07.000000Z\",\"updated_at\":\"2022-08-18T13:02:07.000000Z\"}},{\"id\":10,\"category_id\":1,\"description\":\"essaie\",\"image\":\"uploads\\\/20220822081927_qz_question_image.png\",\"fr\":\"uploads\\\/20220822081927_rule_fr.mp3\",\"ar\":\"uploads\\\/20220822081927_rule_ar.mp3\",\"ng\":\"uploads\\\/20220822081927_rule_ng.mp3\",\"correct\":1,\"created_at\":\"2022-08-22T08:19:27.000000Z\",\"updated_at\":\"2022-08-22T08:19:27.000000Z\",\"category\":{\"id\":1,\"name\":\"FRV\",\"image\":\"uploads\\\/20220818130207_.png\",\"created_at\":\"2022-08-18T13:02:07.000000Z\",\"updated_at\":\"2022-08-18T13:02:07.000000Z\"}},{\"id\":11,\"category_id\":1,\"description\":\"essaie\",\"image\":\"uploads\\\/20220822084549_qz_question_image.png\",\"fr\":\"uploads\\\/20220822084549_rule_fr.mp3\",\"ar\":\"uploads\\\/20220822084549_rule_ar.mp3\",\"ng\":\"uploads\\\/20220822084549_rule_ng.mp3\",\"correct\":1,\"created_at\":\"2022-08-22T08:45:49.000000Z\",\"updated_at\":\"2022-08-22T08:45:49.000000Z\",\"category\":{\"id\":1,\"name\":\"FRV\",\"image\":\"uploads\\\/20220818130207_.png\",\"created_at\":\"2022-08-18T13:02:07.000000Z\",\"updated_at\":\"2022-08-18T13:02:07.000000Z\"}},{\"id\":12,\"category_id\":1,\"description\":\"essaytgghh\",\"image\":\"uploads\\\/20220822084706_qz_question_image.png\",\"fr\":\"uploads\\\/20220822084706_rule_fr.mp3\",\"ar\":\"uploads\\\/20220822084706_rule_ar.mp3\",\"ng\":\"uploads\\\/20220822084706_rule_ng.mp3\",\"correct\":1,\"created_at\":\"2022-08-22T08:47:06.000000Z\",\"updated_at\":\"2022-08-22T08:47:06.000000Z\",\"category\":{\"id\":1,\"name\":\"FRV\",\"image\":\"uploads\\\/20220818130207_.png\",\"created_at\":\"2022-08-18T13:02:07.000000Z\",\"updated_at\":\"2022-08-18T13:02:07.000000Z\"}},{\"id\":13,\"category_id\":1,\"description\":\"Essayons encore\",\"image\":\"uploads\\\/20220822094238_qz_question_image.png\",\"fr\":\"uploads\\\/20220822094238_rule_fr.mp3\",\"ar\":\"uploads\\\/20220822094238_rule_ar.mp3\",\"ng\":\"uploads\\\/20220822094238_rule_ng.mp3\",\"correct\":1,\"created_at\":\"2022-08-22T09:42:38.000000Z\",\"updated_at\":\"2022-08-22T09:42:38.000000Z\",\"category\":{\"id\":1,\"name\":\"FRV\",\"image\":\"uploads\\\/20220818130207_.png\",\"created_at\":\"2022-08-18T13:02:07.000000Z\",\"updated_at\":\"2022-08-18T13:02:07.000000Z\"}}]",
+                            "body": "[]",
                             "name": ""
                         }
                     ]
@@ -679,7 +615,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "sunt",
+                                    "value": "9942",
                                     "description": "The ID of the quiz."
                                 }
                             ]
@@ -718,7 +654,7 @@
                                 },
                                 {
                                     "key": "x-ratelimit-remaining",
-                                    "value": "40"
+                                    "value": "51"
                                 },
                                 {
                                     "key": "access-control-allow-origin",
@@ -743,7 +679,7 @@
                                 {
                                     "id": "category_id",
                                     "key": "category_id",
-                                    "value": "quidem",
+                                    "value": "2",
                                     "description": "The ID of the category."
                                 }
                             ]
@@ -782,7 +718,7 @@
                                 },
                                 {
                                     "key": "x-ratelimit-remaining",
-                                    "value": "38"
+                                    "value": "49"
                                 },
                                 {
                                     "key": "access-control-allow-origin",
@@ -838,7 +774,7 @@
                                 },
                                 {
                                     "key": "x-ratelimit-remaining",
-                                    "value": "37"
+                                    "value": "48"
                                 },
                                 {
                                     "key": "access-control-allow-origin",
@@ -846,7 +782,7 @@
                                 }
                             ],
                             "code": 200,
-                            "body": "[{\"id\":1,\"employee_id\":1,\"quiz_question_id\":1,\"correct\":1,\"created_at\":\"2022-08-18T13:16:51.000000Z\",\"updated_at\":\"2022-08-18T13:16:51.000000Z\",\"employee\":{\"id\":1,\"contractor_id\":1,\"name\":\"Gnandal\",\"phone\":\"5866662\",\"uid\":\"6655\",\"password\":\"7548\",\"created_at\":\"2022-08-18T13:04:36.000000Z\",\"updated_at\":\"2022-08-18T13:04:36.000000Z\"},\"quiz_question\":{\"id\":1,\"category_id\":1,\"description\":\"kjfjd\",\"image\":\"uploads\\\/20220818130554_qz_question_image.png\",\"fr\":\"uploads\\\/20220818130554_qz_question_fr.mp3\",\"ar\":\"uploads\\\/20220818130554_qz_question_ar.mp3\",\"ng\":\"uploads\\\/20220818130554_qz_question_ng.mp3\",\"correct\":1,\"created_at\":\"2022-08-18T13:05:54.000000Z\",\"updated_at\":\"2022-08-18T17:26:32.000000Z\"}},{\"id\":2,\"employee_id\":1,\"quiz_question_id\":2,\"correct\":1,\"created_at\":\"2022-08-18T13:17:03.000000Z\",\"updated_at\":\"2022-08-18T13:17:03.000000Z\",\"employee\":{\"id\":1,\"contractor_id\":1,\"name\":\"Gnandal\",\"phone\":\"5866662\",\"uid\":\"6655\",\"password\":\"7548\",\"created_at\":\"2022-08-18T13:04:36.000000Z\",\"updated_at\":\"2022-08-18T13:04:36.000000Z\"},\"quiz_question\":{\"id\":2,\"category_id\":1,\"description\":\"Quiz 1\",\"image\":\"uploads\\\/20220818131027_qz_question_image.png\",\"fr\":\"uploads\\\/20220818131027_qz_question_fr.mp3\",\"ar\":\"uploads\\\/20220818131027_qz_question_ar.mp3\",\"ng\":\"uploads\\\/20220818131027_qz_question_ng.mp3\",\"correct\":0,\"created_at\":\"2022-08-18T13:10:27.000000Z\",\"updated_at\":\"2022-08-18T17:18:33.000000Z\"}},{\"id\":3,\"employee_id\":2,\"quiz_question_id\":1,\"correct\":1,\"created_at\":\"2022-08-18T13:17:16.000000Z\",\"updated_at\":\"2022-08-18T13:17:16.000000Z\",\"employee\":{\"id\":2,\"contractor_id\":1,\"name\":\"Ismael\",\"phone\":\"5866662\",\"uid\":\"1808\",\"password\":\"9816\",\"created_at\":\"2022-08-18T13:04:54.000000Z\",\"updated_at\":\"2022-08-18T13:04:54.000000Z\"},\"quiz_question\":{\"id\":1,\"category_id\":1,\"description\":\"kjfjd\",\"image\":\"uploads\\\/20220818130554_qz_question_image.png\",\"fr\":\"uploads\\\/20220818130554_qz_question_fr.mp3\",\"ar\":\"uploads\\\/20220818130554_qz_question_ar.mp3\",\"ng\":\"uploads\\\/20220818130554_qz_question_ng.mp3\",\"correct\":1,\"created_at\":\"2022-08-18T13:05:54.000000Z\",\"updated_at\":\"2022-08-18T17:26:32.000000Z\"}},{\"id\":4,\"employee_id\":1,\"quiz_question_id\":4,\"correct\":1,\"created_at\":\"2022-08-18T13:17:36.000000Z\",\"updated_at\":\"2022-08-18T13:17:36.000000Z\",\"employee\":{\"id\":1,\"contractor_id\":1,\"name\":\"Gnandal\",\"phone\":\"5866662\",\"uid\":\"6655\",\"password\":\"7548\",\"created_at\":\"2022-08-18T13:04:36.000000Z\",\"updated_at\":\"2022-08-18T13:04:36.000000Z\"},\"quiz_question\":{\"id\":4,\"category_id\":1,\"description\":\"Quiz 1\",\"image\":\"uploads\\\/20220818131439_qz_question_image.png\",\"fr\":\"uploads\\\/20220818131439_qz_question_fr.mp3\",\"ar\":\"uploads\\\/20220818131439_qz_question_ar.mp3\",\"ng\":\"uploads\\\/20220818131439_qz_question_ng.mp3\",\"correct\":0,\"created_at\":\"2022-08-18T13:14:39.000000Z\",\"updated_at\":\"2022-08-18T13:14:39.000000Z\"}}]",
+                            "body": "[]",
                             "name": ""
                         }
                     ]
@@ -880,7 +816,7 @@
                     "response": []
                 },
                 {
-                    "name": "Display the employee_quiz_response resource.",
+                    "name": "Display the Driver_quiz_response resource.",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
@@ -891,7 +827,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "temporibus",
+                                    "value": "quisquam",
                                     "description": "The ID of the response."
                                 }
                             ]
@@ -930,7 +866,7 @@
                                 },
                                 {
                                     "key": "x-ratelimit-remaining",
-                                    "value": "36"
+                                    "value": "47"
                                 },
                                 {
                                     "key": "access-control-allow-origin",
@@ -938,13 +874,13 @@
                                 }
                             ],
                             "code": 200,
-                            "body": "{\"id\":1,\"employee_id\":1,\"quiz_question_id\":1,\"correct\":1,\"created_at\":\"2022-08-18T13:16:51.000000Z\",\"updated_at\":\"2022-08-18T13:16:51.000000Z\",\"employee\":{\"id\":1,\"contractor_id\":1,\"name\":\"Gnandal\",\"phone\":\"5866662\",\"uid\":\"6655\",\"password\":\"7548\",\"created_at\":\"2022-08-18T13:04:36.000000Z\",\"updated_at\":\"2022-08-18T13:04:36.000000Z\"},\"quiz_question\":{\"id\":1,\"category_id\":1,\"description\":\"kjfjd\",\"image\":\"uploads\\\/20220818130554_qz_question_image.png\",\"fr\":\"uploads\\\/20220818130554_qz_question_fr.mp3\",\"ar\":\"uploads\\\/20220818130554_qz_question_ar.mp3\",\"ng\":\"uploads\\\/20220818130554_qz_question_ng.mp3\",\"correct\":1,\"created_at\":\"2022-08-18T13:05:54.000000Z\",\"updated_at\":\"2022-08-18T17:26:32.000000Z\"}}",
+                            "body": "{}",
                             "name": ""
                         }
                     ]
                 },
                 {
-                    "name": "Update the employee_quiz_response in storage.",
+                    "name": "Update the Driver_quiz_response in storage.",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
@@ -955,7 +891,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "ut",
+                                    "value": "doloremque",
                                     "description": "The ID of the response."
                                 }
                             ]
@@ -980,19 +916,25 @@
                     "response": []
                 },
                 {
-                    "name": "Show question that employee with current id didn't answer yet.",
+                    "name": "api\/v1\/drivers\/{driver_id}\/rules\/{rule_id}",
                     "request": {
                         "url": {
                             "host": "{{baseUrl}}",
-                            "path": "api\/v1\/quizzes\/:employee_id\/notanswered",
+                            "path": "api\/v1\/drivers\/:driver_id\/rules\/:rule_id",
                             "query": [],
-                            "raw": "{{baseUrl}}\/api\/v1\/quizzes\/:employee_id\/notanswered",
+                            "raw": "{{baseUrl}}\/api\/v1\/drivers\/:driver_id\/rules\/:rule_id",
                             "variable": [
                                 {
-                                    "id": "employee_id",
-                                    "key": "employee_id",
-                                    "value": "enim",
-                                    "description": "The ID of the employee."
+                                    "id": "driver_id",
+                                    "key": "driver_id",
+                                    "value": "1",
+                                    "description": "The ID of the driver."
+                                },
+                                {
+                                    "id": "rule_id",
+                                    "key": "rule_id",
+                                    "value": "48",
+                                    "description": "The ID of the rule."
                                 }
                             ]
                         },
@@ -1030,7 +972,71 @@
                                 },
                                 {
                                     "key": "x-ratelimit-remaining",
-                                    "value": "39"
+                                    "value": "54"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 500,
+                            "body": "{\n    \"message\": \"Attempt to read property \\\"category_id\\\" on null\",\n    \"exception\": \"ErrorException\",\n    \"file\": \"\/home\/chad\/laravel-workspace\/safetyapp_web\/routes\/api.php\",\n    \"line\": 95,\n    \"trace\": [\n        {\n            \"file\": \"\/home\/chad\/laravel-workspace\/safetyapp_web\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Bootstrap\/HandleExceptions.php\",\n            \"line\": 259,\n            \"function\": \"handleError\",\n            \"class\": \"Illuminate\\\\Foundation\\\\Bootstrap\\\\HandleExceptions\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/chad\/laravel-workspace\/safetyapp_web\/routes\/api.php\",\n            \"line\": 95,\n            \"function\": \"Illuminate\\\\Foundation\\\\Bootstrap\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Foundation\\\\Bootstrap\\\\HandleExceptions\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/chad\/laravel-workspace\/safetyapp_web\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/CallableDispatcher.php\",\n            \"line\": 40,\n            \"function\": \"{closure}\",\n            \"class\": \"Illuminate\\\\Routing\\\\RouteFileRegistrar\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/chad\/laravel-workspace\/safetyapp_web\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Route.php\",\n            \"line\": 236,\n            \"function\": \"dispatch\",\n            \"class\": \"Illuminate\\\\Routing\\\\CallableDispatcher\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/chad\/laravel-workspace\/safetyapp_web\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Route.php\",\n            \"line\": 207,\n            \"function\": \"runCallable\",\n            \"class\": \"Illuminate\\\\Routing\\\\Route\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/chad\/laravel-workspace\/safetyapp_web\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php\",\n            \"line\": 725,\n            \"function\": \"run\",\n            \"class\": \"Illuminate\\\\Routing\\\\Route\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/chad\/laravel-workspace\/safetyapp_web\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php\",\n            \"line\": 141,\n            \"function\": \"Illuminate\\\\Routing\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Routing\\\\Router\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/chad\/laravel-workspace\/safetyapp_web\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Middleware\/SubstituteBindings.php\",\n            \"line\": 50,\n            \"function\": \"Illuminate\\\\Pipeline\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Pipeline\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/chad\/laravel-workspace\/safetyapp_web\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php\",\n            \"line\": 180,\n            \"function\": \"handle\",\n            \"class\": \"Illuminate\\\\Routing\\\\Middleware\\\\SubstituteBindings\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/chad\/laravel-workspace\/safetyapp_web\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Middleware\/ThrottleRequests.php\",\n            \"line\": 126,\n            \"function\": \"Illuminate\\\\Pipeline\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Pipeline\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/chad\/laravel-workspace\/safetyapp_web\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Middleware\/ThrottleRequests.php\",\n            \"line\": 102,\n            \"function\": \"handleRequest\",\n            \"class\": \"Illuminate\\\\Routing\\\\Middleware\\\\ThrottleRequests\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/chad\/laravel-workspace\/safetyapp_web\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Middleware\/ThrottleRequests.php\",\n            \"line\": 54,\n            \"function\": \"handleRequestUsingNamedLimiter\",\n            \"class\": \"Illuminate\\\\Routing\\\\Middleware\\\\ThrottleRequests\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/chad\/laravel-workspace\/safetyapp_web\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php\",\n            \"line\": 180,\n            \"function\": \"handle\",\n            \"class\": \"Illuminate\\\\Routing\\\\Middleware\\\\ThrottleRequests\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/chad\/laravel-workspace\/safetyapp_web\/vendor\/laravel\/sanctum\/src\/Http\/Middleware\/EnsureFrontendRequestsAreStateful.php\",\n            \"line\": 33,\n            \"function\": \"Illuminate\\\\Pipeline\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Pipeline\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/chad\/laravel-workspace\/safetyapp_web\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php\",\n            \"line\": 141,\n            \"function\": \"Laravel\\\\Sanctum\\\\Http\\\\Middleware\\\\{closure}\",\n            \"class\": \"Laravel\\\\Sanctum\\\\Http\\\\Middleware\\\\EnsureFrontendRequestsAreStateful\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/chad\/laravel-workspace\/safetyapp_web\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php\",\n            \"line\": 116,\n            \"function\": \"Illuminate\\\\Pipeline\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Pipeline\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/chad\/laravel-workspace\/safetyapp_web\/vendor\/laravel\/sanctum\/src\/Http\/Middleware\/EnsureFrontendRequestsAreStateful.php\",\n            \"line\": 34,\n            \"function\": \"then\",\n            \"class\": \"Illuminate\\\\Pipeline\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/chad\/laravel-workspace\/safetyapp_web\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php\",\n            \"line\": 180,\n            \"function\": \"handle\",\n            \"class\": \"Laravel\\\\Sanctum\\\\Http\\\\Middleware\\\\EnsureFrontendRequestsAreStateful\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/chad\/laravel-workspace\/safetyapp_web\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php\",\n            \"line\": 116,\n            \"function\": \"Illuminate\\\\Pipeline\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Pipeline\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/chad\/laravel-workspace\/safetyapp_web\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php\",\n            \"line\": 726,\n            \"function\": \"then\",\n            \"class\": \"Illuminate\\\\Pipeline\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/chad\/laravel-workspace\/safetyapp_web\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php\",\n            \"line\": 703,\n            \"function\": \"runRouteWithinStack\",\n            \"class\": \"Illuminate\\\\Routing\\\\Router\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/chad\/laravel-workspace\/safetyapp_web\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php\",\n            \"line\": 667,\n            \"function\": \"runRoute\",\n            \"class\": \"Illuminate\\\\Routing\\\\Router\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/chad\/laravel-workspace\/safetyapp_web\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php\",\n            \"line\": 656,\n            \"function\": \"dispatchToRoute\",\n            \"class\": \"Illuminate\\\\Routing\\\\Router\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/chad\/laravel-workspace\/safetyapp_web\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Kernel.php\",\n            \"line\": 190,\n            \"function\": \"dispatch\",\n            \"class\": \"Illuminate\\\\Routing\\\\Router\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/chad\/laravel-workspace\/safetyapp_web\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php\",\n            \"line\": 141,\n            \"function\": \"Illuminate\\\\Foundation\\\\Http\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Foundation\\\\Http\\\\Kernel\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/chad\/laravel-workspace\/safetyapp_web\/vendor\/livewire\/livewire\/src\/DisableBrowserCache.php\",\n            \"line\": 19,\n            \"function\": \"Illuminate\\\\Pipeline\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Pipeline\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/chad\/laravel-workspace\/safetyapp_web\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php\",\n            \"line\": 180,\n            \"function\": \"handle\",\n            \"class\": \"Livewire\\\\DisableBrowserCache\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/chad\/laravel-workspace\/safetyapp_web\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/TransformsRequest.php\",\n            \"line\": 21,\n            \"function\": \"Illuminate\\\\Pipeline\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Pipeline\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/chad\/laravel-workspace\/safetyapp_web\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/ConvertEmptyStringsToNull.php\",\n            \"line\": 31,\n            \"function\": \"handle\",\n            \"class\": \"Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\TransformsRequest\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/chad\/laravel-workspace\/safetyapp_web\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php\",\n            \"line\": 180,\n            \"function\": \"handle\",\n            \"class\": \"Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\ConvertEmptyStringsToNull\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/chad\/laravel-workspace\/safetyapp_web\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/TransformsRequest.php\",\n            \"line\": 21,\n            \"function\": \"Illuminate\\\\Pipeline\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Pipeline\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/chad\/laravel-workspace\/safetyapp_web\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/TrimStrings.php\",\n            \"line\": 40,\n            \"function\": \"handle\",\n            \"class\": \"Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\TransformsRequest\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/chad\/laravel-workspace\/safetyapp_web\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php\",\n            \"line\": 180,\n            \"function\": \"handle\",\n            \"class\": \"Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\TrimStrings\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/chad\/laravel-workspace\/safetyapp_web\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/ValidatePostSize.php\",\n            \"line\": 27,\n            \"function\": \"Illuminate\\\\Pipeline\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Pipeline\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/chad\/laravel-workspace\/safetyapp_web\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php\",\n            \"line\": 180,\n            \"function\": \"handle\",\n            \"class\": \"Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\ValidatePostSize\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/chad\/laravel-workspace\/safetyapp_web\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/PreventRequestsDuringMaintenance.php\",\n            \"line\": 86,\n            \"function\": \"Illuminate\\\\Pipeline\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Pipeline\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/chad\/laravel-workspace\/safetyapp_web\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php\",\n            \"line\": 180,\n            \"function\": \"handle\",\n            \"class\": \"Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\PreventRequestsDuringMaintenance\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/chad\/laravel-workspace\/safetyapp_web\/vendor\/fruitcake\/laravel-cors\/src\/HandleCors.php\",\n            \"line\": 52,\n            \"function\": \"Illuminate\\\\Pipeline\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Pipeline\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/chad\/laravel-workspace\/safetyapp_web\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php\",\n            \"line\": 180,\n            \"function\": \"handle\",\n            \"class\": \"Fruitcake\\\\Cors\\\\HandleCors\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/chad\/laravel-workspace\/safetyapp_web\/vendor\/laravel\/framework\/src\/Illuminate\/Http\/Middleware\/TrustProxies.php\",\n            \"line\": 39,\n            \"function\": \"Illuminate\\\\Pipeline\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Pipeline\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/chad\/laravel-workspace\/safetyapp_web\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php\",\n            \"line\": 180,\n            \"function\": \"handle\",\n            \"class\": \"Illuminate\\\\Http\\\\Middleware\\\\TrustProxies\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/chad\/laravel-workspace\/safetyapp_web\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php\",\n            \"line\": 116,\n            \"function\": \"Illuminate\\\\Pipeline\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Pipeline\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/chad\/laravel-workspace\/safetyapp_web\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Kernel.php\",\n            \"line\": 165,\n            \"function\": \"then\",\n            \"class\": \"Illuminate\\\\Pipeline\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/chad\/laravel-workspace\/safetyapp_web\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Kernel.php\",\n            \"line\": 134,\n            \"function\": \"sendRequestThroughRouter\",\n            \"class\": \"Illuminate\\\\Foundation\\\\Http\\\\Kernel\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/chad\/laravel-workspace\/safetyapp_web\/vendor\/knuckleswtf\/scribe\/src\/Extracting\/Strategies\/Responses\/ResponseCalls.php\",\n            \"line\": 299,\n            \"function\": \"handle\",\n            \"class\": \"Illuminate\\\\Foundation\\\\Http\\\\Kernel\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/chad\/laravel-workspace\/safetyapp_web\/vendor\/knuckleswtf\/scribe\/src\/Extracting\/Strategies\/Responses\/ResponseCalls.php\",\n            \"line\": 287,\n            \"function\": \"callLaravelOrLumenRoute\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Strategies\\\\Responses\\\\ResponseCalls\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/chad\/laravel-workspace\/safetyapp_web\/vendor\/knuckleswtf\/scribe\/src\/Extracting\/Strategies\/Responses\/ResponseCalls.php\",\n            \"line\": 89,\n            \"function\": \"makeApiCall\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Strategies\\\\Responses\\\\ResponseCalls\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/chad\/laravel-workspace\/safetyapp_web\/vendor\/knuckleswtf\/scribe\/src\/Extracting\/Strategies\/Responses\/ResponseCalls.php\",\n            \"line\": 45,\n            \"function\": \"makeResponseCall\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Strategies\\\\Responses\\\\ResponseCalls\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/chad\/laravel-workspace\/safetyapp_web\/vendor\/knuckleswtf\/scribe\/src\/Extracting\/Strategies\/Responses\/ResponseCalls.php\",\n            \"line\": 35,\n            \"function\": \"makeResponseCallIfConditionsPass\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Strategies\\\\Responses\\\\ResponseCalls\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/chad\/laravel-workspace\/safetyapp_web\/vendor\/knuckleswtf\/scribe\/src\/Extracting\/Extractor.php\",\n            \"line\": 222,\n            \"function\": \"__invoke\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Strategies\\\\Responses\\\\ResponseCalls\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/chad\/laravel-workspace\/safetyapp_web\/vendor\/knuckleswtf\/scribe\/src\/Extracting\/Extractor.php\",\n            \"line\": 179,\n            \"function\": \"iterateThroughStrategies\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Extractor\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/chad\/laravel-workspace\/safetyapp_web\/vendor\/knuckleswtf\/scribe\/src\/Extracting\/Extractor.php\",\n            \"line\": 116,\n            \"function\": \"fetchResponses\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Extractor\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/chad\/laravel-workspace\/safetyapp_web\/vendor\/knuckleswtf\/scribe\/src\/GroupedEndpoints\/GroupedEndpointsFromApp.php\",\n            \"line\": 123,\n            \"function\": \"processRoute\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Extractor\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/chad\/laravel-workspace\/safetyapp_web\/vendor\/knuckleswtf\/scribe\/src\/GroupedEndpoints\/GroupedEndpointsFromApp.php\",\n            \"line\": 80,\n            \"function\": \"extractEndpointsInfoFromLaravelApp\",\n            \"class\": \"Knuckles\\\\Scribe\\\\GroupedEndpoints\\\\GroupedEndpointsFromApp\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/chad\/laravel-workspace\/safetyapp_web\/vendor\/knuckleswtf\/scribe\/src\/GroupedEndpoints\/GroupedEndpointsFromApp.php\",\n            \"line\": 56,\n            \"function\": \"extractEndpointsInfoAndWriteToDisk\",\n            \"class\": \"Knuckles\\\\Scribe\\\\GroupedEndpoints\\\\GroupedEndpointsFromApp\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/chad\/laravel-workspace\/safetyapp_web\/vendor\/knuckleswtf\/scribe\/src\/Commands\/GenerateDocumentation.php\",\n            \"line\": 55,\n            \"function\": \"get\",\n            \"class\": \"Knuckles\\\\Scribe\\\\GroupedEndpoints\\\\GroupedEndpointsFromApp\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/chad\/laravel-workspace\/safetyapp_web\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php\",\n            \"line\": 36,\n            \"function\": \"handle\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Commands\\\\GenerateDocumentation\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/chad\/laravel-workspace\/safetyapp_web\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/Util.php\",\n            \"line\": 41,\n            \"function\": \"Illuminate\\\\Container\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Container\\\\BoundMethod\",\n            \"type\": \"::\"\n        },\n        {\n            \"file\": \"\/home\/chad\/laravel-workspace\/safetyapp_web\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php\",\n            \"line\": 93,\n            \"function\": \"unwrapIfClosure\",\n            \"class\": \"Illuminate\\\\Container\\\\Util\",\n            \"type\": \"::\"\n        },\n        {\n            \"file\": \"\/home\/chad\/laravel-workspace\/safetyapp_web\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php\",\n            \"line\": 37,\n            \"function\": \"callBoundMethod\",\n            \"class\": \"Illuminate\\\\Container\\\\BoundMethod\",\n            \"type\": \"::\"\n        },\n        {\n            \"file\": \"\/home\/chad\/laravel-workspace\/safetyapp_web\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/Container.php\",\n            \"line\": 651,\n            \"function\": \"call\",\n            \"class\": \"Illuminate\\\\Container\\\\BoundMethod\",\n            \"type\": \"::\"\n        },\n        {\n            \"file\": \"\/home\/chad\/laravel-workspace\/safetyapp_web\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php\",\n            \"line\": 144,\n            \"function\": \"call\",\n            \"class\": \"Illuminate\\\\Container\\\\Container\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/chad\/laravel-workspace\/safetyapp_web\/vendor\/symfony\/console\/Command\/Command.php\",\n            \"line\": 291,\n            \"function\": \"execute\",\n            \"class\": \"Illuminate\\\\Console\\\\Command\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/chad\/laravel-workspace\/safetyapp_web\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php\",\n            \"line\": 126,\n            \"function\": \"run\",\n            \"class\": \"Symfony\\\\Component\\\\Console\\\\Command\\\\Command\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/chad\/laravel-workspace\/safetyapp_web\/vendor\/symfony\/console\/Application.php\",\n            \"line\": 1002,\n            \"function\": \"run\",\n            \"class\": \"Illuminate\\\\Console\\\\Command\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/chad\/laravel-workspace\/safetyapp_web\/vendor\/symfony\/console\/Application.php\",\n            \"line\": 299,\n            \"function\": \"doRunCommand\",\n            \"class\": \"Symfony\\\\Component\\\\Console\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/chad\/laravel-workspace\/safetyapp_web\/vendor\/symfony\/console\/Application.php\",\n            \"line\": 171,\n            \"function\": \"doRun\",\n            \"class\": \"Symfony\\\\Component\\\\Console\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/chad\/laravel-workspace\/safetyapp_web\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Application.php\",\n            \"line\": 102,\n            \"function\": \"run\",\n            \"class\": \"Symfony\\\\Component\\\\Console\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/chad\/laravel-workspace\/safetyapp_web\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Console\/Kernel.php\",\n            \"line\": 151,\n            \"function\": \"run\",\n            \"class\": \"Illuminate\\\\Console\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/chad\/laravel-workspace\/safetyapp_web\/artisan\",\n            \"line\": 37,\n            \"function\": \"handle\",\n            \"class\": \"Illuminate\\\\Foundation\\\\Console\\\\Kernel\",\n            \"type\": \"->\"\n        }\n    ]\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "api\/v1\/drivers\/{driver_id}\/presence",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/drivers\/:driver_id\/presence",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/drivers\/:driver_id\/presence",
+                            "variable": [
+                                {
+                                    "id": "driver_id",
+                                    "key": "driver_id",
+                                    "value": "1",
+                                    "description": "The ID of the driver."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "53"
                                 },
                                 {
                                     "key": "access-control-allow-origin",
@@ -1038,7 +1044,191 @@
                                 }
                             ],
                             "code": 200,
-                            "body": "{\"id\":1,\"category_id\":1,\"description\":\"kjfjd\",\"image\":\"uploads\\\/20220818130554_qz_question_image.png\",\"fr\":\"uploads\\\/20220818130554_qz_question_fr.mp3\",\"ar\":\"uploads\\\/20220818130554_qz_question_ar.mp3\",\"ng\":\"uploads\\\/20220818130554_qz_question_ng.mp3\",\"correct\":1,\"created_at\":\"2022-08-18T13:05:54.000000Z\",\"updated_at\":\"2022-08-18T17:26:32.000000Z\"}",
+                            "body": "{\"status\":true}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Show question that employee with current id didn't answer yet.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/quizzes\/:driver_id\/notanswered",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/quizzes\/:driver_id\/notanswered",
+                            "variable": [
+                                {
+                                    "id": "driver_id",
+                                    "key": "driver_id",
+                                    "value": "203910",
+                                    "description": "The ID of the driver."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "50"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "api\/v1\/quizzes\/{driver_id}\/notanswereds   ",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/quizzes\/:driver_id\/notanswereds   ",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/quizzes\/:driver_id\/notanswereds   ",
+                            "variable": [
+                                {
+                                    "id": "driver_id",
+                                    "key": "driver_id",
+                                    "value": "575852",
+                                    "description": "The ID of the driver."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 404,
+                            "body": "{\n    \"message\": \"\",\n    \"exception\": \"Symfony\\\\Component\\\\HttpKernel\\\\Exception\\\\NotFoundHttpException\",\n    \"file\": \"\/home\/chad\/laravel-workspace\/safetyapp_web\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/AbstractRouteCollection.php\",\n    \"line\": 44,\n    \"trace\": [\n        {\n            \"file\": \"\/home\/chad\/laravel-workspace\/safetyapp_web\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/RouteCollection.php\",\n            \"line\": 162,\n            \"function\": \"handleMatchedRoute\",\n            \"class\": \"Illuminate\\\\Routing\\\\AbstractRouteCollection\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/chad\/laravel-workspace\/safetyapp_web\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php\",\n            \"line\": 680,\n            \"function\": \"match\",\n            \"class\": \"Illuminate\\\\Routing\\\\RouteCollection\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/chad\/laravel-workspace\/safetyapp_web\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php\",\n            \"line\": 667,\n            \"function\": \"findRoute\",\n            \"class\": \"Illuminate\\\\Routing\\\\Router\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/chad\/laravel-workspace\/safetyapp_web\/vendor\/laravel\/framework\/src\/Illuminate\/Routing\/Router.php\",\n            \"line\": 656,\n            \"function\": \"dispatchToRoute\",\n            \"class\": \"Illuminate\\\\Routing\\\\Router\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/chad\/laravel-workspace\/safetyapp_web\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Kernel.php\",\n            \"line\": 190,\n            \"function\": \"dispatch\",\n            \"class\": \"Illuminate\\\\Routing\\\\Router\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/chad\/laravel-workspace\/safetyapp_web\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php\",\n            \"line\": 141,\n            \"function\": \"Illuminate\\\\Foundation\\\\Http\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Foundation\\\\Http\\\\Kernel\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/chad\/laravel-workspace\/safetyapp_web\/vendor\/livewire\/livewire\/src\/DisableBrowserCache.php\",\n            \"line\": 19,\n            \"function\": \"Illuminate\\\\Pipeline\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Pipeline\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/chad\/laravel-workspace\/safetyapp_web\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php\",\n            \"line\": 180,\n            \"function\": \"handle\",\n            \"class\": \"Livewire\\\\DisableBrowserCache\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/chad\/laravel-workspace\/safetyapp_web\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/TransformsRequest.php\",\n            \"line\": 21,\n            \"function\": \"Illuminate\\\\Pipeline\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Pipeline\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/chad\/laravel-workspace\/safetyapp_web\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/ConvertEmptyStringsToNull.php\",\n            \"line\": 31,\n            \"function\": \"handle\",\n            \"class\": \"Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\TransformsRequest\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/chad\/laravel-workspace\/safetyapp_web\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php\",\n            \"line\": 180,\n            \"function\": \"handle\",\n            \"class\": \"Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\ConvertEmptyStringsToNull\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/chad\/laravel-workspace\/safetyapp_web\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/TransformsRequest.php\",\n            \"line\": 21,\n            \"function\": \"Illuminate\\\\Pipeline\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Pipeline\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/chad\/laravel-workspace\/safetyapp_web\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/TrimStrings.php\",\n            \"line\": 40,\n            \"function\": \"handle\",\n            \"class\": \"Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\TransformsRequest\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/chad\/laravel-workspace\/safetyapp_web\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php\",\n            \"line\": 180,\n            \"function\": \"handle\",\n            \"class\": \"Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\TrimStrings\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/chad\/laravel-workspace\/safetyapp_web\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/ValidatePostSize.php\",\n            \"line\": 27,\n            \"function\": \"Illuminate\\\\Pipeline\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Pipeline\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/chad\/laravel-workspace\/safetyapp_web\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php\",\n            \"line\": 180,\n            \"function\": \"handle\",\n            \"class\": \"Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\ValidatePostSize\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/chad\/laravel-workspace\/safetyapp_web\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Middleware\/PreventRequestsDuringMaintenance.php\",\n            \"line\": 86,\n            \"function\": \"Illuminate\\\\Pipeline\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Pipeline\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/chad\/laravel-workspace\/safetyapp_web\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php\",\n            \"line\": 180,\n            \"function\": \"handle\",\n            \"class\": \"Illuminate\\\\Foundation\\\\Http\\\\Middleware\\\\PreventRequestsDuringMaintenance\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/chad\/laravel-workspace\/safetyapp_web\/vendor\/fruitcake\/laravel-cors\/src\/HandleCors.php\",\n            \"line\": 52,\n            \"function\": \"Illuminate\\\\Pipeline\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Pipeline\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/chad\/laravel-workspace\/safetyapp_web\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php\",\n            \"line\": 180,\n            \"function\": \"handle\",\n            \"class\": \"Fruitcake\\\\Cors\\\\HandleCors\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/chad\/laravel-workspace\/safetyapp_web\/vendor\/laravel\/framework\/src\/Illuminate\/Http\/Middleware\/TrustProxies.php\",\n            \"line\": 39,\n            \"function\": \"Illuminate\\\\Pipeline\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Pipeline\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/chad\/laravel-workspace\/safetyapp_web\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php\",\n            \"line\": 180,\n            \"function\": \"handle\",\n            \"class\": \"Illuminate\\\\Http\\\\Middleware\\\\TrustProxies\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/chad\/laravel-workspace\/safetyapp_web\/vendor\/laravel\/framework\/src\/Illuminate\/Pipeline\/Pipeline.php\",\n            \"line\": 116,\n            \"function\": \"Illuminate\\\\Pipeline\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Pipeline\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/chad\/laravel-workspace\/safetyapp_web\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Kernel.php\",\n            \"line\": 165,\n            \"function\": \"then\",\n            \"class\": \"Illuminate\\\\Pipeline\\\\Pipeline\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/chad\/laravel-workspace\/safetyapp_web\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Http\/Kernel.php\",\n            \"line\": 134,\n            \"function\": \"sendRequestThroughRouter\",\n            \"class\": \"Illuminate\\\\Foundation\\\\Http\\\\Kernel\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/chad\/laravel-workspace\/safetyapp_web\/vendor\/knuckleswtf\/scribe\/src\/Extracting\/Strategies\/Responses\/ResponseCalls.php\",\n            \"line\": 299,\n            \"function\": \"handle\",\n            \"class\": \"Illuminate\\\\Foundation\\\\Http\\\\Kernel\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/chad\/laravel-workspace\/safetyapp_web\/vendor\/knuckleswtf\/scribe\/src\/Extracting\/Strategies\/Responses\/ResponseCalls.php\",\n            \"line\": 287,\n            \"function\": \"callLaravelOrLumenRoute\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Strategies\\\\Responses\\\\ResponseCalls\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/chad\/laravel-workspace\/safetyapp_web\/vendor\/knuckleswtf\/scribe\/src\/Extracting\/Strategies\/Responses\/ResponseCalls.php\",\n            \"line\": 89,\n            \"function\": \"makeApiCall\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Strategies\\\\Responses\\\\ResponseCalls\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/chad\/laravel-workspace\/safetyapp_web\/vendor\/knuckleswtf\/scribe\/src\/Extracting\/Strategies\/Responses\/ResponseCalls.php\",\n            \"line\": 45,\n            \"function\": \"makeResponseCall\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Strategies\\\\Responses\\\\ResponseCalls\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/chad\/laravel-workspace\/safetyapp_web\/vendor\/knuckleswtf\/scribe\/src\/Extracting\/Strategies\/Responses\/ResponseCalls.php\",\n            \"line\": 35,\n            \"function\": \"makeResponseCallIfConditionsPass\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Strategies\\\\Responses\\\\ResponseCalls\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/chad\/laravel-workspace\/safetyapp_web\/vendor\/knuckleswtf\/scribe\/src\/Extracting\/Extractor.php\",\n            \"line\": 222,\n            \"function\": \"__invoke\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Strategies\\\\Responses\\\\ResponseCalls\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/chad\/laravel-workspace\/safetyapp_web\/vendor\/knuckleswtf\/scribe\/src\/Extracting\/Extractor.php\",\n            \"line\": 179,\n            \"function\": \"iterateThroughStrategies\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Extractor\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/chad\/laravel-workspace\/safetyapp_web\/vendor\/knuckleswtf\/scribe\/src\/Extracting\/Extractor.php\",\n            \"line\": 116,\n            \"function\": \"fetchResponses\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Extractor\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/chad\/laravel-workspace\/safetyapp_web\/vendor\/knuckleswtf\/scribe\/src\/GroupedEndpoints\/GroupedEndpointsFromApp.php\",\n            \"line\": 123,\n            \"function\": \"processRoute\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Extracting\\\\Extractor\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/chad\/laravel-workspace\/safetyapp_web\/vendor\/knuckleswtf\/scribe\/src\/GroupedEndpoints\/GroupedEndpointsFromApp.php\",\n            \"line\": 80,\n            \"function\": \"extractEndpointsInfoFromLaravelApp\",\n            \"class\": \"Knuckles\\\\Scribe\\\\GroupedEndpoints\\\\GroupedEndpointsFromApp\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/chad\/laravel-workspace\/safetyapp_web\/vendor\/knuckleswtf\/scribe\/src\/GroupedEndpoints\/GroupedEndpointsFromApp.php\",\n            \"line\": 56,\n            \"function\": \"extractEndpointsInfoAndWriteToDisk\",\n            \"class\": \"Knuckles\\\\Scribe\\\\GroupedEndpoints\\\\GroupedEndpointsFromApp\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/chad\/laravel-workspace\/safetyapp_web\/vendor\/knuckleswtf\/scribe\/src\/Commands\/GenerateDocumentation.php\",\n            \"line\": 55,\n            \"function\": \"get\",\n            \"class\": \"Knuckles\\\\Scribe\\\\GroupedEndpoints\\\\GroupedEndpointsFromApp\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/chad\/laravel-workspace\/safetyapp_web\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php\",\n            \"line\": 36,\n            \"function\": \"handle\",\n            \"class\": \"Knuckles\\\\Scribe\\\\Commands\\\\GenerateDocumentation\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/chad\/laravel-workspace\/safetyapp_web\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/Util.php\",\n            \"line\": 41,\n            \"function\": \"Illuminate\\\\Container\\\\{closure}\",\n            \"class\": \"Illuminate\\\\Container\\\\BoundMethod\",\n            \"type\": \"::\"\n        },\n        {\n            \"file\": \"\/home\/chad\/laravel-workspace\/safetyapp_web\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php\",\n            \"line\": 93,\n            \"function\": \"unwrapIfClosure\",\n            \"class\": \"Illuminate\\\\Container\\\\Util\",\n            \"type\": \"::\"\n        },\n        {\n            \"file\": \"\/home\/chad\/laravel-workspace\/safetyapp_web\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/BoundMethod.php\",\n            \"line\": 37,\n            \"function\": \"callBoundMethod\",\n            \"class\": \"Illuminate\\\\Container\\\\BoundMethod\",\n            \"type\": \"::\"\n        },\n        {\n            \"file\": \"\/home\/chad\/laravel-workspace\/safetyapp_web\/vendor\/laravel\/framework\/src\/Illuminate\/Container\/Container.php\",\n            \"line\": 651,\n            \"function\": \"call\",\n            \"class\": \"Illuminate\\\\Container\\\\BoundMethod\",\n            \"type\": \"::\"\n        },\n        {\n            \"file\": \"\/home\/chad\/laravel-workspace\/safetyapp_web\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php\",\n            \"line\": 144,\n            \"function\": \"call\",\n            \"class\": \"Illuminate\\\\Container\\\\Container\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/chad\/laravel-workspace\/safetyapp_web\/vendor\/symfony\/console\/Command\/Command.php\",\n            \"line\": 291,\n            \"function\": \"execute\",\n            \"class\": \"Illuminate\\\\Console\\\\Command\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/chad\/laravel-workspace\/safetyapp_web\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Command.php\",\n            \"line\": 126,\n            \"function\": \"run\",\n            \"class\": \"Symfony\\\\Component\\\\Console\\\\Command\\\\Command\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/chad\/laravel-workspace\/safetyapp_web\/vendor\/symfony\/console\/Application.php\",\n            \"line\": 1002,\n            \"function\": \"run\",\n            \"class\": \"Illuminate\\\\Console\\\\Command\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/chad\/laravel-workspace\/safetyapp_web\/vendor\/symfony\/console\/Application.php\",\n            \"line\": 299,\n            \"function\": \"doRunCommand\",\n            \"class\": \"Symfony\\\\Component\\\\Console\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/chad\/laravel-workspace\/safetyapp_web\/vendor\/symfony\/console\/Application.php\",\n            \"line\": 171,\n            \"function\": \"doRun\",\n            \"class\": \"Symfony\\\\Component\\\\Console\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/chad\/laravel-workspace\/safetyapp_web\/vendor\/laravel\/framework\/src\/Illuminate\/Console\/Application.php\",\n            \"line\": 102,\n            \"function\": \"run\",\n            \"class\": \"Symfony\\\\Component\\\\Console\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/chad\/laravel-workspace\/safetyapp_web\/vendor\/laravel\/framework\/src\/Illuminate\/Foundation\/Console\/Kernel.php\",\n            \"line\": 151,\n            \"function\": \"run\",\n            \"class\": \"Illuminate\\\\Console\\\\Application\",\n            \"type\": \"->\"\n        },\n        {\n            \"file\": \"\/home\/chad\/laravel-workspace\/safetyapp_web\/artisan\",\n            \"line\": 37,\n            \"function\": \"handle\",\n            \"class\": \"Illuminate\\\\Foundation\\\\Console\\\\Kernel\",\n            \"type\": \"->\"\n        }\n    ]\n}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Get all responses from the current user.",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/responses\/:id\/drivers",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/responses\/:id\/drivers",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "58473091",
+                                    "description": "The ID of the response."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "x-ratelimit-limit",
+                                    "value": "60"
+                                },
+                                {
+                                    "key": "x-ratelimit-remaining",
+                                    "value": "45"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 200,
+                            "body": "{}",
                             "name": ""
                         }
                     ]
