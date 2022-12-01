@@ -1,27 +1,26 @@
-@extends('layouts.master')
+<?php $__env->startSection('title'); ?> Chauffeurs <?php $__env->stopSection(); ?>
 
-@section('title') Chauffeurs @endsection
-
-@section('css')
+<?php $__env->startSection('css'); ?>
     <!-- Bootstrap Css -->
-    <link href="{{ URL::asset('/assets/css/bootstrap.min.css') }}" id="bootstrap-style" rel="stylesheet"
+    <link href="<?php echo e(URL::asset('/assets/css/bootstrap.min.css')); ?>" id="bootstrap-style" rel="stylesheet"
           type="text/css"/>
     <!-- Icons Css -->
-    <link href="{{ URL::asset('/assets/css/icons.min.css') }}" rel="stylesheet" type="text/css"/>
+    <link href="<?php echo e(URL::asset('/assets/css/icons.min.css')); ?>" rel="stylesheet" type="text/css"/>
     <!-- App Css-->
-    <link href="{{ URL::asset('/assets/css/app.min.css') }}" id="app-style" rel="stylesheet" type="text/css"/>
-    <link href="{{ URL::asset('/assets/css/essential_audio.css') }}" id="essential_audio" rel="stylesheet" type="text/css"/>
+    <link href="<?php echo e(URL::asset('/assets/css/app.min.css')); ?>" id="app-style" rel="stylesheet" type="text/css"/>
+    <link href="<?php echo e(URL::asset('/assets/css/essential_audio.css')); ?>" id="essential_audio" rel="stylesheet" type="text/css"/>
 
-@endsection
+<?php $__env->stopSection(); ?>
 
-@section('content')
+<?php $__env->startSection('content'); ?>
 
-    @if(session()->has('success'))
+    <?php if(session()->has('success')): ?>
         <div class="alert alert-success alert-dismissible fade show" role="alert">
-            {{session('success')}}
+            <?php echo e(session('success')); ?>
+
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
-    @endif
+    <?php endif; ?>
 
     <!-- end col -->
     <div class="col-xl-12">
@@ -37,12 +36,12 @@
                                 <div class="btn-group">
                                     <button type="button" class="btn btn-info btn-rounded waves-effect waves-light mb-2 dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Exporter <i class="mdi mdi-chevron-down"></i></button>
                                     <div class="dropdown-menu">
-                                        <a class="dropdown-item" href="{{route('drivers.export.xlsx')}}" >Format Excel</a>
-                                        <a class="dropdown-item" href="{{route('drivers.export.pdf')}}">Format PDF</a>
+                                        <a class="dropdown-item" href="<?php echo e(route('drivers.export.xlsx')); ?>" >Format Excel</a>
+                                        <a class="dropdown-item" href="<?php echo e(route('drivers.export.pdf')); ?>">Format PDF</a>
                                     </div>
                                 </div>
                                 
-                                <a type="button" href="{{route('drivers.create')}}"
+                                <a type="button" href="<?php echo e(route('drivers.create')); ?>"
                                     class="btn btn-success btn-rounded waves-effect waves-light mb-2 me-2"><i
                                     class="mdi mdi-plus me-1"></i> Ajouter
                                 </a>
@@ -65,64 +64,65 @@
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach($drivers as $driver)
-                        @can('view', $driver)
+                        <?php $__currentLoopData = $drivers; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $driver): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                        <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('view', $driver)): ?>
                             <tr>
                                 <td class="text-center">
-                                    <img class="rounded-circle" src="{{asset($driver->avatar)}}" alt="avatar" height="35" width="35">
+                                    <img class="rounded-circle" src="<?php echo e(asset($driver->avatar)); ?>" alt="avatar" height="35" width="35">
                                 </td>
                                 <td>
-                                    <p class="text-muted mb-0 text-justify">{{$driver->name}}</p>
+                                    <p class="text-muted mb-0 text-justify"><?php echo e($driver->name); ?></p>
                                 </td>
                                 <td>
                                     <div>
-                                        <a href="{{route('carriers.show', $driver->user)}}"
+                                        <a href="<?php echo e(route('carriers.show', $driver->user)); ?>"
                                            class=" mb-2 me-2">
-{{--                                            <i class="mdi mdi-tag me-1"></i>--}}
-                                            {{$driver->user->name}}
+
+                                            <?php echo e($driver->user->name); ?>
+
                                         </a>
                                     </div>
                                 </td>
                                 <td>
-                                    <p class="text-muted mb-0 text-justify">{{$driver->phone}}</p>
+                                    <p class="text-muted mb-0 text-justify"><?php echo e($driver->phone); ?></p>
                                 </td>
                                 <td>
-                                    <p class="text-muted mb-0 text-justify">{{$driver->obc}}</p>
+                                    <p class="text-muted mb-0 text-justify"><?php echo e($driver->obc); ?></p>
                                 </td>
                                 <td>
-                                    <p class="text-muted mb-0 text-justify">{{$driver->password}}</p>
+                                    <p class="text-muted mb-0 text-justify"><?php echo e($driver->password); ?></p>
                                 </td>
 
                                 <td style="width: 200px">
                                     <div class="d-flex gap-3">
 
-                                        <a href="{{route('drivers.show', $driver)}}"
+                                        <a href="<?php echo e(route('drivers.show', $driver)); ?>"
                                            class="btn btn-default">Détails
                                         </a>
-                                        <a href="{{route('drivers.edit', $driver)}}"
+                                        <a href="<?php echo e(route('drivers.edit', $driver)); ?>"
                                            class="btn btn-info">Modifier
                                         </a>
 
-                                        <a href="{{route('drivers.index')}}" class="btn btn-danger"
+                                        <a href="<?php echo e(route('drivers.index')); ?>" class="btn btn-danger"
                                            onclick="
                                                    var result = confirm('Cet utilisateur sera supprimée');
                                                    if(result){
                                                        event.preventDefault();
-                                                       document.getElementById('delete-form{{$driver->id}}').submit();
+                                                       document.getElementById('delete-form<?php echo e($driver->id); ?>').submit();
                                                    }
                                                    ">
                                             Supprimer</a>
 
-                                        <form method="POST" id="delete-form{{$driver->id}}"
-                                              action="{{route('drivers.destroy', [$driver])}}">
-                                            @csrf
+                                        <form method="POST" id="delete-form<?php echo e($driver->id); ?>"
+                                              action="<?php echo e(route('drivers.destroy', [$driver])); ?>">
+                                            <?php echo csrf_field(); ?>
                                             <input type="hidden" name="_method" value="DELETE">
                                         </form>
                                     </div>
                                 </td>
                             </tr>
-                        @endcan
-                        @endforeach
+                        <?php endif; ?>
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
                         </tbody>
                     </table>
@@ -130,19 +130,22 @@
 
                 </div>
 
-                {{ $drivers->links('vendor.pagination.round') }}
+                <?php echo e($drivers->links('vendor.pagination.round')); ?>
+
             </div>
         </div>
         <!-- end card -->
     </div>
     <!-- end col -->
-@endsection
+<?php $__env->stopSection(); ?>
 
-@section('script')
+<?php $__env->startSection('script'); ?>
     <script>
         $('')
     </script>
-    <script src="{{ URL::asset('assets/js/essential_audio.js')}}"></script>
-@endsection
+    <script src="<?php echo e(URL::asset('assets/js/essential_audio.js')); ?>"></script>
+<?php $__env->stopSection(); ?>
 
 
+
+<?php echo $__env->make('layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /home/chad/laravel-workspace/safetyapp_web/resources/views/drivers/index.blade.php ENDPATH**/ ?>

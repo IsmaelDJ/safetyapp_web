@@ -15,7 +15,7 @@ use App\Models\QuizQuestion;
 use Illuminate\Http\Request;
 use App\Exports\DriversExport;
 use App\Exports\DriversExportPDF;
-use App\Models\driverQuizResponse;
+use App\Models\DriverQuizResponse;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
 use Maatwebsite\Excel\Facades\Excel;
@@ -29,7 +29,7 @@ class DriverController extends Controller
 
     public function index()
     {
-        $drivers = Driver::paginate(driversPerPage());
+        $drivers = Driver::where('role', 'driver')->paginate(driversPerPage());
         return view('drivers.index', compact('drivers'));
     }
 
@@ -82,6 +82,7 @@ class DriverController extends Controller
         $driver->phone      = $request->phone;
         $driver->obc        = $request->obc;
         $driver->password   = $password;
+        $driver->role       = 'driver';
 
         $driver->save();
         return redirect()->route('drivers.index')->with('success', "Chauffeur ajouté");

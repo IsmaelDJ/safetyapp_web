@@ -15,14 +15,29 @@ class AuthController extends Controller
      public function login(Request $request){
 
         try{
-            if (!$request->only('obc', 'password')) {
-                return response()->json([
-                    'status'  => false,
-                    'message' => 'Mot de passe incorrect'
-                ], 200);
+            $driver = new Driver();
+
+            if($request->is_driver == 1){
+                if (!$request->only('obc', 'password')) {
+                    return response()->json([
+                        'status'  => false,
+                        'message' => 'Mot de passe incorrect'
+                    ], 200);
+                }
+        
+                $driver = Driver::where('obc', $request['obc'])->first();
             }
-    
-            $driver = Driver::where('obc', $request['obc'])->first();
+
+            else {
+                if (!$request->only('uuid', 'password')) {
+                    return response()->json([
+                        'status'  => false,
+                        'message' => 'Mot de passe incorrect'
+                    ], 200);
+                }
+        
+                $driver = Driver::where('uuid', $request['uuid'])->first();
+            }
     
             if(!$driver){
                 return response()->json([

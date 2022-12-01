@@ -7,6 +7,7 @@ use App\Models\Driver;
 use App\Models\QuizQuestion;
 use Illuminate\Http\Request;
 use App\Models\DriverQuizResponse;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
 use App\Notifications\QuizNotification;
 use Illuminate\Support\Facades\Notification;
@@ -22,7 +23,14 @@ class DriverQuizResponseController extends Controller
 
     public function index()
     {
-        $driverQuizResponses = DriverQuizResponse::paginate(driverQuizResponsesPerPage());
+        $driverQuizResponses = DriverQuizResponse::all();
+        if(Auth::user()->isCarrier()){
+            $driverQuizResponses = $driverQuizResponses->filter(function ($response) {
+                return $response->driver->user_id === Auth::user()->id;
+            });
+        }
+
+        $driverQuizResponses = m_paginate($driverQuizResponses, driverQuizResponsesPerPage());
         return view('driver_quiz_responses.index', compact('driverQuizResponses'));
     }
 
@@ -35,14 +43,14 @@ class DriverQuizResponseController extends Controller
 
     public function drivers($driver_id)
     {
-        $driver = driver::find($driver_id);
+        $driver = Driver::find($driver_id);
         $driverQuizResponses = DriverQuizResponse::where('driver_id', $driver_id)->paginate();
         return view('driver_quiz_responses.driver', compact('driverQuizResponses', 'driver'));
     }
 
     public function create()
     {
-        $drivers = driver::all();
+        $drivers = Driver::where('role', 'driver');
         $quizQuestions = QuizQuestion::all();
         return view('driver_quiz_responses.create', compact('drivers', 'quizQuestions'));
     }
@@ -77,7 +85,7 @@ class DriverQuizResponseController extends Controller
 
     public function edit(DriverQuizResponse $driverQuizResponse)
     {
-        $drivers = driver::all();
+        $drivers = Driver::all();
         $quizQuestions = QuizQuestion::all();
         return view('driver_quiz_responses.edit', compact('driverQuizResponse', 'drivers', 'quizQuestions'));
     }

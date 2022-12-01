@@ -1,26 +1,25 @@
-@extends('layouts.master')
+<?php $__env->startSection('title'); ?> Reponses <?php $__env->stopSection(); ?>
 
-@section('title') Reponses @endsection
-
-@section('css')
+<?php $__env->startSection('css'); ?>
     <!-- Bootstrap Css -->
-    <link href="{{ URL::asset('/assets/css/bootstrap.min.css') }}" id="bootstrap-style" rel="stylesheet"
+    <link href="<?php echo e(URL::asset('/assets/css/bootstrap.min.css')); ?>" id="bootstrap-style" rel="stylesheet"
           type="text/css"/>
     <!-- Icons Css -->
-    <link href="{{ URL::asset('/assets/css/icons.min.css') }}" rel="stylesheet" type="text/css"/>
+    <link href="<?php echo e(URL::asset('/assets/css/icons.min.css')); ?>" rel="stylesheet" type="text/css"/>
     <!-- App Css-->
-    <link href="{{ URL::asset('/assets/css/app.min.css') }}" id="app-style" rel="stylesheet" type="text/css"/>
+    <link href="<?php echo e(URL::asset('/assets/css/app.min.css')); ?>" id="app-style" rel="stylesheet" type="text/css"/>
 
-@endsection
+<?php $__env->stopSection(); ?>
 
-@section('content')
+<?php $__env->startSection('content'); ?>
 
-    @if(session()->has('success'))
+    <?php if(session()->has('success')): ?>
         <div class="alert alert-success alert-dismissible fade show" role="alert">
-            {{session('success')}}
+            <?php echo e(session('success')); ?>
+
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
-    @endif
+    <?php endif; ?>
 
 
     <div class="col-xl-12">
@@ -30,16 +29,16 @@
                     <div class="me-2">
                         <h5 class="card-title mb-4">Liste de reponses des chauffeurs</h5>
                     </div>
-                    @can('doAdvanced')
+                    <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('doAdvanced')): ?>
                     <div class="ms-auto">
                         <div class="text-sm-end">
-                            <a type="button" href="{{route('driver_quiz_responses.create')}}"
+                            <a type="button" href="<?php echo e(route('driver_quiz_responses.create')); ?>"
                                class="btn btn-success btn-rounded waves-effect waves-light mb-2 me-2"><i
                                     class="mdi mdi-plus me-1"></i> Ajouter
                             </a>
                         </div>
                     </div>
-                    @endcan
+                    <?php endif; ?>
                 </div>
 
                 <div class="table-responsive">
@@ -50,30 +49,31 @@
                             <th class="align-middle">Quiz catégorie</th>
                             <th class="align-middle">Question</th>
                             <th class="align-middle">Reponse</th>
-                            @can('doAdvanced')
+                            <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('doAdvanced')): ?>
                             <th class="align-middle">Actions</th>
-                            @endcan
+                            <?php endif; ?>
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach($driverQuizResponses as $driverQuizResponse)
+                        <?php $__currentLoopData = $driverQuizResponses; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $driverQuizResponse): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                             <tr>
                                 <td>
-                                    <a href="{{route('drivers.show',$driverQuizResponse->driver_id)}}">
-                                        <p class="text-muted mb-0 text-justify">{{$driverQuizResponse->driver->name}}</p>
+                                    <a href="<?php echo e(route('drivers.show',$driverQuizResponse->driver_id)); ?>">
+                                        <p class="text-muted mb-0 text-justify"><?php echo e($driverQuizResponse->driver->name); ?></p>
                                     </a>
                                 </td>
                                 <td class="d-none d-xl-table-cell">
-                                    <a type="button" href="{{route('categories.show', $driverQuizResponse->quiz_question->category)}}"
+                                    <a type="button" href="<?php echo e(route('categories.show', $driverQuizResponse->quiz_question->category)); ?>"
                                        class="btn btn-success btn-rounded waves-effect waves-light mb-2 me-2"><i
-                                            class="mdi mdi-tag me-1"></i> {{$driverQuizResponse->quiz_question->category->name}}
+                                            class="mdi mdi-tag me-1"></i> <?php echo e($driverQuizResponse->quiz_question->category->name); ?>
+
                                     </a>
                                 </td>
                                 <td>
                                     <div class="row">
                                         <div class="col-auto">
-                                            <a href="{{route('quiz_questions.show',$driverQuizResponse->quiz_question_id)}}" class="">
-                                                <p class="text-muted mb-0 text-justify">{{$driverQuizResponse->quiz_question->description}}</p>
+                                            <a href="<?php echo e(route('quiz_questions.show',$driverQuizResponse->quiz_question_id)); ?>" class="">
+                                                <p class="text-muted mb-0 text-justify"><?php echo e($driverQuizResponse->quiz_question->description); ?></p>
                                             </a>
                                         </div>
                                     </div>
@@ -81,34 +81,34 @@
                                 </td>
 
                                 <td>
-                                    @if($driverQuizResponse->correct)
+                                    <?php if($driverQuizResponse->correct): ?>
                                         <span
                                            class="btn btn-success btn-rounded waves-effect waves-light mb-2 me-2"><i
                                                 class="mdi mdi-tag me-1"></i> Correct
                                         </span>
-                                    @else
+                                    <?php else: ?>
                                         <span
                                            class="btn btn-danger btn-rounded waves-effect waves-light mb-2 me-2"><i
                                                 class="mdi mdi-tag me-1"></i> Faux
                                         </span>
-                                    @endif
+                                    <?php endif; ?>
                                 </td>
-                                @can('doAdvanced')
+                                <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('doAdvanced')): ?>
                                 <td style="width: 400px">
                                     <div class="d-flex gap-3">
-                                        <a href="{{route('driver_quiz_responses.drivers',[$driverQuizResponse->driver_id])}}"
+                                        <a href="<?php echo e(route('driver_quiz_responses.drivers',[$driverQuizResponse->driver_id])); ?>"
                                            class="btn btn-primary">Reponses du chauffeur
                                         </a>
                                         <div class="d-flex gap-3">
-                                            <a href="{{route('driver_quiz_responses.quizzes',[$driverQuizResponse->quiz_question_id])}}"
+                                            <a href="<?php echo e(route('driver_quiz_responses.quizzes',[$driverQuizResponse->quiz_question_id])); ?>"
                                                class="btn btn-primary">Reponses à ce quiz
                                             </a>
                                         </div>
                                     </div>
                                 </td>
-                                @endcan
+                                <?php endif; ?>
                             </tr>
-                        @endforeach
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
                         </tbody>
                     </table>
@@ -116,14 +116,17 @@
 
                 </div>
 
-                {{ $driverQuizResponses->links('vendor.pagination.round') }}
+                <?php echo e($driverQuizResponses->links('vendor.pagination.round')); ?>
+
             </div>
         </div>
         <!-- end card -->
     </div>
 
-@endsection
+<?php $__env->stopSection(); ?>
 
 
 
 
+
+<?php echo $__env->make('layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /home/chad/laravel-workspace/safetyapp_web/resources/views/driver_quiz_responses/index.blade.php ENDPATH**/ ?>

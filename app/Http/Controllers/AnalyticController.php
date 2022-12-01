@@ -88,7 +88,7 @@ class AnalyticController extends Controller
 
         $total_quizzes     = QuizQuestion::count();
         $total_rules       = Rule::count();
-        $total_drivers     = Driver::count();
+        $total_drivers     = Driver::where('role', 'driver')->count();
         $total_readings    = Reading::count(); 
         $total_categories  = Category::count();
         $total_carriers    = Carrier::count();

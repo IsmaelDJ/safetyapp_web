@@ -15,7 +15,7 @@ class DriversExport implements FromView
     public function view():View
     {
         $data = [];
-        $drivers = Driver::with('user')->get();
+        $drivers = Driver::with('user')->where('role', 'driver')->get();
 
         $iteration = 0;
         foreach($drivers as $driver){

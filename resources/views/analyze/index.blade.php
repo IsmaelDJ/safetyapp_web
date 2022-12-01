@@ -65,11 +65,7 @@ type="text/css"/>
             <div class="card-body">
                 <h4 class="card-title d-inline-block mb-2">Lecture par catégories</h4>
                 <div class="btn-group float-end">
-                    <button type="button" class="btn btn-primary btn-sm waves-effect waves-light mb-2 dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Détails <i class="mdi mdi-chevron-down"></i></button>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" href="{{route('carriers.export.xlsx')}}" >Quiz lu</a>
-                        <a class="dropdown-item" href="{{route('carriers.export.pdf')}}">Quiz non lu</a>
-                    </div>
+                    <a type="button"  class="btn btn-primary btn-sm waves-effect waves-light mb-2 dropdown-toggle" href="{{route('analyze.category.read')}}">Détails</a>
                 </div>
 
                 <hr>

@@ -5,8 +5,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use \App\Http\Controllers\RuleController;
 use App\Http\Controllers\DriverController;
-use \App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CarrierController;
+use \App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ParticularController;
 use App\Http\Controllers\QuizQuestionController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\DriverQuizResponseController;
@@ -50,6 +51,8 @@ Route::post('carriers',  [CarrierController::class, 'store'])->name('carriers.st
 Route::put('carriers/{id}', [CarrierController::class, 'update'])->name('carriers.update');
 Route::delete('carriers/{id}',  [CarrierController::class, 'destroy'])->name('carriers.destroy');
 Route::get('carriers/{id}/edit',  [CarrierController::class, 'edit'])->name('carriers.edit');
+//particulars
+Route::resource('particulars', ParticularController::class);
 
 //drivers
 Route::resource('drivers', DriverController::class);

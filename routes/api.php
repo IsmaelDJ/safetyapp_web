@@ -87,7 +87,7 @@ Route::group([
     });
 
     //Reading 
-    Route::get('Drivers/{driver_id}/rules/{rule_id}', function ( $driver_id, $rule_id) {
+    Route::get('drivers/{driver_id}/rules/{rule_id}', function ( $driver_id, $rule_id) {
 
         Reading::create([
             'driver_id'   => $driver_id,
