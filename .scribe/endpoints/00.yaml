@@ -18,7 +18,7 @@ endpoints:
         name: id
         description: 'The ID of the response.'
         required: true
-        example: veniam
+        example: ea
         type: string
         custom: []
     queryParameters: []
@@ -42,7 +42,7 @@ endpoints:
         name: id
         description: 'The ID of the response.'
         required: true
-        example: '9'
+        example: '211015'
         type: string
         custom: []
     queryParameters: []
@@ -322,7 +322,7 @@ endpoints:
         name: id
         description: 'The ID of the category.'
         required: true
-        example: 12
+        example: 18
         type: integer
         custom: []
     queryParameters: []
@@ -356,7 +356,7 @@ endpoints:
         name: id
         description: 'The ID of the category.'
         required: true
-        example: 10
+        example: 4
         type: integer
         custom: []
     queryParameters: []
@@ -417,7 +417,7 @@ endpoints:
         name: id
         description: 'The ID of the rule.'
         required: true
-        example: 16
+        example: 18
         type: integer
         custom: []
     queryParameters: []
@@ -478,7 +478,7 @@ endpoints:
         name: id
         description: 'The ID of the quiz.'
         required: true
-        example: '9942'
+        example: '3'
         type: string
         custom: []
     queryParameters: []
@@ -512,7 +512,7 @@ endpoints:
         name: category_id
         description: 'The ID of the category.'
         required: true
-        example: '2'
+        example: '055464'
         type: string
         custom: []
     queryParameters: []
@@ -590,7 +590,7 @@ endpoints:
         name: id
         description: 'The ID of the response.'
         required: true
-        example: quisquam
+        example: quia
         type: string
         custom: []
     queryParameters: []
@@ -625,7 +625,7 @@ endpoints:
         name: id
         description: 'The ID of the response.'
         required: true
-        example: doloremque
+        example: vel
         type: string
         custom: []
     queryParameters: []
@@ -649,14 +649,14 @@ endpoints:
         name: driver_id
         description: 'The ID of the driver.'
         required: true
-        example: 1
+        example: 4
         type: integer
         custom: []
       rule_id:
         name: rule_id
         description: 'The ID of the rule.'
         required: true
-        example: 48
+        example: 3921
         type: integer
         custom: []
     queryParameters: []
@@ -1188,7 +1188,7 @@ endpoints:
         name: driver_id
         description: 'The ID of the driver.'
         required: true
-        example: 1
+        example: 4
         type: integer
         custom: []
     queryParameters: []
@@ -1222,7 +1222,7 @@ endpoints:
         name: driver_id
         description: 'The ID of the driver.'
         required: true
-        example: '203910'
+        example: '54367'
         type: string
         custom: []
     queryParameters: []
@@ -1256,7 +1256,7 @@ endpoints:
         name: driver_id
         description: 'The ID of the driver.'
         required: true
-        example: '575852'
+        example: '0'
         type: string
         custom: []
     queryParameters: []
@@ -1653,7 +1653,7 @@ endpoints:
         name: id
         description: 'The ID of the response.'
         required: true
-        example: '58473091'
+        example: '9'
         type: string
         custom: []
     queryParameters: []

@@ -87,7 +87,7 @@ paths:
         in: path
         name: id
         description: 'The ID of the response.'
-        example: veniam
+        example: ea
         required: true
         schema:
           type: string
@@ -128,7 +128,7 @@ paths:
         in: path
         name: id
         description: 'The ID of the response.'
-        example: '9'
+        example: '211015'
         required: true
         schema:
           type: string
@@ -282,7 +282,7 @@ paths:
         in: path
         name: id
         description: 'The ID of the category.'
-        example: 12
+        example: 18
         required: true
         schema:
           type: integer
@@ -323,7 +323,7 @@ paths:
         in: path
         name: id
         description: 'The ID of the category.'
-        example: 10
+        example: 4
         required: true
         schema:
           type: integer
@@ -394,7 +394,7 @@ paths:
         in: path
         name: id
         description: 'The ID of the rule.'
-        example: 16
+        example: 18
         required: true
         schema:
           type: integer
@@ -466,7 +466,7 @@ paths:
         in: path
         name: id
         description: 'The ID of the quiz.'
-        example: '9942'
+        example: '3'
         required: true
         schema:
           type: string
@@ -507,7 +507,7 @@ paths:
         in: path
         name: category_id
         description: 'The ID of the category.'
-        example: '2'
+        example: '055464'
         required: true
         schema:
           type: string
@@ -1463,7 +1463,7 @@ paths:
         in: path
         name: driver_id
         description: 'The ID of the driver.'
-        example: 1
+        example: 4
         required: true
         schema:
           type: integer
@@ -1471,7 +1471,7 @@ paths:
         in: path
         name: rule_id
         description: 'The ID of the rule.'
-        example: 48
+        example: 3921
         required: true
         schema:
           type: integer
@@ -1515,7 +1515,7 @@ paths:
         in: path
         name: driver_id
         description: 'The ID of the driver.'
-        example: 1
+        example: 4
         required: true
         schema:
           type: integer
@@ -1555,7 +1555,7 @@ paths:
         in: path
         name: driver_id
         description: 'The ID of the driver.'
-        example: '203910'
+        example: '54367'
         required: true
         schema:
           type: string
@@ -2229,7 +2229,7 @@ paths:
         in: path
         name: driver_id
         description: 'The ID of the driver.'
-        example: '575852'
+        example: '0'
         required: true
         schema:
           type: string
@@ -2269,7 +2269,7 @@ paths:
         in: path
         name: id
         description: 'The ID of the response.'
-        example: '58473091'
+        example: '9'
         required: true
         schema:
           type: string
