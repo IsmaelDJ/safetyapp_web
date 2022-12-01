@@ -60,9 +60,11 @@ class ParticularController extends Controller
             $particular->avatar = uploadFile($request, 'avatar','driver_avatar');
         }
 
+        $particulars = Driver::where('role', 'particular')->latest()->first();
+
         $particular->name       = $request->name;
         $particular->phone      = $request->phone;
-        $particular->uuid       = substr(Str::uuid(), 0, 4);
+        $particular->uuid       = str_pad($particulars->id??'0', 4, '0', STR_PAD_LEFT);
         $particular->password   = $password;
         $particular->role       = 'particular';
 
