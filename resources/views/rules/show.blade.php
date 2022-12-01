@@ -108,12 +108,12 @@
                                                    var result = confirm('Cette règle sera supprimée');
                                                    if(result){
                                                        event.preventDefault();
-                                                       document.getElementById('delete-form').submit();
+                                                       document.getElementById('delete-form{{$categoryRule->id}}').submit();
                                                    }
                                                    ">
                                             Supprimer</a>
 
-                                        <form method="POST" id="delete-form"
+                                        <form method="POST" id="delete-form{{$categoryRule->id}}"
                                               action="{{route('rules.destroy', [$categoryRule])}}">
                                             @csrf
                                             <input type="hidden" name="_method" value="DELETE">
