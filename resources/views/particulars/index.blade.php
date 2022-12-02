@@ -48,7 +48,7 @@
                             <th class="text-center" scope="col">Avatar</th>
                             <th scope="col">Nom</th>
                             <th scope="col">Numéro de téléphone</th>
-                            <th scope="col">UUID</th>
+                            <th scope="col">Identifiant</th>
                             <th scope="col">Mot de passe</th>
                             <th class="text-center" scope="col">Action</th>
                         </tr>

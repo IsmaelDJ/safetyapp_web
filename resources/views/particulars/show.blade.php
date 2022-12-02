@@ -26,7 +26,7 @@
                         </div>
                         <i class="mdi mdi-phone me-1 "></i><span class="text-muted">Tel</span>
                         <h4 class="lead mb-4">{{$particular->phone}}</h4>
-                        <i class="mdi mdi-key me-1 "></i><span class="text-muted">UUID</span>
+                        <i class="mdi mdi-key me-1 "></i><span class="text-muted">Identifiant</span>
                         <h4 class="lead mb-4">{{$particular->uuid}}</h4>
                         <i class="mdi mdi-map-marker me-1 "></i><span class="text-muted">Mot de passe</span>
                         <h4 class="lead mb-4">{{$particular->password}}</h4>
