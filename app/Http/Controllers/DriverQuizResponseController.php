@@ -23,10 +23,11 @@ class DriverQuizResponseController extends Controller
 
     public function index()
     {
-        $driverQuizResponses = DriverQuizResponse::all();
-        if(Auth::user()->isCarrier()){
+        $driverQuizResponses = DriverQuizResponse::with('driver')->get();
+        
+        if(me()->isCarrier()){
             $driverQuizResponses = $driverQuizResponses->filter(function ($response) {
-                return $response->driver->user_id === Auth::user()->id;
+                return $response->driver->user_id === me()->id;
             });
         }
 
@@ -66,7 +67,7 @@ class DriverQuizResponseController extends Controller
         ]);
 
         DriverQuizResponse::create([
-            'driver_id'      => $request->driver_id,
+            'driver_id'        => $request->driver_id,
             'quiz_question_id' => $request->quiz_question_id,
             'correct'          => $request->correct == 'true' ? true: false
         ]);
@@ -85,8 +86,8 @@ class DriverQuizResponseController extends Controller
 
     public function edit(DriverQuizResponse $driverQuizResponse)
     {
-        $drivers = Driver::all();
-        $quizQuestions = QuizQuestion::all();
+        $drivers = Driver::with('user')->get();
+        $quizQuestions = QuizQuestion::with('category')->get();
         return view('driver_quiz_responses.edit', compact('driverQuizResponse', 'drivers', 'quizQuestions'));
     }
 

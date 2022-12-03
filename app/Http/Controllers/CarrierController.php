@@ -72,6 +72,7 @@ class CarrierController extends Controller
 
     public function update(Request $request, $id)
     {
+        $carrier = Carrier::find($id);
         
         $request->validate(
             [
