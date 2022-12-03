@@ -43,9 +43,9 @@
                         <li class="list-group-item d-flex justify-content-between align-items-center p-4">
                             <span style="width: 400px; font-size: 14px;" class="text text-justify"> 
                                 @if ($result->type == 1)
-                                    <span class="badge bg-success btn-rounded p-2 mb-2" style="width: 80px;"><i class="mdi mdi-tag me-1"></i> Quiz </span> <br> {{str::limit( $result->content->description, $limit = 150, $end = '...')}}
+                                    <span class="badge bg-success btn-rounded p-2 mb-2" style="width: 80px;"><i class="mdi mdi-tag me-1"></i> Quiz </span> <br> {{Str::limit( $result->content->description, $limit = 150, $end = '...')}}
                                 @else
-                                    <span class="badge bg-primary btn-rounded p-2 mb-2" style="width: 80px;"><i class="mdi mdi-tag me-1"></i> Règle </span><br> {{str::limit( $result->content->description, $limit = 150, $end = '...')}}
+                                    <span class="badge bg-primary btn-rounded p-2 mb-2" style="width: 80px;"><i class="mdi mdi-tag me-1"></i> Règle </span><br> {{Str::limit( $result->content->description, $limit = 150, $end = '...')}}
                                 @endif</span>
                             <span class="badge badge-primary badge-pill">
                                 @if ($result->type == 1)

@@ -62,11 +62,11 @@
                                 </td>
                                 <td >
                                     @if ($item->type == 1)
-                                        <p class="text-muted m-1 text-justify"><a href="{{ route('quiz_questions.show', $item->action) }}">Quiz : {{str::limit( $item->action->description, $limit = 100, $end = '...')}}</a></p>
+                                        <p class="text-muted m-1 text-justify"><a href="{{ route('quiz_questions.show', $item->action) }}">Quiz : {{Str::limit( $item->action->description, $limit = 100, $end = '...')}}</a></p>
                                     @elseif($item->type == 2)
-                                    <p class="text-muted m-1 text-justify"><a href="{{ route('rules.show', $item->action) }}">Règle : {{str::limit( $item->action->description, $limit = 100, $end = '...')}}</a></p>
+                                    <p class="text-muted m-1 text-justify"><a href="{{ route('rules.show', $item->action) }}">Règle : {{Str::limit( $item->action->description, $limit = 100, $end = '...')}}</a></p>
                                     @else
-                                        <p class="text-muted m-1 text-justify">{{str::limit( $item->action, $limit = 100, $end = '...')}}</p>
+                                        <p class="text-muted m-1 text-justify">{{Str::limit( $item->action, $limit = 100, $end = '...')}}</p>
                                     @endif
                                 </td>
                                 <td style="width: 20%;">
