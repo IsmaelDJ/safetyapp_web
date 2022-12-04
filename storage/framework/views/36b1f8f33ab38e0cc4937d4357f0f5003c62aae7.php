@@ -195,15 +195,15 @@ unset($__errorArgs, $__bag); ?>" id="avatar" name="avatar" autofocus>
         <?php
 if (! isset($_instance)) {
     $html = \Livewire\Livewire::mount('chart-presence')->html();
-} elseif ($_instance->childHasBeenRendered('4zWDQKo')) {
-    $componentId = $_instance->getRenderedChildComponentId('4zWDQKo');
-    $componentTag = $_instance->getRenderedChildComponentTagName('4zWDQKo');
+} elseif ($_instance->childHasBeenRendered('bJwaJhH')) {
+    $componentId = $_instance->getRenderedChildComponentId('bJwaJhH');
+    $componentTag = $_instance->getRenderedChildComponentTagName('bJwaJhH');
     $html = \Livewire\Livewire::dummyMount($componentId, $componentTag);
-    $_instance->preserveRenderedChild('4zWDQKo');
+    $_instance->preserveRenderedChild('bJwaJhH');
 } else {
     $response = \Livewire\Livewire::mount('chart-presence');
     $html = $response->html();
-    $_instance->logRenderedChild('4zWDQKo', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
+    $_instance->logRenderedChild('bJwaJhH', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
 }
 echo $html;
 ?>
@@ -245,7 +245,7 @@ echo $html;
                                         
                                         <td>
                                             <div>
-                                                <h5 class="font-size-14 mb-1"><?php echo e(str::limit($quizNoAnswered->description, $limit=20, $end='...')); ?> </h5>
+                                                <h5 class="font-size-14 mb-1"><?php echo e(Str::limit($quizNoAnswered->description, $limit=20, $end='...')); ?> </h5>
                                             </div>
                                         </td>
                                         
@@ -290,7 +290,7 @@ echo $html;
                                         
                                         <td>
                                             <div>
-                                                <h5 class="font-size-14 mb-1"><?php echo e(str::limit($quizBadAnswered->description, $limt=20, $end='...')); ?></h5>
+                                                <h5 class="font-size-14 mb-1"><?php echo e(Str::limit($quizBadAnswered->description, $limt=20, $end='...')); ?></h5>
                                             </div>
                                         </td>
                                         
@@ -298,7 +298,7 @@ echo $html;
                                             <div class="text-end">
                                                 <a type="button" href="<?php echo e(route('categories.show', $quizBadAnswered->category)); ?>"
                                                     class="btn btn-success btn-rounded waves-effect waves-light "><i
-                                                    class="mdi mdi-tag me-1"></i> <?php echo e(str::limit($quizBadAnswered->category->name, $limit=4, $end='..')); ?>
+                                                    class="mdi mdi-tag me-1"></i> <?php echo e(Str::limit($quizBadAnswered->category->name, $limit=4, $end='..')); ?>
 
                                                 </a>                                            
                                             </div>
@@ -336,7 +336,7 @@ echo $html;
                                         
                                         <td>
                                             <div>
-                                                <h5 class="font-size-14 mb-1"><?php echo e(str::limit($quizGoodAnswered->description, $limit=20, $end='...')); ?></h5>
+                                                <h5 class="font-size-14 mb-1"><?php echo e(Str::limit($quizGoodAnswered->description, $limit=20, $end='...')); ?></h5>
                                             </div>
                                         </td>
                                         
@@ -344,7 +344,7 @@ echo $html;
                                             <div class="text-end">
                                                 <a type="button" href="<?php echo e(route('categories.show', $quizGoodAnswered->category)); ?>"
                                                     class="btn btn-success btn-rounded waves-effect waves-light "><i
-                                                    class="mdi mdi-tag me-1"></i> <?php echo e(str::limit($quizGoodAnswered->category->name, $limit=4, $end='..')); ?>
+                                                    class="mdi mdi-tag me-1"></i> <?php echo e(Str::limit($quizGoodAnswered->category->name, $limit=4, $end='..')); ?>
 
                                                 </a>
                                             </div>
@@ -395,7 +395,7 @@ echo $html;
                         <?php $__currentLoopData = $rulesMoreRead; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $ruleMoreRead): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <li class="list-group-item">
                             <div class="py-2">
-                                <h5 class="font-size-14"><?php echo e(str::limit($ruleMoreRead->description, $limit=20, $end='...')); ?><span class="float-end"><?php echo e((round($total_readings != 0 ? $ruleMoreRead->readings_count * 100 / $total_readings : 0 , 1)). '%'); ?></span></h5>
+                                <h5 class="font-size-14"><?php echo e(Str::limit($ruleMoreRead->description, $limit=20, $end='...')); ?><span class="float-end"><?php echo e((round($total_readings != 0 ? $ruleMoreRead->readings_count * 100 / $total_readings : 0 , 1)). '%'); ?></span></h5>
                                 <div class="progress animated-progess progress-sm">
                                     <div class="progress-bar" role="progressbar" style="width: <?php echo e(round( $total_readings != 0 ? $ruleMoreRead->readings_count * 100 / $total_readings : 0, 1)); ?>%" aria-valuenow="<?php echo e(round($total_readings != 0 ? $ruleMoreRead->readings_count * 100 / $total_readings : 0, 1)); ?>" aria-valuemin="0" aria-valuemax="100"></div>
                                 </div>

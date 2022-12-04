@@ -38,7 +38,7 @@
 </div>
 
 <?php $__env->startPush('script'); ?>
-    <?php if (! $__env->hasRenderedOnce('0f46290c-c7d8-4bf8-b249-4891135fa6ce')): $__env->markAsRenderedOnce('0f46290c-c7d8-4bf8-b249-4891135fa6ce'); ?>
+    <?php if (! $__env->hasRenderedOnce('a83f7835-1d41-4e4c-bcdb-3d84fa3c2003')): $__env->markAsRenderedOnce('a83f7835-1d41-4e4c-bcdb-3d84fa3c2003'); ?>
         <script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/highcharts/6.0.6/highcharts.js" charset="utf-8"></script>
             <?php echo $presenceChart->script(); ?>

@@ -184,7 +184,7 @@
                                         
                                         <td>
                                             <div>
-                                                <h5 class="font-size-14 mb-1">{{ str::limit($quizNoAnswered->description, $limit=20, $end='...') }} </h5>
+                                                <h5 class="font-size-14 mb-1">{{ Str::limit($quizNoAnswered->description, $limit=20, $end='...') }} </h5>
                                             </div>
                                         </td>
                                         
@@ -228,7 +228,7 @@
                                         
                                         <td>
                                             <div>
-                                                <h5 class="font-size-14 mb-1">{{ str::limit($quizBadAnswered->description, $limt=20, $end='...') }}</h5>
+                                                <h5 class="font-size-14 mb-1">{{ Str::limit($quizBadAnswered->description, $limt=20, $end='...') }}</h5>
                                             </div>
                                         </td>
                                         
@@ -236,7 +236,7 @@
                                             <div class="text-end">
                                                 <a type="button" href="{{route('categories.show', $quizBadAnswered->category)}}"
                                                     class="btn btn-success btn-rounded waves-effect waves-light "><i
-                                                    class="mdi mdi-tag me-1"></i> {{ str::limit($quizBadAnswered->category->name, $limit=4, $end='..')}}
+                                                    class="mdi mdi-tag me-1"></i> {{ Str::limit($quizBadAnswered->category->name, $limit=4, $end='..')}}
                                                 </a>                                            
                                             </div>
                                         </td>
@@ -273,7 +273,7 @@
                                         
                                         <td>
                                             <div>
-                                                <h5 class="font-size-14 mb-1">{{ str::limit($quizGoodAnswered->description, $limit=20, $end='...') }}</h5>
+                                                <h5 class="font-size-14 mb-1">{{ Str::limit($quizGoodAnswered->description, $limit=20, $end='...') }}</h5>
                                             </div>
                                         </td>
                                         
@@ -281,7 +281,7 @@
                                             <div class="text-end">
                                                 <a type="button" href="{{route('categories.show', $quizGoodAnswered->category)}}"
                                                     class="btn btn-success btn-rounded waves-effect waves-light "><i
-                                                    class="mdi mdi-tag me-1"></i> {{ str::limit($quizGoodAnswered->category->name, $limit=4, $end='..') }}
+                                                    class="mdi mdi-tag me-1"></i> {{ Str::limit($quizGoodAnswered->category->name, $limit=4, $end='..') }}
                                                 </a>
                                             </div>
                                         </td>
@@ -331,7 +331,7 @@
                         @foreach($rulesMoreRead as $ruleMoreRead)
                         <li class="list-group-item">
                             <div class="py-2">
-                                <h5 class="font-size-14">{{ str::limit($ruleMoreRead->description, $limit=20, $end='...') }}<span class="float-end">{{ (round($total_readings != 0 ? $ruleMoreRead->readings_count * 100 / $total_readings : 0 , 1)). '%' }}</span></h5>
+                                <h5 class="font-size-14">{{ Str::limit($ruleMoreRead->description, $limit=20, $end='...') }}<span class="float-end">{{ (round($total_readings != 0 ? $ruleMoreRead->readings_count * 100 / $total_readings : 0 , 1)). '%' }}</span></h5>
                                 <div class="progress animated-progess progress-sm">
                                     <div class="progress-bar" role="progressbar" style="width: {{ round( $total_readings != 0 ? $ruleMoreRead->readings_count * 100 / $total_readings : 0, 1)}}%" aria-valuenow="{{ round($total_readings != 0 ? $ruleMoreRead->readings_count * 100 / $total_readings : 0, 1) }}" aria-valuemin="0" aria-valuemax="100"></div>
                                 </div>

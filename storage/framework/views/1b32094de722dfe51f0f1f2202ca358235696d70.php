@@ -1,6 +1,4 @@
-
-
-<?php $__env->startSection('title'); ?> Utilisateurs <?php $__env->stopSection(); ?>
+<?php $__env->startSection('title'); ?> Règles <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('css'); ?>
     <!-- Bootstrap Css -->
@@ -30,11 +28,11 @@
             <div class="card-body">
                 <div class="d-flex align-items-start">
                     <div class="me-2">
-                        <h5 class="card-title mb-4">Liste des chauffeurs</h5>
+                        <h5 class="card-title mb-4">Liste des règles</h5>
                     </div>
                     <div class="ms-auto">
                         <div class="text-sm-end">
-                            <a type="button" href="<?php echo e(route('drivers.create')); ?>"
+                            <a type="button" href="<?php echo e(route('rules.create')); ?>"
                                class="btn btn-success btn-rounded waves-effect waves-light mb-2 me-2"><i
                                     class="mdi mdi-plus me-1"></i> Ajouter
                             </a>
@@ -46,70 +44,67 @@
                     <table class="table align-middle ">
                         <thead>
                         <tr>
-                            <th scope="col">Nom</th>
-                            <th scope="col">Transporteur</th>
-                            <th scope="col">Numéro de téléphone</th>
-                            <th scope="col">Clé OBC</th>
-                            <th scope="col">Mot de passe</th>
-                            <th class="text-center" scope="col">Action</th>
+                            <th scope="col">Illustration</th>
+                            <th scope="col">Description</th>
+                            <th scope="col" class="d-none d-xl-table-cell">Catégorie</th>
+                            <th scope="col">Audio Français</th>
+                            <th scope="col" class="d-none d-xl-table-cell">Audio Arabe</th>
+                            <th scope="col" class="d-none d-xl-table-cell">Audio Ngambaye</th>
+                            <th scope="col">Action</th>
                         </tr>
                         </thead>
                         <tbody>
-                        <?php $__currentLoopData = $drivers; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $driver): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                        <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('view', $driver)): ?>
+                        <?php $__currentLoopData = $rules; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $rule): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                             <tr>
-                                <td>
-                                    <p class="text-muted mb-0 text-justify"><?php echo e($driver->name); ?></p>
+                                <td style="width: 150px;"><img src="<?php echo e(URL::asset($rule->image)); ?>" alt=""
+                                                               class="avatar-md h-auto d-block rounded"></td>
+                                <td style="width: 250px">
+                                    <p class="text-muted mb-0 text-justify"><?php echo e($rule->description); ?></p>
                                 </td>
-                                <td>
-                                    <div>
-                                        <a href="<?php echo e(route('carriers.show', $driver->user)); ?>"
-                                           class=" mb-2 me-2">
+                                <td class="d-none d-xl-table-cell">
+                                    <a type="button" href="<?php echo e(route('categories.show', $rule->category)); ?>"
+                                       class="btn btn-success btn-rounded waves-effect waves-light mb-2 me-2"><i
+                                            class="mdi mdi-tag me-1"></i> <?php echo e($rule->category->name); ?>
 
-                                            <?php echo e($driver->user->name); ?>
-
-                                        </a>
-                                    </div>
+                                    </a>
                                 </td>
-                                <td>
-                                    <p class="text-muted mb-0 text-justify"><?php echo e($driver->phone); ?></p>
+                                <td >
+                                    <div class="essential_audio" data-url="<?php echo e(URL::asset($rule->fr)); ?>"></div>
                                 </td>
-                                <td>
-                                    <p class="text-muted mb-0 text-justify"><?php echo e($driver->obc); ?></p>
+                                <td class="d-none d-xl-table-cell">
+                                    <div class="essential_audio" data-url="<?php echo e(URL::asset($rule->ar)); ?>" ></div>
                                 </td>
-                                <td>
-                                    <p class="text-muted mb-0 text-justify"><?php echo e($driver->password); ?></p>
+                                <td class="d-none d-xl-table-cell">
+                                    <div class="essential_audio" data-url="<?php echo e(URL::asset($rule->ng)); ?>" ></div>
                                 </td>
-
                                 <td style="width: 200px">
                                     <div class="d-flex gap-3">
 
-                                        <a href="<?php echo e(route('drivers.show', $driver)); ?>"
+                                        <a href="<?php echo e(route('rules.show', $rule)); ?>"
                                            class="btn btn-default">Détails
                                         </a>
-                                        <a href="<?php echo e(route('drivers.edit', $driver)); ?>"
+                                        <a href="<?php echo e(route('rules.edit', $rule)); ?>"
                                            class="btn btn-info">Modifier
                                         </a>
 
-                                        <a href="<?php echo e(route('drivers.index')); ?>" class="btn btn-danger"
+                                        <a href="<?php echo e(route('rules.index')); ?>" class="btn btn-danger"
                                            onclick="
-                                                   var result = confirm('Cet utilisateur sera supprimée');
+                                                   var result = confirm('Cette règle sera supprimée');
                                                    if(result){
                                                        event.preventDefault();
-                                                       document.getElementById('delete-form').submit();
+                                                       document.getElementById('delete-form<?php echo e($rule->id); ?>').submit();
                                                    }
                                                    ">
                                             Supprimer</a>
 
-                                        <form method="POST" id="delete-form"
-                                              action="<?php echo e(route('drivers.destroy', [$driver])); ?>">
+                                        <form method="POST" id="delete-form<?php echo e($rule->id); ?>"
+                                              action="<?php echo e(route('rules.destroy', $rule)); ?>">
                                             <?php echo csrf_field(); ?>
                                             <input type="hidden" name="_method" value="DELETE">
                                         </form>
                                     </div>
                                 </td>
                             </tr>
-                        <?php endif; ?>
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
                         </tbody>
@@ -118,7 +113,7 @@
 
                 </div>
 
-                <?php echo e($drivers->links('vendor.pagination.round')); ?>
+                <?php echo e($rules->links('vendor.pagination.round')); ?>
 
             </div>
         </div>
@@ -127,11 +122,6 @@
     <!-- end col -->
 <?php $__env->stopSection(); ?>
 
-<?php $__env->startSection('script'); ?>
-
-    <script src="<?php echo e(URL::asset('assets/js/essential_audio.js')); ?>"></script>
-<?php $__env->stopSection(); ?>
 
 
-
-<?php echo $__env->make('layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\Users\Ismae\Downloads\safetyapp_web\resources\views/drivers/index.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /home/chad/laravel-workspace/safetyapp_web/resources/views/rules/index.blade.php ENDPATH**/ ?>
