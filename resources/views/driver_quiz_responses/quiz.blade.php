@@ -51,10 +51,10 @@
                                 </td>
                                 <td>
                                     <div>
-                                        <a href="{{route('contractors.show', $driverQuizResponse->driver->contractor)}}"
+                                        <a href="{{route('carriers.show', $driverQuizResponse->driver->user_id)}}"
                                             class=" mb-2 me-2">
 {{--                                            <i class="mdi mdi-tag me-1"></i>--}}
-                                            {{$driverQuizResponse->driver->contractor->name}}
+                                            {{$driverQuizResponse->driver->user->name}}
                                         </a>
                                     </div>
                                 </td>
@@ -90,7 +90,7 @@
                                         <a href="{{route('driver_quiz_responses.show', $driverQuizResponse)}}"
                                             class="btn btn-default">Détails
                                         </a>
-                                        <a href="{{route('driver_quiz_responses.edit', $driverQuizResponse->driver)}}"
+                                        <a href="{{route('driver_quiz_responses.edit', $driverQuizResponse->driver->id)}}"
                                             class="btn btn-info">Modifier
                                         </a>
 

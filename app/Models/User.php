@@ -55,7 +55,7 @@ class User extends Authenticatable
     }
 
     public function isCarrier(){
-        return $this->role == 'transporteur';
+        return $this->role === 'transporteur';
     }
 
     /**

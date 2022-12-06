@@ -5,8 +5,7 @@
     <meta charset="utf-8"/>
     <title> <?php echo $__env->yieldContent('title'); ?> | Tableau de bord</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-
+    <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>">
 <!-- App favicon -->
     <link rel="shortcut icon" href="<?php echo e(URL::asset('assets/images/favicon.png')); ?>">
     <?php echo $__env->make('layouts.head-css', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
@@ -37,10 +36,6 @@
         <!-- end main content-->
     </div>
     <!-- END layout-wrapper -->
-
-    <!-- Right Sidebar -->
-    <?php echo $__env->make('layouts.right-sidebar', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-    <!-- /Right-bar -->
 
     <!-- JAVASCRIPT -->
     <?php echo $__env->make('layouts.vendor-scripts', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>

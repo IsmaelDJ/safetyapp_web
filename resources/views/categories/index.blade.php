@@ -86,7 +86,7 @@
                                                 Supprimer</a>
 
                                             <form method="POST" id="delete-form{{$category->id}}"
-                                                  action="{{route('categories.destroy', [$category])}}">
+                                                  action="{{route('categories.destroy', $category->id)}}">
                                                 @csrf
                                                 <input type="hidden" name="_method" value="DELETE">
                                             </form>

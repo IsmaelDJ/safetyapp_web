@@ -72,8 +72,8 @@ Route::get('quiz_questions/create', [QuizQuestionController::class,'create'])->n
 //quiz question avec reponse
 Route::resource('driver_quiz_responses', DriverQuizResponseController::class);
 Route::get('driver_quiz_responses', [DriverQuizResponseController::class,'index'])->name('driver_quiz_responses.index');
-Route::get('employee_quiz_responses/{quiz_question_id}/quizzes', [DriverQuizResponseController::class,'quizzes'])->name('driver_quiz_responses.quizzes');
-Route::get('driver_quiz_responses/{employee_id}/employees', [DriverQuizResponseController::class,'employees'])->name('driver_quiz_responses.employees');
+Route::get('driver_quiz_responses/{quiz_question_id}/quizzes', [DriverQuizResponseController::class,'quizzes'])->name('driver_quiz_responses.quizzes');
+Route::get('driver_quiz_responses/{driver_id}/drivers', [DriverQuizResponseController::class,'drivers'])->name('driver_quiz_responses.drivers');
 
 Route::get('/documentation-api', function () {
     return view('scribe.index');

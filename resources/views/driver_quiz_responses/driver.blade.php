@@ -37,7 +37,7 @@
                         <thead>
                         <tr>
                             <th class="text-start">Illustration</th>
-                            <th class="align-middle">Description</th>
+                            <th class="align-middle">Descricarrierption</th>
                             <th class="align-middle">Reponse attendu</th>
                             <th class="align-middle">Reponse donnée</th>
                             <th class="align-middle">Action</th>

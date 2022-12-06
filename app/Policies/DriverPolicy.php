@@ -23,9 +23,9 @@ class DriverPolicy
      * @param  \App\Models\User  $user
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function viewAny(User $use)
+    public function viewAny(User $user)
     {
-        return $user->isAdmin();
+        return $user->isAdmin() or $user->isSuperAdmin();
     }
 
     /**
@@ -82,8 +82,8 @@ class DriverPolicy
      */
     public function delete(User $user, Driver $driver)
     {
-        if($user->role == 'transporteur'){
-            return $user->id == $driver->user_id;
+        if($user->isCarrier()){
+            return $user->id === $driver->user_id;
         }
 
         return false;
@@ -98,6 +98,6 @@ class DriverPolicy
      */
     public function restore(User $user, Driver $driver)
     {
-        return $user->isAdmin();
+        return $user->isAdmin() or $user->isSuperAdmin();
     }  
 }

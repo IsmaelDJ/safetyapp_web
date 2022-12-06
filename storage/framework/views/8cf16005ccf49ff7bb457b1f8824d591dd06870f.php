@@ -85,7 +85,7 @@
                                                 Supprimer</a>
 
                                             <form method="POST" id="delete-form<?php echo e($category->id); ?>"
-                                                  action="<?php echo e(route('categories.destroy', [$category])); ?>">
+                                                  action="<?php echo e(route('categories.destroy', $category->id)); ?>">
                                                 <?php echo csrf_field(); ?>
                                                 <input type="hidden" name="_method" value="DELETE">
                                             </form>
