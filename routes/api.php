@@ -116,12 +116,16 @@ Route::group([
     })->whereNumber('driver_id');
 
     //Quiz question
-    Route::get('quizzes',  [QuizQuestionController::class, 'index']);
-    Route::get('quizzes/{id}', [QuizQuestionController::class, 'show'])->whereNumber('id');
-    Route::get('quizzes/{driver_id}/notanswered', [QuizQuestionController::class, 'notanswered'])->whereNumber('driver_id');
-    Route::get('quizzes/{driver_id}/notanswereds   ', [QuizQuestionController::class, 'notanswereds'])->whereNumber('driver_id');
+    Route::controller(QuizQuestionController::class)->group(
+        function(){
+            Route::get('quizzes',  'index');
+            Route::get('quizzes/{id}', 'show')->whereNumber('id');
+            Route::get('quizzes/{driver_id}/notanswered', 'notanswered')->whereNumber('driver_id');
+            Route::get('quizzes/{driver_id}/notanswereds   ', 'notanswereds')->whereNumber('driver_id');
 
-    Route::get('quizzes/{category_id}/category', [QuizQuestionController::class, 'category'])->whereNumber('category_id');
+            Route::get('quizzes/{category_id}/category', 'category')->whereNumber('category_id');
+        }
+    );
 
     //Quiz response
     Route::apiResource('responses', DriverQuizResponseController::class);

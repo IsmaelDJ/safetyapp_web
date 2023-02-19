@@ -71,37 +71,60 @@ Route::get('quiz_questions/create', [QuizQuestionController::class,'create'])->n
 
 //quiz question avec reponse
 Route::resource('driver_quiz_responses', DriverQuizResponseController::class);
-Route::get('driver_quiz_responses', [DriverQuizResponseController::class,'index'])->name('driver_quiz_responses.index');
-Route::get('driver_quiz_responses/{quiz_question_id}/quizzes', [DriverQuizResponseController::class,'quizzes'])->name('driver_quiz_responses.quizzes');
-Route::get('driver_quiz_responses/{driver_id}/drivers', [DriverQuizResponseController::class,'drivers'])->name('driver_quiz_responses.drivers');
+
+Route::prefix("driver_quiz_responses")->group(
+    function(){
+        Route::controller(DriverQuizResponseController::class)->group(
+            function(){
+                Route::get('/', 'index')->name('driver_quiz_responses.index');
+                Route::get('/{quiz_question_id}/quizzes', 'quizzes')->name('driver_quiz_responses.quizzes');
+                Route::get('/{driver_id}/drivers', 'drivers')->name('driver_quiz_responses.drivers');
+            }
+        );
+    }
+);
 
 Route::get('/documentation-api', function () {
     return view('scribe.index');
 });
 
-Route::get('analyze', [App\Http\Controllers\AnalyticController::class, 'index'])->name('analyze.index');
-Route::get('analyze/details', [App\Http\Controllers\AnalyticController::class, 'details'])->name('analyze.details');
-Route::get('analyze/quiz/false', [App\Http\Controllers\AnalyticController::class, 'quiz_false'])->name('analyze.quiz.false');
-Route::get('analyze/quiz/correct', [App\Http\Controllers\AnalyticController::class, 'quiz_correct'])->name('analyze.quiz.correct');
-Route::get('analyze/quiz/waitting', [App\Http\Controllers\AnalyticController::class, 'quiz_waitting'])->name('analyze.quiz.waitting');
-Route::get('analyze/rule/read', [App\Http\Controllers\AnalyticController::class, 'rule_more_read'])->name('analyze.rule.read');
-Route::get('analyze/driver/read', [App\Http\Controllers\AnalyticController::class, 'from_best_driver'])->name('analyze.driver.read');
-Route::get('analyze/category/read', [App\Http\Controllers\AnalyticController::class, 'category_more_read'])->name('analyze.category.read');
-Route::get('analyze/rule/notread', [App\Http\Controllers\AnalyticController::class, 'rule_not_read'])->name('analyze.rule.notread');
-//analyze : pdf exportation 
-Route::get('analyze/export/pdf/details', [App\Http\Controllers\AnalyticController::class, 'export_details'])->name('analyze.export.pdf.details');
-Route::get('analyze/export/pdf/quiz/false', [App\Http\Controllers\AnalyticController::class, 'export_quiz_false'])->name('analyze.export.pdf.quiz.false');
-Route::get('analyze/export/pdf/quiz/correct', [App\Http\Controllers\AnalyticController::class, 'export_quiz_correct'])->name('analyze.export.pdf.quiz.correct');
-Route::get('analyze/export/pdf/quiz/waitting', [App\Http\Controllers\AnalyticController::class, 'export_quiz_waitting'])->name('analyze.export.pdf.quiz.waitting');
-Route::get('analyze/export/pdf/rule/read', [App\Http\Controllers\AnalyticController::class, 'export_rule_more_read'])->name('analyze.export.pdf.rule.read');
-Route::get('analyze/export/pdf/rule/notread', [App\Http\Controllers\AnalyticController::class, 'export_rule_not_read'])->name('analyze.export.pdf.rule.notread');
-//analyze : xlsx exportation 
-Route::get('analyze/export/xlsx/details', [App\Http\Controllers\AnalyticController::class, 'export_xlsx_details'])->name('analyze.export.xlsx.details');
-Route::get('analyze/export/xlsx/quiz/false', [App\Http\Controllers\AnalyticController::class, 'export_xlsx_quiz_false'])->name('analyze.export.xlsx.quiz.false');
-Route::get('analyze/export/xlsx/quiz/correct', [App\Http\Controllers\AnalyticController::class, 'export_xlsx_quiz_correct'])->name('analyze.export.xlsx.quiz.correct');
-Route::get('analyze/export/xlsx/quiz/waitting', [App\Http\Controllers\AnalyticController::class, 'export_xlsx_quiz_waitting'])->name('analyze.export.xlsx.quiz.waitting');
-Route::get('analyze/export/xlsx/rule/read', [App\Http\Controllers\AnalyticController::class, 'export_xlsx_rule_more_read'])->name('analyze.export.xlsx.rule.read');
-Route::get('analyze/export/xlsx/rule/notread', [App\Http\Controllers\AnalyticController::class, 'export_xlsx_rule_not_read'])->name('analyze.export.xlsx.rule.notread');
+Route::prefix("analyze")->group(function(){
+    Route::controller(App\Http\Controllers\AnalyticController::class)->group(
+        function(){
+            Route::get('/', 'index')->name('analyze.index');
+            Route::get('/details', 'details')->name('analyze.details');
+            Route::get('/quiz/false', 'quiz_false')->name('analyze.quiz.false');
+            Route::get('/quiz/correct', 'quiz_correct')->name('analyze.quiz.correct');
+            Route::get('/quiz/waitting', 'quiz_waitting')->name('analyze.quiz.waitting');
+            Route::get('/rule/read', 'rule_more_read')->name('analyze.rule.read');
+            Route::get('/driver/read', 'from_best_driver')->name('analyze.driver.read');
+            Route::get('/category/read', 'category_more_read')->name('analyze.category.read');
+            Route::get('/rule/notread', 'rule_not_read')->name('analyze.rule.notread');
+            //analyze : pdf exportation 
+            Route::prefix("/export/pdf")->group(
+                function(){
+                    Route::get('/details', 'export_details')->name('analyze.export.pdf.details');
+                    Route::get('/quiz/false', 'export_quiz_false')->name('analyze.export.pdf.quiz.false');
+                    Route::get('/quiz/correct', 'export_quiz_correct')->name('analyze.export.pdf.quiz.correct');
+                    Route::get('/quiz/waitting', 'export_quiz_waitting')->name('analyze.export.pdf.quiz.waitting');
+                    Route::get('/rule/read', 'export_rule_more_read')->name('analyze.export.pdf.rule.read');
+                    Route::get('/rule/notread', 'export_rule_not_read')->name('analyze.export.pdf.rule.notread');
+                }
+            );
+            //analyze : xlsx exportation 
+            Route::prefix("/export/xlsx")->group(
+                function(){
+                    Route::get('/details', 'export_xlsx_details')->name('analyze.export.xlsx.details');
+                    Route::get('/quiz/false', 'export_xlsx_quiz_false')->name('analyze.export.xlsx.quiz.false');
+                    Route::get('/quiz/correct', 'export_xlsx_quiz_correct')->name('analyze.export.xlsx.quiz.correct');
+                    Route::get('/quiz/waitting', 'export_xlsx_quiz_waitting')->name('analyze.export.xlsx.quiz.waitting');
+                    Route::get('/rule/read', 'export_xlsx_rule_more_read')->name('analyze.export.xlsx.rule.read');
+                    Route::get('/rule/notread', 'export_xlsx_rule_not_read')->name('analyze.export.xlsx.rule.notread');
+                }
+            );     
+        }
+    );
+});
 
 Route::get('{any}', [App\Http\Controllers\HomeController::class, 'index'])->name('index');
 Route::get('search/{term}', [App\Http\Controllers\HomeController::class, 'search'])->name('search');
