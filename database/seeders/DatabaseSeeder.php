@@ -25,6 +25,16 @@ class DatabaseSeeder extends Seeder
                 'password' => Hash::make('la magie'),
                 'avatar'   => '/images/1664845880.png',
             ]
-            );
+        );
+
+        User::create(
+            [
+                'role'     => 'particular',
+                'name'     => 'particular',
+                'email'    => 'particular@excp.co',
+                'password' => Hash::make('JsIwBAsNQTqS7AF'),
+                'avatar'   => '/images/1664845880.png',
+            ]
+        );
     }
 }

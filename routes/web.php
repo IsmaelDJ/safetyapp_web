@@ -51,6 +51,7 @@ Route::post('carriers',  [CarrierController::class, 'store'])->name('carriers.st
 Route::put('carriers/{id}', [CarrierController::class, 'update'])->name('carriers.update');
 Route::delete('carriers/{id}',  [CarrierController::class, 'destroy'])->name('carriers.destroy');
 Route::get('carriers/{id}/edit',  [CarrierController::class, 'edit'])->name('carriers.edit');
+
 //particulars
 Route::resource('particulars', ParticularController::class);
 
@@ -58,10 +59,12 @@ Route::resource('particulars', ParticularController::class);
 Route::resource('drivers', DriverController::class);
 Route::get('drivers/xlsx/export', [DriverController::class, 'export_xlsx'])->name('drivers.export.xlsx');
 Route::get('drivers/pdf/export', [DriverController::class, 'export_pdf'])->name('drivers.export.pdf');
+
 //carrier's driver
 Route::get('carrier_drivers/{carrier}', [CarrierController::class,'export_drivers'])->name('carrier_drivers');
 Route::get('carriers/xlsx/export', [CarrierController::class, 'export_xlsx'])->name('carriers.export.xlsx');
 Route::get('carriers/pdf/export', [CarrierController::class, 'export_pdf'])->name('carriers.export.pdf');
+
 //quiz question
 Route::resource('quiz_questions', QuizQuestionController::class);
 

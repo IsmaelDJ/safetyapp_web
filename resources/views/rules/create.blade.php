@@ -106,8 +106,8 @@
                                                name="ar" type="file">
                                         @error('ar')
                                         <span class="invalid-feedback" role="alert">
-                                    <strong>Audio invalide</strong>
-                                </span>
+                                            <strong>Audio invalide</strong>
+                                        </span>
                                         @enderror
                                     </div>
 
@@ -119,8 +119,8 @@
                                                name="ng" type="file">
                                         @error('ng')
                                         <span class="invalid-feedback" role="alert">
-                                    <strong>Audio invalide</strong>
-                                </span>
+                                            <strong>Audio invalide</strong>
+                                        </span>
                                         @enderror
                                     </div>
                                 </div>

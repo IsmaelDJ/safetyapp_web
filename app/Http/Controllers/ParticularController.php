@@ -65,6 +65,8 @@ class ParticularController extends Controller
         $particular->uuid       = str_pad(Driver::where('role', 'particular')->count(), 4, '0', STR_PAD_LEFT);
         $particular->password   = $password;
         $particular->role       = 'particular';
+        $particular->user_id    = 2;
+        $particular->obc        = -1; 
 
         $particular->save();
         return redirect()->route('particulars.index')->with('success', "Chauffeur ajouté");

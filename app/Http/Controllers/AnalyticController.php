@@ -122,10 +122,10 @@ class AnalyticController extends Controller
         $quizChart->displayLegend(true);
         $quizChart->labels(['Correct', 'Faux', 'Non pratiqué']);
         $quizChart->dataset('Lecture par mois', 'polarArea', 
-        [round($total_quizzes != 0 ? count($quizGoodAnswereds) * 100 / $total_quizzes : 0, 1), 
-        round( $total_quizzes != 0 ? count($quizBadAnswereds) * 100 / $total_quizzes : 0, 1), 
-        round($total_quizzes != 0 ? count($quizNoAnswereds)  * 100 / $total_quizzes : 0, 1)])
-        ->backgroundColor( [
+        [round(count($quizGoodAnswereds), 1), 
+        round(count($quizBadAnswereds), 1),
+        round(count($quizNoAnswereds), 1)])
+        ->backgroundColor([
             'rgb(255, 99, 132)',
             'rgb(255, 205, 86)',
             'rgb(54, 162, 235)'
@@ -135,8 +135,8 @@ class AnalyticController extends Controller
         $ruleChart->minimalist(true);
         $ruleChart->displayLegend(true);
         $ruleChart->labels(['Lu', 'Non lu']);
-        $ruleChart->dataset('Lecture par mois', 'doughnut', [round($total_rules != 0 ? count($rulesMoreRead) * 100 / $total_rules : 0, 1), 
-        round( $total_rules != 0 ? count($rulesNotRead) * 100 / $total_rules : 0, 1)])->backgroundColor([
+        $ruleChart->dataset('Lecture par mois', 'doughnut', [round(count($rulesMoreRead), 1), 
+        round( count($rulesNotRead), 1)])->backgroundColor([
             'rgb(54, 162, 235)',
             'rgb(255, 205, 86)'
         ]);
@@ -235,7 +235,7 @@ class AnalyticController extends Controller
         foreach($events_presence as $event){
             $tmp = new stdClass();
             $tmp->type      = 3;
-            $tmp->driver   = $event->driver;
+            $tmp->driver    = $event->driver;
             $tmp->action    = 'Lancement de l\'aplication';
             $tmp->created_at= Date($event->created_at);
             $data[] = $tmp;
@@ -346,7 +346,7 @@ class AnalyticController extends Controller
         foreach($events_presence as $event){
             $tmp = new stdClass();
             $tmp->type      = 3;
-            $tmp->driver   = $event->driver;
+            $tmp->driver    = $event->driver;
             $tmp->action    = 'Lancement de l\'aplication';
             $tmp->created_at= Date($event->created_at);
             $data[] = $tmp;

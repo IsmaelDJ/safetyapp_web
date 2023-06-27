@@ -195,15 +195,15 @@ unset($__errorArgs, $__bag); ?>" id="avatar" name="avatar" autofocus>
         <?php
 if (! isset($_instance)) {
     $html = \Livewire\Livewire::mount('chart-presence')->html();
-} elseif ($_instance->childHasBeenRendered('bJwaJhH')) {
-    $componentId = $_instance->getRenderedChildComponentId('bJwaJhH');
-    $componentTag = $_instance->getRenderedChildComponentTagName('bJwaJhH');
+} elseif ($_instance->childHasBeenRendered('QXV8jhr')) {
+    $componentId = $_instance->getRenderedChildComponentId('QXV8jhr');
+    $componentTag = $_instance->getRenderedChildComponentTagName('QXV8jhr');
     $html = \Livewire\Livewire::dummyMount($componentId, $componentTag);
-    $_instance->preserveRenderedChild('bJwaJhH');
+    $_instance->preserveRenderedChild('QXV8jhr');
 } else {
     $response = \Livewire\Livewire::mount('chart-presence');
     $html = $response->html();
-    $_instance->logRenderedChild('bJwaJhH', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
+    $_instance->logRenderedChild('QXV8jhr', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
 }
 echo $html;
 ?>

@@ -26,7 +26,7 @@
     </div>
 </div>
 <?php $__env->startPush('script'); ?>
-    <?php if (! $__env->hasRenderedOnce('64f5f9cb-d8dc-49b1-bb3a-4fb8c7e4e005')): $__env->markAsRenderedOnce('64f5f9cb-d8dc-49b1-bb3a-4fb8c7e4e005'); ?>
+    <?php if (! $__env->hasRenderedOnce('8724d9f7-8218-4dd1-ab22-9154ca75a6aa')): $__env->markAsRenderedOnce('8724d9f7-8218-4dd1-ab22-9154ca75a6aa'); ?>
      <script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/highcharts/6.0.6/highcharts.js" charset="utf-8"></script>
         <?php echo $readingChart->script(); ?>

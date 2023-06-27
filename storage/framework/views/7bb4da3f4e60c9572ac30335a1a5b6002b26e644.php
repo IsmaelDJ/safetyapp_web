@@ -172,8 +172,8 @@ if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?>
                                         <span class="invalid-feedback" role="alert">
-                                    <strong>Audio invalide</strong>
-                                </span>
+                                            <strong>Audio invalide</strong>
+                                        </span>
                                         <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
@@ -199,8 +199,8 @@ if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?>
                                         <span class="invalid-feedback" role="alert">
-                                    <strong>Audio invalide</strong>
-                                </span>
+                                            <strong>Audio invalide</strong>
+                                        </span>
                                         <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;

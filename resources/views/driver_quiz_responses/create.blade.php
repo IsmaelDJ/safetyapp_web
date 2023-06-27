@@ -26,7 +26,7 @@
 
                         <form action="{{route('driver_quiz_responses.store')}}" method="post" enctype="multipart/form-data">
                             @csrf
-                            <label class="col-md-2 col-form-label">Chauffeur</label>
+                            <label class="col-md-5 col-form-label">Chauffeur</label>
                             <div class="mb-4">
                                 <select
                                     class="form-select form-select-lg @error('driver_id') is-invalid @enderror"
@@ -45,7 +45,7 @@
                                 @enderror
                             </div>
 
-                            <label class="col-md-2 col-form-label">Quiz</label>
+                            <label class="col-md-5 col-form-label">Quiz</label>
                             <div class="mb-4">
                                 <select
                                     class="form-select form-select-lg @error('quiz_question_id') is-invalid @enderror"

@@ -25,11 +25,11 @@ return new class extends Migration {
     {
         Schema::create('drivers', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('user_id')->constrained()->nullable();
             $table->string('avatar')->nullable();
             $table->string('name');
             $table->string('phone');
-            $table->string('obc')->unique();
+            $table->string('obc')->unique()->nullable();
             $table->string('password');
             $table->timestamps();
         });

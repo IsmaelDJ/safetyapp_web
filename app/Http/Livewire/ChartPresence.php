@@ -21,7 +21,8 @@ class ChartPresence extends Component
     {
         $current_year      = now()->year;
         $first_year        = 2022;
-        $range             = $first_year - $current_year;
+        $range             = $current_year - $first_year;
+        
         //get presence data
         $presences = Presence::whereYear('created_at', $this->year)
         ->whereMonth('created_at', $this->param_month)

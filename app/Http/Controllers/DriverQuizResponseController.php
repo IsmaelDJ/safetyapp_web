@@ -51,14 +51,14 @@ class DriverQuizResponseController extends Controller
 
     public function create()
     {
-        $drivers = Driver::where('role', 'driver');
-        $quizQuestions = QuizQuestion::all();
+        $drivers = Driver::where('role', 'driver')->get();
+        $quizQuestions = QuizQuestion::get();
         return view('driver_quiz_responses.create', compact('drivers', 'quizQuestions'));
     }
 
     public function store(Request $request)
     {
-        $user = User::all();
+        $user = User::get();
 
         $request->validate([
             'driver_id'      => 'required',

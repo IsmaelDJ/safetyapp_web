@@ -81,6 +81,7 @@ class DriverController extends Controller
         $driver->name       = $request->name;
         $driver->phone      = $request->phone;
         $driver->obc        = $request->obc;
+        $driver->user_id    = $request->user_id;
         $driver->password   = $password;
         $driver->role       = 'driver';
 
