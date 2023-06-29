@@ -49,14 +49,13 @@
                                 <div class="row">
                                     <div class="col-md-5 ">
                                         <a href="{{ route('rules.show', $rule) }}">
-                                            <img src="{{URL::asset($rule->image)}}"
-                                            alt=""
-                                                style="height: 100%; width: 100%; object-fit: cover; border-top-left-radius: 5px; border-bottom-left-radius: 5px"
-                                                class="img-fluid d-block">
+                                            <img src="{{URL::asset($rule->image)}}" alt=""
+                                            style="height: 100%; width: 100%; object-fit: cover; border-top-left-radius: 5px; border-bottom-left-radius: 5px"
+                                            class="img-fluid d-block">
                                         </a>
                                     </div>
                                     <div class="col-md-7 p-md-2 pe-md-3 p-4">
-                                        <p class="lead fs-6 pb-2" style="text-align: justify">{{ Str::limit($rule->description, 150, '...')}}</p>
+                                        <p class="lead fs-6 pb-2" style="text-align: justify">{{ Str::limit($rule->description, 250, '...')}}</p>
                                         <div class="mt-2 pb-4">
                                             <div class="essential_audio" data-url="{{URL::asset($rule->fr)}}"></div>
                                         </div>
