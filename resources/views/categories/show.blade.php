@@ -20,96 +20,99 @@
 
     <div class="container-fluid">
         <div class="row">
-            <div class="col-xl-4">
-                <div class="card">
-                    <div class="card-body" style="height: 100vh;">
-                        <img src="{{URL::asset($category->image)}}" alt="" class="img-fluid rounded mb-4">
-                        <h5 class="card-title">{{$category->name}}</h5>
+            <div class="col-xl-12">
+                <div class="card rounded">
+                    <div class="m-2 d-flex" style="position: relative">
+                        <img src="{{URL::asset($category->image)}}" alt="" class="img-fluid rounded-circle align-self-center" style="height: 2.5rem; width: 2.5rem;">
+                        <h2 class="align-self-center ms-4 mt-2 fw-bold">{{$category->name}}</h2>
+                        <div class="d-flex" style="position: absolute; max-width: 4rem; right: 0px; top: 5px; z-index:1">
+                            <a class="m-1" 
+                                style="border-radius: 50%; background-color: rgba(16, 204, 101, 0.3); width: 1.5rem; height: 1.5rem; display: flex; justify-content: center" 
+                                href="{{ route('categories.edit', $category) }}">
+                                <i class="fa fa-pen" style="align-self: center; color: green"></i> 
+                            </a>
+                            <a class="m-1" 
+                                style="border-radius: 50%; background-color: rgb(231, 107, 85, 0.3); width: 1.5rem; height: 1.5rem; display: flex; justify-content: center" 
+                                href="{{route('categories.index')}}"
+                                onclick="
+                                var result = confirm('Cette catégorie sera supprimée');
+                                if(result){
+                                    event.preventDefault();
+                                    document.getElementById('delete-form-{{$category->id}}').submit();
+                                }">
+                                <i class="fa fa-trash" style="align-self: center; color: red"></i> 
+                            </a>
+                            <form method="POST" id="delete-form-{{$category->id}}"
+                                action="{{route('categories.destroy', [$category])}}">
+                              @csrf
+                              <input type="hidden" name="_method" value="DELETE">
+                          </form>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="col-8">
 
-                <div class="card">
-                    <div class="card-body">
-                        <div class="d-flex align-items-start">
-                            <div class="me-2">
-                                <h5 class="card-title mb-4">Règles dans la même catégorie</h5>
+            <div class="col-12">
+                <div class="row">
+                    @foreach($rules as $rule)
+                        <div class="col-md-6">
+                            <div class="card rounded">
+                                <div class="row">
+                                    <div class="col-md-5">
+                                        <a href="{{ route('rules.show', $rule) }}">
+                                            <img src="{{URL::asset($rule->image)}}" alt=""
+                                            style="height: 100%; width: 100%; object-fit: cover; border-top-left-radius: 5px; border-bottom-left-radius: 5px"
+                                            class="img-fluid d-block">
+                                        </a>
+                                    </div>
+                                    <div class="col-md-7 p-md-2 pe-md-3 p-4">
+                                        <p class="lead fs-6 pb-2">{{Str::limit($rule->description)}}</p>
+                                        <div class="mt-2 pb-4">
+                                            <div class="essential_audio" data-url="{{URL::asset($rule->fr)}}"></div>
+                                        </div>
+                                        <div class="mt-2 pb-4">
+                                            <div class="essential_audio" data-url="{{URL::asset($rule->ar)}}"></div>
+                                        </div>
+                                        <div class="mt-2 pb-2">
+                                            <div class="essential_audio" data-url="{{URL::asset($rule->ng)}}"></div>
+                                        </div>
+
+                                        <div class="d-flex justify-content-end me-2">
+                                            <a class="m-1" 
+                                                style="border-radius: 50%; background-color: rgba(16, 204, 101, 0.3); width: 1.5rem; height: 1.5rem; display: flex; justify-content: center" 
+                                                href="{{ route('rules.edit', $rule) }}">
+                                                <i class="fa fa-pen" style="align-self: center; color: green"></i> 
+                                            </a>
+                                            <a class="m-1" 
+                                                style="border-radius: 50%; background-color: rgb(231, 107, 85, 0.3); width: 1.5rem; height: 1.5rem; display: flex; justify-content: center" 
+                                                href="{{route('rules.index')}}"
+                                                onclick="
+                                                var result = confirm('Cette règle sera supprimée');
+                                                if(result){
+                                                    event.preventDefault();
+                                                    document.getElementById('delete-form-{{$rule->id}}').submit();
+                                                }">
+                                                <i class="fa fa-trash" style="align-self: center; color: red"></i> 
+                                            </a>
+                                            <form method="POST" id="delete-form-{{$rule->id}}"
+                                                action="{{route('rules.destroy', [$rule])}}">
+                                              @csrf
+                                              <input type="hidden" name="_method" value="DELETE">
+                                          </form>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
+                    @endforeach    
 
-                        <div class="table-responsive">
-                            <table class="table align-middle ">
-                                <thead>
-                                <tr>
-                                    <th scope="col">Illustration</th>
-                                    <th scope="col">Description</th>
-                                    <th scope="col">Audio Français</th>
-{{--                                    <th scope="col">Audio Arabe</th>--}}
-{{--                                    <th scope="col">Audio Ngambaye</th>--}}
-                                    <th scope="col">Action</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                @foreach($rules as $categoryRule)
-                                    <tr>
-                                        <td style="width: 150px;"><img src="{{URL::asset($categoryRule->image)}}" alt=""
-                                                                       class="avatar-md h-auto d-block rounded"></td>
-                                        <td style="width: 250px">
-                                            <p class="text-muted mb-0 text-justify">{{$categoryRule->description}}</p>
-                                        </td>
-                                        <td >
-                                            <div class="essential_audio" data-url="{{URL::asset($categoryRule->fr)}}"></div>
-                                        </td>
-{{--                                        <td>--}}
-{{--                                            <div class="essential_audio" data-url="{{URL::asset($categoryRule->ar)}}" ></div>--}}
-{{--                                        </td>--}}
-{{--                                        <td>--}}
-{{--                                            <div class="essential_audio" data-url="{{URL::asset($categoryRule->ng)}}" ></div>--}}
-{{--                                        </td>--}}
-                                        <td style="width: 200px">
-                                            <div class="d-flex gap-3">
-
-                                                <a href="{{route('rules.show', $categoryRule)}}"
-                                                   class="btn btn-default">Détails
-                                                </a>
-                                                <a href="{{route('rules.edit', $categoryRule)}}"
-                                                   class="btn btn-info">Modifier
-                                                </a>
-
-                                                <a href="{{route('rules.index')}}" class="btn btn-danger"
-                                                   onclick="
-                                                   var result = confirm('Cette règle sera supprimée');
-                                                   if(result){
-                                                       event.preventDefault();
-                                                       document.getElementById('delete-form{{$categoryRule->id}}').submit();
-                                                   }
-                                                   ">
-                                                    Supprimer</a>
-
-                                                <form method="POST" id="delete-form{{$categoryRule->id}}"
-                                                      action="{{route('rules.destroy', [$categoryRule])}}">
-                                                    @csrf
-                                                    <input type="hidden" name="_method" value="DELETE">
-                                                </form>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                @endforeach
-
-                                </tbody>
-                            </table>
-
-
-                        </div>
-
+                    <div class="my-2">
                         {{ $rules->links('vendor.pagination.round') }}
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
 
 @endsection
 

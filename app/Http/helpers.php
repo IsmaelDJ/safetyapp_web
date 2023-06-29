@@ -63,7 +63,7 @@ function rulesPerPage(){
 }
 
 function categoriesPerPage(){
-    return 5;
+    return 15;
 }
 
 function carriersPerPage(){

@@ -23,102 +23,87 @@
         </div>
     @endif
 
-    <!-- end col -->
-    <div class="col-xl-12">
-        <div class="card">
-            <div class="card-body">
-                <div class="d-flex align-items-start">
-                    <div class="me-2">
-                        <h5 class="card-title mb-4">Liste des règles</h5>
-                    </div>
-                    <div class="ms-auto">
-                        <div class="text-sm-end">
-                            <a type="button" href="{{route('rules.create')}}"
-                               class="btn btn-success btn-rounded waves-effect waves-light mb-2 me-2"><i
-                                    class="mdi mdi-plus me-1"></i> Ajouter
-                            </a>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="card rounded p-2">
+                    <div class="d-flex">
+                        <h5 class="card-title align-self-center">Liste des règles</h5>
+                        <div class="ms-auto align-self-center">
+                            <div class="text-sm-end">
+                                <a type="button" href="{{route('rules.create')}}"
+                                   class="btn btn-success btn-rounded waves-effect waves-light"><i
+                                        class="mdi mdi-plus me-1"></i> Ajouter
+                                </a>
+                            </div>
                         </div>
+                    </div>    
+                </div>
+            </div>
+
+            <div class="col-12">
+                <div class="row">
+                    @foreach($rules as $rule)
+                        <div class="col-md-6">
+                            <div class="card rounded">
+                                <div class="row">
+                                    <div class="col-md-5 ">
+                                        <a href="{{ route('rules.show', $rule) }}">
+                                            <img src="{{URL::asset($rule->image)}}"
+                                            alt=""
+                                                style="height: 100%; width: 100%; object-fit: cover; border-top-left-radius: 5px; border-bottom-left-radius: 5px"
+                                                class="img-fluid d-block">
+                                        </a>
+                                    </div>
+                                    <div class="col-md-7 p-md-2 pe-md-3 p-4">
+                                        <p class="lead fs-6 pb-2" style="text-align: justify">{{ Str::limit($rule->description, 150, '...')}}</p>
+                                        <div class="mt-2 pb-4">
+                                            <div class="essential_audio" data-url="{{URL::asset($rule->fr)}}"></div>
+                                        </div>
+                                        <div class="mt-2 pb-4">
+                                            <div class="essential_audio" data-url="{{URL::asset($rule->ar)}}"></div>
+                                        </div>
+                                        <div class="mt-2 pb-2">
+                                            <div class="essential_audio" data-url="{{URL::asset($rule->ng)}}"></div>
+                                        </div>
+
+                                        <div class="d-flex justify-content-end me-2">
+                                            <a class="m-1" 
+                                                style="border-radius: 50%; background-color: rgba(16, 204, 101, 0.3); width: 1.5rem; height: 1.5rem; display: flex; justify-content: center" 
+                                                href="{{ route('rules.edit', $rule) }}">
+                                                <i class="fa fa-pen" style="align-self: center; color: green"></i> 
+                                            </a>
+                                            <a class="m-1" 
+                                                style="border-radius: 50%; background-color: rgb(231, 107, 85, 0.3); width: 1.5rem; height: 1.5rem; display: flex; justify-content: center" 
+                                                href="{{route('rules.index')}}"
+                                                onclick="
+                                                var result = confirm('Cette règle sera supprimée');
+                                                if(result){
+                                                    event.preventDefault();
+                                                    document.getElementById('delete-form-{{$rule->id}}').submit();
+                                                }">
+                                                <i class="fa fa-trash" style="align-self: center; color: red"></i> 
+                                            </a>
+                                            <form method="POST" id="delete-form-{{$rule->id}}"
+                                                action="{{route('rules.destroy', [$rule])}}">
+                                              @csrf
+                                              <input type="hidden" name="_method" value="DELETE">
+                                          </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach    
+
+                    <div class="my-2">
+                        {{ $rules->links('vendor.pagination.round') }}
                     </div>
                 </div>
-
-                <div class="table-responsive">
-                    <table class="table align-middle ">
-                        <thead>
-                        <tr>
-                            <th scope="col">Illustration</th>
-                            <th scope="col">Description</th>
-                            <th scope="col">Catégorie</th>
-                            <th scope="col">Audio Français</th>
-                            <th scope="col">Audio Arabe</th>
-                            <th scope="col">Audio Ngambaye</th>
-                            <th scope="col">Action</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        @foreach($rules as $rule)
-                            <tr>
-                                <td style="width: 150px;"><img src="{{URL::asset($rule->image)}}" alt=""
-                                                               class="avatar-md h-auto d-block rounded"></td>
-                                <td style="width: 250px">
-                                    <p class="text-muted mb-0 text-justify">{{$rule->description}}</p>
-                                </td>
-                                <td>
-                                    <a type="button" href="{{route('categories.show', $rule->category)}}"
-                                       class="btn btn-success btn-rounded waves-effect waves-light mb-2 me-2"><i
-                                            class="mdi mdi-tag me-1"></i> {{$rule->category->name}}
-                                    </a>
-                                </td>
-                                <td >
-                                    <div class="essential_audio" data-url="{{URL::asset($rule->fr)}}"></div>
-                                </td>
-                                <td>
-                                    <div class="essential_audio" data-url="{{URL::asset($rule->ar)}}"></div>
-                                </td>
-                                <td>
-                                    <div class="essential_audio" data-url="{{URL::asset($rule->ng)}}"></div>
-                                </td>
-                                <td style="width: 200px">
-                                    <div class="d-flex gap-3">
-
-                                        <a href="{{route('rules.show', $rule)}}"
-                                           class="btn btn-default">Détails
-                                        </a>
-                                        <a href="{{route('rules.edit', $rule)}}"
-                                           class="btn btn-info">Modifier
-                                        </a>
-
-                                        <a href="{{route('rules.index')}}" class="btn btn-danger"
-                                           onclick="
-                                                   var result = confirm('Cette règle sera supprimée');
-                                                   if(result){
-                                                       event.preventDefault();
-                                                       document.getElementById('delete-form{{$rule->id}}').submit();
-                                                   }
-                                                   ">
-                                            Supprimer</a>
-
-                                        <form method="POST" id="delete-form{{$rule->id}}"
-                                              action="{{route('rules.destroy', $rule)}}">
-                                            @csrf
-                                            <input type="hidden" name="_method" value="DELETE">
-                                        </form>
-                                    </div>
-                                </td>
-                            </tr>
-                        @endforeach
-
-                        </tbody>
-                    </table>
-
-
-                </div>
-
-                {{ $rules->links('vendor.pagination.round') }}
             </div>
         </div>
-        <!-- end card -->
     </div>
-    <!-- end col -->
+
 @endsection
 @section('script')
 

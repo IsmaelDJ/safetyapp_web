@@ -44,60 +44,40 @@
                         </div>
                     </div>
 
-                    <div class="table-responsive">
-                        <table class="table align-middle ">
-                            <thead>
-                            <tr>
-                                <th class="align-middle">Position</th>
-                                <th class="align-middle">Image</th>
-                                <th class="align-middle">Description</th>
-                                <th class="align-middle">Actions</th>
-                            </tr>
-                            </thead>
-                            <tbody>
+                    <div class="row">
                             <?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                <tr>
-                                    <td style="width: 100px;">
-                                        <span class="text-muted mb-0 text-center"><?php echo e($category->position); ?></span>
-                                    </td>
-                                    <td style="width: 150px;"><img src="<?php echo e(URL::asset($category->image)); ?>" alt=""
-                                                                   class="avatar-md h-auto d-block rounded"></td>
-                                    <td>
-                                        <p class="text-muted mb-0 text-justify"><?php echo e($category->name); ?></p>
-                                    </td>
-                                    <td  style="width: 200px">
-                                        <div class="d-flex gap-3">
-                                            <a href="<?php echo e(route('categories.show', $category)); ?>"
-                                               class="btn btn-default">Détails
-                                            </a>
-                                            <a href="<?php echo e(route('categories.edit', $category)); ?>"
-                                               class="btn btn-info">Modifier
-                                            </a>
-
-                                            <a href="<?php echo e(route('categories.index')); ?>" class="btn btn-danger"
-                                               onclick="
-                                                   var result = confirm('Cette catégorie et ses règles seront supprimée');
-                                                   if(result){
-                                                       event.preventDefault();
-                                                       document.getElementById('delete-form<?php echo e($category->id); ?>').submit();
-                                                   }
-                                                   ">
-                                                Supprimer</a>
-
-                                            <form method="POST" id="delete-form<?php echo e($category->id); ?>"
-                                                  action="<?php echo e(route('categories.destroy', $category->id)); ?>">
-                                                <?php echo csrf_field(); ?>
-                                                <input type="hidden" name="_method" value="DELETE">
-                                            </form>
-                                        </div>
-                                    </td>
-                                </tr>
+                            <div class="col-md-2 col-5 m-md-3 m-4" style="position: relative; border: 1px solid #ccc; border-radius: 8px">
+                                <div class="d-flex flex-column" style="position: absolute; max-width: 2rem; right: 5px; top: 5px; z-index:1">
+                                    <a class="m-1" 
+                                        style="border-radius: 50%; background-color: rgba(16, 204, 101, 0.3); width: 1.5rem; height: 1.5rem; display: flex; justify-content: center" 
+                                        href="<?php echo e(route('categories.edit', $category)); ?>">
+                                        <i class="fa fa-pen" style="align-self: center; color: green"></i> 
+                                    </a>
+                                    <a class="m-1" 
+                                        style="border-radius: 50%; background-color: rgb(231, 107, 85, 0.3); width: 1.5rem; height: 1.5rem; display: flex; justify-content: center" 
+                                        href="<?php echo e(route('categories.index')); ?>"
+                                        onclick="
+                                        var result = confirm('Cette catégorie sera supprimée');
+                                        if(result){
+                                            event.preventDefault();
+                                            document.getElementById('delete-form-<?php echo e($category->id); ?>').submit();
+                                        }">
+                                        <i class="fa fa-trash" style="align-self: center; color: red"></i> 
+                                    </a>
+                                    <form method="POST" id="delete-form-<?php echo e($category->id); ?>"
+                                        action="<?php echo e(route('categories.destroy', [$category])); ?>">
+                                      <?php echo csrf_field(); ?>
+                                      <input type="hidden" name="_method" value="DELETE">
+                                  </form>
+                                </div>
+                                <div style="z-index: -1">
+                                    <a href="<?php echo e(route('categories.show', $category)); ?>" class="d-block d-flex flex-column text-center p-2">
+                                        <img src="<?php echo e(isset($category->image) ? asset($category->image) : asset('images/users/avatar-1.jpg')); ?>" alt="" class="m-4 align-self-center avatar-md rounded-circle img-thumbnail">
+                                        <span class="text-black"><?php echo e($category->name); ?></span>
+                                    </a>
+                                </div>
+                            </div>
                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-
-                            </tbody>
-                        </table>
-
-
                     </div>
 
                     <?php echo e($categories->links('vendor.pagination.round')); ?>

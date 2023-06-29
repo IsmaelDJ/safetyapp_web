@@ -45,60 +45,40 @@
                         </div>
                     </div>
 
-                    <div class="table-responsive">
-                        <table class="table align-middle ">
-                            <thead>
-                            <tr>
-                                <th class="align-middle">Position</th>
-                                <th class="align-middle">Image</th>
-                                <th class="align-middle">Description</th>
-                                <th class="align-middle">Actions</th>
-                            </tr>
-                            </thead>
-                            <tbody>
+                    <div class="row">
                             @foreach($categories as $category)
-                                <tr>
-                                    <td style="width: 100px;">
-                                        <span class="text-muted mb-0 text-center">{{$category->position}}</span>
-                                    </td>
-                                    <td style="width: 150px;"><img src="{{URL::asset($category->image)}}" alt=""
-                                                                   class="avatar-md h-auto d-block rounded"></td>
-                                    <td>
-                                        <p class="text-muted mb-0 text-justify">{{$category->name}}</p>
-                                    </td>
-                                    <td  style="width: 200px">
-                                        <div class="d-flex gap-3">
-                                            <a href="{{route('categories.show', $category)}}"
-                                               class="btn btn-default">Détails
-                                            </a>
-                                            <a href="{{route('categories.edit', $category)}}"
-                                               class="btn btn-info">Modifier
-                                            </a>
-
-                                            <a href="{{route('categories.index')}}" class="btn btn-danger"
-                                               onclick="
-                                                   var result = confirm('Cette catégorie et ses règles seront supprimée');
-                                                   if(result){
-                                                       event.preventDefault();
-                                                       document.getElementById('delete-form{{$category->id}}').submit();
-                                                   }
-                                                   ">
-                                                Supprimer</a>
-
-                                            <form method="POST" id="delete-form{{$category->id}}"
-                                                  action="{{route('categories.destroy', $category->id)}}">
-                                                @csrf
-                                                <input type="hidden" name="_method" value="DELETE">
-                                            </form>
-                                        </div>
-                                    </td>
-                                </tr>
+                            <div class="col-md-2 col-5 m-md-3 m-4" style="position: relative; border: 1px solid #ccc; border-radius: 8px">
+                                <div class="d-flex flex-column" style="position: absolute; max-width: 2rem; right: 5px; top: 5px; z-index:1">
+                                    <a class="m-1" 
+                                        style="border-radius: 50%; background-color: rgba(16, 204, 101, 0.3); width: 1.5rem; height: 1.5rem; display: flex; justify-content: center" 
+                                        href="{{ route('categories.edit', $category) }}">
+                                        <i class="fa fa-pen" style="align-self: center; color: green"></i> 
+                                    </a>
+                                    <a class="m-1" 
+                                        style="border-radius: 50%; background-color: rgb(231, 107, 85, 0.3); width: 1.5rem; height: 1.5rem; display: flex; justify-content: center" 
+                                        href="{{route('categories.index')}}"
+                                        onclick="
+                                        var result = confirm('Cette catégorie sera supprimée');
+                                        if(result){
+                                            event.preventDefault();
+                                            document.getElementById('delete-form-{{$category->id}}').submit();
+                                        }">
+                                        <i class="fa fa-trash" style="align-self: center; color: red"></i> 
+                                    </a>
+                                    <form method="POST" id="delete-form-{{$category->id}}"
+                                        action="{{route('categories.destroy', [$category])}}">
+                                      @csrf
+                                      <input type="hidden" name="_method" value="DELETE">
+                                  </form>
+                                </div>
+                                <div style="z-index: -1">
+                                    <a href="{{route('categories.show', $category)}}" class="d-block d-flex flex-column text-center p-2">
+                                        <img src="{{ isset($category->image) ? asset($category->image) : asset('images/users/avatar-1.jpg') }}" alt="" class="m-4 align-self-center avatar-md rounded-circle img-thumbnail">
+                                        <span class="text-black">{{ $category->name }}</span>
+                                    </a>
+                                </div>
+                            </div>
                             @endforeach
-
-                            </tbody>
-                        </table>
-
-
                     </div>
 
                     {{ $categories->links('vendor.pagination.round') }}
