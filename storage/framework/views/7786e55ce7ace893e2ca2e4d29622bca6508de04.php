@@ -47,12 +47,12 @@
                         </div>
                         <div class="d-flex justify-content-end me-2">
                             <a class="m-1" 
-                                style="border-radius: 50%; background-color: rgba(16, 204, 101, 0.3); width: 1.5rem; height: 1.5rem; display: flex; justify-content: center" 
+                                style="border-radius: 50%; background-color: rgba(16, 204, 101, 0.3); width: 2rem; height: 2rem; display: flex; justify-content: center" 
                                 href="<?php echo e(route('rules.edit', $rule)); ?>">
                                 <i class="fa fa-pen" style="align-self: center; color: green"></i> 
                             </a>
                             <a class="m-1" 
-                                style="border-radius: 50%; background-color: rgb(231, 107, 85, 0.3); width: 1.5rem; height: 1.5rem; display: flex; justify-content: center" 
+                                style="border-radius: 50%; background-color: rgb(231, 107, 85, 0.3); width: 2rem; height: 2rem; display: flex; justify-content: center" 
                                 href="<?php echo e(route('rules.index')); ?>"
                                 onclick="
                                 var result = confirm('Cette règle sera supprimée');
@@ -88,15 +88,15 @@
                 <?php $__currentLoopData = $sameCategoryRules; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $rule): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                     <div class="col-md-6">
                         <div class="card rounded">
-                            <div class="row">
-                                <div class="col-md-5">
+                            <div style="display: grid; grid-template-columns: auto 1fr">
+                                <div>
                                     <a href="<?php echo e(route('rules.show', $rule)); ?>">
                                         <img src="<?php echo e(URL::asset($rule->image)); ?>" alt=""
                                             style="height: 100%; width: 100%; object-fit: cover; border-top-left-radius: 5px; border-bottom-left-radius: 5px"
                                             class="img-fluid d-block">
                                     </a>
                                 </div>
-                                <div class="col-md-7 p-md-2 pe-md-4 p-4">
+                                <div class="p-md-2 pe-md-4 p-4">
                                     <p class="lead fs-6 pb-2" style="text-align: justify"><?php echo e(Str::limit($rule->description)); ?></p>
                                     <div class="mt-2 pb-4">
                                         <div class="essential_audio" data-url="<?php echo e(URL::asset($rule->fr)); ?>"></div>
