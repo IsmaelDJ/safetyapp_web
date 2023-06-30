@@ -47,6 +47,7 @@
                         <div style="width: 20%">
                             <div class="card mb-0 rounded" style="background-image: url({{ URL::asset($rule->image) }}); background-size: 100%; background-repeat: no-repeat; background-position: center;">
                                 <div class="d-flex justify-content-end flex-column" style="height: 270px">
+                                    <a href="{{ route("rules.show", $rule->id) }}" style="height: 100%; width: 100%;"></a>
                                     <div class="d-flex justify-content-between">
                                         <div class="d-xl-flex justify-content-between align-self-center">
                                             <div class="essential_audio m-3" data-url="{{URL::asset($rule->fr)}}"></div>
@@ -91,22 +92,7 @@
             </div>
         </div>
     </div>
-    <style>
-        div.essential_audio > div:nth-child(1) div {
-            width: 1.3rem !important;
-            height: 1.3rem !important;
-            background-color: rgba(16, 204, 101, 0.5);
-        }
-        div.essential_audio > div:nth-child(1) div:after {
-            width: 1.1rem !important;
-            height: 1.1rem !important;
-        }
-
-
-        div.essential_audio > div:nth-child(1) div.play {
-            background-color:  rgb(231, 107, 85, 0.3) !important;
-        }
-    </style>
+    
 @endsection
 @section('script')
 

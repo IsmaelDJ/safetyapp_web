@@ -7,3 +7,19 @@
 <!-- App Css-->
 <link href="{{ URL::asset('/assets/css/app.min.css') }}" id="app-style" rel="stylesheet" type="text/css" />
 
+<style>
+  div.essential_audio > div:nth-child(1) div {
+      width: 1.3rem !important;
+      height: 1.3rem !important;
+      background-color: rgba(16, 204, 101, 0.5);
+  }
+  div.essential_audio > div:nth-child(1) div:after {
+      width: 1.1rem !important;
+      height: 1.1rem !important;
+  }
+
+
+  div.essential_audio > div:nth-child(1) div.play {
+      background-color:  rgb(231, 107, 85, 0.3) !important;
+  }
+</style>
