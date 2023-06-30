@@ -19,7 +19,7 @@
     <div class="container-fluid">
         <div class="card">
             <div class="row">
-                <div class="col-4 p-4 mt-2">
+                <div class="col-4 p-4">
                     <div class="rule-item">
                         <div class="card mb-2 rounded" style="background-image:linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(255, 255, 255, 0)), url({{ URL::asset($rule->image) }}); background-size: 100%; background-repeat: no-repeat; background-position: center;">
                             <div class="d-flex justify-content-end flex-column" style="width: 100%">
