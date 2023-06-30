@@ -45,7 +45,7 @@
                 <div class="row">
                     @foreach($rules as $rule)
                         <div style="width: 20%">
-                            <div class="card mb-0 rounded" style="background-image: url({{ URL::asset($rule->image) }})">
+                            <div class="card mb-0 rounded" style="background-image: url({{ URL::asset($rule->image) }}); background-size: 100%;">
                                 <div class="d-flex justify-content-end flex-column" style="height: 250px">
                                     <div class="d-flex justify-content-between">
                                         <div class="d-xl-flex justify-content-between align-self-center">
