@@ -123,7 +123,7 @@
                             </div>
                         </div>
                     </div>
-                    <p class="lead fs-6" style="text-align: justify"><?php echo e(Str::limit($rule->description, 25)); ?></p>
+                    <p class="lead fs-6" style="text-align: justify"><?php echo e(Str::limit($rule->description, 22)); ?></p>
                 </div>
                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>    
     

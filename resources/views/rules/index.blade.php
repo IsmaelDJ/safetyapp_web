@@ -81,7 +81,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <p class="lead fs-6" style="text-align: justify">{{Str::limit($rule->description, 25)}}</p>
+                            <p class="lead fs-6" style="text-align: justify">{{Str::limit($rule->description, 22)}}</p>
                         </div>
                     @endforeach    
 
