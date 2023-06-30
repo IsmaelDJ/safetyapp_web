@@ -45,7 +45,7 @@
                 <div class="row">
                     @foreach($rules as $rule)
                         <div style="width: 20%">
-                            <div class="card mb-0 rounded" style="background-image: url({{ URL::asset($rule->image) }}); background-size: 100%; background-repeat: no-repeat;">
+                            <div class="card mb-0 rounded" style="background-image: url({{ URL::asset($rule->image) }}); background-size: cover; background-repeat: no-repeat; background-position: center;">
                                 <div class="d-flex justify-content-end flex-column" style="height: 250px">
                                     <div class="d-flex justify-content-between">
                                         <div class="d-xl-flex justify-content-between align-self-center">
@@ -92,6 +92,11 @@
         </div>
     </div>
     <style>
+        div.essential_audio > div:nth-child(1) div {
+            width: 1.3rem !important;
+            height: 1.3rem !important;
+            background-color: rgba(16, 204, 101, 0.5);
+        }
         div.essential_audio > div:nth-child(1) div:after {
             width: 1.1rem !important;
             height: 1.1rem !important;
