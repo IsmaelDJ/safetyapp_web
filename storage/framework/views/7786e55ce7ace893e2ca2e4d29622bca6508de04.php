@@ -22,7 +22,7 @@
                         <img src="<?php echo e(URL::asset($rule->image)); ?>" alt=""
                              class="img-fluid d-block rounded"></td>
                     </div>
-                    <div class="col-xl-8 m-auto" style="position: relative">
+                    <div class="col-xl-8 d-flex flex-column justify-content-between" style="position: relative">
                         <div class="d-flex justify-content-end me-2" style="position: absolute; top: 0px; right: 0px;">
                             <a class="m-1" 
                                 style="border-radius: 50%; background-color: rgba(16, 204, 101, 0.3); width: 2rem; height: 2rem; display: flex; justify-content: center" 
