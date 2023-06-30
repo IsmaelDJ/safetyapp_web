@@ -27,12 +27,12 @@
                     <div class="col-xl-8 d-flex flex-column justify-content-between" style="position: relative">
                         <div class="d-flex justify-content-end me-2" style="position: absolute; top: 0px; right: 0px;">
                             <a class="m-1" 
-                                style="border-radius: 50%; background-color: rgba(16, 204, 101, 0.3); width: 2rem; height: 2rem; display: flex; justify-content: center" 
+                                style="border-radius: 50%; background-color: #edf8ef; width: 2rem; height: 2rem; display: flex; justify-content: center" 
                                 href="{{ route('rules.edit', $rule) }}">
-                                <i class="fa fa-pen" style="align-self: center; color: green"></i> 
+                                <i class="fa fa-pen" style="align-self: center; color: #34a543"></i> 
                             </a>
                             <a class="m-1" 
-                                style="border-radius: 50%; background-color: rgb(231, 107, 85, 0.3); width: 2rem; height: 2rem; display: flex; justify-content: center" 
+                                style="border-radius: 50%; background-color: #ffe8e8; width: 2rem; height: 2rem; display: flex; justify-content: center" 
                                 href="{{route('rules.index')}}"
                                 onclick="
                                 var result = confirm('Cette règle sera supprimée');
@@ -40,7 +40,7 @@
                                     event.preventDefault();
                                     document.getElementById('delete-form-{{$rule->id}}').submit();
                                 }">
-                                <i class="fa fa-trash" style="align-self: center; color: red"></i> 
+                                <i class="fa fa-trash" style="align-self: center; color: #e80000"></i> 
                             </a>
                             <form method="POST" id="delete-form-{{$rule->id}}"
                                 action="{{route('rules.destroy', [$rule])}}">
