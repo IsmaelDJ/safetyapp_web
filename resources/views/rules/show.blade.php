@@ -93,7 +93,7 @@
                                 <div>
                                     <a href="{{ route('rules.show', $rule) }}">
                                         <img src="{{URL::asset($rule->image)}}" alt=""
-                                            style="height: 100%; width: 100%; object-fit: cover; border-top-left-radius: 5px; border-bottom-left-radius: 5px"
+                                            style="height: 300px; width: 100%; object-fit: cover; border-top-left-radius: 5px; border-bottom-left-radius: 5px"
                                             class="img-fluid d-block">
                                     </a>
                                 </div>
