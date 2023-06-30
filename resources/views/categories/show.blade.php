@@ -77,7 +77,7 @@
                                             <div class="essential_audio" data-url="{{URL::asset($rule->ng)}}"></div>
                                         </div>
 
-                                        <div class="d-flex justify-content-end me-2">
+                                        <div class="d-flex justify-content-end">
                                             <a class="m-1" 
                                                 style="border-radius: 50%; background-color: rgba(16, 204, 101, 0.3); width: 2rem; height: 2rem; display: flex; justify-content: center" 
                                                 href="{{ route('rules.edit', $rule) }}">

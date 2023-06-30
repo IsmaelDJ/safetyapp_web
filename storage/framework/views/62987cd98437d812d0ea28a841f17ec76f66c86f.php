@@ -53,7 +53,7 @@
             <div class="col-12">
                 <div class="row">
                     <?php $__currentLoopData = $rules; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $rule): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                        <div class="col-md-4">
+                        <div class="col-md-6">
                             <div class="card rounded">
                                 <div class="row">
                                     <div class="col-md-5">
