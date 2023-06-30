@@ -57,7 +57,7 @@
                                 </div>
                             </div>
                         </div>
-                        <p class="lead" style="font-size: 11px; text-align: justify">{{$rule->description}}</p>
+                        <p class="lead" style="text-align: justify">{{$rule->description}}</p>
                     </div>
                 </div>
             
