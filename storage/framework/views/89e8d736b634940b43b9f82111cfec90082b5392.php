@@ -19,7 +19,17 @@
   }
 
 
-  .rule-item div.essential_audio > div:nth-child(1) div.play {
+  .rule-show-item div.essential_audio > div:nth-child(1) div.play, .rule-item div.essential_audio > div:nth-child(1) div.play {
       background-color:  #34a543 !important;
+  }
+
+  .rule-show-item div.essential_audio > div:nth-child(1) div {
+      width: 2rem !important;
+      height: 2rem !important;
+      background-color: rgba(221, 158, 41, 0.616);
+  }
+  .rule-show-item div.essential_audio > div:nth-child(1) div:after {
+      width: 1.7rem !important;
+      height: 1.7rem !important;
   }
 </style><?php /**PATH /home/chad/laravel-workspace/safetyapp_web/resources/views/layouts/head-css.blade.php ENDPATH**/ ?>

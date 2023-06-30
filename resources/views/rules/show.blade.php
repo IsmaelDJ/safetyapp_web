@@ -20,25 +20,25 @@
         <div class="card">
             <div class="row">
                 <div class="col-4 p-4">
-                    <div class="rule-item">
+                    <div class="rule-show-item">
                         <div class="card mb-2 rounded" style="background-image:linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(255, 255, 255, 0)), url({{ URL::asset($rule->image) }}); background-size: 100%; background-repeat: no-repeat; background-position: center;">
                             <div class="d-flex justify-content-end flex-column" style="width: 100%">
                                 <a href="{{ route("rules.show", $rule->id) }}" style="height: 78vh; width: 100%;"></a>
                                 <div class="d-flex justify-content-between">
                                     <div class="d-xl-flex justify-content-between align-self-center">
-                                        <div class="essential_audio m-3" data-url="{{URL::asset($rule->fr)}}"></div>
-                                        <div class="essential_audio m-3" data-url="{{URL::asset($rule->ar)}}"></div>
-                                        <div class="essential_audio m-3" data-url="{{URL::asset($rule->ng)}}"></div>
+                                        <div class="essential_audio m-4" data-url="{{URL::asset($rule->fr)}}"></div>
+                                        <div class="essential_audio m-4" data-url="{{URL::asset($rule->ar)}}"></div>
+                                        <div class="essential_audio m-4" data-url="{{URL::asset($rule->ng)}}"></div>
                                     </div>
 
-                                    <div class="d-flex align-self-md-center align-self-end mb-2">
+                                    <div class="d-flex align-self-md-center align-self-end m-4">
                                         <a class="me-1" 
-                                            style="border-radius: 50%; background-color: #edf8ef; width: 1.5rem; height: 1.5rem; display: flex; justify-content: center" 
+                                            style="border-radius: 50%; background-color: #edf8ef; width: 2rem; height: 2rem; display: flex; justify-content: center" 
                                             href="{{ route('rules.edit', $rule) }}">
                                             <i class="fa fa-pen" style="align-self: center; color: #34a543"></i> 
                                         </a>
                                         <a class="me-1" 
-                                            style="border-radius: 50%; background-color: #ffe8e8; width: 1.5rem; height: 1.5rem; display: flex; justify-content: center" 
+                                            style="border-radius: 50%; background-color: #ffe8e8; width: 2rem; height: 2rem; display: flex; justify-content: center" 
                                             href="{{route('rules.index')}}"
                                             onclick="
                                             var result = confirm('Cette règle sera supprimée');
