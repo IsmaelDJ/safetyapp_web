@@ -58,7 +58,7 @@ class RuleController extends Controller
     public function show(Rule $rule)
     {
         $category = $rule->category;
-        $sameCategoryRules = Rule::where('category_id', $category->id)->paginate(rulesPerPage());
+        $sameCategoryRules = Rule::where('category_id', $category->id)->paginate(rulesShowPerPage());
         return view('rules.show', compact('rule','sameCategoryRules'));
     }
 
