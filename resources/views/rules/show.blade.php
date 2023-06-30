@@ -71,7 +71,7 @@
                 </div>
                     <div class="row">
                         @foreach($sameCategoryRules as $rule)
-                        <div class="rule-item col-6">
+                        <div class="rule-item col-4">
                             <div class="card mb-2 rounded" style="background-image:linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(255, 255, 255, 0)), url({{ URL::asset($rule->image) }}); background-size: 100%; background-repeat: no-repeat; background-position: center;">
                                 <div class="d-flex justify-content-end flex-column" style="height: 280px">
                                     <a href="{{ route("rules.show", $rule->id) }}" style="height: 100%; width: 100%;"></a>
