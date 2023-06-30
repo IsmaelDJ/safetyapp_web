@@ -11,7 +11,7 @@
   .rule-item div.essential_audio > div:nth-child(1) div {
       width: 1.3rem !important;
       height: 1.3rem !important;
-      background-color: rgba(16, 204, 101, 0.5);
+      background-color: rgba(221, 158, 41, 0.616);
   }
   .rule-item div.essential_audio > div:nth-child(1) div:after {
       width: 1.1rem !important;
@@ -20,6 +20,6 @@
 
 
   .rule-item div.essential_audio > div:nth-child(1) div.play {
-      background-color:  rgb(231, 107, 85, 0.3) !important;
+      background-color:  rgba(16, 204, 101, 0.5) !important;
   }
 </style>
