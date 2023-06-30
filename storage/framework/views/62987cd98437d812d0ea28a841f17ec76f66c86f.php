@@ -53,8 +53,8 @@
             <div class="col-12">
                 <div class="row">
                     <?php $__currentLoopData = $rules; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $rule): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                    <div style="width: 20%">
-                        <div class="card mb-0 rounded" style="background-image: url(<?php echo e(URL::asset($rule->image)); ?>); background-size: 100%; background-repeat: no-repeat; background-position: center;">
+                    <div class="rule-item" style="width: 20%">
+                        <div class="card mb-2 rounded" style="background-image: url(<?php echo e(URL::asset($rule->image)); ?>); background-size: 100%; background-repeat: no-repeat; background-position: center;">
                             <div class="d-flex justify-content-end flex-column" style="height: 270px">
                                 <a href="<?php echo e(route("rules.show", $rule->id)); ?>" style="height: 100%; width: 100%;"></a>
                                 <div class="d-flex justify-content-between">
@@ -90,7 +90,7 @@
                                 </div>
                             </div>
                         </div>
-                        <p class="lead fs-6" style="text-align: justify"><?php echo e(Str::limit($rule->description, 25)); ?></p>
+                        <p class="lead fs-6" style="text-align: justify"><?php echo e(Str::limit($rule->description, 22)); ?></p>
                     </div>
                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>    
 
