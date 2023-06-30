@@ -65,7 +65,7 @@
                 <div class="col-8">
                         <div class="d-flex">
                             <div class="align-self-center">
-                                <h5 class="card-title m-3">Règles dans la même catégorie</h5>
+                                <h3 class="my-3">Règles dans la même catégorie</h3>
                             </div>
                         </div>
                         <div class="row pe-3">
