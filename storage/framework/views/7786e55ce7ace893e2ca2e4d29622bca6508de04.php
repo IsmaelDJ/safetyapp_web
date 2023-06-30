@@ -96,7 +96,7 @@
                                             class="img-fluid d-block">
                                     </a>
                                 </div>
-                                <div class="p-md-2 pe-md-4 p-4">
+                                <div class="p-3 d-flex flex-column  justify-content-between">
                                     <p class="lead fs-6 pb-2" style="text-align: justify"><?php echo e(Str::limit($rule->description)); ?></p>
                                     <div class="mt-2 pb-4">
                                         <div class="essential_audio" data-url="<?php echo e(URL::asset($rule->fr)); ?>"></div>
