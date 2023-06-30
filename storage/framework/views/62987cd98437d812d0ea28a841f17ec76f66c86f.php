@@ -55,16 +55,16 @@
                     <?php $__currentLoopData = $rules; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $rule): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <div class="col-md-6">
                             <div class="card rounded">
-                                <div class="row">
-                                    <div class="col-md-5">
+                                <div style="display: grid; grid-template-columns: auto 1fr">
+                                    <div>
                                         <a href="<?php echo e(route('rules.show', $rule)); ?>">
                                             <img src="<?php echo e(URL::asset($rule->image)); ?>" alt=""
-                                            style="height: 100%; width: 100%; object-fit: cover; border-top-left-radius: 5px; border-bottom-left-radius: 5px"
-                                            class="img-fluid d-block">
+                                                style="height: 300px; width: 100%; object-fit: cover; border-top-left-radius: 5px; border-bottom-left-radius: 5px"
+                                                class="img-fluid d-block">
                                         </a>
                                     </div>
-                                    <div class="col-md-7 p-md-2 pe-md-3 p-4">
-                                        <p class="lead fs-6 pb-2"><?php echo e(Str::limit($rule->description)); ?></p>
+                                    <div class="p-md-2 pe-md-4 p-4 d-flex flex-column  justify-content-between">
+                                        <p class="lead fs-6 pb-2" style="text-align: justify"><?php echo e(Str::limit($rule->description)); ?></p>
                                         <div class="mt-2 pb-4">
                                             <div class="essential_audio" data-url="<?php echo e(URL::asset($rule->fr)); ?>"></div>
                                         </div>
@@ -74,8 +74,8 @@
                                         <div class="mt-2 pb-2">
                                             <div class="essential_audio" data-url="<?php echo e(URL::asset($rule->ng)); ?>"></div>
                                         </div>
-
-                                        <div class="d-flex justify-content-end me-2">
+        
+                                        <div class="d-flex justify-content-end">
                                             <a class="m-1" 
                                                 style="border-radius: 50%; background-color: rgba(16, 204, 101, 0.3); width: 2rem; height: 2rem; display: flex; justify-content: center" 
                                                 href="<?php echo e(route('rules.edit', $rule)); ?>">
