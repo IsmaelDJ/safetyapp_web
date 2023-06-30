@@ -24,29 +24,8 @@
                         <img src="{{URL::asset($rule->image)}}" alt=""
                              class="img-fluid d-block rounded"></td>
                     </div>
-                    <div class="col-xl-8 m-auto">
-                        <div>
-                            <a type="button" href="{{route('categories.show', $rule->category)}}"
-                               class="btn btn-success btn-rounded waves-effect waves-light mb-4 me-2"><i
-                                    class="mdi mdi-tag me-1"></i> {{$rule->category->name}}
-                            </a>
-                        </div>
-                        <div>
-                            <p class="lead mb-0" style="text-align: justify">{{$rule->description}}</p>
-                        </div>
-                        <div class="mt-4 pb-4">
-                            <h5 class=" mt-4">Audio Français</h5>
-                            <div class="essential_audio mt-4" data-url="{{URL::asset($rule->fr)}}"></div>
-                        </div>
-                        <div class="mt-4 pb-4">
-                            <h5 class=" mt-4">Audio Arabe</h5>
-                            <div class="essential_audio mt-4" data-url="{{URL::asset($rule->ar)}}"></div>
-                        </div>
-                        <div class="mt-4 pb-4">
-                            <h5 class=" mt-4">Audio Ngambaye</h5>
-                            <div class="essential_audio mt-4" data-url="{{URL::asset($rule->ng)}}"></div>
-                        </div>
-                        <div class="d-flex justify-content-end me-2">
+                    <div class="col-xl-8 m-auto" style="position: relative">
+                        <div class="d-flex justify-content-end me-2" style="position: absolute; top: 0px; right: 0px;">
                             <a class="m-1" 
                                 style="border-radius: 50%; background-color: rgba(16, 204, 101, 0.3); width: 2rem; height: 2rem; display: flex; justify-content: center" 
                                 href="{{ route('rules.edit', $rule) }}">
@@ -68,6 +47,27 @@
                               @csrf
                               <input type="hidden" name="_method" value="DELETE">
                           </form>
+                        </div>
+                        <div>
+                            <a type="button" href="{{route('categories.show', $rule->category)}}"
+                               class="btn btn-success btn-rounded waves-effect waves-light mb-4 me-2"><i
+                                    class="mdi mdi-tag me-1"></i> {{$rule->category->name}}
+                            </a>
+                        </div>
+                        <div>
+                            <p class="lead mb-0" style="text-align: justify">{{$rule->description}}</p>
+                        </div>
+                        <div class="mt-4 pb-4">
+                            <h5 class=" mt-4">Audio Français</h5>
+                            <div class="essential_audio mt-4" data-url="{{URL::asset($rule->fr)}}"></div>
+                        </div>
+                        <div class="mt-4 pb-4">
+                            <h5 class=" mt-4">Audio Arabe</h5>
+                            <div class="essential_audio mt-4" data-url="{{URL::asset($rule->ar)}}"></div>
+                        </div>
+                        <div class="mt-4 pb-4">
+                            <h5 class=" mt-4">Audio Ngambaye</h5>
+                            <div class="essential_audio mt-4" data-url="{{URL::asset($rule->ng)}}"></div>
                         </div>
                     </div>
                 </div>
