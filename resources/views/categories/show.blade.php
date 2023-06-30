@@ -55,7 +55,7 @@
             <div class="col-12">
                 <div class="row">
                     @foreach($rules as $rule)
-                    <div style="width: 20%">
+                    <div class="rule-item" style="width: 20%">
                         <div class="card mb-0 rounded" style="background-image: url({{ URL::asset($rule->image) }}); background-size: 100%; background-repeat: no-repeat; background-position: center;">
                             <div class="d-flex justify-content-end flex-column" style="height: 270px">
                                 <a href="{{ route("rules.show", $rule->id) }}" style="height: 100%; width: 100%;"></a>
