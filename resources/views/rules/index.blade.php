@@ -101,6 +101,11 @@
             width: 1.1rem !important;
             height: 1.1rem !important;
         }
+
+
+        div.essential_audio > div:nth-child(1) div.play {
+            background-color:  rgb(231, 107, 85, 0.3) !important;
+        }
     </style>
 @endsection
 @section('script')

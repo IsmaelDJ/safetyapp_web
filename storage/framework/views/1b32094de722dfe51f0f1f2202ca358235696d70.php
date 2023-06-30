@@ -44,8 +44,8 @@
                 <div class="row">
                     <?php $__currentLoopData = $rules; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $rule): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <div style="width: 20%">
-                            <div class="card mb-0 rounded" style="background-image: url(<?php echo e(URL::asset($rule->image)); ?>); background-size: cover; background-repeat: no-repeat; background-position: center;">
-                                <div class="d-flex justify-content-end flex-column" style="height: 250px">
+                            <div class="card mb-0 rounded" style="background-image: url(<?php echo e(URL::asset($rule->image)); ?>); background-size: 100%; background-repeat: no-repeat; background-position: center;">
+                                <div class="d-flex justify-content-end flex-column" style="height: 270px">
                                     <div class="d-flex justify-content-between">
                                         <div class="d-xl-flex justify-content-between align-self-center">
                                             <div class="essential_audio m-3" data-url="<?php echo e(URL::asset($rule->fr)); ?>"></div>
@@ -100,6 +100,11 @@
         div.essential_audio > div:nth-child(1) div:after {
             width: 1.1rem !important;
             height: 1.1rem !important;
+        }
+
+
+        div.essential_audio > div:nth-child(1) div.play {
+            background-color:  rgb(231, 107, 85, 0.3) !important;
         }
     </style>
 <?php $__env->stopSection(); ?>
