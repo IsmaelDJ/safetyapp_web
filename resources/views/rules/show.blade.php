@@ -90,7 +90,7 @@
                     <div class="col-md-6">
                         <div class="card rounded">
                             <div style="display: grid; grid-template-columns: auto 1fr">
-                                <div class="d-flex justify-content-center">
+                                <div class="d-flex flex-column justify-content-center">
                                     <a href="{{ route('rules.show', $rule) }}">
                                         <img src="{{URL::asset($rule->image)}}" alt=""
                                             style="height: 250px; max-width: 200px; object-fit: cover; border-top-left-radius: 5px; border-bottom-left-radius: 5px"
