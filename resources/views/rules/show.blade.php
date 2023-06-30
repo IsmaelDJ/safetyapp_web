@@ -93,12 +93,12 @@
                                 <div>
                                     <a href="{{ route('rules.show', $rule) }}">
                                         <img src="{{URL::asset($rule->image)}}" alt=""
-                                            style="height: 300px; width: 100%; object-fit: cover; border-top-left-radius: 5px; border-bottom-left-radius: 5px"
+                                            style="height: 250px; width: 100%; object-fit: cover; border-top-left-radius: 5px; border-bottom-left-radius: 5px"
                                             class="img-fluid d-block">
                                     </a>
                                 </div>
                                 <div class="p-3 d-flex flex-column  justify-content-between">
-                                    <p class="lead fs-6 pb-2" style="text-align: justify">{{Str::limit($rule->description)}}</p>
+                                    <p class="lead fs-6 pb-2" style="text-align: justify">{{Str::limit($rule->description, 100)}}</p>
                                     <div class="mt-2 pb-4">
                                         <div class="essential_audio" data-url="{{URL::asset($rule->fr)}}"></div>
                                     </div>
