@@ -89,10 +89,10 @@
                     <div class="col-md-6">
                         <div class="card rounded">
                             <div style="display: grid; grid-template-columns: auto 1fr">
-                                <div>
+                                <div class="d-flex justify-content-center">
                                     <a href="<?php echo e(route('rules.show', $rule)); ?>">
                                         <img src="<?php echo e(URL::asset($rule->image)); ?>" alt=""
-                                            style="height: 250px; width: 100%; object-fit: cover; border-top-left-radius: 5px; border-bottom-left-radius: 5px"
+                                            style="height: 250px; max-width: 200px; object-fit: cover; border-top-left-radius: 5px; border-bottom-left-radius: 5px"
                                             class="img-fluid d-block">
                                     </a>
                                 </div>
