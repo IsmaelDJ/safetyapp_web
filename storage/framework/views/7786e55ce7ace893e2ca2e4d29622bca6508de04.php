@@ -18,7 +18,7 @@
         <div class="row gap-3" >
             <div class="card card-body">
                 <div class="row">
-                    <div class="col-xl-4">
+                    <div class="col-xl-4 d-flex flex-column justify-content-center">
                         <img src="<?php echo e(URL::asset($rule->image)); ?>" alt=""
                              class="img-fluid d-block rounded"></td>
                     </div>
