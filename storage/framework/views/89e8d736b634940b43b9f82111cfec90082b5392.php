@@ -20,6 +20,6 @@
 
 
   .rule-item div.essential_audio > div:nth-child(1) div.play {
-      background-color:  #edf8ef !important;
+      background-color:  rgba(16, 204, 101, 0.5) !important;
   }
 </style><?php /**PATH /home/chad/laravel-workspace/safetyapp_web/resources/views/layouts/head-css.blade.php ENDPATH**/ ?>
