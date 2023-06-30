@@ -25,14 +25,14 @@
                     <div class="m-2 d-flex" style="position: relative">
                         <img src="{{URL::asset($category->image)}}" alt="" class="img-fluid rounded-circle align-self-center" style="height: 2.5rem; width: 2.5rem;">
                         <h2 class="align-self-center ms-4 mt-2 fw-bold">{{$category->name}}</h2>
-                        <div class="d-flex" style="position: absolute; max-width: 4rem; right: 0px; top: 5px; z-index:1">
+                        <div class="d-flex" style="position: absolute; max-width: 6rem; right: 0px; top: 5px; z-index:1">
                             <a class="m-1" 
-                                style="border-radius: 50%; background-color: rgba(16, 204, 101, 0.3); width: 1.5rem; height: 1.5rem; display: flex; justify-content: center" 
+                                style="border-radius: 50%; background-color: rgba(16, 204, 101, 0.3); width: 2rem; height: 2rem; display: flex; justify-content: center" 
                                 href="{{ route('categories.edit', $category) }}">
                                 <i class="fa fa-pen" style="align-self: center; color: green"></i> 
                             </a>
                             <a class="m-1" 
-                                style="border-radius: 50%; background-color: rgb(231, 107, 85, 0.3); width: 1.5rem; height: 1.5rem; display: flex; justify-content: center" 
+                                style="border-radius: 50%; background-color: rgb(231, 107, 85, 0.3); width: 2rem; height: 2rem; display: flex; justify-content: center" 
                                 href="{{route('categories.index')}}"
                                 onclick="
                                 var result = confirm('Cette catégorie sera supprimée');
@@ -79,12 +79,12 @@
 
                                         <div class="d-flex justify-content-end me-2">
                                             <a class="m-1" 
-                                                style="border-radius: 50%; background-color: rgba(16, 204, 101, 0.3); width: 1.5rem; height: 1.5rem; display: flex; justify-content: center" 
+                                                style="border-radius: 50%; background-color: rgba(16, 204, 101, 0.3); width: 2rem; height: 2rem; display: flex; justify-content: center" 
                                                 href="{{ route('rules.edit', $rule) }}">
                                                 <i class="fa fa-pen" style="align-self: center; color: green"></i> 
                                             </a>
                                             <a class="m-1" 
-                                                style="border-radius: 50%; background-color: rgb(231, 107, 85, 0.3); width: 1.5rem; height: 1.5rem; display: flex; justify-content: center" 
+                                                style="border-radius: 50%; background-color: rgb(231, 107, 85, 0.3); width: 2rem; height: 2rem; display: flex; justify-content: center" 
                                                 href="{{route('rules.index')}}"
                                                 onclick="
                                                 var result = confirm('Cette règle sera supprimée');

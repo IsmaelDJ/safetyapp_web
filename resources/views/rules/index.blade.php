@@ -54,7 +54,7 @@
                                             class="img-fluid d-block">
                                         </a>
                                     </div>
-                                    <div class="col-md-7 p-md-2 pe-md-3 p-4">
+                                    <div class="col-md-7 p-md-2 pe-md-4 p-4">
                                         <p class="lead fs-6 pb-2" style="text-align: justify">{{ Str::limit($rule->description)}}</p>
                                         <div class="mt-2 pb-4">
                                             <div class="essential_audio" data-url="{{URL::asset($rule->fr)}}"></div>
@@ -66,14 +66,14 @@
                                             <div class="essential_audio" data-url="{{URL::asset($rule->ng)}}"></div>
                                         </div>
 
-                                        <div class="d-flex justify-content-end me-2">
+                                        <div class="d-flex justify-content-end">
                                             <a class="m-1" 
-                                                style="border-radius: 50%; background-color: rgba(16, 204, 101, 0.3); width: 1.5rem; height: 1.5rem; display: flex; justify-content: center" 
+                                                style="border-radius: 50%; background-color: rgba(16, 204, 101, 0.3); width: 2rem; height: 2rem; display: flex; justify-content: center" 
                                                 href="{{ route('rules.edit', $rule) }}">
                                                 <i class="fa fa-pen" style="align-self: center; color: green"></i> 
                                             </a>
                                             <a class="m-1" 
-                                                style="border-radius: 50%; background-color: rgb(231, 107, 85, 0.3); width: 1.5rem; height: 1.5rem; display: flex; justify-content: center" 
+                                                style="border-radius: 50%; background-color: rgb(231, 107, 85, 0.3); width: 2rem; height: 2rem; display: flex; justify-content: center" 
                                                 href="{{route('rules.index')}}"
                                                 onclick="
                                                 var result = confirm('Cette règle sera supprimée');
