@@ -21,7 +21,7 @@
             <div class="row">
                 <div class="col-4 p-4">
                     <div class="rule-show-item">
-                        <div class="card mb-2 rounded" style="background-image:linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(255, 255, 255, 0)), url({{ URL::asset($rule->image) }}); background-size: auto 100%; background-repeat: no-repeat; background-position: center;">
+                        <div class="card mb-2 rounded" style="background-image:linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(255, 255, 255, 0)), url({{ URL::asset($rule->image) }}); background-size: 100%; background-repeat: no-repeat; background-position: center;">
                             <div class="d-flex justify-content-end flex-column" style="width: 100%">
                                 <a href="{{ route("rules.show", $rule->id) }}" style="height: 68vh; width: 100%;"></a>
                                 <div class="d-flex justify-content-between">
