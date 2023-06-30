@@ -29,7 +29,7 @@
                                         <div class="essential_audio m-4" data-url="<?php echo e(URL::asset($rule->ng)); ?>"></div>
                                     </div>
 
-                                    <div class="d-flex align-self-md-center align-self-end m-4">
+                                    <div class="d-flex align-self-md-center align-self-end p-4">
                                         <a class="me-1" 
                                             style="border-radius: 50%; background-color: #edf8ef; width: 2rem; height: 2rem; display: flex; justify-content: center" 
                                             href="<?php echo e(route('rules.edit', $rule)); ?>">
