@@ -43,36 +43,24 @@
             <div class="col-12">
                 <div class="row">
                     <?php $__currentLoopData = $rules; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $rule): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                        <div class="col-md-6">
-                            <div class="card rounded">
-                                <div style="display: grid; grid-template-columns: auto 1fr">
-                                    <div>
-                                        <a href="<?php echo e(route('rules.show', $rule)); ?>">
-                                            <img src="<?php echo e(URL::asset($rule->image)); ?>" alt=""
-                                                style="height: 300px; width: 100%; object-fit: cover; border-top-left-radius: 5px; border-bottom-left-radius: 5px"
-                                                class="img-fluid d-block">
-                                        </a>
-                                    </div>
-                                    <div class="p-md-2 pe-md-4 p-4">
-                                        <p class="lead fs-6 pb-2" style="text-align: justify"><?php echo e(Str::limit($rule->description)); ?></p>
-                                        <div class="mt-2 pb-4">
-                                            <div class="essential_audio" data-url="<?php echo e(URL::asset($rule->fr)); ?>"></div>
-                                        </div>
-                                        <div class="mt-2 pb-4">
-                                            <div class="essential_audio" data-url="<?php echo e(URL::asset($rule->ar)); ?>"></div>
-                                        </div>
-                                        <div class="mt-2 pb-2">
-                                            <div class="essential_audio" data-url="<?php echo e(URL::asset($rule->ng)); ?>"></div>
+                        <div style="width: 20%">
+                            <div class="card mb-0 rounded" style="background-image: url(<?php echo e(URL::asset($rule->image)); ?>)">
+                                <div class="d-flex justify-content-end flex-column" style="height: 250px">
+                                    <div class="d-flex justify-content-between">
+                                        <div class="d-xl-flex justify-content-between align-self-center">
+                                            <div class="essential_audio m-3" data-url="<?php echo e(URL::asset($rule->fr)); ?>"></div>
+                                            <div class="essential_audio m-3" data-url="<?php echo e(URL::asset($rule->ar)); ?>"></div>
+                                            <div class="essential_audio m-3" data-url="<?php echo e(URL::asset($rule->ng)); ?>"></div>
                                         </div>
         
-                                        <div class="d-flex justify-content-end">
-                                            <a class="m-1" 
-                                                style="border-radius: 50%; background-color: rgba(16, 204, 101, 0.3); width: 2rem; height: 2rem; display: flex; justify-content: center" 
+                                        <div class="d-flex align-self-md-center align-self-end mb-2">
+                                            <a class="me-1" 
+                                                style="border-radius: 50%; background-color: rgba(16, 204, 101, 0.3); width: 1.5rem; height: 1.5rem; display: flex; justify-content: center" 
                                                 href="<?php echo e(route('rules.edit', $rule)); ?>">
                                                 <i class="fa fa-pen" style="align-self: center; color: green"></i> 
                                             </a>
-                                            <a class="m-1" 
-                                                style="border-radius: 50%; background-color: rgb(231, 107, 85, 0.3); width: 2rem; height: 2rem; display: flex; justify-content: center" 
+                                            <a class="me-1" 
+                                                style="border-radius: 50%; background-color: rgb(231, 107, 85, 0.3); width: 1.5rem; height: 1.5rem; display: flex; justify-content: center" 
                                                 href="<?php echo e(route('rules.index')); ?>"
                                                 onclick="
                                                 var result = confirm('Cette règle sera supprimée');
@@ -91,6 +79,7 @@
                                     </div>
                                 </div>
                             </div>
+                            <p class="lead fs-6" style="text-align: justify"><?php echo e(Str::limit($rule->description, 25)); ?></p>
                         </div>
                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>    
 
@@ -102,7 +91,12 @@
             </div>
         </div>
     </div>
-
+    <style>
+        div.essential_audio > div:nth-child(1) div:after {
+            width: 1.1rem !important;
+            height: 1.1rem !important;
+        }
+    </style>
 <?php $__env->stopSection(); ?>
 <?php $__env->startSection('script'); ?>
 

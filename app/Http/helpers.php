@@ -59,7 +59,7 @@ function compress_image($path){
 }
 
 function rulesPerPage(){
-    return 4;
+    return 15;
 }
 
 function categoriesPerPage(){
