@@ -66,7 +66,7 @@
                                 <h5 class="card-title m-3">Règles dans la même catégorie</h5>
                             </div>
                         </div>
-                        <div class="row pe-4">
+                        <div class="row pe-3">
                             <?php $__currentLoopData = $sameCategoryRules; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $rule): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                             <div class="rule-item col-4">
                                 <div class="card mb-2 rounded" style="background-image:linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(255, 255, 255, 0)), url(<?php echo e(URL::asset($rule->image)); ?>); background-size: 100%; background-repeat: no-repeat; background-position: center;">
