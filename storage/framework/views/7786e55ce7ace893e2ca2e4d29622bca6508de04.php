@@ -86,55 +86,45 @@
         <div class="col-12">
             <div class="row">
                 <?php $__currentLoopData = $sameCategoryRules; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $rule): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                    <div class="col-md-6">
-                        <div class="card rounded">
-                            <div style="display: grid; grid-template-columns: auto 1fr">
-                                <div class="d-flex flex-column justify-content-center">
-                                    <a href="<?php echo e(route('rules.show', $rule)); ?>">
-                                        <img src="<?php echo e(URL::asset($rule->image)); ?>" alt=""
-                                            style="height: 250px; max-width: 200px; object-fit: fill; border-top-left-radius: 5px; border-bottom-left-radius: 5px"
-                                            class="img-fluid d-block">
-                                    </a>
+                <div class="rule-item" style="width: 20%">
+                    <div class="card mb-0 rounded" style="background-image: url(<?php echo e(URL::asset($rule->image)); ?>); background-size: 100%; background-repeat: no-repeat; background-position: center;">
+                        <div class="d-flex justify-content-end flex-column" style="height: 270px">
+                            <a href="<?php echo e(route("rules.show", $rule->id)); ?>" style="height: 100%; width: 100%;"></a>
+                            <div class="d-flex justify-content-between">
+                                <div class="d-xl-flex justify-content-between align-self-center">
+                                    <div class="essential_audio m-3" data-url="<?php echo e(URL::asset($rule->fr)); ?>"></div>
+                                    <div class="essential_audio m-3" data-url="<?php echo e(URL::asset($rule->ar)); ?>"></div>
+                                    <div class="essential_audio m-3" data-url="<?php echo e(URL::asset($rule->ng)); ?>"></div>
                                 </div>
-                                <div class="p-3 d-flex flex-column  justify-content-between">
-                                    <p class="lead fs-6 pb-2" style="text-align: justify"><?php echo e(Str::limit($rule->description, 100)); ?></p>
-                                    <div class="mt-2 pb-4">
-                                        <div class="essential_audio" data-url="<?php echo e(URL::asset($rule->fr)); ?>"></div>
-                                    </div>
-                                    <div class="mt-2 pb-4">
-                                        <div class="essential_audio" data-url="<?php echo e(URL::asset($rule->ar)); ?>"></div>
-                                    </div>
-                                    <div class="mt-2 pb-2">
-                                        <div class="essential_audio" data-url="<?php echo e(URL::asset($rule->ng)); ?>"></div>
-                                    </div>
-    
-                                    <div class="d-flex justify-content-end">
-                                        <a class="m-1" 
-                                            style="border-radius: 50%; background-color: rgba(16, 204, 101, 0.3); width: 2rem; height: 2rem; display: flex; justify-content: center" 
-                                            href="<?php echo e(route('rules.edit', $rule)); ?>">
-                                            <i class="fa fa-pen" style="align-self: center; color: green"></i> 
-                                        </a>
-                                        <a class="m-1" 
-                                            style="border-radius: 50%; background-color: rgb(231, 107, 85, 0.3); width: 2rem; height: 2rem; display: flex; justify-content: center" 
-                                            href="<?php echo e(route('rules.index')); ?>"
-                                            onclick="
-                                            var result = confirm('Cette règle sera supprimée');
-                                            if(result){
-                                                event.preventDefault();
-                                                document.getElementById('delete-form-<?php echo e($rule->id); ?>').submit();
-                                            }">
-                                            <i class="fa fa-trash" style="align-self: center; color: red"></i> 
-                                        </a>
-                                        <form method="POST" id="delete-form-<?php echo e($rule->id); ?>"
-                                            action="<?php echo e(route('rules.destroy', [$rule])); ?>">
-                                          <?php echo csrf_field(); ?>
-                                          <input type="hidden" name="_method" value="DELETE">
-                                      </form>
-                                    </div>
+
+                                <div class="d-flex align-self-md-center align-self-end mb-2">
+                                    <a class="me-1" 
+                                        style="border-radius: 50%; background-color: rgba(16, 204, 101, 0.3); width: 1.5rem; height: 1.5rem; display: flex; justify-content: center" 
+                                        href="<?php echo e(route('rules.edit', $rule)); ?>">
+                                        <i class="fa fa-pen" style="align-self: center; color: green"></i> 
+                                    </a>
+                                    <a class="me-1" 
+                                        style="border-radius: 50%; background-color: rgb(231, 107, 85, 0.3); width: 1.5rem; height: 1.5rem; display: flex; justify-content: center" 
+                                        href="<?php echo e(route('rules.index')); ?>"
+                                        onclick="
+                                        var result = confirm('Cette règle sera supprimée');
+                                        if(result){
+                                            event.preventDefault();
+                                            document.getElementById('delete-form-<?php echo e($rule->id); ?>').submit();
+                                        }">
+                                        <i class="fa fa-trash" style="align-self: center; color: red"></i> 
+                                    </a>
+                                    <form method="POST" id="delete-form-<?php echo e($rule->id); ?>"
+                                        action="<?php echo e(route('rules.destroy', [$rule])); ?>">
+                                      <?php echo csrf_field(); ?>
+                                      <input type="hidden" name="_method" value="DELETE">
+                                  </form>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <p class="lead fs-6" style="text-align: justify"><?php echo e(Str::limit($rule->description, 25)); ?></p>
+                </div>
                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>    
     
                 <div class="my-2">
