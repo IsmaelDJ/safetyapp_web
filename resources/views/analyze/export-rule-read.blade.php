@@ -18,7 +18,7 @@
 @section('content')
 
     <!-- end col -->
-    <div class="col-xl-8 ms-auto me-auto mt-5">
+    <div class="col-xl-7 ms-auto me-auto mt-5">
         <div class="card">
             <div class="card-body">
                 <div class="d-flex align-items-start">
@@ -46,7 +46,7 @@
                                 <td style="width: 350px">
                                     <p class="text-muted mb-0 text-justify">{{$rule->description}}</p>
                                 </td>
-                                <td class="d-none d-xl-table-cell">
+                                <td>
                                    {{$rule->category->name}}
                                 </td>
                                 <td style="width: 250px">
