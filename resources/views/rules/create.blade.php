@@ -51,25 +51,7 @@
                         <div class="bg-soft pt-lg-5 p-4 col-md-10">
                             <div class="w-100">
 
-                                <label class="col-form-label">Catégorie</label>
-                                <div>
-                                    <select
-                                        class="form-select form-select-lg @error('category_id') is-invalid @enderror"
-                                        name="category_id">
-                                        <option selected>Selectionnez une catégorie</option>
-                                        @foreach($categories as $category)
-                                            <option value="{{$category->id}}">
-                                                <img src="{{URL::asset($category->image)}}" alt="">
-                                                {{$category->name}}
-                                            </option>
-                                        @endforeach
-                                    </select>
-                                    @error('category_id')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>Catégorie non selectionnée</strong>
-                                    </span>
-                                    @enderror
-                                </div>
+                                <input type="hidden" name="category_id" value="{{ $category_id }}">
                                 <div class="mb-3 mt-3">
                                     <label for="description" class="form-label">Description</label>
                                     <textarea id="" description placeholder="Entrez la description de la règle"

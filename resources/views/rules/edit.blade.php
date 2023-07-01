@@ -20,7 +20,7 @@
     <div class="card">
 
         <div class="row g-0">
-            <form action="{{route('rules.update',$rule)}}" method="post" enctype="multipart/form-data" class="col-xl-8">
+            <form action="{{route('rules.update',$rule)}}" method="post" enctype="multipart/form-data" class="col-xl-12">
                 @csrf
 
                 <div class="row g-0">
@@ -50,7 +50,7 @@
                     </div>
 
                     <div class="col-md-7 col-xl-7">
-                        <div class="bg-soft pt-lg-5 p-4 col-md-10">
+                        <div class="bg-soft pt-lg-5 p-4 col-md-12">
                             <div class="w-100">
 
                                 <label class="col-form-label">Catégorie</label>

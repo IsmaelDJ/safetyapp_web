@@ -47,7 +47,7 @@ class CategoryController extends Controller
         $category->position = $request->position;
 
         $category->save();
-        return redirect()->route('categories.index')->with('success', "Catégorie ajouté");
+        return redirect()->route('root')->with('success', "Catégorie ajouté");
     }
 
 
@@ -87,13 +87,13 @@ class CategoryController extends Controller
         $category->name = $request->name;
         $category->position = $request->position;
         $category->update();
-        return redirect()->route('categories.index')->with('success', "Catégorie modifiée");
+        return redirect()->route('root')->with('success', "Catégorie modifiée");
     }
 
 
     public function destroy(Category $category)
     {
         $category->delete();
-        return redirect()->route('categories.index')->with('success', "Catégorie supprimé !");
+        return redirect()->route('root')->with('success', "Catégorie supprimé !");
     }
 }

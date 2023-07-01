@@ -10,7 +10,7 @@
                 <li class="menu-title" key="t-menu">Menu</li>
 
                 <li>
-                    <a href="{{ route('categories.index') }}" class="waves-effect">
+                    <a href="{{ route('root') }}" class="waves-effect">
                         <i class="bx bx-home-circle"></i>
                         <span key="t-starter-page">Tableau de bord</span>
                     </a>

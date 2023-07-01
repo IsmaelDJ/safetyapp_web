@@ -56,7 +56,7 @@
                                     </a>
                                     <a class="m-1" 
                                         style="border-radius: 50%; background-color: #ffe8e8; width: 1.5rem; height: 1.5rem; display: flex; justify-content: center" 
-                                        href="{{route('categories.index')}}"
+                                        href="{{route('root')}}"
                                         onclick="
                                         var result = confirm('Cette catégorie sera supprimée');
                                         if(result){

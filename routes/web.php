@@ -32,17 +32,32 @@ Auth::routes([
     'verify' => false, // Email Verification Routes...
 ]);
 
-Route::get('/', [App\Http\Controllers\HomeController::class, 'root'])->name('root');
+//Category
+Route::get('show/{category}',  [CategoryController::class, 'show'])->name('categories.show');
+Route::get('edit/{category}',  [CategoryController::class, 'edit'])->name('categories.edit');
+Route::get('create',  [CategoryController::class, 'create'])->name('categories.create');
+Route::post('/', [CategoryController::class, 'store'])->name('categories.store');
+Route::put('/', [CategoryController::class, 'update'])->name('categories.update');
+Route::delete('/{category}', [CategoryController::class, 'destroy'])->name('categories.destroy');
+
+
+Route::get('/', [App\Http\Controllers\CategoryController::class, 'index'])->name('root');
 
 //Update User Details
 Route::post('/update-profile/{id}', [App\Http\Controllers\HomeController::class, 'updateProfile'])->name('updateProfile');
 Route::post('/update-password/{id}', [App\Http\Controllers\HomeController::class, 'updatePassword'])->name('updatePassword');
 
 //Rule
-Route::resource('rules', RuleController::class);
+Route::prefix('rules')->group(function () {
+    Route::get('/',  [RuleController::class, 'index'])->name('rules.index');
+    Route::get('show/{rule}',  [RuleController::class, 'show'])->name('rules.show');
+    Route::get('edit/{rule}',  [RuleController::class, 'edit'])->name('rules.edit');
+    Route::get('create/{category_id}',  [RuleController::class, 'create'])->name('rules.create');
+    Route::post('/', [RuleController::class, 'store'])->name('rules.store');
+    Route::put('/', [RuleController::class, 'update'])->name('rules.update');
+    Route::delete('/{rule}', [RuleController::class, 'destroy'])->name('rules.destroy');
+});
 
-//Category
-Route::resource('categories', CategoryController::class);
 
 //carrier
 Route::get('carriers',  [CarrierController::class, 'index'])->name('carriers.index');

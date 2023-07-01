@@ -22,10 +22,10 @@ class RuleController extends Controller
     }
 
 
-    public function create()
+    public function create($category_id)
     {
         $categories = Category::get();
-        return view('rules.create', compact('categories'));
+        return view('rules.create', compact('categories', 'category_id'));
     }
 
 
@@ -51,7 +51,7 @@ class RuleController extends Controller
 
         $rule->save();
 
-        return redirect()->route('rules.index')->with('success', 'Règle ajouté !');
+        return redirect()->route('categories.show', [$request->category_id])->with('success', 'Règle ajouté à la catégorie!');
     }
 
 
@@ -112,7 +112,7 @@ class RuleController extends Controller
         $rule->description = $request->description;
 
         $rule->update();
-        return redirect()->route('rules.index')->with('success', 'Règle modifiée !');
+        return redirect()->route('categories.show', [$request->category_id])->with('success', 'Règle modifiée !');
     }
 
 

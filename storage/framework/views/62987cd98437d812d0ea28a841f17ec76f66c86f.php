@@ -23,28 +23,33 @@
                     <div class="m-2 d-flex" style="position: relative">
                         <img src="<?php echo e(URL::asset($category->image)); ?>" alt="" class="img-fluid rounded-circle align-self-center" style="height: 2.5rem; width: 2.5rem;">
                         <h2 class="align-self-center ms-4 mt-2 fw-bold"><?php echo e($category->name); ?></h2>
-                        <div class="d-flex" style="position: absolute; max-width: 6rem; right: 0px; top: 5px; z-index:1">
+                        <div class="d-flex" style="position: absolute; max-width: 9rem; right: 0px; top: 5px; z-index:1">
                             <a class="m-1" 
-                                style="border-radius: 50%; background-color: rgba(16, 204, 101, 0.3); width: 2rem; height: 2rem; display: flex; justify-content: center" 
+                                style="border-radius: 50%; background-color: #edf8ef; width: 2rem; height: 2rem; display: flex; justify-content: center" 
                                 href="<?php echo e(route('categories.edit', $category)); ?>">
-                                <i class="fa fa-pen" style="align-self: center; color: green"></i> 
+                                <i class="fa fa-pen" style="align-self: center; color: #34a543"></i> 
                             </a>
                             <a class="m-1" 
-                                style="border-radius: 50%; background-color: rgb(231, 107, 85, 0.3); width: 2rem; height: 2rem; display: flex; justify-content: center" 
-                                href="<?php echo e(route('categories.index')); ?>"
+                                style="border-radius: 50%; background-color: #ffe8e8; width: 2rem; height: 2rem; display: flex; justify-content: center" 
+                                href="<?php echo e(route('root')); ?>"
                                 onclick="
                                 var result = confirm('Cette catégorie sera supprimée');
                                 if(result){
                                     event.preventDefault();
                                     document.getElementById('delete-form-<?php echo e($category->id); ?>').submit();
                                 }">
-                                <i class="fa fa-trash" style="align-self: center; color: red"></i> 
+                                <i class="fa fa-trash" style="align-self: center; color: #e80000"></i> 
                             </a>
                             <form method="POST" id="delete-form-<?php echo e($category->id); ?>"
                                 action="<?php echo e(route('categories.destroy', [$category])); ?>">
                               <?php echo csrf_field(); ?>
                               <input type="hidden" name="_method" value="DELETE">
                           </form>
+                          <a class="m-1" 
+                                style="border-radius: 50%; background-color: rgba(16, 97, 204, 0.3); width: 2rem; height: 2rem; display: flex; justify-content: center" 
+                                href="<?php echo e(route('rules.create', [$category])); ?>">
+                                <i class="fa fa-plus" style="align-self: center; color: rgba(16, 97, 204)"></i> 
+                            </a>
                         </div>
                     </div>
                 </div>

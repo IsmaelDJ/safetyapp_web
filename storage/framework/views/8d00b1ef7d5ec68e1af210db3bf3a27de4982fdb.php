@@ -69,7 +69,7 @@
             </button>
             <div class="dropdown-menu dropdown-menu-end">
                 <!-- item-->
-                <a class="dropdown-item" href="/"><i class="bx bx-user font-size-16 align-middle me-1"></i> <span key="t-profile"><?php echo app('translator')->get('translation.Profile'); ?></span></a>
+                <a class="dropdown-item" href="" data-bs-toggle="modal" data-bs-target=".update-profile"><i class="bx bx-user font-size-16 align-middle me-1"></i> <span key="t-profile"><?php echo app('translator')->get('translation.Profile'); ?></span></a>
                 <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('doAdvanced')): ?>
                 <a class="dropdown-item" href="<?php echo e(route('register')); ?>"><i class="mdi mdi-account-multiple-plus font-size-16 align-middle me-1"></i> <span key="t-profile">Compte</span></a>
                 <?php endif; ?>
