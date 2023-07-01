@@ -43,7 +43,7 @@
                                 <td style="width: 150px;">
                                     <p>{{$loop->iteration}}</p>
                                 </td>
-                                <td style="width: 400px">
+                                <td style="width: 350px">
                                     <p class="text-muted mb-0 text-justify">{{$rule->description}}</p>
                                 </td>
                                 <td class="d-none d-xl-table-cell">
