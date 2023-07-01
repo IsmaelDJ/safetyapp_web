@@ -28,7 +28,7 @@
                                 href="{{ route('quiz_questions.edit', $quiz_question) }}">
                                 <i class="fa fa-{{ $quiz_question->correct ? "check" : "ban" }} fs-5" style="align-self: center; color:{{ $quiz_question->correct ? "#34a543" : "#e80000" }}"></i> 
                             </div>
-                            <a href="{{ route("quiz_questions.show", $quiz_question->id) }}" style="height: 68vh; width: 100%;"></a>
+                            <a href="{{ route("quiz_questions.show", $quiz_question->id) }}" style="height: 65vh; width: 100%;"></a>
                             <div class="d-flex justify-content-between">
                                 <div class="d-xl-flex justify-content-between align-self-center">
                                     <div class="essential_audio m-4" data-url="{{URL::asset($quiz_question->fr)}}"></div>
