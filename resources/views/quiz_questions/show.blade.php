@@ -23,7 +23,7 @@
                 <div class="rule-show-item">
                     <div class="card mb-2 rounded" style="background-image:linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(255, 255, 255, 0)), url({{ URL::asset($quiz_question->image) }}); background-size: 100%; background-repeat: no-repeat; background-position: center;">
                         <div class="d-flex justify-content-between flex-column" style="width: 100%; height: 72vh;">
-                            <div class="me-1 align-self-end" 
+                            <div class="me-1 mt-3 align-self-end" 
                                 style="border-radius: 50%; background-color: {{ $quiz_question->correct ? "#edf8ef" : "#ffe8e8" }}; min-width: 2.5rem; min-height: 2.5rem; display: flex; justify-content: center" 
                                 href="{{ route('quiz_questions.edit', $quiz_question) }}">
                                 <i class="fa fa-{{ $quiz_question->correct ? "check" : "ban" }} fs-5" style="align-self: center; color:{{ $quiz_question->correct ? "#34a543" : "#e80000" }}"></i> 
@@ -77,7 +77,7 @@
                         <div class="rule-item col-4">
                             <div class="card mb-2 rounded" style="background-image:linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(255, 255, 255, 0)), url({{ URL::asset($quiz_question->image) }}); background-size: 100%; background-repeat: no-repeat; background-position: center;">
                                 <div class="d-flex justify-content-end flex-column" style="height: 300px">
-                                    <div class="me-1 align-self-end" 
+                                    <div class="me-1 mt-2 align-self-end" 
                                         style="border-radius: 50%; background-color: {{ $quiz_question->correct ? "#edf8ef" : "#ffe8e8" }}; min-width: 2.5rem; min-height: 2.5rem; display: flex; justify-content: center" 
                                         href="{{ route('quiz_questions.edit', $quiz_question) }}">
                                         <i class="fa fa-{{ $quiz_question->correct ? "check" : "ban" }} fs-5" style="align-self: center; color:{{ $quiz_question->correct ? "#34a543" : "#e80000" }}"></i> 
