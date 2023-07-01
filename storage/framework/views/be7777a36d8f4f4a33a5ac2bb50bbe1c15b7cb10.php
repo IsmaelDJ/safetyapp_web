@@ -14,163 +14,120 @@
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('content'); ?>
-    <div class="container-fluid p-4 pb-0 pt-0">
-        <div class="row gap-3" >
-            <div class="card card-body">
-                <div class="row">
-                    <div class="col-xl-3 ">
-                        <img src="<?php echo e(URL::asset($quizQuestion->image)); ?>" alt=""
-                             class="img-fluid d-block rounded">
-                        <h5 class="card-title"><?php echo e($quizQuestion->name); ?></h5>
-                    </div>
-                    <div class="col-xl-8 m-auto">
-                        <div>
-                            <h5 class=" mt-4">Catégorie</h5>
-                            <a type="button" href="<?php echo e(route('categories.show', $quizQuestion->category)); ?>"
-                               class="btn btn-success btn-rounded waves-effect waves-light mb-4 me-2"><i
-                                    class="mdi mdi-tag me-1"></i> <?php echo e($quizQuestion->category->name); ?>
+<div class="container-fluid">
+    <div class="card">
+        <div class="row">
+            <div class="col-4 p-4">
+                <div class="rule-show-item">
+                    <div class="card mb-2 rounded" style="background-image:linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(255, 255, 255, 0)), url(<?php echo e(URL::asset($quiz_question->image)); ?>); background-size: 100%; background-repeat: no-repeat; background-position: center;">
+                        <div class="d-flex justify-content-end flex-column" style="width: 100%">
+                            <div class="me-1 align-self-end" 
+                                style="border-radius: 50%; background-color: <?php echo e($quiz_question->correct ? "#edf8ef" : "#ffe8e8"); ?>; min-width: 2.5rem; min-height: 2.5rem; display: flex; justify-content: center" 
+                                href="<?php echo e(route('quiz_questions.edit', $quiz_question)); ?>">
+                                <i class="fa fa-<?php echo e($quiz_question->correct ? "check" : "ban"); ?> fs-5" style="align-self: center; color:<?php echo e($quiz_question->correct ? "#34a543" : "#e80000"); ?>"></i> 
+                            </div>
+                            <a href="<?php echo e(route("quiz_questions.show", $quiz_question->id)); ?>" style="height: 68vh; width: 100%;"></a>
+                            <div class="d-flex justify-content-between">
+                                <div class="d-xl-flex justify-content-between align-self-center">
+                                    <div class="essential_audio m-4" data-url="<?php echo e(URL::asset($quiz_question->fr)); ?>"></div>
+                                    <div class="essential_audio m-4" data-url="<?php echo e(URL::asset($quiz_question->ar)); ?>"></div>
+                                    <div class="essential_audio m-4" data-url="<?php echo e(URL::asset($quiz_question->ng)); ?>"></div>
+                                </div>
 
-                            </a>
-                        </div>
-                        <div class="mb-4">
-                            <h5 class=" mt-4">Description</h5>
-                            <p class="lead mb-0 text-justify"><?php echo e($quizQuestion->description); ?></p>
-                        </div>
-                        <div class="mt-4 pb-4 pt-4">
-                            <h5 class=" mt-4">Audio Français</h5>
-                            <div class="essential_audio mt-4" data-url="<?php echo e(URL::asset($quizQuestion->fr)); ?>"></div>
-                        </div>
-                        <div class="mt-4 pb-4">
-                            <h5 class=" mt-4">Audio Arabe</h5>
-                            <div class="essential_audio mt-4" data-url="<?php echo e(URL::asset($quizQuestion->ar)); ?>"></div>
-                        </div>
-                        <div class="mt-4 pb-4">
-                            <h5 class=" mt-4">Audio Ngambaye</h5>
-                            <div class="essential_audio mt-4" data-url="<?php echo e(URL::asset($quizQuestion->ng)); ?>"></div>
+                                <div class="d-flex align-self-md-center align-self-end p-4">
+                                    <a class="me-1" 
+                                        style="border-radius: 50%; background-color: #edf8ef; width: 2rem; height: 2rem; display: flex; justify-content: center" 
+                                        href="<?php echo e(route('quiz_questions.edit', $quiz_question)); ?>">
+                                        <i class="fa fa-pen" style="align-self: center; color: #34a543"></i> 
+                                    </a>
+                                    <a class="me-1" 
+                                        style="border-radius: 50%; background-color: #ffe8e8; width: 2rem; height: 2rem; display: flex; justify-content: center" 
+                                        href="<?php echo e(route('quiz_questions.index')); ?>"
+                                        onclick="
+                                        var result = confirm('Cette règle sera supprimée');
+                                        if(result){
+                                            event.preventDefault();
+                                            document.getElementById('delete-form-<?php echo e($quiz_question->id); ?>').submit();
+                                        }">
+                                        <i class="fa fa-trash" style="align-self: center; color: #e80000"></i> 
+                                    </a>
+                                    <form method="POST" id="delete-form-<?php echo e($quiz_question->id); ?>"
+                                        action="<?php echo e(route('quiz_questions.destroy', [$quiz_question])); ?>">
+                                    <?php echo csrf_field(); ?>
+                                    <input type="hidden" name="_method" value="DELETE">
+                                </form>
+                                </div>
+                            </div>
                         </div>
                     </div>
+                    <p class="lead" style="text-align: justify"><?php echo e($quiz_question->description); ?></p>
                 </div>
             </div>
-        </div>
-    </div>
-
-
-    <div class="container-fluid">
-        <div class="card">
-            <div class="card-body">
-                <div class="d-flex align-items-start">
-                    <div class="me-2">
-                        <h5 class="card-title mb-4">Liste des quiz</h5>
-                    </div>
-
-                    <div class="ms-auto">
-                        <div class="text-sm-end">
-                            <a type="button" href="<?php echo e(route('quiz_questions.create', $quizQuestion)); ?>"
-                               class="btn btn-success btn-rounded waves-effect waves-light mb-2 me-2"><i
-                                    class="mdi mdi-plus me-1"></i> Ajouter un quiz
-                            </a>
+        
+        
+            <div class="col-8">
+                    <div class="d-flex">
+                        <div class="align-self-center">
+                            <h3 class="my-3">Liste des quiz</h3>
                         </div>
                     </div>
-                </div>
-
-                <div class="table-responsive">
-                    <table class="table align-middle ">
-                        <thead>
-                        <tr >
-                            <th scope="col">Illustration</th>
-                            <th scope="col">Description</th>
-                            <th scope="col">Catégorie</th>
-                            <th scope="col">Audio Français</th>
-                            <th scope="col">Audio Arabe</th>
-                            <th scope="col">Audio Ngambaye</th>
-                            <th scope="col">Reponse</th>
-                            <th scope="col">Action</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <?php $__currentLoopData = $quizQuestions; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $tmpQuizQuestion): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                            <tr>
-                                <td style="width: 150px;"><img src="<?php echo e(URL::asset($tmpQuizQuestion->image)); ?>" alt=""
-                                                               class="avatar-md h-auto d-block rounded">
-                                </td>
-                                <td style="width: 250px">
-                                    <p class="text-muted mb-0 text-justify"><?php echo e($tmpQuizQuestion->description); ?></p>
-                                </td>
-                                <td class="d-none d-xl-table-cell">
-                                    <a type="button" href="<?php echo e(route('categories.show', $tmpQuizQuestion->category)); ?>"
-                                       class="btn btn-success btn-rounded waves-effect waves-light mb-2 me-2"><i
-                                            class="mdi mdi-tag me-1"></i> <?php echo e($tmpQuizQuestion->category->name); ?>
-
-                                    </a>
-                                </td>
-                                <td >
-                                    <div class="essential_audio" data-url="<?php echo e(URL::asset($tmpQuizQuestion->fr)); ?>"></div>
-                                </td>
-                                <td>
-                                    <div class="essential_audio" data-url="<?php echo e(URL::asset($tmpQuizQuestion->ar)); ?>" ></div>
-                                </td>
-                                <td>
-                                    <div class="essential_audio" data-url="<?php echo e(URL::asset($tmpQuizQuestion->ng)); ?>" ></div>
-                                </td>
-                                <td style="width: 250px">
-                                    <?php if($tmpQuizQuestion->correct): ?>
-
-                                        <a type="button" href="#"
-                                           class="btn btn-success btn-rounded waves-effect waves-light mb-2 me-2"><i
-                                                class="mdi mdi-tag me-1"></i> Correct
-                                        </a>
-                                    <?php else: ?>
-
-                                        <a type="button" href="#"
-                                           class="btn btn-danger btn-rounded waves-effect waves-light mb-2 me-2"><i
-                                                class="mdi mdi-tag me-1"></i> Faux
-                                        </a>
-                                    <?php endif; ?>
-                                </td>
-                                <td style="width: 200px">
-                                    <div class="d-flex gap-3">
-
-                                        <a href="<?php echo e(route('quiz_questions.show', $tmpQuizQuestion)); ?>"
-                                           class="btn btn-default">Détails
-                                        </a>
-                                        <a href="<?php echo e(route('quiz_questions.edit', $tmpQuizQuestion )); ?>"
-                                           class="btn btn-info">Modifier
-                                        </a>
-
-                                        <a href="<?php echo e(route('quiz_questions.show',$tmpQuizQuestion)); ?>" class="btn btn-danger"
-                                           onclick="
-                                                   var result = confirm('Cette reponse sera supprimée');
-                                                   if(result){
-                                                       event.preventDefault();
-                                                       document.getElementById('delete-form<?php echo e($tmpQuizQuestion->id); ?>').submit();
-                                                   }
-                                                   ">
-                                            Supprimer</a>
-
-                                        <form method="POST" id="delete-form<?php echo e($tmpQuizQuestion->id); ?>"
-                                              action="<?php echo e(route('quiz_questions.destroy', [$tmpQuizQuestion])); ?>">
+                    <div class="row pe-3">
+                        <?php $__currentLoopData = $quiz_questions; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $quiz_question): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                        <div class="rule-item col-4">
+                            <div class="card mb-2 rounded" style="background-image:linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(255, 255, 255, 0)), url(<?php echo e(URL::asset($quiz_question->image)); ?>); background-size: 100%; background-repeat: no-repeat; background-position: center;">
+                                <div class="d-flex justify-content-end flex-column" style="height: 300px">
+                                    <div class="me-1 align-self-end" 
+                                        style="border-radius: 50%; background-color: <?php echo e($quiz_question->correct ? "#edf8ef" : "#ffe8e8"); ?>; min-width: 2.5rem; min-height: 2.5rem; display: flex; justify-content: center" 
+                                        href="<?php echo e(route('quiz_questions.edit', $quiz_question)); ?>">
+                                        <i class="fa fa-<?php echo e($quiz_question->correct ? "check" : "ban"); ?> fs-5" style="align-self: center; color:<?php echo e($quiz_question->correct ? "#34a543" : "#e80000"); ?>"></i> 
+                                    </div>
+                                    <a href="<?php echo e(route("quiz_questions.show", $quiz_question->id)); ?>" style="height: 100%; width: 100%;"></a>
+                                    <div class="d-flex justify-content-between">
+                                        <div class="d-xl-flex justify-content-between align-self-center">
+                                            <div class="essential_audio m-3" data-url="<?php echo e(URL::asset($quiz_question->fr)); ?>"></div>
+                                            <div class="essential_audio m-3" data-url="<?php echo e(URL::asset($quiz_question->ar)); ?>"></div>
+                                            <div class="essential_audio m-3" data-url="<?php echo e(URL::asset($quiz_question->ng)); ?>"></div>
+                                        </div>
+        
+                                        <div class="d-flex align-self-md-center align-self-end mb-2">
+                                            <a class="me-1" 
+                                                style="border-radius: 50%; background-color: #edf8ef; width: 1.5rem; height: 1.5rem; display: flex; justify-content: center" 
+                                                href="<?php echo e(route('quiz_questions.edit', $quiz_question)); ?>">
+                                                <i class="fa fa-pen" style="align-self: center; color: #34a543"></i> 
+                                            </a>
+                                            <a class="me-1" 
+                                                style="border-radius: 50%; background-color: #ffe8e8; width: 1.5rem; height: 1.5rem; display: flex; justify-content: center" 
+                                                href="<?php echo e(route('quiz_questions.index')); ?>"
+                                                onclick="
+                                                var result = confirm('Cette règle sera supprimée');
+                                                if(result){
+                                                    event.preventDefault();
+                                                    document.getElementById('delete-form-<?php echo e($quiz_question->id); ?>').submit();
+                                                }">
+                                                <i class="fa fa-trash" style="align-self: center; color: #e80000"></i> 
+                                            </a>
+                                            <form method="POST" id="delete-form-<?php echo e($quiz_question->id); ?>"
+                                                action="<?php echo e(route('quiz_questions.destroy', [$quiz_question])); ?>">
                                             <?php echo csrf_field(); ?>
                                             <input type="hidden" name="_method" value="DELETE">
                                         </form>
+                                        </div>
                                     </div>
-                                </td>
-                            </tr>
-                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                </div>
+                            </div>
+                            <p class="lead" style="font-size: 11px; text-align: justify"><?php echo e(Str::limit($quiz_question->description, 25)); ?></p>
+                        </div>
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>    
+            
+                        <div class="my-2">
+                            <?php echo e($quiz_questions->links('vendor.pagination.round')); ?>
 
-                        </tbody>
-                    </table>
-
-
+                        </div>
                 </div>
-
-                <?php echo e($quizQuestions->links('vendor.pagination.round')); ?>
-
             </div>
         </div>
     </div>
-
-
-
+</div>
 <?php $__env->stopSection(); ?>
 <?php $__env->startSection('script'); ?>
 

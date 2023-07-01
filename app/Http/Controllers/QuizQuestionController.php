@@ -17,8 +17,8 @@ class QuizQuestionController extends Controller
 
     public function index()
     {
-        $quizQuestions = QuizQuestion::paginate(quizQuestionsPerPage());
-        return view('quiz_questions.index', compact('quizQuestions'));
+        $quiz_questions = QuizQuestion::paginate(quizQuestionsPerPage());
+        return view('quiz_questions.index', compact('quiz_questions'));
     }
 
 
@@ -62,10 +62,10 @@ class QuizQuestionController extends Controller
     }
 
 
-    public function show(QuizQuestion $quizQuestion)
+    public function show(QuizQuestion $quiz_question)
     {
-        $quizQuestions = QuizQuestion::paginate(quizQuestionsShowPerPage());
-        return view('quiz_questions.show', compact('quizQuestion', 'quizQuestions'));
+        $quiz_questions = QuizQuestion::paginate(quizQuestionsShowPerPage());
+        return view('quiz_questions.show', compact('quiz_question', 'quiz_questions'));
     }
 
 

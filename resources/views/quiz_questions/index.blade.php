@@ -34,96 +34,60 @@
                     </div>
                 </div>
 
-                <div class="table-responsive">
-                    <table class="table align-middle ">
-                        <thead>
-                        <tr >
-                            <th scope="col">Illustration</th>
-                            <th scope="col">Reponse</th>
-                            <th scope="col">Description</th>
-                            <th class="col">Catégorie</th>
-                            <th scope="col">Audio Français</th>
-                            <th scope="col">Audio Arabe</th>
-                            <th scope="col">Audio Ngambaye</th>
-                            <th scope="col">Action</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        @foreach($quizQuestions as $currentQuizQuestion)
-                            <tr>
-                                <td style="width: 150px;"><img src="{{URL::asset($currentQuizQuestion->image)}}" alt=""
-                                                               class="avatar-md h-auto d-block rounded">
-                                </td>
-                                <td style="width: 250px">
-                                    @if($currentQuizQuestion->correct)
-
-                                        <a type="button" href="#"
-                                           class="btn btn-success btn-rounded waves-effect waves-light mb-2 me-2"><i
-                                                class="mdi mdi-tag me-1"></i> Correct
-                                        </a>
-                                    @else
-
-                                        <a type="button" href="#"
-                                           class="btn btn-danger btn-rounded waves-effect waves-light mb-2 me-2"><i
-                                                class="mdi mdi-tag me-1"></i> Faux
-                                        </a>
-                                    @endif
-                                </td>
-                                <td style="width: 250px">
-                                    <p class="text-muted mb-0 text-justify">{{$currentQuizQuestion->description}}</p>
-                                </td>
-                                <td class="d-none d-xl-table-cell">
-                                    <a type="button" href="{{route('categories.show', $currentQuizQuestion->category)}}"
-                                       class="btn btn-success btn-rounded waves-effect waves-light mb-2 me-2"><i
-                                            class="mdi mdi-tag me-1"></i> {{$currentQuizQuestion->category->name}}
-                                    </a>
-                                </td>
-                                <td >
-                                    <div class="essential_audio" data-url="{{URL::asset($currentQuizQuestion->fr)}}"></div>
-                                </td>
-                                <td>
-                                    <div class="essential_audio" data-url="{{URL::asset($currentQuizQuestion->ar)}}" ></div>
-                                </td>
-                                <td>
-                                    <div class="essential_audio" data-url="{{URL::asset($currentQuizQuestion->ng)}}" ></div>
-                                </td>
-                                <td style="width: 200px">
-                                    <div class="d-flex gap-3">
-
-                                        <a href="{{route('quiz_questions.show', $currentQuizQuestion)}}"
-                                           class="btn btn-default">Détails
-                                        </a>
-                                        <a href="{{route('quiz_questions.edit', $currentQuizQuestion )}}"
-                                           class="btn btn-info">Modifier
-                                        </a>
-
-                                        <a href="{{route('quiz_questions.show',$currentQuizQuestion)}}" class="btn btn-danger"
-                                           onclick="
-                                                   var result = confirm('Cette reponse sera supprimée');
-                                                   if(result){
-                                                       event.preventDefault();
-                                                       document.getElementById('delete-form{{$currentQuizQuestion->id}}').submit();
-                                                   }
-                                                   ">
-                                            Supprimer</a>
-
-                                        <form method="POST" id="delete-form{{$currentQuizQuestion->id}}"
-                                              action="{{route('quiz_questions.destroy', [$currentQuizQuestion])}}">
-                                            @csrf
-                                            <input type="hidden" name="_method" value="DELETE">
-                                        </form>
+                <div class="col-12">
+                    <div class="row">
+                        @foreach($quiz_questions as $quiz_question)
+                        <div class="rule-item" style="width: 20%">
+                            <div class="card mb-2 rounded" style="background-image:linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(255, 255, 255, 0)), url({{ URL::asset($quiz_question->image) }}); background-size: 100%; background-repeat: no-repeat; background-position: center;">
+                                <div class="d-flex justify-content-end flex-column" style="height: 280px">
+                                    <div class="me-1 align-self-end" 
+                                        style="border-radius: 50%; background-color: {{ $quiz_question->correct ? "#edf8ef" : "#ffe8e8" }}; min-width: 2.5rem; min-height: 2.5rem; display: flex; justify-content: center" 
+                                        href="{{ route('quiz_questions.edit', $quiz_question) }}">
+                                        <i class="fa fa-{{ $quiz_question->correct ? "check" : "ban" }} fs-5" style="align-self: center; color:{{ $quiz_question->correct ? "#34a543" : "#e80000" }}"></i> 
                                     </div>
-                                </td>
-                            </tr>
-                        @endforeach
-
-                        </tbody>
-                    </table>
-
-
+                                    <a href="{{ route("quiz_questions.show", $quiz_question->id) }}" style="height: 100%; width: 100%;"></a>
+                                    <div class="d-flex justify-content-between">
+                                        <div class="d-xl-flex justify-content-between align-self-center">
+                                            <div class="essential_audio m-3" data-url="{{URL::asset($quiz_question->fr)}}"></div>
+                                            <div class="essential_audio m-3" data-url="{{URL::asset($quiz_question->ar)}}"></div>
+                                            <div class="essential_audio m-3" data-url="{{URL::asset($quiz_question->ng)}}"></div>
+                                        </div>
+        
+                                        <div class="d-flex align-self-md-center align-self-end mb-2">
+                                            <a class="me-1" 
+                                                style="border-radius: 50%; background-color: #edf8ef; width: 1.5rem; height: 1.5rem; display: flex; justify-content: center" 
+                                                href="{{ route('quiz_questions.edit', $quiz_question) }}">
+                                                <i class="fa fa-pen" style="align-self: center; color: #34a543"></i> 
+                                            </a>
+                                            <a class="me-1" 
+                                                style="border-radius: 50%; background-color: #ffe8e8; width: 1.5rem; height: 1.5rem; display: flex; justify-content: center" 
+                                                href="{{route('quiz_questions.index')}}"
+                                                onclick="
+                                                var result = confirm('Cette règle sera supprimée');
+                                                if(result){
+                                                    event.preventDefault();
+                                                    document.getElementById('delete-form-{{$quiz_question->id}}').submit();
+                                                }">
+                                                <i class="fa fa-trash" style="align-self: center; color: #e80000"></i> 
+                                            </a>
+                                            <form method="POST" id="delete-form-{{$quiz_question->id}}"
+                                                action="{{route('quiz_questions.destroy', [$quiz_question])}}">
+                                              @csrf
+                                              <input type="hidden" name="_method" value="DELETE">
+                                          </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="lead" style="font-size: 11px; text-align: justify">{{Str::limit($quiz_question->description, 25)}}</p>
+                        </div>
+                        @endforeach    
+    
+                        <div class="my-2">
+                            {{ $quiz_questions->links('vendor.pagination.round') }}
+                        </div>
+                    </div>
                 </div>
-
-                {{ $quizQuestions->links('vendor.pagination.round') }}
             </div>
         </div>
     </div>
