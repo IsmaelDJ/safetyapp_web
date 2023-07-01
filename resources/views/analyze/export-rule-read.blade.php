@@ -43,14 +43,11 @@
                                 <td style="width: 150px;">
                                     <p>{{$loop->iteration}}</p>
                                 </td>
-                                <td style="width: 250px">
+                                <td style="width: 400px">
                                     <p class="text-muted mb-0 text-justify">{{$rule->description}}</p>
                                 </td>
                                 <td class="d-none d-xl-table-cell">
-                                    <a type="button" href="{{route('categories.show', $rule->category)}}"
-                                       class="btn btn-success btn-rounded waves-effect waves-light mb-2 me-2"><i
-                                            class="mdi mdi-tag me-1"></i> {{$rule->category->name}}
-                                    </a>
+                                   {{$rule->category->name}}
                                 </td>
                                 <td style="width: 250px">
                                     <p class="text-muted mb-0 text-justify">{{$rule->readings_count}}</p>
