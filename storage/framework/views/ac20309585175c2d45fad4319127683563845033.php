@@ -10,34 +10,11 @@
                 <li class="menu-title" key="t-menu">Menu</li>
 
                 <li>
-                    <a href="/" class="waves-effect">
+                    <a href="<?php echo e(route('categories.index')); ?>" class="waves-effect">
                         <i class="bx bx-home-circle"></i>
                         <span key="t-starter-page">Tableau de bord</span>
                     </a>
                 </li>
-                <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('doAdvanced')): ?>
-                <li>
-                    <a href="javascript: void(0);" class="has-arrow waves-effect">
-                        <i class="bx bx-slider-alt"></i>
-                        <span key="t-multi-level">Catégories</span>
-                    </a>
-                    <ul class="sub-menu" aria-expanded="true">
-                        <li><a href="<?php echo e(route('categories.index')); ?>" key="t-level-1-1">Toutes les catégories</a></li>
-                        <li><a href="<?php echo e(route('categories.create')); ?>" key="t-level-1-1">Ajouter</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="javascript: void(0);" class="has-arrow waves-effect">
-                        <i class="bx bx-list-ol"></i>
-                        <span key="t-multi-level">Règles</span>
-                    </a>
-                    <ul class="sub-menu" aria-expanded="true">
-                        <li><a href="<?php echo e(route('rules.index')); ?>" key="t-level-1-1">Toutes les règles</a></li>
-                        <li><a href="<?php echo e(route('rules.create')); ?>" key="t-level-1-1">Ajouter</a></li>
-                    </ul>
-                </li>
-                <?php endif; ?>
-
                 <li class="menu-title" key="t-menu">Transport</li>
                 <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('doAdvanced')): ?>
                 <li>

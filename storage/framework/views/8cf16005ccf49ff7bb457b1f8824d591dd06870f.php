@@ -49,12 +49,12 @@
                             <div class="col-md-2 col-5 m-md-3 m-4" style="position: relative; border: 1px solid #ccc; border-radius: 8px">
                                 <div class="d-flex flex-column" style="position: absolute; max-width: 2rem; right: 5px; top: 5px; z-index:1">
                                     <a class="m-1" 
-                                        style="border-radius: 50%; background-color: rgba(16, 204, 101, 0.3); width: 1.5rem; height: 1.5rem; display: flex; justify-content: center" 
+                                        style="border-radius: 50%; background-color: #edf8ef; width: 1.5rem; height: 1.5rem; display: flex; justify-content: center" 
                                         href="<?php echo e(route('categories.edit', $category)); ?>">
-                                        <i class="fa fa-pen" style="align-self: center; color: green"></i> 
+                                        <i class="fa fa-pen" style="align-self: center; color: #34a543"></i> 
                                     </a>
                                     <a class="m-1" 
-                                        style="border-radius: 50%; background-color: rgb(231, 107, 85, 0.3); width: 1.5rem; height: 1.5rem; display: flex; justify-content: center" 
+                                        style="border-radius: 50%; background-color: #ffe8e8; width: 1.5rem; height: 1.5rem; display: flex; justify-content: center" 
                                         href="<?php echo e(route('categories.index')); ?>"
                                         onclick="
                                         var result = confirm('Cette catégorie sera supprimée');
@@ -62,7 +62,7 @@
                                             event.preventDefault();
                                             document.getElementById('delete-form-<?php echo e($category->id); ?>').submit();
                                         }">
-                                        <i class="fa fa-trash" style="align-self: center; color: red"></i> 
+                                        <i class="fa fa-trash" style="align-self: center; color: #e80000"></i> 
                                     </a>
                                     <form method="POST" id="delete-form-<?php echo e($category->id); ?>"
                                         action="<?php echo e(route('categories.destroy', [$category])); ?>">
