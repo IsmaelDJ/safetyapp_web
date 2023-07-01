@@ -20,13 +20,12 @@
             <div class="col-4 p-4">
                 <div class="rule-show-item">
                     <div class="card mb-2 rounded" style="background-image:linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(255, 255, 255, 0)), url(<?php echo e(URL::asset($quiz_question->image)); ?>); background-size: 100%; background-repeat: no-repeat; background-position: center;">
-                        <div class="d-flex justify-content-end flex-column" style="width: 100%">
+                        <div class="d-flex justify-content-between flex-column" style="width: 100%; height: 72vh;">
                             <div class="me-1 align-self-end" 
                                 style="border-radius: 50%; background-color: <?php echo e($quiz_question->correct ? "#edf8ef" : "#ffe8e8"); ?>; min-width: 2.5rem; min-height: 2.5rem; display: flex; justify-content: center" 
                                 href="<?php echo e(route('quiz_questions.edit', $quiz_question)); ?>">
                                 <i class="fa fa-<?php echo e($quiz_question->correct ? "check" : "ban"); ?> fs-5" style="align-self: center; color:<?php echo e($quiz_question->correct ? "#34a543" : "#e80000"); ?>"></i> 
                             </div>
-                            <a href="<?php echo e(route("quiz_questions.show", $quiz_question->id)); ?>" style="height: 68vh; width: 100%;"></a>
                             <div class="d-flex justify-content-between">
                                 <div class="d-xl-flex justify-content-between align-self-center">
                                     <div class="essential_audio m-4" data-url="<?php echo e(URL::asset($quiz_question->fr)); ?>"></div>

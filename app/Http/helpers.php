@@ -67,7 +67,7 @@ function rulesShowPerPage(){
 }
 
 function categoriesPerPage(){
-    return 15;
+    return 10;
 }
 
 function carriersPerPage(){
@@ -78,15 +78,13 @@ function carriersPerPage(){
 function driversPerPage(){
     return 8;
 }
-function quizzesPerPage(){
-    return 4;
-}
+
 function quizQuestionsPerPage(){
-    return 4;
+    return 10;
 }
 
 function quizQuestionsShowPerPage(){
-    return 4;
+    return 6;
 }
 
 function driverQuizResponsesPerPage(){
