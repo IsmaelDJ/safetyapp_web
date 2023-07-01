@@ -23,7 +23,7 @@
             <div class="card-body">
                 <div class="d-flex align-items-start">
                     <div class="me-2">
-                        <h5 class="card-title mb-4">Liste des règles lus</h5>
+                        <h5 class="card-title mb-4">Liste des règles non lus</h5>
                     </div>
                 </div>
 
@@ -45,7 +45,7 @@
                                 <td style="width: 350px">
                                     <p class="text-muted mb-0 text-justify">{{$rule->description}}</p>
                                 </td>
-                                <td class="d-none d-xl-table-cell">
+                                <td>
                                     {{$rule->category->name}}
                                 </td>
                             </tr>
