@@ -3,7 +3,7 @@
 
     <head>
         <meta charset="utf-8" />
-        <title> @yield('title') | SafetyApp</title>
+        <title> @yield('title') | Safety App</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!-- CSRF Token -->
         <meta name="csrf-token" content="{{ csrf_token() }}">

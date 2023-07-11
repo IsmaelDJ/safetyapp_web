@@ -12,7 +12,7 @@
                 <li>
                     <a href="{{ route('root') }}" class="waves-effect">
                         <i class="bx bx-home-circle"></i>
-                        <span key="t-starter-page">Tableau de bord</span>
+                        <span key="t-starter-page">Accueil</span>
                     </a>
                 </li>
                 <li class="menu-title" key="t-menu">Transport</li>

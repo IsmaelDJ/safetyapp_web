@@ -47,9 +47,8 @@
                         <thead>
                         <tr>
                             <th class="align-middle">chauffeur</th>
-                            <th class="align-middle">Quiz catégorie</th>
                             <th class="align-middle">Question</th>
-                            <th class="align-middle">Reponse</th>
+                            <th class="text text-center">Reponse</th>
                             @can('doAdvanced')
                             <th class="align-middle">Actions</th>
                             @endcan
@@ -63,12 +62,6 @@
                                         <p class="text-muted mb-0 text-justify">{{$driverQuizResponse->driver->name}}</p>
                                     </a>
                                 </td>
-                                <td class="d-none d-xl-table-cell">
-                                    <a type="button" href="{{route('categories.show', $driverQuizResponse->quiz_question->category)}}"
-                                       class="btn btn-success btn-rounded waves-effect waves-light mb-2 me-2"><i
-                                            class="mdi mdi-tag me-1"></i> {{$driverQuizResponse->quiz_question->category->name}}
-                                    </a>
-                                </td>
                                 <td>
                                     <div class="row">
                                         <div class="col-auto">
@@ -80,28 +73,24 @@
 
                                 </td>
 
-                                <td>
+                                <td class="text text-center fs-3">
                                     @if($driverQuizResponse->correct)
-                                        <span
-                                           class="btn btn-success btn-rounded waves-effect waves-light mb-2 me-2"><i
-                                                class="mdi mdi-tag me-1"></i> Correct
-                                        </span>
+                                        <i
+                                            class="mdi mdi-check me-1 text-success"></i>
                                     @else
-                                        <span
-                                           class="btn btn-danger btn-rounded waves-effect waves-light mb-2 me-2"><i
-                                                class="mdi mdi-tag me-1"></i> Faux
-                                        </span>
+                                        <i
+                                            class="mdi mdi-close me-1 text-danger"></i>
                                     @endif
                                 </td>
                                 @can('doAdvanced')
                                 <td style="width: 400px">
                                     <div class="d-flex gap-3">
                                         <a href="{{route('driver_quiz_responses.drivers',[$driverQuizResponse->driver_id])}}"
-                                           class="btn btn-primary">Reponses du chauffeur
+                                           class="btn btn-primary">Détails
                                         </a>
                                         <div class="d-flex gap-3">
                                             <a href="{{route('driver_quiz_responses.quizzes',[$driverQuizResponse->quiz_question_id])}}"
-                                               class="btn btn-primary">Reponses à ce quiz
+                                               class="btn btn-outline-secondary">Autres reponses
                                             </a>
                                         </div>
                                     </div>
