@@ -19,7 +19,7 @@ class ChartReading extends Component
     {
         $current_year      = now()->year;
         $first_year        = 2022;
-        $range             = $first_year - $current_year;
+        $range             = $current_year - $first_year;
 
         $reading_per_month = Reading::select('id', 'created_at')
         ->whereYear('created_at', $this->year)
