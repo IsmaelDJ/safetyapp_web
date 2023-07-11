@@ -74,7 +74,7 @@
                                 </td>
 
                                 <td class="text text-center fs-3">
-                                    @if($driverQuizResponse->correct)
+                                    @if($driverQuizResponse->correct === $driverQuizResponse->quiz_question->correct)
                                         <i
                                             class="mdi mdi-check me-1 text-success"></i>
                                     @else
@@ -85,11 +85,11 @@
                                 @can('doAdvanced')
                                 <td style="width: 300px">
                                     <div class="d-flex gap-3">
-                                        <a href="{{route('driver_quiz_responses.drivers',[$driverQuizResponse->driver_id])}}"
+                                        <a href="{{route('driver_quiz_responses.show',[$driverQuizResponse->id])}}"
                                            class="btn btn-primary">Détails
                                         </a>
                                         <div class="d-flex gap-3">
-                                            <a href="{{route('driver_quiz_responses.quizzes',[$driverQuizResponse->quiz_question_id])}}"
+                                            <a href="{{route('driver_quiz_responses.drivers',[$driverQuizResponse->driver_id])}}"
                                                class="btn btn-outline-secondary">Autres reponses
                                             </a>
                                         </div>

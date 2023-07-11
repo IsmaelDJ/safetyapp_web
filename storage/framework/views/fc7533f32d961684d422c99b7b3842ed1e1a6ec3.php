@@ -73,7 +73,7 @@
                                 </td>
 
                                 <td class="text text-center fs-3">
-                                    <?php if($driverQuizResponse->correct): ?>
+                                    <?php if($driverQuizResponse->correct === $driverQuizResponse->quiz_question->correct): ?>
                                         <i
                                             class="mdi mdi-check me-1 text-success"></i>
                                     <?php else: ?>
@@ -84,11 +84,11 @@
                                 <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('doAdvanced')): ?>
                                 <td style="width: 300px">
                                     <div class="d-flex gap-3">
-                                        <a href="<?php echo e(route('driver_quiz_responses.drivers',[$driverQuizResponse->driver_id])); ?>"
+                                        <a href="<?php echo e(route('driver_quiz_responses.show',[$driverQuizResponse->id])); ?>"
                                            class="btn btn-primary">Détails
                                         </a>
                                         <div class="d-flex gap-3">
-                                            <a href="<?php echo e(route('driver_quiz_responses.quizzes',[$driverQuizResponse->quiz_question_id])); ?>"
+                                            <a href="<?php echo e(route('driver_quiz_responses.drivers',[$driverQuizResponse->driver_id])); ?>"
                                                class="btn btn-outline-secondary">Autres reponses
                                             </a>
                                         </div>
