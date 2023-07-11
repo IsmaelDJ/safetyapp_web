@@ -28,17 +28,20 @@
                                 <div>
                                     <label for="avatar" class="form-label">Photo de profile</label>
                                 </div>
-                                <img id="driverAvatar" class="img-fluid mb-1" src="<?php echo e(URL::asset('assets/images/placeholder_category.png')); ?>">
-                                <input class="form-control form-control-lg <?php $__errorArgs = ['image'];
+                                <img id="imagePreview" class="img-fluid mb-1"
+                                         src="<?php echo e(URL::asset('assets/images/placeholder_category.png')); ?>">
+
+                                <input class=" form-control form-control-lg <?php $__errorArgs = ['image'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
-unset($__errorArgs, $__bag); ?>" id="avatar"
-                                       name="avatar" type="file" onchange="PreviewImage();" >
-                                <?php $__errorArgs = ['avatar'];
+unset($__errorArgs, $__bag); ?>"
+                                        id="image"
+                                        name="avatar" type="file" onchange="PreviewImage();">
+                                <?php $__errorArgs = ['image'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }
@@ -191,10 +194,10 @@ unset($__errorArgs, $__bag); ?>
     <script>
         function PreviewImage() {
             var oFReader = new FileReader();
-            oFReader.readAsDataURL(document.getElementById("avatar").files[0]);
+            oFReader.readAsDataURL(document.getElementById("image").files[0]);
 
             oFReader.onload = function (oFREvent) {
-                document.getElementById("driverAvatar").src = oFREvent.target.result;
+                document.getElementById("imagePreview").src = oFREvent.target.result;
             };
         };
     </script>

@@ -30,10 +30,13 @@
                                 <div>
                                     <label for="avatar" class="form-label">Photo de profile</label>
                                 </div>
-                                <img id="driverAvatar" class="img-fluid mb-1" src="{{URL::asset('assets/images/placeholder_category.png')}}">
-                                <input class="form-control form-control-lg @error('image') is-invalid @enderror" id="avatar"
-                                       name="avatar" type="file" onchange="PreviewImage();" >
-                                @error('avatar')
+                                <img id="imagePreview" class="img-fluid mb-1"
+                                         src="{{URL::asset('assets/images/placeholder_category.png')}}">
+
+                                <input class=" form-control form-control-lg @error('image') is-invalid @enderror"
+                                        id="image"
+                                        name="avatar" type="file" onchange="PreviewImage();">
+                                @error('image')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>Image invalide</strong>
                                 </span>
@@ -122,10 +125,10 @@
     <script>
         function PreviewImage() {
             var oFReader = new FileReader();
-            oFReader.readAsDataURL(document.getElementById("avatar").files[0]);
+            oFReader.readAsDataURL(document.getElementById("image").files[0]);
 
             oFReader.onload = function (oFREvent) {
-                document.getElementById("driverAvatar").src = oFREvent.target.result;
+                document.getElementById("imagePreview").src = oFREvent.target.result;
             };
         };
     </script>
