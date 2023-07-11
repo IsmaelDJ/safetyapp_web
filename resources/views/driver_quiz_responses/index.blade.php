@@ -83,7 +83,7 @@
                                     @endif
                                 </td>
                                 @can('doAdvanced')
-                                <td style="width: 400px">
+                                <td style="width: 300px">
                                     <div class="d-flex gap-3">
                                         <a href="{{route('driver_quiz_responses.drivers',[$driverQuizResponse->driver_id])}}"
                                            class="btn btn-primary">Détails

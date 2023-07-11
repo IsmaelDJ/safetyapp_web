@@ -82,7 +82,7 @@
                                     <?php endif; ?>
                                 </td>
                                 <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('doAdvanced')): ?>
-                                <td style="width: 400px">
+                                <td style="width: 300px">
                                     <div class="d-flex gap-3">
                                         <a href="<?php echo e(route('driver_quiz_responses.drivers',[$driverQuizResponse->driver_id])); ?>"
                                            class="btn btn-primary">Détails
