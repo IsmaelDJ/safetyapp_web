@@ -16,7 +16,7 @@ type="text/css"/>
 
 @section('content')
 <div class="row">
-    @livewire('chart-presence')
+    @livewire('chart-reading')
 </div>  
 
 <div class="row">
