@@ -16,16 +16,16 @@ type="text/css"/>
 <div class="row">
     <?php
 if (! isset($_instance)) {
-    $html = \Livewire\Livewire::mount('chart-presence')->html();
-} elseif ($_instance->childHasBeenRendered('g6CnIWe')) {
-    $componentId = $_instance->getRenderedChildComponentId('g6CnIWe');
-    $componentTag = $_instance->getRenderedChildComponentTagName('g6CnIWe');
+    $html = \Livewire\Livewire::mount('chart-reading')->html();
+} elseif ($_instance->childHasBeenRendered('5qc2IAS')) {
+    $componentId = $_instance->getRenderedChildComponentId('5qc2IAS');
+    $componentTag = $_instance->getRenderedChildComponentTagName('5qc2IAS');
     $html = \Livewire\Livewire::dummyMount($componentId, $componentTag);
-    $_instance->preserveRenderedChild('g6CnIWe');
+    $_instance->preserveRenderedChild('5qc2IAS');
 } else {
-    $response = \Livewire\Livewire::mount('chart-presence');
+    $response = \Livewire\Livewire::mount('chart-reading');
     $html = $response->html();
-    $_instance->logRenderedChild('g6CnIWe', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
+    $_instance->logRenderedChild('5qc2IAS', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
 }
 echo $html;
 ?>
