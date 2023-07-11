@@ -17,15 +17,15 @@ type="text/css"/>
     <?php
 if (! isset($_instance)) {
     $html = \Livewire\Livewire::mount('chart-reading')->html();
-} elseif ($_instance->childHasBeenRendered('5qc2IAS')) {
-    $componentId = $_instance->getRenderedChildComponentId('5qc2IAS');
-    $componentTag = $_instance->getRenderedChildComponentTagName('5qc2IAS');
+} elseif ($_instance->childHasBeenRendered('6E7CQoF')) {
+    $componentId = $_instance->getRenderedChildComponentId('6E7CQoF');
+    $componentTag = $_instance->getRenderedChildComponentTagName('6E7CQoF');
     $html = \Livewire\Livewire::dummyMount($componentId, $componentTag);
-    $_instance->preserveRenderedChild('5qc2IAS');
+    $_instance->preserveRenderedChild('6E7CQoF');
 } else {
     $response = \Livewire\Livewire::mount('chart-reading');
     $html = $response->html();
-    $_instance->logRenderedChild('5qc2IAS', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
+    $_instance->logRenderedChild('6E7CQoF', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
 }
 echo $html;
 ?>
