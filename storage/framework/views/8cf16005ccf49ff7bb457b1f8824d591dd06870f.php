@@ -31,8 +31,8 @@
             <div class="card">
                 <div class="card-body">
                     <div class="d-flex align-items-start">
-                        <div class="me-2">
-                            <h5 class="card-title mb-4">Liste de catégories</h5>
+                        <div>
+                            <h5 class="card-title">Liste de catégories</h5>
                         </div>
                         <div class="ms-auto">
                             <div class="text-sm-end">
@@ -44,9 +44,9 @@
                         </div>
                     </div>
 
-                    <div class="row">
+                    <div class="grid-container">
                             <?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                            <div class="col-md-2 col-5 m-md-3 m-4" style="position: relative; border: 1px solid #ccc; border-radius: 8px">
+                            <div style="position: relative; border: 1px solid #ccc; border-radius: 8px">
                                 <div class="d-flex flex-column" style="position: absolute; max-width: 2rem; right: 5px; top: 5px; z-index:1">
                                     <a class="m-1" 
                                         style="border-radius: 50%; background-color: #edf8ef; width: 1.5rem; height: 1.5rem; display: flex; justify-content: center" 
@@ -86,6 +86,14 @@
             </div>
             <!-- end card -->
         </div>
+
+        <style>
+            .grid-container {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                grid-gap: 2%;
+            }
+        </style>
 
     <?php endif; ?>
 
