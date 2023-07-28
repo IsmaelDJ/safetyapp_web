@@ -33,12 +33,12 @@
                 <div class="card-body">
                     <div class="d-flex align-items-start">
                         <div>
-                            <h5 class="card-title">Liste de catégories</h5>
+                            <h5 class="card-title mt-2">Liste de catégories</h5>
                         </div>
                         <div class="ms-auto">
                             <div class="text-sm-end">
                                 <a type="button" href="{{route('categories.create')}}"
-                                   class="btn btn-success btn-rounded waves-effect waves-light mb-2 me-2"><i
+                                   class="btn btn-success btn-rounded waves-effect waves-light"><i
                                         class="mdi mdi-plus me-1"></i> Ajouter
                                 </a>
                             </div>
@@ -92,6 +92,7 @@
                 display: grid;
                 grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
                 grid-gap: 2%;
+                margin: 25px 0px;
             }
         </style>
 
