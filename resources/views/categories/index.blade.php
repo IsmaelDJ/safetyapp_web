@@ -87,15 +87,6 @@
             <!-- end card -->
         </div>
 
-        <style>
-            .grid-container {
-                display: grid;
-                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-                grid-gap: 2%;
-                margin: 25px 0px;
-            }
-        </style>
-
     @endisset
 
 @endsection
