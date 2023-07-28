@@ -38,8 +38,9 @@ class ChartReading extends Component
 
         $readingChart = new ReadingChart();
         $readingChart->labels($reading_per_month_labels);
-        $readingChart->label("Lecture");
+        $readingChart->label(false);
         $readingChart->displayLegend(false);
+        $readingChart->height(250);
         $readingChart->dataset('Lecture par moi', 'line', $reading_per_month_data)
         ->options([
             'color' => 'hsla(209, 100%, 53%, 1)'

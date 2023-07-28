@@ -21,9 +21,9 @@
                             </select>
                         </div>
                     </div>
-                    <h4 class="card-title mb-4">Présence</h4>
+                    <h4 class="card-title">Présence</h4>
                 </div>
-                
+                <hr>
                 <div class="row">
                     <div>
                         {!! $presenceChart->container() !!}

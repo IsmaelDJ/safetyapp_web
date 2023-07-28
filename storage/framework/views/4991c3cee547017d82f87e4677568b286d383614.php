@@ -23,9 +23,9 @@
                             </select>
                         </div>
                     </div>
-                    <h4 class="card-title mb-4">Présence</h4>
+                    <h4 class="card-title">Présence</h4>
                 </div>
-                
+                <hr>
                 <div class="row">
                     <div>
                         <?php echo $presenceChart->container(); ?>
@@ -38,7 +38,7 @@
 </div>
 
 <?php $__env->startPush('script'); ?>
-    <?php if (! $__env->hasRenderedOnce('157a06ea-dd99-4c3e-8edd-f4ebebff770d')): $__env->markAsRenderedOnce('157a06ea-dd99-4c3e-8edd-f4ebebff770d'); ?>
+    <?php if (! $__env->hasRenderedOnce('ba9ed390-0816-49b8-a19a-9a4ef02b8513')): $__env->markAsRenderedOnce('ba9ed390-0816-49b8-a19a-9a4ef02b8513'); ?>
         <script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/highcharts/6.0.6/highcharts.js" charset="utf-8"></script>
             <?php echo $presenceChart->script(); ?>

@@ -3,12 +3,12 @@
 
     <head>
         <meta charset="utf-8" />
-        <title> <?php echo $__env->yieldContent('title'); ?> | Safety App</title>
+        <title> <?php echo $__env->yieldContent('title'); ?> | SafetyApp</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!-- CSRF Token -->
         <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>">
-        <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
-        <meta content="Themesbrand" name="author" />
+        <meta content="Tableau de bord de SafetyApp" name="description" />
+        <meta content="Total Energy" name="author" />
         <!-- App favicon -->
         <link rel="shortcut icon" href="<?php echo e(URL::asset('assets/images/favicon.ico')); ?>">
         <?php echo $__env->make('layouts.head-css', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>

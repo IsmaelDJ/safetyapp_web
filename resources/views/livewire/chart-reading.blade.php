@@ -14,7 +14,7 @@
                         <label class="input-group-text">Années</label>
                     </div>
                 </div>
-                <h4 class="card-title mb-4">Taux de lecture par moi</h4>
+                <h4 class="card-title">Taux de lecture par moi</h4>
             </div>
             <hr>
             <div class="apex-charts">

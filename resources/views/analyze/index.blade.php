@@ -16,8 +16,13 @@ type="text/css"/>
 
 @section('content')
 <div class="row">
-    @livewire('chart-reading')
-</div>  
+    <div class="col-md-6">
+        @livewire('chart-reading')
+    </div>
+    <div class="col-md-6">
+        @livewire('chart-presence')
+    </div>
+</div>
 
 <div class="row">
     <div class="col-xl-4">

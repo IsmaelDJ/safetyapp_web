@@ -45,9 +45,10 @@ class ChartPresence extends Component
         $presenceChart->labels($prensence_labels);
         $presenceChart->displayLegend(false);
         $presenceChart->label(false);
+        $presenceChart->height(250);
         $presenceChart->dataset('Présence par jour', 'spline', $prensence_data)
         ->options([
-            'color' => 'hsla(209, 100%, 53%, 1)'
+            'color' => 'hsla(209, 100%, 53%, 1)',
         ]);
 
         $months = [" janv", "févr", "mars", "avri", "mai", "juin", "juil", 

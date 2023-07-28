@@ -15,7 +15,7 @@
                         <label class="input-group-text">Années</label>
                     </div>
                 </div>
-                <h4 class="card-title mb-4">Taux de lecture par moi</h4>
+                <h4 class="card-title">Taux de lecture par moi</h4>
             </div>
             <hr>
             <div class="apex-charts">
@@ -26,7 +26,7 @@
     </div>
 </div>
 <?php $__env->startPush('script'); ?>
-    <?php if (! $__env->hasRenderedOnce('9b67a660-6c67-427e-ac45-0891f2b52ae8')): $__env->markAsRenderedOnce('9b67a660-6c67-427e-ac45-0891f2b52ae8'); ?>
+    <?php if (! $__env->hasRenderedOnce('216feae0-d330-4a2f-8e05-f597d3e07af6')): $__env->markAsRenderedOnce('216feae0-d330-4a2f-8e05-f597d3e07af6'); ?>
      <script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/highcharts/6.0.6/highcharts.js" charset="utf-8"></script>
         <?php echo $readingChart->script(); ?>
