@@ -24,7 +24,7 @@ class ChartReading extends Component
         $current_month = ($this->param_month != null) ? $this->param_month : now()->month;
 
         $current_year      = now()->year;
-        $first_year        = 2023;
+        $first_year        = 2022;
         $range             = $current_year - $first_year;
 
         $reading_per_day = Reading::select('id', 'created_at')
