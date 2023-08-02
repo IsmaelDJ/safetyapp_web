@@ -4,9 +4,9 @@
             <div class="clearfix">
                 <div class="float-end">
                     <div class="input-group input-group-sm">
-                        <select wire:model='param_month' class="form-select form-select-sm">
+                        <select wire:model.defer='param_month' class="form-select form-select-sm">
                             @foreach($months as $month)
-                                <option value="{{ $loop->iteration }}">
+                                <option value="{{ $loop->iteration + 1 }}">
                                     {{ $month }}
                                 </option>                                        
                             @endforeach
@@ -32,7 +32,7 @@
 @push('script')
     @once
      <script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highcharts/6.0.6/highcharts.js" charset="utf-8"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highcharts/6.0.6/highcharts.js" defer charset="utf-8"></script>
         {!! $readingChart->script() !!}
      </script>
     @endonce

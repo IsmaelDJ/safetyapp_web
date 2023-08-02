@@ -19,8 +19,12 @@ class ChartReading extends Component
     
     public function render()
     {
+        $months = [" janv", "févr", "mars", "avri", "mai", "juin", "juil", 
+                "août", "sept", "octo", "nove", "déce"];
+        $current_month = ($this->param_month != null) ? $this->param_month : now()->month;
+
         $current_year      = now()->year;
-        $first_year        = 2022;
+        $first_year        = 2023;
         $range             = $current_year - $first_year;
 
         $reading_per_day = Reading::select('id', 'created_at')
@@ -49,11 +53,6 @@ class ChartReading extends Component
         ->options([
             'color' => 'hsla(209, 100%, 53%, 1)'
         ]);
-
-        $months = [" janv", "févr", "mars", "avri", "mai", "juin", "juil", 
-                "août", "sept", "octo", "nove", "déce"];
-        $current_month = ($this->param_month != null) ? $this->param_month : now()->month;
-
 
         return view('livewire.chart-reading', compact('first_year', 'range', 'months', 'current_month', 'readingChart'));
     }

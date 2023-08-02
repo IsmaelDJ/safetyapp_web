@@ -20,36 +20,39 @@ class ChartPresence extends Component
     public function render()
     {
         $current_year      = now()->year;
-        $first_year        = 2022;
+        $first_year        = 2023;
         $range             = $current_year - $first_year;
         
         //get presence data
         $presences = Presence::whereYear('created_at', $this->year)
         ->whereMonth('created_at', $this->param_month)
-        ->with('driver')
         ->get()
         ->groupBy(function($data){
             return $data->created_at->day;
         });
 
-        $prensence_labels = [];
-        $prensence_data   = [];
+        $presence_labels = [];
+        $presence_data   = [];
 
         foreach($presences as $day=>$values){
-            $prensence_labels[] = $day;
-            $prensence_data[]   = count($values);
+            $presence_labels[] = $day;
+            $presence_data[]   = count($values);
         }
 
         $presenceChart = new ReadingChart();
 
-        $presenceChart->labels($prensence_labels);
-        $presenceChart->displayLegend(false);
-        $presenceChart->label(false);
-        $presenceChart->height(250);
-        $presenceChart->dataset('Présence par jour', 'spline', $prensence_data)
-        ->options([
-            'color' => 'hsla(209, 100%, 53%, 1)',
-        ]);
+        if(!$presence_data){
+            $presenceChart->labels($presence_labels);
+            $presenceChart->displayLegend(false);
+            $presenceChart->label(false);
+            $presenceChart->height(250);
+            $presenceChart->dataset('Présence par jour', 'spline', $presence_data)
+            ->options([
+                'color' => 'hsla(209, 100%, 53%, 1)',
+            ]);
+        }
+        
+
 
         $months = [" janv", "févr", "mars", "avri", "mai", "juin", "juil", 
                 "août", "sept", "octo", "nove", "déce"];
