@@ -41,17 +41,14 @@ class ChartPresence extends Component
 
         $presenceChart = new ReadingChart();
 
-        if(!$presence_data){
-            $presenceChart->labels($presence_labels);
-            $presenceChart->displayLegend(false);
-            $presenceChart->label(false);
-            $presenceChart->height(250);
-            $presenceChart->dataset('Présence par jour', 'spline', $presence_data)
-            ->options([
-                'color' => 'hsla(209, 100%, 53%, 1)',
-            ]);
-        }
-        
+        $presenceChart->labels($presence_labels);
+        $presenceChart->displayLegend(false);
+        $presenceChart->label(false);
+        $presenceChart->height(250);
+        $presenceChart->dataset('Présence par jour', 'spline', $presence_data)
+        ->options([
+            'color' => 'hsla(209, 100%, 53%, 1)',
+        ]);        
 
 
         $months = [" janv", "févr", "mars", "avri", "mai", "juin", "juil", 
