@@ -4,9 +4,9 @@
             <div class="clearfix">
                 <div class="float-end">
                     <div class="input-group input-group-sm">
-                        <select wire:model.defer='param_month' class="form-select form-select-sm">
+                        <select wire:model='param_month' class="form-select form-select-sm">
                             <?php $__currentLoopData = $months; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $month): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                <option value="<?php echo e($loop->iteration + 1); ?>">
+                                <option value="<?php echo e($loop->iteration); ?>">
                                     <?php echo e($month); ?>
 
                                 </option>                                        
@@ -33,7 +33,7 @@
     </div>
 </div>
 <?php $__env->startPush('script'); ?>
-    <?php if (! $__env->hasRenderedOnce('9d735ae0-088e-4448-bf42-d6cd83765d82')): $__env->markAsRenderedOnce('9d735ae0-088e-4448-bf42-d6cd83765d82'); ?>
+    <?php if (! $__env->hasRenderedOnce('cd4167e2-8b9c-45ef-bd78-613d9c41df76')): $__env->markAsRenderedOnce('cd4167e2-8b9c-45ef-bd78-613d9c41df76'); ?>
      <script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/highcharts/6.0.6/highcharts.js" defer charset="utf-8"></script>
         <?php echo $readingChart->script(); ?>

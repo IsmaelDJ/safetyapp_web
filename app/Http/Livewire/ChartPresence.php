@@ -17,6 +17,11 @@ class ChartPresence extends Component
         $this->year        = now()->year;
     }
 
+    public function updatedClientId()
+    {
+        $this->contacts = Contact::where('client_id', $this->clientId)->get();
+    }
+
     public function render()
     {
         $current_year      = now()->year;

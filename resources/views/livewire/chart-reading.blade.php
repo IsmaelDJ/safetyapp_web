@@ -4,9 +4,9 @@
             <div class="clearfix">
                 <div class="float-end">
                     <div class="input-group input-group-sm">
-                        <select wire:model.defer='param_month' class="form-select form-select-sm">
+                        <select wire:model='param_month' class="form-select form-select-sm">
                             @foreach($months as $month)
-                                <option value="{{ $loop->iteration + 1 }}">
+                                <option value="{{ $loop->iteration }}">
                                     {{ $month }}
                                 </option>                                        
                             @endforeach
