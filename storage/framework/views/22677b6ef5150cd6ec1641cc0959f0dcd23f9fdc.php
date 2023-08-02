@@ -1,19 +1,17 @@
-@extends('layouts.master')
+<?php $__env->startSection('title'); ?> Sous-traitants <?php $__env->stopSection(); ?>
 
-@section('title') Sous-traitants @endsection
-
-@section('css')
+<?php $__env->startSection('css'); ?>
     <!-- Bootstrap Css -->
-    <link href="{{ URL::asset('/assets/css/bootstrap.min.css') }}" id="bootstrap-style" rel="stylesheet"
+    <link href="<?php echo e(URL::asset('/assets/css/bootstrap.min.css')); ?>" id="bootstrap-style" rel="stylesheet"
           type="text/css"/>
     <!-- Icons Css -->
-    <link href="{{ URL::asset('/assets/css/icons.min.css') }}" rel="stylesheet" type="text/css"/>
+    <link href="<?php echo e(URL::asset('/assets/css/icons.min.css')); ?>" rel="stylesheet" type="text/css"/>
     <!-- App Css-->
-    <link href="{{ URL::asset('/assets/css/app.min.css') }}" id="app-style" rel="stylesheet" type="text/css"/>
+    <link href="<?php echo e(URL::asset('/assets/css/app.min.css')); ?>" id="app-style" rel="stylesheet" type="text/css"/>
 
-@endsection
+<?php $__env->stopSection(); ?>
 
-@section('content')
+<?php $__env->startSection('content'); ?>
 
     <div class="container-fluid">
         <div class="row">
@@ -21,15 +19,15 @@
                 <div class="card" style="height: 80vh">
                     <div class="card-body">
                         <div class="mb-4">
-                            <img src="{{URL::asset($carrier->user->avatar)}}" alt="" class="img-fluid rounded mb-2" width="300" height="100">
-                            <h5 class="card-title">{{$carrier->user->name}}</h5>
+                            <img src="<?php echo e(URL::asset($carrier->user->avatar)); ?>" alt="" class="img-fluid rounded mb-2" width="300" height="100">
+                            <h5 class="card-title"><?php echo e($carrier->user->name); ?></h5>
                         </div>
                         <i class="mdi mdi-map-marker me-1 "></i><span class="text-muted">E-mail</span>
-                        <h4 class="lead mb-4">{{$carrier->user->email}}</h4>
+                        <h4 class="lead mb-4"><?php echo e($carrier->user->email); ?></h4>
                         <i class="mdi mdi-phone me-1 "></i><span class="text-muted">Tel</span>
-                        <h4 class="lead mb-4">{{$carrier->phone}}</h4>
+                        <h4 class="lead mb-4"><?php echo e($carrier->phone); ?></h4>
                         <i class="mdi mdi-map-marker me-1 "></i><span class="text-muted">Adresse</span>
-                        <h4 class="lead mb-4">{{$carrier->address}}</h4>
+                        <h4 class="lead mb-4"><?php echo e($carrier->address); ?></h4>
                     </div>
                 </div>
             </div>
@@ -44,7 +42,7 @@
                                 </div>
                                 <div class="ms-auto">
                                     <div class="text-sm-end">
-                                        <a type="button" href="{{route('carrier_drivers', $carrier)}}"
+                                        <a type="button" href="<?php echo e(route('carrier_drivers', $carrier)); ?>"
                                            class="btn btn-success btn-rounded waves-effect waves-light mb-2 me-2">Exporter
                                         </a>
                                     </div>
@@ -61,43 +59,43 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    @foreach($carrierDrivers as $carrierDriver)
+                                    <?php $__currentLoopData = $carrierDrivers; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $carrierDriver): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                         <tr>
                                             <td style="width: 250px">
-                                                <p class="text-muted mb-0 text-justify">{{$carrierDriver->name}}</p>
+                                                <p class="text-muted mb-0 text-justify"><?php echo e($carrierDriver->name); ?></p>
                                             </td>
                                             <td style="width: 250px">
-                                                <p class="text-muted mb-0 text-justify">{{$carrierDriver->phone}}</p>
+                                                <p class="text-muted mb-0 text-justify"><?php echo e($carrierDriver->phone); ?></p>
                                             </td>
                                             <td style="width: 200px">
                                                 <div class="d-flex gap-3">
 
-                                                    <a href="{{route('drivers.show', $carrierDriver)}}"
+                                                    <a href="<?php echo e(route('drivers.show', $carrierDriver)); ?>"
                                                        class="btn btn-default">Détails
                                                     </a>
-                                                    <a href="{{route('drivers.edit', $carrierDriver)}}"
+                                                    <a href="<?php echo e(route('drivers.edit', $carrierDriver)); ?>"
                                                        class="btn btn-info">Modifier
                                                     </a>
 
-                                                    <a href="{{route('drivers.index')}}" class="btn btn-danger"
+                                                    <a href="<?php echo e(route('drivers.index')); ?>" class="btn btn-danger"
                                                        onclick="
                                                    var result = confirm('Cet utilisateur sera supprimée');
                                                    if(result){
                                                        event.preventDefault();
-                                                       document.getElementById('delete-form{{$carrierDriver->id}}').submit();
+                                                       document.getElementById('delete-form<?php echo e($carrierDriver->id); ?>').submit();
                                                    }
                                                    ">
                                                         Supprimer</a>
 
-                                                    <form method="POST" id="delete-form{{$carrierDriver->id}}"
-                                                          action="{{route('drivers.destroy', [$carrierDriver])}}">
-                                                        @csrf
+                                                    <form method="POST" id="delete-form<?php echo e($carrierDriver->id); ?>"
+                                                          action="<?php echo e(route('drivers.destroy', [$carrierDriver])); ?>">
+                                                        <?php echo csrf_field(); ?>
                                                         <input type="hidden" name="_method" value="DELETE">
                                                     </form>
                                                 </div>
                                             </td>
                                         </tr>
-                                    @endforeach
+                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
                                     </tbody>
                                 </table>
@@ -105,7 +103,8 @@
 
                             </div>
 
-                            {{ $carrierDrivers->links('vendor.pagination.round') }}
+                            <?php echo e($carrierDrivers->links('vendor.pagination.round')); ?>
+
                         </div>
                     </div>
                 </div>
@@ -113,8 +112,10 @@
         </div>
     </div>
 
-@endsection
+<?php $__env->stopSection(); ?>
 
 
 
 
+
+<?php echo $__env->make('layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /home/chad/laravel-workspace/safetyapp_web/resources/views/carriers/show.blade.php ENDPATH**/ ?>

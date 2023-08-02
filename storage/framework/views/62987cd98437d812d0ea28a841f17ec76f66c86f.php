@@ -45,11 +45,13 @@
                               <?php echo csrf_field(); ?>
                               <input type="hidden" name="_method" value="DELETE">
                           </form>
+                          <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('doAdvanced')): ?>
                           <a class="m-1" 
                                 style="border-radius: 50%; background-color: rgba(16, 97, 204, 0.3); width: 2rem; height: 2rem; display: flex; justify-content: center" 
                                 href="<?php echo e(route('rules.create', [$category])); ?>">
                                 <i class="fa fa-plus" style="align-self: center; color: rgba(16, 97, 204)"></i> 
                             </a>
+                          <?php endif; ?>
                         </div>
                     </div>
                 </div>

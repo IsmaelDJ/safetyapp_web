@@ -153,6 +153,7 @@ class DriverController extends Controller
         $readingChart->labels($reading_per_month_labels);
         $readingChart->label("Lecture");
         $readingChart->displayLegend(false);
+        $readingChart->height(250);
         $readingChart->dataset('Lecture par moi', 'line', $reading_per_month_data)
         ->options([
             'height'=> '330'

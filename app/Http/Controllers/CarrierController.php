@@ -53,7 +53,7 @@ class CarrierController extends Controller
     public function show($id)
     {
         $carrier        = Carrier::find($id);
-        $carrierDrivers = Driver::where('user_id', $carrier->user_id)->paginate(driversPerPage());
+        $carrierDrivers = Driver::where([['user_id', '=', $carrier->user_id], ['role', '=', 'driver']])->paginate(driversPerPage());
         return view('carriers.show', compact('carrier', 'carrierDrivers'));
     }
 

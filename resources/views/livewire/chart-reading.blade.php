@@ -4,6 +4,13 @@
             <div class="clearfix">
                 <div class="float-end">
                     <div class="input-group input-group-sm">
+                        <select wire:model='param_month' class="form-select form-select-sm">
+                            @foreach($months as $month)
+                                <option value="{{ $loop->iteration }}">
+                                    {{ $month }}
+                                </option>                                        
+                            @endforeach
+                        </select>
                         <select wire:model='year' class="form-select form-select-sm">
                             @foreach(range(0, $range) as $iteration)
                                 <option value="{{ $first_year + $iteration }}">
@@ -11,7 +18,6 @@
                                 </option>
                             @endforeach
                         </select>
-                        <label class="input-group-text">Années</label>
                     </div>
                 </div>
                 <h4 class="card-title">Taux de lecture par moi</h4>

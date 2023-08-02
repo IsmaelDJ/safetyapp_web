@@ -47,11 +47,13 @@
                               @csrf
                               <input type="hidden" name="_method" value="DELETE">
                           </form>
+                          @can('doAdvanced')
                           <a class="m-1" 
                                 style="border-radius: 50%; background-color: rgba(16, 97, 204, 0.3); width: 2rem; height: 2rem; display: flex; justify-content: center" 
                                 href="{{ route('rules.create', [$category]) }}">
                                 <i class="fa fa-plus" style="align-self: center; color: rgba(16, 97, 204)"></i> 
                             </a>
+                          @endcan
                         </div>
                     </div>
                 </div>

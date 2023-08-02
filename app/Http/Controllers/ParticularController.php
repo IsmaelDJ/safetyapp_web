@@ -104,14 +104,14 @@ class ParticularController extends Controller
         $particular->phone   = $request->phone;
 
         $particular->update();
-        return redirect()->route('particulars.index')->with('success', "Chauffeur modifié");
+        return redirect()->route('particulars.index')->with('success', "Particulier modifié");
     }
 
 
     public function destroy(Driver $particular)
     {
         $particular->delete();
-        return redirect()->route('particulars.index')->with('success', "Chauffeur supprimé !");
+        return redirect()->route('particulars.index')->with('success', "Particulier supprimé !");
     }
 
 }

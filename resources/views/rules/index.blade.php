@@ -29,6 +29,7 @@
                 <div class="card rounded p-2">
                     <div class="d-flex">
                         <h5 class="card-title align-self-center">Liste des règles</h5>
+                        @can('doAdvanced')
                         <div class="ms-auto align-self-center">
                             <div class="text-sm-end">
                                 <a type="button" href="{{route('rules.create')}}"
@@ -37,6 +38,7 @@
                                 </a>
                             </div>
                         </div>
+                        @endcan
                     </div>    
                 </div>
             </div>
