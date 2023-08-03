@@ -79,7 +79,8 @@
                                                 <div class="essential_audio m-3" data-url="{{URL::asset($rule->ar)}}"></div>
                                                 <div class="essential_audio m-3" data-url="{{URL::asset($rule->ng)}}"></div>
                                             </div>
-            
+                                            
+                                            @can('doAdvanced')
                                             <div class="d-flex align-self-md-center align-self-end mb-2">
                                                 <a class="me-1" 
                                                     style="border-radius: 50%; background-color: #edf8ef; width: 1.5rem; height: 1.5rem; display: flex; justify-content: center" 
@@ -103,6 +104,7 @@
                                                 <input type="hidden" name="_method" value="DELETE">
                                             </form>
                                             </div>
+                                            @endcan
                                         </div>
                                     </div>
                                 </div>

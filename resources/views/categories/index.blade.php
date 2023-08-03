@@ -35,6 +35,7 @@
                         <div>
                             <h5 class="card-title mt-2">Liste de catégories</h5>
                         </div>
+                        @can('doAdvanced')
                         <div class="ms-auto">
                             <div class="text-sm-end">
                                 <a type="button" href="{{route('categories.create')}}"
@@ -43,11 +44,13 @@
                                 </a>
                             </div>
                         </div>
+                        @endcan
                     </div>
 
                     <div class="grid-container">
                             @foreach($categories as $category)
                             <div style="position: relative; border: 1px solid #ccc; border-radius: 8px">
+                                @can('doAdvanced')
                                 <div class="d-flex flex-column" style="position: absolute; max-width: 2rem; right: 5px; top: 5px; z-index:1">
                                     <a class="m-1" 
                                         style="border-radius: 50%; background-color: #edf8ef; width: 1.5rem; height: 1.5rem; display: flex; justify-content: center" 
@@ -71,6 +74,7 @@
                                       <input type="hidden" name="_method" value="DELETE">
                                   </form>
                                 </div>
+                                @endcan
                                 <div style="z-index: -1">
                                     <a href="{{route('categories.show', $category)}}" class="d-block d-flex flex-column text-center p-2">
                                         <img src="{{ isset($category->image) ? asset($category->image) : asset('images/users/avatar-1.jpg') }}" alt="" class="m-4 align-self-center avatar-md rounded-circle img-thumbnail">

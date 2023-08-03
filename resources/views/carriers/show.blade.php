@@ -75,6 +75,7 @@
                                                     <a href="{{route('drivers.show', $carrierDriver)}}"
                                                        class="btn btn-default">Détails
                                                     </a>
+                                                    @can('doAdvanced')
                                                     <a href="{{route('drivers.edit', $carrierDriver)}}"
                                                        class="btn btn-info">Modifier
                                                     </a>
@@ -94,6 +95,7 @@
                                                         @csrf
                                                         <input type="hidden" name="_method" value="DELETE">
                                                     </form>
+                                                    @endcan
                                                 </div>
                                             </td>
                                         </tr>

@@ -25,6 +25,7 @@
                     <div class="m-2 d-flex" style="position: relative">
                         <img src="{{URL::asset($category->image)}}" alt="" class="img-fluid rounded-circle align-self-center" style="height: 2.5rem; width: 2.5rem;">
                         <h2 class="align-self-center ms-4 mt-2 fw-bold">{{$category->name}}</h2>
+                        @can('doAdvanced')
                         <div class="d-flex" style="position: absolute; max-width: 9rem; right: 0px; top: 5px; z-index:1">
                             <a class="m-1" 
                                 style="border-radius: 50%; background-color: #edf8ef; width: 2rem; height: 2rem; display: flex; justify-content: center" 
@@ -47,14 +48,14 @@
                               @csrf
                               <input type="hidden" name="_method" value="DELETE">
                           </form>
-                          @can('doAdvanced')
+                          
                           <a class="m-1" 
                                 style="border-radius: 50%; background-color: rgba(16, 97, 204, 0.3); width: 2rem; height: 2rem; display: flex; justify-content: center" 
                                 href="{{ route('rules.create', [$category]) }}">
                                 <i class="fa fa-plus" style="align-self: center; color: rgba(16, 97, 204)"></i> 
                             </a>
-                          @endcan
                         </div>
+                        @endcan
                     </div>
                 </div>
             </div>
@@ -72,7 +73,7 @@
                                         <div class="essential_audio m-3" data-url="{{URL::asset($rule->ar)}}"></div>
                                         <div class="essential_audio m-3" data-url="{{URL::asset($rule->ng)}}"></div>
                                     </div>
-    
+                                    @can('doAdvanced')
                                     <div class="d-flex align-self-md-center align-self-end mb-2">
                                         <a class="me-1" 
                                             style="border-radius: 50%; background-color: #edf8ef; width: 1.5rem; height: 1.5rem; display: flex; justify-content: center" 
@@ -95,6 +96,7 @@
                                           @csrf
                                           <input type="hidden" name="_method" value="DELETE">
                                       </form>
+                                      @endcan
                                     </div>
                                 </div>
                             </div>
