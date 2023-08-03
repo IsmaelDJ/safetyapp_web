@@ -25,18 +25,21 @@
                 <h4 class="card-title">Taux de lecture par moi</h4>
             </div>
             <hr>
+            <?php if($readingChart): ?>
             <div class="apex-charts">
-            <?php echo $readingChart->container(); ?>
+                <?php echo $readingChart->container(); ?>
 
             </div>
+            <?php endif; ?>
         </div>
     </div>
 </div>
 <?php $__env->startPush('script'); ?>
-    <?php if (! $__env->hasRenderedOnce('cd4167e2-8b9c-45ef-bd78-613d9c41df76')): $__env->markAsRenderedOnce('cd4167e2-8b9c-45ef-bd78-613d9c41df76'); ?>
+    <?php if (! $__env->hasRenderedOnce('2409363c-36bd-4e81-9371-1166e920c0d4')): $__env->markAsRenderedOnce('2409363c-36bd-4e81-9371-1166e920c0d4'); ?>
      <script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/highcharts/6.0.6/highcharts.js" defer charset="utf-8"></script>
-        <?php echo $readingChart->script(); ?>
+            if($readingChart)       
+            <?php echo $readingChart->script(); ?>
 
      </script>
     <?php endif; ?>

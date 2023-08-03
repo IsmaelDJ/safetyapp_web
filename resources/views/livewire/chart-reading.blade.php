@@ -24,7 +24,7 @@
             </div>
             <hr>
             <div class="apex-charts">
-            {!! $readingChart->container() !!}
+                {!! $readingChart->container() !!}
             </div>
         </div>
     </div>
@@ -33,7 +33,7 @@
     @once
      <script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/highcharts/6.0.6/highcharts.js" defer charset="utf-8"></script>
-        {!! $readingChart->script() !!}
+            {!! $readingChart->script() !!}
      </script>
     @endonce
 @endpush

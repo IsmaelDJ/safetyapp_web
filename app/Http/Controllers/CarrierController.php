@@ -59,7 +59,7 @@ class CarrierController extends Controller
 
     public function export_drivers(Carrier $carrier)
     {
-        $drivers = Driver::where('user_id', $carrier->user_id)->get();
+        $drivers = Driver::where([['user_id', '=', $carrier->user_id], ['role', '=', 'driver']])->get();
         return view('carriers.export_drivers', compact('carrier', 'drivers'));
     }
 
