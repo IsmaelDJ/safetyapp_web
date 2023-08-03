@@ -228,7 +228,7 @@ class DriverController extends Controller
 
     public function export_pdf(){
         $data = [];
-        $drivers = Driver::with('user')->get();
+        $drivers = Driver::with('user')->where('role', 'driver')->get();
 
         $iteration = 0;
         foreach($drivers as $driver){
