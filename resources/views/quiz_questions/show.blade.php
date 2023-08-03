@@ -36,13 +36,13 @@
                                 </div>
 
                                 <div class="d-flex align-self-md-center align-self-end p-4">
-                                    <a class="me-1" 
-                                        style="border-radius: 50%; background-color: #edf8ef; width: 2rem; height: 2rem; display: flex; justify-content: center" 
+                                    <a class="me-1 rounded-circle d-flex justify-content-center" 
+                                        style="background-color: #edf8ef; width: 2rem; height: 2rem;" 
                                         href="{{ route('quiz_questions.edit', $quiz_question) }}">
                                         <i class="fa fa-pen" style="align-self: center; color: #34a543"></i> 
                                     </a>
-                                    <a class="me-1" 
-                                        style="border-radius: 50%; background-color: #ffe8e8; width: 2rem; height: 2rem; display: flex; justify-content: center" 
+                                    <a class="me-1 rounded-circle d-flex justify-content-center" 
+                                        style="background-color: #ffe8e8; width: 2rem; height: 2rem;" 
                                         href="{{route('quiz_questions.index')}}"
                                         onclick="
                                         var result = confirm('Cette règle sera supprimée');

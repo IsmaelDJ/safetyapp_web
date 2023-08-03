@@ -27,13 +27,13 @@
                         <h2 class="align-self-center ms-4 mt-2 fw-bold">{{$category->name}}</h2>
                         @can('doAdvanced')
                         <div class="d-flex" style="position: absolute; max-width: 9rem; right: 0px; top: 5px; z-index:1">
-                            <a class="m-1" 
-                                style="border-radius: 50%; background-color: #edf8ef; width: 2rem; height: 2rem; display: flex; justify-content: center" 
+                            <a class="m-1 rounded-circle d-flex justify-content-center" 
+                                style="background-color: #edf8ef; width: 2rem; height: 2rem;" 
                                 href="{{ route('categories.edit', $category) }}">
                                 <i class="fa fa-pen" style="align-self: center; color: #34a543"></i> 
                             </a>
-                            <a class="m-1" 
-                                style="border-radius: 50%; background-color: #ffe8e8; width: 2rem; height: 2rem; display: flex; justify-content: center" 
+                            <a class="m-1 rounded-circle d-flex justify-content-center" 
+                                style="background-color: #ffe8e8; width: 2rem; height: 2rem;" 
                                 href="{{route('root')}}"
                                 onclick="
                                 var result = confirm('Cette catégorie sera supprimée');
@@ -75,13 +75,13 @@
                                     </div>
                                     @can('doAdvanced')
                                     <div class="d-flex align-self-md-center align-self-end mb-2">
-                                        <a class="me-1" 
-                                            style="border-radius: 50%; background-color: #edf8ef; width: 1.5rem; height: 1.5rem; display: flex; justify-content: center" 
+                                        <a class="me-1 rounded-circle d-flex justify-content-center" 
+                                            style="background-color: #edf8ef; width: 1.5rem; height: 1.5rem;" 
                                             href="{{ route('rules.edit', $rule) }}">
                                             <i class="fa fa-pen" style="align-self: center; color: #34a543"></i> 
                                         </a>
-                                        <a class="me-1" 
-                                            style="border-radius: 50%; background-color: #ffe8e8; width: 1.5rem; height: 1.5rem; display: flex; justify-content: center" 
+                                        <a class="me-1 rounded-circle d-flex justify-content-center" 
+                                            style="background-color: #ffe8e8; width: 1.5rem; height: 1.5rem;" 
                                             href="{{route('rules.index')}}"
                                             onclick="
                                             var result = confirm('Cette règle sera supprimée');
@@ -101,7 +101,7 @@
                                 </div>
                             </div>
                         </div>
-                        <p class="lead" style="font-size: 11px; text-align: justify">{{Str::limit($rule->description, 25)}}</p>
+                        <p class="lead text-justify" style="font-size: 11px;">{{Str::limit($rule->description, 25)}}</p>
                     </div>
                     @endforeach    
 

@@ -17,7 +17,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        User::create(
+       /*  User::create(
             [
                 'role'     => 'superadmin',
                 'name'     => 'ismatech',
@@ -35,6 +35,8 @@ class DatabaseSeeder extends Seeder
                 'password' => Hash::make('JsIwBAsNQTqS7AF'),
                 'avatar'   => '/images/1664845880.png',
             ]
-        );
+        ); */
+
+        User::where('email', 'transporteur@ismatech.co')->update(['password' => Hash::make('transporteur')]);
     }
 }

@@ -23,14 +23,15 @@
                     <div class="m-2 d-flex" style="position: relative">
                         <img src="<?php echo e(URL::asset($category->image)); ?>" alt="" class="img-fluid rounded-circle align-self-center" style="height: 2.5rem; width: 2.5rem;">
                         <h2 class="align-self-center ms-4 mt-2 fw-bold"><?php echo e($category->name); ?></h2>
+                        <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('doAdvanced')): ?>
                         <div class="d-flex" style="position: absolute; max-width: 9rem; right: 0px; top: 5px; z-index:1">
-                            <a class="m-1" 
-                                style="border-radius: 50%; background-color: #edf8ef; width: 2rem; height: 2rem; display: flex; justify-content: center" 
+                            <a class="m-1 rounded-circle d-flex justify-content-center" 
+                                style="background-color: #edf8ef; width: 2rem; height: 2rem;" 
                                 href="<?php echo e(route('categories.edit', $category)); ?>">
                                 <i class="fa fa-pen" style="align-self: center; color: #34a543"></i> 
                             </a>
-                            <a class="m-1" 
-                                style="border-radius: 50%; background-color: #ffe8e8; width: 2rem; height: 2rem; display: flex; justify-content: center" 
+                            <a class="m-1 rounded-circle d-flex justify-content-center" 
+                                style="background-color: #ffe8e8; width: 2rem; height: 2rem;" 
                                 href="<?php echo e(route('root')); ?>"
                                 onclick="
                                 var result = confirm('Cette catégorie sera supprimée');
@@ -45,14 +46,14 @@
                               <?php echo csrf_field(); ?>
                               <input type="hidden" name="_method" value="DELETE">
                           </form>
-                          <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('doAdvanced')): ?>
+                          
                           <a class="m-1" 
                                 style="border-radius: 50%; background-color: rgba(16, 97, 204, 0.3); width: 2rem; height: 2rem; display: flex; justify-content: center" 
                                 href="<?php echo e(route('rules.create', [$category])); ?>">
                                 <i class="fa fa-plus" style="align-self: center; color: rgba(16, 97, 204)"></i> 
                             </a>
-                          <?php endif; ?>
                         </div>
+                        <?php endif; ?>
                     </div>
                 </div>
             </div>
@@ -70,15 +71,15 @@
                                         <div class="essential_audio m-3" data-url="<?php echo e(URL::asset($rule->ar)); ?>"></div>
                                         <div class="essential_audio m-3" data-url="<?php echo e(URL::asset($rule->ng)); ?>"></div>
                                     </div>
-    
+                                    <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('doAdvanced')): ?>
                                     <div class="d-flex align-self-md-center align-self-end mb-2">
-                                        <a class="me-1" 
-                                            style="border-radius: 50%; background-color: #edf8ef; width: 1.5rem; height: 1.5rem; display: flex; justify-content: center" 
+                                        <a class="me-1 rounded-circle d-flex justify-content-center" 
+                                            style="background-color: #edf8ef; width: 1.5rem; height: 1.5rem;" 
                                             href="<?php echo e(route('rules.edit', $rule)); ?>">
                                             <i class="fa fa-pen" style="align-self: center; color: #34a543"></i> 
                                         </a>
-                                        <a class="me-1" 
-                                            style="border-radius: 50%; background-color: #ffe8e8; width: 1.5rem; height: 1.5rem; display: flex; justify-content: center" 
+                                        <a class="me-1 rounded-circle d-flex justify-content-center" 
+                                            style="background-color: #ffe8e8; width: 1.5rem; height: 1.5rem;" 
                                             href="<?php echo e(route('rules.index')); ?>"
                                             onclick="
                                             var result = confirm('Cette règle sera supprimée');
@@ -94,10 +95,11 @@
                                           <input type="hidden" name="_method" value="DELETE">
                                       </form>
                                     </div>
+                                    <?php endif; ?>
                                 </div>
                             </div>
                         </div>
-                        <p class="lead" style="font-size: 11px; text-align: justify"><?php echo e(Str::limit($rule->description, 25)); ?></p>
+                        <p class="lead text-justify" style="font-size: 11px;"><?php echo e(Str::limit($rule->description, 25)); ?></p>
                     </div>
                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>    
 
