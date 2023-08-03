@@ -118,7 +118,8 @@ class RuleController extends Controller
 
     public function destroy(Rule $rule)
     {
+        $category = $rule->category;
         $rule->delete();
-        return redirect()->route('rules.index')->with('success', "Règle supprimé !");
+        return redirect()->route('categories.show', $category)->with('success', "Règle supprimé !");
     }
 }
