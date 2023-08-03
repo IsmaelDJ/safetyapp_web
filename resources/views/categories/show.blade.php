@@ -96,8 +96,8 @@
                                           @csrf
                                           <input type="hidden" name="_method" value="DELETE">
                                       </form>
-                                      @endcan
                                     </div>
+                                    @endcan
                                 </div>
                             </div>
                         </div>
