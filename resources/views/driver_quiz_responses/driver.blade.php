@@ -28,7 +28,7 @@
             <div class="card-body">
                 <div class="d-flex align-items-start">
                     <div class="me-2">
-                        <p class="mb-4">Liste des reponses des Chauffeurs <strong class="text-info">{{$driver->name}}</strong> pour tous les quiz</p>
+                        <p class="mb-4">Liste des reponses du Chauffeur <strong class="text-info">{{$driver->name}}</strong> pour tous les quiz</p>
                     </div>
                 </div>
 

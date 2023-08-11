@@ -53,7 +53,7 @@
                 name="role">
                 <option value="" selected>Selectionnez un role</option>
                     <option value="admin">Admin</option>
-                    <option value="transporteur">Trasporteur</option>
+                    <option value="transporteur">Transporteur</option>
                 </select>
             @error('role')
             <span class="invalid-feedback" role="alert">
