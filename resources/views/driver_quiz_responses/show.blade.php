@@ -111,98 +111,68 @@
                         </div>
 
                         <div class="table-responsive">
-                            <table class="table align-middle text-center">
+                            <table class="table align-middle ">
                                 <thead>
                                 <tr>
-                                    <th class="text-start">Illustration</th>
-                                    <th class="align-middle">Description</th>
-                                    <th class="align-middle">Reponse attendue</th>
-                                    <th class="align-middle">Reponse donnée</th>
-                                    <th class="align-middle">Action</th>
+                                    <th class="align-middle">chauffeur</th>
+                                    <th class="align-middle">Question</th>
+                                    <th class="text text-center">Reponse</th>
+                                    @can('doAdvanced')
+                                    <th class="align-middle">Actions</th>
+                                    @endcan
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @foreach($driverQuizResponses as $tmpDriverQuizResponse)
+                                @foreach($driverQuizResponses as $driverQuizResponse)
                                     <tr>
+                                        <td>
+                                            <a href="{{route('drivers.show',$driverQuizResponse->driver_id)}}">
+                                                <p class="text-muted mb-0 text-justify">{{$driverQuizResponse->driver->name}}</p>
+                                            </a>
+                                        </td>
                                         <td>
                                             <div class="row">
                                                 <div class="col-auto">
-                                                    <img src="{{URL::asset($tmpDriverQuizResponse->quiz_question->image)}}" alt=""
-                                                            class="avatar-md h-auto d-block rounded"/>
+                                                    <a href="{{route('quiz_questions.show',$driverQuizResponse->quiz_question_id)}}" class="">
+                                                        <p class="text-muted mb-0 text-justify">{{$driverQuizResponse->quiz_question->description}}</p>
+                                                    </a>
+                                                </div>
+                                            </div>
+        
+                                        </td>
+        
+                                        <td class="text text-center fs-3">
+                                            @if($driverQuizResponse->correct === $driverQuizResponse->quiz_question->correct)
+                                                <i
+                                                    class="mdi mdi-check me-1 text-success"></i>
+                                            @else
+                                                <i
+                                                    class="mdi mdi-close me-1 text-danger"></i>
+                                            @endif
+                                        </td>
+                                        @can('doAdvanced')
+                                        <td style="width: 300px">
+                                            <div class="d-flex gap-3">
+                                                <a href="{{route('driver_quiz_responses.show',[$driverQuizResponse->id])}}"
+                                                   class="btn btn-primary">Détails
+                                                </a>
+                                                <div class="d-flex gap-3">
+                                                    <a href="{{route('driver_quiz_responses.drivers',[$driverQuizResponse->driver_id])}}"
+                                                       class="btn btn-outline-secondary">Autres reponses
+                                                    </a>
                                                 </div>
                                             </div>
                                         </td>
-                                        <td>
-                                            <div class="col-auto">
-                                                <a href="{{route('quiz_questions.show',$tmpDriverQuizResponse->quiz_question_id)}}" class="">
-                                                    <p class="text-muted mb-0 text-justify">{{$tmpDriverQuizResponse->quiz_question->description}}</p>
-                                                </a>
-                                            </div>
-                                            </div>
-        
-                                        </td>
-                                        <td>
-                                            @if($tmpDriverQuizResponse->quiz_question->correct)
-                                                <span
-                                                   class="btn btn-success btn-rounded waves-effect waves-light mb-2 me-2"><i
-                                                        class="mdi mdi-tag me-1"></i> Vrai
-                                                </span>
-                                            @else
-                                                <span
-                                                   class="btn btn-danger btn-rounded waves-effect waves-light mb-2 me-2"><i
-                                                        class="mdi mdi-tag me-1"></i> Faux
-                                                </span>
-                                            @endif
-                                        </td>
-                                        <td>
-                                            @if($tmpDriverQuizResponse->correct)
-                                                <span
-                                                    class="btn btn-success btn-rounded waves-effect waves-light mb-2 me-2"><i
-                                                        class="mdi mdi-tag me-1"></i> Vrai
-                                                </span>
-                                            @else
-                                                <span
-                                                    class="btn btn-danger btn-rounded waves-effect waves-light mb-2 me-2"><i
-                                                        class="mdi mdi-tag me-1"></i> Faux
-                                                </span>
-                                            @endif
-                                        </td>
-                                        <td style="width: 200px">
-                                            <div class="d-flex gap-3">
-        
-                                                <a href="{{route('driver_quiz_responses.show', $tmpDriverQuizResponse)}}"
-                                                    class="btn btn-default">Détails
-                                                </a>
-                                                <a href="{{route('driver_quiz_responses.edit', $tmpDriverQuizResponse)}}"
-                                                    class="btn btn-info">Modifier
-                                                </a>
-        
-                                                <a href="{{route('driver_quiz_responses.show', $tmpDriverQuizResponse->driver_id)}}" class="btn btn-danger"
-                                                    onclick="
-                                                            var result = confirm('Cet utilisateur sera supprimée');
-                                                            if(result){
-                                                                event.preventDefault();
-                                                                document.getElementById('delete-form{{$tmpDriverQuizResponse->id}}').submit();
-                                                            }
-                                                            ">
-                                                    Supprimer</a>
-        
-                                                <form method="POST" id="delete-form-{{$tmpDriverQuizResponse->id}}"
-                                                        action="{{route('driver_quiz_responses.destroy', [$tmpDriverQuizResponse])}}">
-                                                    @csrf
-                                                    <input type="hidden" name="_method" value="DELETE">
-                                                </form>
-                                            </div>
-                                        </td>
+                                        @endcan
                                     </tr>
                                 @endforeach
         
                                 </tbody>
                             </table>
-
-
+        
+        
                         </div>
-
+        
                         {{ $driverQuizResponses->links('vendor.pagination.round') }}
                     </div>
                 </div>

@@ -110,98 +110,68 @@
                         </div>
 
                         <div class="table-responsive">
-                            <table class="table align-middle text-center">
+                            <table class="table align-middle ">
                                 <thead>
                                 <tr>
-                                    <th class="text-start">Illustration</th>
-                                    <th class="align-middle">Description</th>
-                                    <th class="align-middle">Reponse attendue</th>
-                                    <th class="align-middle">Reponse donnée</th>
-                                    <th class="align-middle">Action</th>
+                                    <th class="align-middle">chauffeur</th>
+                                    <th class="align-middle">Question</th>
+                                    <th class="text text-center">Reponse</th>
+                                    <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('doAdvanced')): ?>
+                                    <th class="align-middle">Actions</th>
+                                    <?php endif; ?>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <?php $__currentLoopData = $driverQuizResponses; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $tmpDriverQuizResponse): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                <?php $__currentLoopData = $driverQuizResponses; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $driverQuizResponse): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                     <tr>
+                                        <td>
+                                            <a href="<?php echo e(route('drivers.show',$driverQuizResponse->driver_id)); ?>">
+                                                <p class="text-muted mb-0 text-justify"><?php echo e($driverQuizResponse->driver->name); ?></p>
+                                            </a>
+                                        </td>
                                         <td>
                                             <div class="row">
                                                 <div class="col-auto">
-                                                    <img src="<?php echo e(URL::asset($tmpDriverQuizResponse->quiz_question->image)); ?>" alt=""
-                                                            class="avatar-md h-auto d-block rounded"/>
+                                                    <a href="<?php echo e(route('quiz_questions.show',$driverQuizResponse->quiz_question_id)); ?>" class="">
+                                                        <p class="text-muted mb-0 text-justify"><?php echo e($driverQuizResponse->quiz_question->description); ?></p>
+                                                    </a>
+                                                </div>
+                                            </div>
+        
+                                        </td>
+        
+                                        <td class="text text-center fs-3">
+                                            <?php if($driverQuizResponse->correct === $driverQuizResponse->quiz_question->correct): ?>
+                                                <i
+                                                    class="mdi mdi-check me-1 text-success"></i>
+                                            <?php else: ?>
+                                                <i
+                                                    class="mdi mdi-close me-1 text-danger"></i>
+                                            <?php endif; ?>
+                                        </td>
+                                        <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('doAdvanced')): ?>
+                                        <td style="width: 300px">
+                                            <div class="d-flex gap-3">
+                                                <a href="<?php echo e(route('driver_quiz_responses.show',[$driverQuizResponse->id])); ?>"
+                                                   class="btn btn-primary">Détails
+                                                </a>
+                                                <div class="d-flex gap-3">
+                                                    <a href="<?php echo e(route('driver_quiz_responses.drivers',[$driverQuizResponse->driver_id])); ?>"
+                                                       class="btn btn-outline-secondary">Autres reponses
+                                                    </a>
                                                 </div>
                                             </div>
                                         </td>
-                                        <td>
-                                            <div class="col-auto">
-                                                <a href="<?php echo e(route('quiz_questions.show',$tmpDriverQuizResponse->quiz_question_id)); ?>" class="">
-                                                    <p class="text-muted mb-0 text-justify"><?php echo e($tmpDriverQuizResponse->quiz_question->description); ?></p>
-                                                </a>
-                                            </div>
-                                            </div>
-        
-                                        </td>
-                                        <td>
-                                            <?php if($tmpDriverQuizResponse->quiz_question->correct): ?>
-                                                <span
-                                                   class="btn btn-success btn-rounded waves-effect waves-light mb-2 me-2"><i
-                                                        class="mdi mdi-tag me-1"></i> Vrai
-                                                </span>
-                                            <?php else: ?>
-                                                <span
-                                                   class="btn btn-danger btn-rounded waves-effect waves-light mb-2 me-2"><i
-                                                        class="mdi mdi-tag me-1"></i> Faux
-                                                </span>
-                                            <?php endif; ?>
-                                        </td>
-                                        <td>
-                                            <?php if($tmpDriverQuizResponse->correct): ?>
-                                                <span
-                                                    class="btn btn-success btn-rounded waves-effect waves-light mb-2 me-2"><i
-                                                        class="mdi mdi-tag me-1"></i> Vrai
-                                                </span>
-                                            <?php else: ?>
-                                                <span
-                                                    class="btn btn-danger btn-rounded waves-effect waves-light mb-2 me-2"><i
-                                                        class="mdi mdi-tag me-1"></i> Faux
-                                                </span>
-                                            <?php endif; ?>
-                                        </td>
-                                        <td style="width: 200px">
-                                            <div class="d-flex gap-3">
-        
-                                                <a href="<?php echo e(route('driver_quiz_responses.show', $tmpDriverQuizResponse)); ?>"
-                                                    class="btn btn-default">Détails
-                                                </a>
-                                                <a href="<?php echo e(route('driver_quiz_responses.edit', $tmpDriverQuizResponse)); ?>"
-                                                    class="btn btn-info">Modifier
-                                                </a>
-        
-                                                <a href="<?php echo e(route('driver_quiz_responses.show', $tmpDriverQuizResponse->driver_id)); ?>" class="btn btn-danger"
-                                                    onclick="
-                                                            var result = confirm('Cet utilisateur sera supprimée');
-                                                            if(result){
-                                                                event.preventDefault();
-                                                                document.getElementById('delete-form<?php echo e($tmpDriverQuizResponse->id); ?>').submit();
-                                                            }
-                                                            ">
-                                                    Supprimer</a>
-        
-                                                <form method="POST" id="delete-form-<?php echo e($tmpDriverQuizResponse->id); ?>"
-                                                        action="<?php echo e(route('driver_quiz_responses.destroy', [$tmpDriverQuizResponse])); ?>">
-                                                    <?php echo csrf_field(); ?>
-                                                    <input type="hidden" name="_method" value="DELETE">
-                                                </form>
-                                            </div>
-                                        </td>
+                                        <?php endif; ?>
                                     </tr>
                                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
         
                                 </tbody>
                             </table>
-
-
+        
+        
                         </div>
-
+        
                         <?php echo e($driverQuizResponses->links('vendor.pagination.round')); ?>
 
                     </div>
