@@ -74,6 +74,7 @@ class CategoryController extends Controller
             if (file_exists(public_path($category->image)) AND !empty($category->image)){
                 unlink(public_path($category->image));
             }
+
             $path = uploadFile($request,'image');
             $category->image = $path;
         }
@@ -87,6 +88,7 @@ class CategoryController extends Controller
         $category->name = $request->name;
         $category->position = $request->position;
         $category->update();
+
         return redirect()->route('root')->with('success', "Catégorie modifiée");
     }
 

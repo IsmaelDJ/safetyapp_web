@@ -21,7 +21,7 @@
             <div class="col-xl-12">
                 <div class="card rounded">
                     <div class="m-2 d-flex" style="position: relative">
-                        <img src="<?php echo e(URL::asset($category->image)); ?>" alt="" class="img-fluid rounded-circle align-self-center" style="height: 2.5rem; width: 2.5rem;">
+                        <img src="<?php echo e(URL::asset($category->image)); ?>" alt="" class="img-fluid rounded-circle align-self-center" style="object-fit: cover; height: 2.5rem; width: 2.5rem;">
                         <h2 class="align-self-center ms-4 mt-2 fw-bold"><?php echo e($category->name); ?></h2>
                         <?php if (app(\Illuminate\Contracts\Auth\Access\Gate::class)->check('doAdvanced')): ?>
                         <div class="d-flex" style="position: absolute; max-width: 9rem; right: 0px; top: 5px; z-index:1">

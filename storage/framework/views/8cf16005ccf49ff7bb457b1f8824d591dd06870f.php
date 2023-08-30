@@ -76,7 +76,7 @@
                                 <?php endif; ?>
                                 <div style="z-index: -1">
                                     <a href="<?php echo e(route('categories.show', $category)); ?>" class="d-block d-flex flex-column text-center p-2">
-                                        <img src="<?php echo e(isset($category->image) ? asset($category->image) : asset('images/users/avatar-1.jpg')); ?>" alt="" class="m-4 align-self-center avatar-md rounded-circle img-thumbnail">
+                                        <img src="<?php echo e(isset($category->image) ? asset($category->image) : asset('images/users/avatar-1.jpg')); ?>" alt="" style="object-fit: cover" class="m-4 align-self-center avatar-md rounded-circle img-thumbnail">
                                         <span class="text-black"><?php echo e($category->name); ?></span>
                                     </a>
                                 </div>

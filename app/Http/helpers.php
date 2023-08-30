@@ -11,17 +11,19 @@ function me(){
 }
 
 function uploadFile(Request $request, $name, $sousfix =''){
-    $ext = $request->file($name)->extension();
-    $folder = "uploads/";
-    $fileName = date('YmdHis').'_'. $sousfix .'.'.$ext;
+    if($request->hasFile($name)){
+        $ext = $request->file($name)->extension();
+        $folder = "uploads/";
+        $fileName = date('YmdHis').'_'. $sousfix .'.'.$ext;
 
-    $request->file($name)->move(public_path($folder),$fileName);
+        $request->file($name)->move(public_path($folder),$fileName);
 
-    $path = $folder.$fileName;
+        $path = $folder.$fileName;
 
-    compress_image($path);
+        compress_image($path);
 
-    return $path;
+        return $path;
+    }
 }
 
 function compress_image($path){

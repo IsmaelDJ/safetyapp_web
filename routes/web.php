@@ -37,7 +37,7 @@ Route::get('show/{category}',  [CategoryController::class, 'show'])->name('categ
 Route::get('edit/{category}',  [CategoryController::class, 'edit'])->name('categories.edit');
 Route::get('create',  [CategoryController::class, 'create'])->name('categories.create');
 Route::post('/', [CategoryController::class, 'store'])->name('categories.store');
-Route::put('/', [CategoryController::class, 'update'])->name('categories.update');
+Route::put('/{category}', [CategoryController::class, 'update'])->name('categories.update');
 Route::delete('/{category}', [CategoryController::class, 'destroy'])->name('categories.destroy');
 
 
@@ -54,7 +54,7 @@ Route::prefix('rules')->group(function () {
     Route::get('edit/{rule}',  [RuleController::class, 'edit'])->name('rules.edit');
     Route::get('create/{category_id}',  [RuleController::class, 'create'])->name('rules.create');
     Route::post('/', [RuleController::class, 'store'])->name('rules.store');
-    Route::put('/', [RuleController::class, 'update'])->name('rules.update');
+    Route::put('/{rule}', [RuleController::class, 'update'])->name('rules.update');
     Route::delete('/{rule}', [RuleController::class, 'destroy'])->name('rules.destroy');
 });
 

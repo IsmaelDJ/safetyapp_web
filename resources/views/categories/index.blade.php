@@ -77,7 +77,7 @@
                                 @endcan
                                 <div style="z-index: -1">
                                     <a href="{{route('categories.show', $category)}}" class="d-block d-flex flex-column text-center p-2">
-                                        <img src="{{ isset($category->image) ? asset($category->image) : asset('images/users/avatar-1.jpg') }}" alt="" class="m-4 align-self-center avatar-md rounded-circle img-thumbnail">
+                                        <img src="{{ isset($category->image) ? asset($category->image) : asset('images/users/avatar-1.jpg') }}" alt="" style="object-fit: cover" class="m-4 align-self-center avatar-md rounded-circle img-thumbnail">
                                         <span class="text-black">{{ $category->name }}</span>
                                     </a>
                                 </div>
