@@ -58,7 +58,7 @@
                         @can('view', $particular)
                             <tr>
                                 <td class="text-center">
-                                    <img class="rounded-circle" src="{{asset($particular->avatar)}}" alt="avatar" height="35" width="35">
+                                    <img class="rounded-circle" style="object-fit: cover" src="{{asset($particular->avatar)}}" alt="avatar" height="35" width="35">
                                 </td>
                                 <td>
                                     <p class="text-muted mb-0 text-justify">{{$particular->name}}</p>

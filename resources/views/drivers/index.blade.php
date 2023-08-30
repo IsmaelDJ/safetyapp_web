@@ -69,7 +69,7 @@
                         @can('view', $driver)
                             <tr>
                                 <td class="text-center">
-                                    <img class="rounded-circle" src="{{asset($driver->avatar)}}" alt="avatar" height="35" width="35">
+                                    <img class="rounded-circle" style="object-fit: cover" src="{{asset($driver->avatar)}}" alt="avatar" height="35" width="35">
                                 </td>
                                 <td>
                                     <p class="text-muted mb-0 text-justify">{{$driver->name}}</p>
