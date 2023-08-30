@@ -90,8 +90,6 @@
                 </div>
 
                 {{ $driverQuizResponses->links('vendor.pagination.round') }}
-
-                {{ $driverQuizResponses->links('vendor.pagination.round') }}
             </div>
         </div>
         <!-- end card -->
