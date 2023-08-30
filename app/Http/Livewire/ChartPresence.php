@@ -50,7 +50,7 @@ class ChartPresence extends Component
         $presenceChart->displayLegend(false);
         $presenceChart->label(false);
         $presenceChart->height(250);
-        $presenceChart->dataset('Présence par jour', 'spline', $presence_data)
+        $presenceChart->dataset('Nombre de présence', 'spline', $presence_data)
         ->options([
             'color' => 'hsla(209, 100%, 53%, 1)',
         ]);        

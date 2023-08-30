@@ -112,7 +112,7 @@ class AnalyticController extends Controller
         $readingChart->labels($reading_per_month_labels);
         $readingChart->label("Lecture");
         $readingChart->displayLegend(false);
-        $readingChart->dataset('Lecture par moi', 'line', $reading_per_month_data)
+        $readingChart->dataset('Nombre de lecture', 'line', $reading_per_month_data)
         ->options([
             'color' => 'hsla(209, 100%, 53%, 1)'
         ]);

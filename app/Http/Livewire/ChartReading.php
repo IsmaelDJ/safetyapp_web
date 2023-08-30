@@ -49,7 +49,7 @@ class ChartReading extends Component
         $readingChart->label(false);
         $readingChart->displayLegend(false);
         $readingChart->height(250);
-        $readingChart->dataset('Lecture par jour', 'line', $reading_per_day_data)
+        $readingChart->dataset('Nombre de lecture', 'line', $reading_per_day_data)
         ->options([
             'color' => 'hsla(209, 100%, 53%, 1)'
         ]);
