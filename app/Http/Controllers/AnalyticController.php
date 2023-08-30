@@ -241,7 +241,7 @@ class AnalyticController extends Controller
             $data[] = $tmp;
         }
 
-        $data = m_paginate(collect($data)->sortBy(['created_at', 'desc']));
+        $data = m_paginate(collect($data)->sortByDesc('created_at'));
         $data->setPath('details');
         return view('analyze.details', compact('data'));
     }
