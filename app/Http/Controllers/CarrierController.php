@@ -34,14 +34,14 @@ class CarrierController extends Controller
     {
         $request->validate(
             [
-                'user_id'=>'required',
-                'phone'  =>'required',
-                'address'=>'required'
+                'user_id' => 'required',
+                'phone'  => 'required',
+                'address' => 'required'
             ]
         );
 
         $carrier = new carrier();
-        
+
         $carrier->user_id = $request->user_id;
         $carrier->phone   = $request->phone;
         $carrier->address = $request->address;
@@ -66,27 +66,30 @@ class CarrierController extends Controller
     public function edit($id)
     {
         $carrier = Carrier::find($id);
-        return view('carriers.edit',compact('carrier'));
+        return view('carriers.edit', compact('carrier'));
     }
 
 
     public function update(Request $request, $id)
     {
+
         $carrier = Carrier::find($id);
-        
+
         $request->validate(
             [
-                'user_id'=>'required',
-                'phone'  =>'required',
-                'address'=>'required'
+                'phone'  => 'required',
+                'address' => 'required',
+                'name' => 'required',
             ]
         );
 
-        $carrier->user_id = $request->user_id;
         $carrier->phone   = $request->phone;
         $carrier->address = $request->address;
-
+        $user = $carrier->user;
+        $user->name =  $request->name;
+        $user->update();
         $carrier->update();
+
         return redirect()->route('carriers.index')->with('success', "Transporteur modifié");
     }
 
@@ -97,27 +100,29 @@ class CarrierController extends Controller
         return redirect()->route('carriers.index')->with('success', "Transporteur supprimé !");
     }
 
-    public function export_xlsx(){
-        return Excel::download(new CarriersExport, date('YmdHis').'_'.'carriers.xlsx');
+    public function export_xlsx()
+    {
+        return Excel::download(new CarriersExport, date('YmdHis') . '_' . 'carriers.xlsx');
     }
 
-    public function export_pdf(){
+    public function export_pdf()
+    {
         $data = [];
         $carriers = Carrier::with('user')->get();
         $iteration = 0;
-        foreach($carriers as $carrier){
+        foreach ($carriers as $carrier) {
             $iteration += 1;
             $tmp = new stdClass();
             $tmp->number    = $iteration;
             $tmp->name      = $carrier->user->name;
             $tmp->phone     = $carrier->phone;
             $tmp->address   = $carrier->address;
-            
+
             $data[] = $tmp;
         }
 
         $carriers = collect($data);
 
-        return view('carriers.export_pdf', compact('carriers'));    
+        return view('carriers.export_pdf', compact('carriers'));
     }
 }

@@ -118,7 +118,7 @@ Route::prefix("analyze")->group(function(){
             Route::get('/driver/read', 'from_best_driver')->name('analyze.driver.read');
             Route::get('/category/read', 'category_more_read')->name('analyze.category.read');
             Route::get('/rule/notread', 'rule_not_read')->name('analyze.rule.notread');
-            //analyze : pdf exportation 
+            //analyze : pdf exportation
             Route::prefix("/export/pdf")->group(
                 function(){
                     Route::get('/details', 'export_details')->name('analyze.export.pdf.details');
@@ -129,7 +129,7 @@ Route::prefix("analyze")->group(function(){
                     Route::get('/rule/notread', 'export_rule_not_read')->name('analyze.export.pdf.rule.notread');
                 }
             );
-            //analyze : xlsx exportation 
+            //analyze : xlsx exportation
             Route::prefix("/export/xlsx")->group(
                 function(){
                     Route::get('/details', 'export_xlsx_details')->name('analyze.export.xlsx.details');
@@ -139,7 +139,7 @@ Route::prefix("analyze")->group(function(){
                     Route::get('/rule/read', 'export_xlsx_rule_more_read')->name('analyze.export.xlsx.rule.read');
                     Route::get('/rule/notread', 'export_xlsx_rule_not_read')->name('analyze.export.xlsx.rule.notread');
                 }
-            );     
+            );
         }
     );
 });

@@ -28,9 +28,9 @@
                             @csrf
                             <div class="mb-3">
                                 <label for="name" class="form-label">Nom</label>
-                                <input 
+                                <input
                                     type="text" class="form-control form-control-lg @error('name') is-invalid @enderror"
-                                    value="{{$carrier->name}}"
+                                    value="{{$carrier->user->name}}"
                                     id="name" name="name" placeholder="Entrez le nom du transporteur">
                                 @error('name')
                                 <span class="invalid-feedback" role="alert">
@@ -60,7 +60,7 @@
                                 </span>
                                 @enderror
                             </div>
-                            
+
                             <div>
                                 <button type="submit" class="btn btn-primary w-md">Enregistrer</button>
                             </div>
