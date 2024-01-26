@@ -23,10 +23,10 @@
                                             <p>Connectez-vous à SafetyApp.</p>
                                         </div>
                                     </div>
-                                    <div class="col-5 align-self-end">
+                                    {{-- <div class="col-5 align-self-end">
                                         <img src="{{ URL::asset('/assets/images/total.png') }}" alt=""
                                              class="img-fluid">
-                                    </div>
+                                    </div> --}}
                                 </div>
                             </div>
                             <div class="card-body pt-0">
