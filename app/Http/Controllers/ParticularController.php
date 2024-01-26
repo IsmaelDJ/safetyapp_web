@@ -50,7 +50,7 @@ class ParticularController extends Controller
                 'phone'     =>'required',
             ]
         );
-          
+
         $password = rand(1000,9999);
 
         if(isset($request->avatar)){
@@ -66,7 +66,7 @@ class ParticularController extends Controller
         $particular->password   = $password;
         $particular->role       = 'particular';
         $particular->user_id    = 2;
-        $particular->obc        = -1; 
+        $particular->obc        = uniqid();
 
         $particular->save();
         return redirect()->route('particulars.index')->with('success', "Chauffeur ajouté");
@@ -98,8 +98,8 @@ class ParticularController extends Controller
                 'name'   =>'required',
                 'phone'  =>'required',
             ]);
-         
-            
+
+
         $particular->name    = $request->name;
         $particular->phone   = $request->phone;
 
