@@ -45,43 +45,42 @@ class DriverController extends Controller
     {
         $driver = new Driver();
 
-        if(Gate::allows('doAdvanced')){
+        if (Gate::allows('doAdvanced')) {
             $request->validate(
                 [
-                    'obc'       =>'required|unique:drivers',
-                    'name'      =>'required',
-                    'user_id'   =>'required',
-                    'phone'     =>'required',
+                    'obc'       => 'required|unique:drivers',
+                    'name'      => 'required',
+                    'user_id'   => 'required',
+                    'phone'     => 'required',
                 ]
             );
 
             $driver->user_id    = $request->user_id;
-        }
-        else {
+        } else {
             $request->validate(
                 [
-                    'obc'       =>'required|unique:drivers',
-                    'name'      =>'required',
-                    'phone'     =>'required',
+                    'obc'       => 'required|unique:drivers',
+                    'name'      => 'required',
+                    'phone'     => 'required',
                 ]
             );
-     
+
             $driver->user_id    = Auth::user()->id;
         }
-     
-        $password = rand(1000,9999);
 
-        if(isset($request->avatar)){
+        $password = rand(1000, 9999);
+
+        if (isset($request->avatar)) {
             $request->validate([
-                'avatar'    =>'required|image|mimes:jpeg,png,jpg',
+                'avatar'    => 'required|image|mimes:jpeg,png,jpg',
             ]);
-            $driver->avatar = uploadFile($request, 'avatar','driver_avatar');
+            $driver->avatar = uploadFile($request, 'avatar', 'driver_avatar');
         }
 
         $driver->name       = $request->name;
         $driver->phone      = $request->phone;
         $driver->obc        = $request->obc;
-        $driver->user_id    = $request->user_id;
+        $driver->user_id    = Auth::id();
         $driver->password   = $password;
         $driver->role       = 'driver';
 
@@ -94,59 +93,59 @@ class DriverController extends Controller
         $data = [];
 
         $events_quiz = DriverQuizResponse::with("driver")
-        ->with('quiz_question')
-        ->where('driver_id', $driver->id)
-        ->get();
+            ->with('quiz_question')
+            ->where('driver_id', $driver->id)
+            ->get();
 
         $events_rule = Reading::with('driver')
-        ->with('rule')
-        ->where('driver_id', $driver->id)
-        ->get();
+            ->with('rule')
+            ->where('driver_id', $driver->id)
+            ->get();
 
         $events_presence = Presence::with('driver')
-        ->get();
+            ->get();
 
-        foreach($events_quiz as $event){
+        foreach ($events_quiz as $event) {
             $tmp = new stdClass();
             $tmp->type      = 1;
             $tmp->action    = $event->quiz_question;
-            $tmp->created_at= Date($event->created_at);
+            $tmp->created_at = Date($event->created_at);
             $data[] = $tmp;
         }
 
-        foreach($events_rule as $event){
+        foreach ($events_rule as $event) {
             $tmp = new stdClass();
             $tmp->type      = 2;
             $tmp->action    = $event->rule;
-            $tmp->created_at= Date($event->created_at);
+            $tmp->created_at = Date($event->created_at);
             $data[] = $tmp;
         }
 
-        foreach($events_presence as $event){
+        foreach ($events_presence as $event) {
             $tmp = new stdClass();
             $tmp->type      = 3;
             $tmp->action    = 'Lancement de l\'aplication';
-            $tmp->created_at= Date($event->created_at);
+            $tmp->created_at = Date($event->created_at);
             $data[] = $tmp;
         }
 
         $data = m_paginate(collect($data)->sortBy('created_at'), 4);
-        $data->setPath('/drivers/'.$driver->id);
+        $data->setPath('/drivers/' . $driver->id);
 
         $reading_per_month = Reading::select('id', 'driver_id', 'created_at')
-        ->where('driver_id', $driver->id)
-        ->whereYear('created_at', now()->year)
-        ->get()
-        ->groupBy(function($data){
-            return Carbon::parse($data->created_at)->format('M');
-        });
+            ->where('driver_id', $driver->id)
+            ->whereYear('created_at', now()->year)
+            ->get()
+            ->groupBy(function ($data) {
+                return Carbon::parse($data->created_at)->format('M');
+            });
 
         $reading_per_month_labels = [];
         $reading_per_month_data  = [];
 
-        foreach($reading_per_month as $month => $readings){
+        foreach ($reading_per_month as $month => $readings) {
             $reading_per_month_labels[] = $month;
-            $reading_per_month_data [] = count($readings);
+            $reading_per_month_data[] = count($readings);
         }
 
         $readingChart = new ReadingChart();
@@ -155,12 +154,12 @@ class DriverController extends Controller
         $readingChart->displayLegend(false);
         $readingChart->height(250);
         $readingChart->dataset('Lecture par moi', 'line', $reading_per_month_data)
-        ->options([
-            'height'=> '330'
-        ]);
+            ->options([
+                'height' => '330'
+            ]);
 
         $total_quizzes     = DriverQuizResponse::where('driver_id', $driver->id)->get()->groupBy('quiz_question_id')->count();
-        $total_rules       = Reading::where('driver_id', $driver->id)->get()->groupBy('rule_id')->count(); 
+        $total_rules       = Reading::where('driver_id', $driver->id)->get()->groupBy('rule_id')->count();
 
         $userdrivers = Driver::where('user_id', $driver->user_id)->paginate(driversPerPage());
         return view('drivers.show', compact('driver', 'userdrivers', 'data', 'readingChart', 'total_quizzes', 'total_rules'));
@@ -168,8 +167,8 @@ class DriverController extends Controller
 
     public function edit(Driver $driver)
     {
-        $users = User::where('id','!=',$driver->user_id)->get();
-        return view('drivers.edit',compact('driver','users'));
+        $users = User::where('id', '!=', $driver->user_id)->get();
+        return view('drivers.edit', compact('driver', 'users'));
     }
 
 
@@ -180,30 +179,29 @@ class DriverController extends Controller
             if (file_exists(public_path($driver->avatar)) and !empty($driver->avatar)) {
                 unlink(public_path($driver->avatar));
             }
-            $driver->avatar = uploadFile($request, 'avatar','driver_avatar');
+            $driver->avatar = uploadFile($request, 'avatar', 'driver_avatar');
         }
 
-        if(Gate::allows('doAdvanced')){
+        if (Gate::allows('doAdvanced')) {
             $request->validate(
                 [
                     'obc'    => 'required',
-                    'name'   =>'required',
-                    'user_id'=>'required',
-                    'phone'  =>'required',
-                ]);
-            
-            $driver->user_id = $request->user_id;
-        }
+                    'name'   => 'required',
+                    'user_id' => 'required',
+                    'phone'  => 'required',
+                ]
+            );
 
-        else {
+            $driver->user_id = $request->user_id;
+        } else {
             $request->validate(
                 [
                     'obc'  => 'required',
-                    'name' =>'required',
-                    'phone'=>'required',
+                    'name' => 'required',
+                    'phone' => 'required',
                 ]
             );
-            
+
             $driver->user_id = Auth::user()->id;
         }
 
@@ -222,16 +220,18 @@ class DriverController extends Controller
         return redirect()->route('drivers.index')->with('success', "Chauffeur supprimé !");
     }
 
-    public function export_xlsx(){
-        return Excel::download(new DriversExport, date('YmdHis').'_'.'drivers.xlsx');
+    public function export_xlsx()
+    {
+        return Excel::download(new DriversExport, date('YmdHis') . '_' . 'drivers.xlsx');
     }
 
-    public function export_pdf(){
+    public function export_pdf()
+    {
         $data = [];
         $drivers = Driver::with('user')->where('role', 'driver')->get();
 
         $iteration = 0;
-        foreach($drivers as $driver){
+        foreach ($drivers as $driver) {
             $iteration += 1;
             $tmp = new stdClass();
             $tmp->number    = $iteration;
@@ -240,7 +240,7 @@ class DriverController extends Controller
             $tmp->obc       = $driver->obc;
             $tmp->phone     = $driver->phone;
             $tmp->password  = $driver->password;
-            
+
             $data[] = $tmp;
         }
 
