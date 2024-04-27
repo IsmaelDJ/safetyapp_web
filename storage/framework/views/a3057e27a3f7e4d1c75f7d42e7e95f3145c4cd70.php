@@ -1,5 +1,3 @@
-
-
 <?php $__env->startSection('title'); ?>
     <?php echo app('translator')->get('translation.Register'); ?>
 <?php $__env->stopSection(); ?>
@@ -30,10 +28,7 @@
                                             <p>Créez votre compte maintenant.</p>
                                         </div>
                                     </div>
-                                    <div class="col-5 align-self-end">
-                                        <img src="<?php echo e(URL::asset('/assets/images/total.png')); ?>" alt=""
-                                             class="img-fluid">
-                                    </div>
+                                    
                                 </div>
                             </div>
                             <div class="card-body pt-0">
@@ -51,15 +46,15 @@
                                     <?php
 if (! isset($_instance)) {
     $html = \Livewire\Livewire::mount('register-form')->html();
-} elseif ($_instance->childHasBeenRendered('UlvJzkR')) {
-    $componentId = $_instance->getRenderedChildComponentId('UlvJzkR');
-    $componentTag = $_instance->getRenderedChildComponentTagName('UlvJzkR');
+} elseif ($_instance->childHasBeenRendered('MHQQ1Eo')) {
+    $componentId = $_instance->getRenderedChildComponentId('MHQQ1Eo');
+    $componentTag = $_instance->getRenderedChildComponentTagName('MHQQ1Eo');
     $html = \Livewire\Livewire::dummyMount($componentId, $componentTag);
-    $_instance->preserveRenderedChild('UlvJzkR');
+    $_instance->preserveRenderedChild('MHQQ1Eo');
 } else {
     $response = \Livewire\Livewire::mount('register-form');
     $html = $response->html();
-    $_instance->logRenderedChild('UlvJzkR', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
+    $_instance->logRenderedChild('MHQQ1Eo', $response->id(), \Livewire\Livewire::getRootElementTagName($html));
 }
 echo $html;
 ?>
