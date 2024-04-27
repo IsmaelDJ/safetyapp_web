@@ -42,7 +42,7 @@ class DriverQuizResponseController extends Controller
             ->selectRaw('COUNT(CASE WHEN driver_quiz_responses.correct = 0 THEN 1 END) as incorrect_answers')
             ->leftJoin('driver_quiz_responses', 'drivers.id', '=', 'driver_quiz_responses.driver_id')
             ->where('drivers.role', '=', 'driver')
-            ->groupBy('drivers.id')
+            // ->groupBy('drivers.id')
             ->orderByDesc('correct_answers')
             ->get();
         // dd($drivers);
