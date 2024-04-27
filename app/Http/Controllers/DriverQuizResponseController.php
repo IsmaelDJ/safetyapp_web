@@ -37,14 +37,24 @@ class DriverQuizResponseController extends Controller
 
     public function rank()
     {
+        // $drivers = Driver::select('drivers.*')
+        //     ->selectRaw('COUNT(CASE WHEN driver_quiz_responses.correct = 1 THEN 1 END) as correct_answers')
+        //     ->selectRaw('COUNT(CASE WHEN driver_quiz_responses.correct = 0 THEN 1 END) as incorrect_answers')
+        //     ->leftJoin('driver_quiz_responses', 'drivers.id', '=', 'driver_quiz_responses.driver_id')
+        //     ->where('drivers.role', '=', 'driver')
+        //     ->groupBy('drivers.id', 'drivers.user_id', 'drivers.avatar')
+        //     ->orderByDesc('correct_answers') // Tri par le nombre de bonnes réponses, du plus grand au plus petit
+        //     // ->orderBy('incorrect_answers') // Tri par le nombre de mauvaises réponses, du plus petit au plus grand
+        //     ->get();
         $drivers = Driver::select('drivers.*')
+            ->selectRaw('MAX(drivers.user_id) as user_id') // Utiliser MAX pour drivers.user_id
             ->selectRaw('COUNT(CASE WHEN driver_quiz_responses.correct = 1 THEN 1 END) as correct_answers')
             ->selectRaw('COUNT(CASE WHEN driver_quiz_responses.correct = 0 THEN 1 END) as incorrect_answers')
             ->leftJoin('driver_quiz_responses', 'drivers.id', '=', 'driver_quiz_responses.driver_id')
             ->where('drivers.role', '=', 'driver')
-            ->groupBy('drivers.id', 'drivers.user_id', 'drivers.avatar')
-            ->orderByDesc('correct_answers') // Tri par le nombre de bonnes réponses, du plus grand au plus petit
-            // ->orderBy('incorrect_answers') // Tri par le nombre de mauvaises réponses, du plus petit au plus grand
+            ->groupBy('drivers.id') // Ne pas inclure drivers.user_id dans GROUP BY
+            ->orderByDesc('correct_answers')
+            ->orderBy('incorrect_answers')
             ->get();
 
         $drivers = m_paginate($drivers, driverQuizResponsesPerPage());
