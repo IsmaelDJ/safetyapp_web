@@ -42,7 +42,7 @@ class DriverQuizResponseController extends Controller
             ->selectRaw('COUNT(CASE WHEN driver_quiz_responses.correct = 0 THEN 1 END) as incorrect_answers')
             ->leftJoin('driver_quiz_responses', 'drivers.id', '=', 'driver_quiz_responses.driver_id')
             ->where('drivers.role', '=', 'driver')
-            ->groupBy('id')
+            ->groupBy('id', 'user_id', 'avatar', 'name', 'phone', 'obc')
             ->orderByDesc('correct_answers'); // Tri par le nombre de bonnes réponses, du plus grand au plus petit
         // ->orderBy('incorrect_answers') // Tri par le nombre de mauvaises réponses, du plus petit au plus grand
         // dump($drivers);
