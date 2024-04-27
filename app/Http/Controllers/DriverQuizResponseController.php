@@ -43,7 +43,8 @@ class DriverQuizResponseController extends Controller
             ->leftJoin('driver_quiz_responses', 'drivers.id', '=', 'driver_quiz_responses.driver_id')
             ->where('drivers.role', '=', 'driver')
             ->groupBy('drivers.id')
-            ->orderByDesc('correct_answers')
+            ->orderByDesc('correct_answers') // Tri par le nombre de bonnes réponses, du plus grand au plus petit
+            // ->orderBy('incorrect_answers') // Tri par le nombre de mauvaises réponses, du plus petit au plus grand
             ->get();
 
         $drivers = m_paginate($drivers, driverQuizResponsesPerPage());
