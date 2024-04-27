@@ -16,6 +16,7 @@ use App\Models\QuizQuestion;
 use Illuminate\Http\Request;
 use App\Exports\DriversExport;
 use App\Exports\DriversExportPDF;
+use App\Exports\ParticularExport;
 use App\Models\driverQuizResponse;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
@@ -46,18 +47,18 @@ class ParticularController extends Controller
 
         $request->validate(
             [
-                'name'      =>'required',
-                'phone'     =>'required',
+                'name'      => 'required',
+                'phone'     => 'required',
             ]
         );
 
-        $password = rand(1000,9999);
+        $password = rand(1000, 9999);
 
-        if(isset($request->avatar)){
+        if (isset($request->avatar)) {
             $request->validate([
-                'avatar'    =>'required|image|mimes:jpeg,png,jpg',
+                'avatar'    => 'required|image|mimes:jpeg,png,jpg',
             ]);
-            $particular->avatar = uploadFile($request, 'avatar','driver_avatar');
+            $particular->avatar = uploadFile($request, 'avatar', 'driver_avatar');
         }
 
         $particular->name       = $request->name;
@@ -79,7 +80,7 @@ class ParticularController extends Controller
 
     public function edit(Driver $particular)
     {
-        return view('particulars.edit',compact('particular'));
+        return view('particulars.edit', compact('particular'));
     }
 
 
@@ -90,14 +91,15 @@ class ParticularController extends Controller
             if (file_exists(public_path($particular->avatar)) and !empty($particular->avatar)) {
                 unlink(public_path($particular->avatar));
             }
-            $particular->avatar = uploadFile($request, 'avatar','driver_avatar');
+            $particular->avatar = uploadFile($request, 'avatar', 'driver_avatar');
         }
 
         $request->validate(
             [
-                'name'   =>'required',
-                'phone'  =>'required',
-            ]);
+                'name'   => 'required',
+                'phone'  => 'required',
+            ]
+        );
 
 
         $particular->name    = $request->name;
@@ -114,4 +116,31 @@ class ParticularController extends Controller
         return redirect()->route('particulars.index')->with('success', "Particulier supprimé !");
     }
 
+    public function export_xlsx()
+    {
+        return Excel::download(new ParticularExport, date('YmdHis') . '_' . 'particular.xlsx');
+    }
+    public function export_pdf()
+    {
+        $data = [];
+        $particulars = Driver::with('user')->where('role', 'particular')->get();
+
+        $iteration = 0;
+        foreach ($particulars as $driver) {
+            $iteration += 1;
+            $tmp = new stdClass();
+            $tmp->number    = $iteration;
+            $tmp->name      = $driver->name;
+            $tmp->carrier   = $driver->user->name;
+            $tmp->obc       = $driver->obc;
+            $tmp->phone     = $driver->phone;
+            $tmp->password  = $driver->password;
+
+            $data[] = $tmp;
+        }
+
+        $drivers = collect($data);
+
+        return view('particulars.export_pdf', compact('drivers'));
+    }
 }

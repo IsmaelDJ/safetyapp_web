@@ -6,19 +6,21 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Pagination\LengthAwarePaginator;
 
-function me(){
+function me()
+{
     return Auth::user();
 }
 
-function uploadFile(Request $request, $name, $sousfix =''){
-    if($request->hasFile($name)){
+function uploadFile(Request $request, $name, $sousfix = '')
+{
+    if ($request->hasFile($name)) {
         $ext = $request->file($name)->extension();
         $folder = "uploads/";
-        $fileName = date('YmdHis').'_'. $sousfix .'.'.$ext;
+        $fileName = date('YmdHis') . '_' . $sousfix . '.' . $ext;
 
-        $request->file($name)->move(public_path($folder),$fileName);
+        $request->file($name)->move(public_path($folder), $fileName);
 
-        $path = $folder.$fileName;
+        $path = $folder . $fileName;
 
         compress_image($path);
 
@@ -26,74 +28,84 @@ function uploadFile(Request $request, $name, $sousfix =''){
     }
 }
 
-function compress_image($path){
+function compress_image($path)
+{
     $supported_image = array(
         'webp',
         'jpg',
         'jpeg',
         'png'
-    ); 
+    );
 
     $ext = strtolower(pathinfo($path, PATHINFO_EXTENSION));
-    
+
     if (in_array($ext, $supported_image)) {
         try {
             \Tinify\setKey(env("TINIFY_API_KEY"));
             $source = \Tinify\fromFile($path);
             $source->toFile($path);
-        } catch(\Tinify\AccountException $e) {
+        } catch (\Tinify\AccountException $e) {
             print("The error message is: " . $e->getMessage());
             // Verify your API key and account limit.
-        } catch(\Tinify\ClientException $e) {
+        } catch (\Tinify\ClientException $e) {
             print("The error message is: " . $e->getMessage());
             // Check your source image and request options.
-        } catch(\Tinify\ServerException $e) {
+        } catch (\Tinify\ServerException $e) {
             print("The error message is: " . $e->getMessage());
             // Temporary issue with the Tinify API.
-        } catch(\Tinify\ConnectionException $e) {
+        } catch (\Tinify\ConnectionException $e) {
             print("The error message is: " . $e->getMessage());
             // A network connection error occurred.
-        } catch(Exception $e) {
+        } catch (Exception $e) {
             print("The error message is: " . $e->getMessage());
             // Something else went wrong, unrelated to the Tinify API.
         }
     }
 }
 
-function rulesPerPage(){
+function rulesPerPage()
+{
     return 10;
 }
 
-function rulesShowPerPage(){
+function rulesShowPerPage()
+{
     return 6;
 }
 
-function categoriesPerPage(){
+function categoriesPerPage()
+{
     return 10;
 }
 
-function carriersPerPage(){
+function carriersPerPage()
+{
     return 8;
 }
 
 
-function driversPerPage(){
+function driversPerPage()
+{
     return 8;
 }
 
-function quizQuestionsPerPage(){
+function quizQuestionsPerPage()
+{
     return 10;
 }
 
-function quizQuestionsShowPerPage(){
+function quizQuestionsShowPerPage()
+{
     return 6;
 }
 
-function driverQuizResponsesPerPage(){
-    return 8;
+function driverQuizResponsesPerPage()
+{
+    return 10;
 }
 
-function driverQuizResponsesShowPerPage(){
+function driverQuizResponsesShowPerPage()
+{
     return 4;
 }
 
@@ -104,4 +116,3 @@ function m_paginate($items, $perPage = 8, $page = null, $options = [])
 
     return new LengthAwarePaginator($items->forPage($page, $perPage), $items->count(), $perPage, $page, $options);
 }
-

@@ -66,13 +66,14 @@
                         <i class="bx bx-list-check"></i>
                         <span>Quiz</span>
                     </a>
-                
+
                     <ul class="sub-menu" aria-expanded="true">
                         @can('doAdvanced')
                         <li><a href="{{route('quiz_questions.index')}}" key="t-level-1-1">Tous les quiz</a></li>
                         <li><a href="{{route('quiz_questions.create')}}" key="t-level-1-1">Ajouter</a></li>
                         @endcan
                         <li><a href="{{route('driver_quiz_responses.index')}}" key="t-level-1-1">Réponses</a></li>
+                        <li><a href="{{route('driver_quiz_responses.rank')}}" key="t-level-1-1">Rank</a></li>
                     </ul>
                 </li>
             </ul>

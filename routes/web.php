@@ -69,6 +69,9 @@ Route::get('carriers/{id}/edit',  [CarrierController::class, 'edit'])->name('car
 
 //particulars
 Route::resource('particulars', ParticularController::class);
+Route::get('particulars/xlsx/export', [ParticularController::class, 'export_xlsx'])->name('particulars.export.xlsx');
+Route::get('particulars/pdf/export', [DriverController::class, 'export_pdf'])->name('particulars.export.pdf');
+
 
 //drivers
 Route::resource('drivers', DriverController::class);
@@ -76,25 +79,26 @@ Route::get('drivers/xlsx/export', [DriverController::class, 'export_xlsx'])->nam
 Route::get('drivers/pdf/export', [DriverController::class, 'export_pdf'])->name('drivers.export.pdf');
 
 //carrier's driver
-Route::get('carrier_drivers/{carrier}', [CarrierController::class,'export_drivers'])->name('carrier_drivers');
+Route::get('carrier_drivers/{carrier}', [CarrierController::class, 'export_drivers'])->name('carrier_drivers');
 Route::get('carriers/xlsx/export', [CarrierController::class, 'export_xlsx'])->name('carriers.export.xlsx');
 Route::get('carriers/pdf/export', [CarrierController::class, 'export_pdf'])->name('carriers.export.pdf');
 
 //quiz question
 Route::resource('quiz_questions', QuizQuestionController::class);
 
-Route::get('quiz_questions', [QuizQuestionController::class,'index'])->name('quiz_questions.index');
-Route::post('quiz_questions', [QuizQuestionController::class,'store'])->name('quiz_questions.store');
-Route::get('quiz_questions/create', [QuizQuestionController::class,'create'])->name('quiz_questions.create');
+Route::get('quiz_questions', [QuizQuestionController::class, 'index'])->name('quiz_questions.index');
+Route::post('quiz_questions', [QuizQuestionController::class, 'store'])->name('quiz_questions.store');
+Route::get('quiz_questions/create', [QuizQuestionController::class, 'create'])->name('quiz_questions.create');
 
 //quiz question avec reponse
 Route::resource('driver_quiz_responses', DriverQuizResponseController::class);
 
 Route::prefix("driver_quiz_responses")->group(
-    function(){
+    function () {
         Route::controller(DriverQuizResponseController::class)->group(
-            function(){
+            function () {
                 Route::get('/', 'index')->name('driver_quiz_responses.index');
+                Route::get('/rank/drivers', 'rank')->name('driver_quiz_responses.rank');
                 Route::get('/{quiz_question_id}/quizzes', 'quizzes')->name('driver_quiz_responses.quizzes');
                 Route::get('/{driver_id}/drivers', 'drivers')->name('driver_quiz_responses.drivers');
             }
@@ -106,9 +110,9 @@ Route::get('/documentation-api', function () {
     return view('scribe.index');
 });
 
-Route::prefix("analyze")->group(function(){
+Route::prefix("analyze")->group(function () {
     Route::controller(App\Http\Controllers\AnalyticController::class)->group(
-        function(){
+        function () {
             Route::get('/', 'index')->name('analyze.index');
             Route::get('/details', 'details')->name('analyze.details');
             Route::get('/quiz/false', 'quiz_false')->name('analyze.quiz.false');
@@ -120,7 +124,7 @@ Route::prefix("analyze")->group(function(){
             Route::get('/rule/notread', 'rule_not_read')->name('analyze.rule.notread');
             //analyze : pdf exportation
             Route::prefix("/export/pdf")->group(
-                function(){
+                function () {
                     Route::get('/details', 'export_details')->name('analyze.export.pdf.details');
                     Route::get('/quiz/false', 'export_quiz_false')->name('analyze.export.pdf.quiz.false');
                     Route::get('/quiz/correct', 'export_quiz_correct')->name('analyze.export.pdf.quiz.correct');
@@ -131,7 +135,7 @@ Route::prefix("analyze")->group(function(){
             );
             //analyze : xlsx exportation
             Route::prefix("/export/xlsx")->group(
-                function(){
+                function () {
                     Route::get('/details', 'export_xlsx_details')->name('analyze.export.xlsx.details');
                     Route::get('/quiz/false', 'export_xlsx_quiz_false')->name('analyze.export.xlsx.quiz.false');
                     Route::get('/quiz/correct', 'export_xlsx_quiz_correct')->name('analyze.export.xlsx.quiz.correct');
@@ -146,5 +150,3 @@ Route::prefix("analyze")->group(function(){
 
 Route::get('{any}', [App\Http\Controllers\HomeController::class, 'index'])->name('index');
 Route::get('search/{term}', [App\Http\Controllers\HomeController::class, 'search'])->name('search');
-
-

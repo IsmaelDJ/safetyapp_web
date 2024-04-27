@@ -32,8 +32,18 @@
                 </div>
                 <div class="ms-auto">
                     <div class="text-sm-end">
-                        <a type="button" href="{{route('particulars.create')}}" class="btn btn-success btn-rounded waves-effect waves-light mb-2 me-2"><i class="mdi mdi-plus me-1"></i> Ajouter
-                        </a>
+                        <div class="btn-group   !spacing" role="group">
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-info btn-rounded waves-effect waves-light mb-2 dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Exporter <i class="mdi mdi-chevron-down"></i></button>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="{{route('particulars.export.xlsx')}}">Excel</a>
+                                    <a class="dropdown-item" href="{{route('particulars.export.pdf')}}" target="_blank" download>PDF</a>
+                                </div>
+                            </div>
+                            <a type="button" href="{{route('particulars.create')}}" class="btn btn-success btn-rounded waves-effect waves-light mb-2 me-2"><i class="mdi mdi-plus me-1"></i> Ajouter
+                            </a>
+                        </div>
+
                     </div>
                 </div>
             </div>

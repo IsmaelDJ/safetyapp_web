@@ -18,14 +18,14 @@ class DriverQuizResponseController extends Controller
     public function __construct()
     {
         $this->middleware('auth', ['except' => ['store']]);
-        if(Gate::allows('doAdvanced')) abort(401);
+        if (Gate::allows('doAdvanced')) abort(401);
     }
 
     public function index()
     {
         $driverQuizResponses = DriverQuizResponse::with('driver')->get();
-        
-        if(me()->isCarrier()){
+
+        if (me()->isCarrier()) {
             $driverQuizResponses = $driverQuizResponses->filter(function ($response) {
                 return $response->driver->user_id === me()->id;
             });
@@ -33,6 +33,22 @@ class DriverQuizResponseController extends Controller
 
         $driverQuizResponses = m_paginate($driverQuizResponses, driverQuizResponsesPerPage());
         return view('driver_quiz_responses.index', compact('driverQuizResponses'));
+    }
+
+    public function rank()
+    {
+        $drivers = Driver::select('drivers.*')
+            ->selectRaw('COUNT(CASE WHEN driver_quiz_responses.correct = 1 THEN 1 END) as correct_answers')
+            ->selectRaw('COUNT(CASE WHEN driver_quiz_responses.correct = 0 THEN 1 END) as incorrect_answers')
+            ->leftJoin('driver_quiz_responses', 'drivers.id', '=', 'driver_quiz_responses.driver_id')
+            ->where('drivers.role', '=', 'driver')
+            ->groupBy('drivers.id')
+            ->orderByDesc('correct_answers')
+            ->get();
+        // dd($drivers);
+
+        $drivers = m_paginate($drivers, driverQuizResponsesPerPage());
+        return view('driver_quiz_responses.rank', compact('drivers'));
     }
 
     public function quizzes($quiz_question_id)
@@ -69,9 +85,9 @@ class DriverQuizResponseController extends Controller
         DriverQuizResponse::create([
             'driver_id'        => $request->driver_id,
             'quiz_question_id' => $request->quiz_question_id,
-            'correct'          => $request->correct == 'true' ? true: false
+            'correct'          => $request->correct == 'true' ? true : false
         ]);
-        
+
         Notification::send($user, new QuizNotification($request->driver_id, $request->quiz_question_id));
 
         return redirect()->route('driver_quiz_responses.index')->with('success', "Quiz avec reponse ajouté");
@@ -101,9 +117,9 @@ class DriverQuizResponseController extends Controller
         ]);
 
         $driverQuizResponse->update([
-                'driver_id'      => $request->driver_id,
-                'quiz_question_id' => $request->quiz_question_id,
-                'correct'          => $request->correct == 'true' ? true: false
+            'driver_id'      => $request->driver_id,
+            'quiz_question_id' => $request->quiz_question_id,
+            'correct'          => $request->correct == 'true' ? true : false
         ]);
         return redirect()->route('driver_quiz_responses.index')->with('success', "Quiz avec reponse modifié");
     }
