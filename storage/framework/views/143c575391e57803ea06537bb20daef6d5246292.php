@@ -28,7 +28,9 @@
         <div class="card-body">
             <div class="d-flex align-items-start">
                 <div class="me-2">
-                    <h5 class="card-title mb-4">List des chauffeur ordonne par reponses</h5>
+                    <h5 class="card-title mb-4">
+                        Liste des chauffeurs ordonnée par reponses
+                    </h5>
                 </div>
 
             </div>

@@ -21,7 +21,7 @@ class DriverQuizResponseController extends Controller
         if (Gate::allows('doAdvanced')) abort(401);
     }
 
-    public function index()
+    public function index(Request $request)
     {
         $driverQuizResponses = DriverQuizResponse::with('driver')->get();
 
@@ -31,11 +31,14 @@ class DriverQuizResponseController extends Controller
             });
         }
 
-        $driverQuizResponses = m_paginate($driverQuizResponses, driverQuizResponsesPerPage());
+        $driverQuizResponses = m_paginate($driverQuizResponses, driverQuizResponsesPerPage(), options: [
+            'path' => $request->url(),
+            'query' => request()->query(),
+        ]);
         return view('driver_quiz_responses.index', compact('driverQuizResponses'));
     }
 
-    public function rank()
+    public function rank(Request $request)
     {
         $drivers = Driver::select('drivers.*')
             ->selectRaw('COUNT(CASE WHEN driver_quiz_responses.correct = 1 THEN 1 END) as correct_answers')
@@ -48,7 +51,10 @@ class DriverQuizResponseController extends Controller
         // dump($drivers);
         $drivers = $drivers->get();
 
-        $drivers = m_paginate($drivers, driverQuizResponsesPerPage());
+        $drivers = m_paginate($drivers, driverQuizResponsesPerPage(), options: [
+            'path' => $request->url(),
+            'query' => request()->query(),
+        ]);
         return view('driver_quiz_responses.rank', compact('drivers'));
     }
 

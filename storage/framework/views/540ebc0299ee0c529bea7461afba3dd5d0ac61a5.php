@@ -2,7 +2,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-6">
-                TotalEnergies©
+                StarOil Tchad©
             </div>
             <div class="col-sm-6">
                 <div class="text-sm-end d-none d-sm-block">
@@ -11,5 +11,4 @@
             </div>
         </div>
     </div>
-</footer>
-<?php /**PATH D:\www\ismatech\safetyapp_web\resources\views/layouts/footer.blade.php ENDPATH**/ ?>
+</footer><?php /**PATH D:\www\ismatech\safetyapp_web\resources\views/layouts/footer.blade.php ENDPATH**/ ?>
