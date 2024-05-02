@@ -63,9 +63,9 @@
                         <tr>
                             <td class="text-center">
                                 <?php if($carrier->user->avatar): ?>
-                                <img src="<?php echo e(asset($carrier->user->avatar)); ?>" alt="Avatar">
+                                <img style="width: 80px; height: 80px" src="<?php echo e(asset($carrier->user->avatar)); ?>" alt="Avatar">
                                 <?php else: ?>
-                                <img src="<?php echo e(asset('images/default-avatar.jpg')); ?>" alt="Default Avatar">
+                                <img style="width: 80px; height: 80px" src="<?php echo e(asset('images/default-avatar.jpg')); ?>" alt="Default Avatar">
                                 <?php endif; ?>
                             </td>
                             <td>

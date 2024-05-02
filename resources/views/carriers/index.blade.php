@@ -62,9 +62,9 @@
                         <tr>
                             <td class="text-center">
                                 @if ($carrier->user->avatar)
-                                <img style="width: 80px; height: 80px" src="{{ asset($carrier->user->avatar) }}" alt="Avatar">
+                                <img style="object-fit: cover;width: 80px; height: 80px" src="{{ asset($carrier->user->avatar) }}" alt="Avatar">
                                 @else
-                                <img style="width: 80px; height: 80px" src="{{ asset('images/default-avatar.jpg') }}" alt="Default Avatar">
+                                <img style="object-fit: cover;width: 80px; height: 80px" src="{{ asset('images/default-avatar.jpg') }}" alt="Default Avatar">
                                 @endif
                             </td>
                             <td>
