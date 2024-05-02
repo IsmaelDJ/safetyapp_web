@@ -28,11 +28,18 @@
         <div class="card-body">
             <div class="d-flex align-items-start">
                 <div class="me-2">
-                    <h5 class="card-title mb-4">
-                        Liste des chauffeurs ordonnée par reponses
-                    </h5>
+                    <h5 class="card-title mb-4"> Liste des chauffeurs ordonnée par reponses</h5>
                 </div>
+                <div class="ms-auto">
+                    <div class="text-sm-end">
+                        <div class="btn-group   !spacing" role="group">
+                            <div class="btn-group">
+                                <a href="<?php echo e(route('driver_quiz_responses.export_xlsx')); ?>" class="btn btn-info btn-rounded waves-effect waves-light mb-2 dropdown-toggle">Exporter <i class="mdi mdi-chevron-down"></i></a>
+                            </div>
+                        </div>
 
+                    </div>
+                </div>
             </div>
 
             <table class="table table-bordered table-hover">

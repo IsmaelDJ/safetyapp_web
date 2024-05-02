@@ -2,15 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\DriversQuizExport;
 use App\Models\User;
 use App\Models\Driver;
 use App\Models\QuizQuestion;
 use Illuminate\Http\Request;
 use App\Models\DriverQuizResponse;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
 use App\Notifications\QuizNotification;
 use Illuminate\Support\Facades\Notification;
+use Maatwebsite\Excel\Facades\Excel;
 
 class DriverQuizResponseController extends Controller
 {
@@ -58,6 +59,10 @@ class DriverQuizResponseController extends Controller
         return view('driver_quiz_responses.rank', compact('drivers'));
     }
 
+    public function export_xlsx()
+    {
+        return Excel::download(new DriversQuizExport, date('YmdHis') . '_' . 'particular.xlsx');
+    }
     public function quizzes($quiz_question_id)
     {
         $quizQuestion          = QuizQuestion::findOrFail($quiz_question_id);

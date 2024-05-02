@@ -3,23 +3,9 @@
 namespace App\Http\Controllers;
 
 use stdClass;
-use Carbon\Carbon;
-use App\Models\Rule;
-use App\Models\User;
 use App\Models\Driver;
-use App\Models\Reading;
-use App\Models\Category;
-use App\Models\Presence;
-use Illuminate\Support\Str;
-use App\Charts\ReadingChart;
-use App\Models\QuizQuestion;
 use Illuminate\Http\Request;
-use App\Exports\DriversExport;
-use App\Exports\DriversExportPDF;
 use App\Exports\ParticularExport;
-use App\Models\driverQuizResponse;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Gate;
 use Maatwebsite\Excel\Facades\Excel;
 
 class ParticularController extends Controller

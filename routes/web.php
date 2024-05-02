@@ -99,6 +99,7 @@ Route::prefix("driver_quiz_responses")->group(
             function () {
                 Route::get('/', 'index')->name('driver_quiz_responses.index');
                 Route::get('/rank/drivers', 'rank')->name('driver_quiz_responses.rank');
+                Route::get('/rank/drivers/export_xlsx', 'export_xlsx')->name('driver_quiz_responses.export_xlsx');
                 Route::get('/{quiz_question_id}/quizzes', 'quizzes')->name('driver_quiz_responses.quizzes');
                 Route::get('/{driver_id}/drivers', 'drivers')->name('driver_quiz_responses.drivers');
             }
